@@ -1,0 +1,68 @@
+version: crypto_hybrid_10000_v1
+data:
+  source: crypto_parquet
+  crypto_parquet_root: D:/Trading/practical_crypto_strategy/data/parquet
+  crypto_primary_timeframe: 1h
+  crypto_micro_timeframe: 15m
+  crypto_fast_timeframe: 5m
+  crypto_feature_cache_dir: outputs/cache/crypto_features
+  start: "2023-01-01 00:00:00"
+  end: "2023-06-30 23:59:59"
+split:
+  discovery_end: "202303312300"
+  validation_start: "202304010000"
+  validation_end: "202305312300"
+  holdout_start: "202306010000"
+evaluation:
+  factor_mode: time_series
+  research_track: hybrid
+  target_mode: return
+  horizon: 4
+  entry_lag: 1
+  min_daily_names: 3
+  min_coverage: 0.60
+  nw_lags: 4
+  bootstrap_samples: 20
+  bootstrap_block: 4
+  periods_per_year: 8760
+  time_series_block: 168
+  time_series_position_window: 168
+  score_weights:
+    validation_edge_rank: 0.35
+    validation_ir_rank: 0.10
+    validation_hit_rank: 0.05
+    discovery_edge_rank: 0.10
+    sign_consistency_rank: 0.05
+    coverage_rank: 0.05
+    complexity_rank: 0.05
+    incremental_r2_rank: 0.25
+search:
+  fields: [ret_1h, ret_4h, ret_24h, residual_ret_1h, residual_ret_24h, vwap_bias, micro_return_reversal, short_long_momentum_gap, taker_imbalance, micro5_taker_imbalance, micro5_15_flow_gap, micro5_imbalance_trend, session_flow_surprise, session_cumulative_return, volume_shock_24h, trade_count_shock_24h, micro5_volume_hhi, micro5_trade_hhi, micro5_realized_vol, amihud_shock_24h, micro5_jump_share, session_illiquidity_surprise, session_volatility_surprise, downside_vol_24h, volatility_direction_24h, volatility_term_slope, micro5_upside_share, realized_vol_24h, us_day_flag, us_evening_flag, us_overnight_flag, ny_hour_sin]
+  windows: [3, 6, 12, 48, 96, 168, 336]
+  max_expressions: 10000
+  max_per_family: 2500
+  seed: 20260928
+  template_config: configs/research/templates_crypto_hybrid_v1.yaml
+  max_cache_items: 64
+  diversity_share: 0.80
+  coarse_keep_n: 1200
+  checkpoint_batch_size: 100
+  coarse_max_per_family: 250
+  coarse_max_per_primary_field: 100
+  medium_keep_n: 400
+  medium_max_per_family: 100
+  medium_max_per_primary_field: 45
+selection:
+  top_n: 20
+  max_per_family: 5
+  max_per_primary_field: 5
+  pair_top_n: 10
+  pair_candidate_n: 20
+  pair_max_similarity: 0.8
+output:
+  out_dir: outputs/crypto_hybrid_10000_2023
+  store_path: outputs/crypto_research_index.duckdb
+  save_factor_panels: false
+reporting:
+  enabled: true
+  top_n: 20

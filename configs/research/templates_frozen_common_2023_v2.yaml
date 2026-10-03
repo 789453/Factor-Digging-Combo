@@ -1,0 +1,41 @@
+version: frozen_common_2023_v2
+families:
+- name: frozen_common_2023_v2
+  kind: time_series_formula
+  order: 1
+  target_modes:
+  - downside_semivariance
+  hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+  fields_a:
+  - ret_1h
+  short_windows:
+  - 3
+  long_windows:
+  - 48
+  forms:
+  - GatePos(TsZScore($volatility_direction_24h,336),TsZScore(TsEMA($realized_vol_24h,3),336))
+  - GatePos(TsZScore($volatility_direction_24h,336),TsZScore(TsEMA($upside_vol_24h,12),336))
+  - GatePos(TsZScore($volatility_direction_24h,168),TsZScore(TsEMA($realized_vol_24h,3),168))
+  - GatePos(TsZScore($volatility_direction_24h,336),TsZScore(TsEMA($realized_vol_4h,12),336))
+  - GatePos(TsZScore($return_skew_24h,96),TsZScore(TsEMA($realized_vol_24h,6),96))
+  - TsZScore(TsEMA($micro5_realized_vol,3),336)
+  - GateNeg(TsZScore($taker_imbalance_change_4h,96),TsZScore(TsEMA($micro5_realized_vol,12),96))
+  - TsZScore(TsEMA($micro5_realized_vol,6),96)
+  - TsZScore(TsEMA($micro5_realized_vol,6),336)
+  - TsZScore(TsEMA($micro5_realized_vol,12),96)
+  - TsZScore(TsEMA($micro5_realized_vol,3),96)
+  - GateNeg(TsZScore($taker_imbalance_change_4h,96),TsZScore(TsEMA($micro5_realized_vol,6),96))
+  - GateNeg(TsZScore($taker_imbalance_change_4h,168),TsZScore(TsEMA($micro5_realized_vol,12),168))
+  - TsZScore(TsDelta(TsCorr($taker_imbalance_mean_4h,$downside_vol_24h,168),3),168)
+  - TsZScore(TsDelta(TsCorr($taker_imbalance,$downside_vol_24h,168),12),168)
+  - Mul($us_day_flag,TsZScore(TsDelta(TsCorr($session_illiquidity_surprise,$taker_imbalance,168),12),168))
+  - Mul(TsZScore(TsDelta($return_skew_24h,12),96),TsZScore(TsCorr($micro5_volume_hhi,$session_flow_surprise,96),96))
+  - Mul($us_day_flag,TsZScore(TsDelta(TsCorr($session_volatility_surprise,$taker_imbalance,168),12),168))
+  - Mul(TsZScore(TsDelta($volatility_direction_24h,6),96),TsZScore(TsCorr($session_illiquidity_surprise,$session_flow_surprise,96),96))
+  - Mul($us_overnight_flag,TsZScore(TsDelta(TsCorr($session_flow_surprise,$micro5_trade_hhi,96),12),96))
+  max_count: 20
+  max_depth: 12
+  max_nodes: 32
+  max_ts_ops: 9
+  max_pair_ops: 3
+  max_binary_ops: 5

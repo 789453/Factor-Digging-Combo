@@ -1,0 +1,22 @@
+version: full_market_long_only_v1
+
+data:
+  duckdb_path: D:/Trading/data_ever_26_3_14/data/meta/warehouse.duckdb
+  start: "20180101"
+  end: "20260423"
+
+selected_factors: outputs/research_real_2500_v3/selected_factors.csv
+top_n: 50
+
+backtest:
+  rebalance_days: [3, 5, 10]
+  top_pcts: [0.01, 0.03, 0.10, 0.20]
+  entry_lag: 1
+  rolling_sharpe_window: 252
+  top_curves: 8
+  max_cache_items: 6
+
+output:
+  out_dir: outputs/research_real_2500_full_market_v1
+  html_name: top50_full_market_long_only.html
+  metrics_name: top50_full_market_long_only_metrics.csv

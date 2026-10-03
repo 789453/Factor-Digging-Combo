@@ -1,0 +1,71 @@
+version: alpha_research_crypto_smoke_v2_two_stage
+
+data:
+  source: crypto_parquet
+  crypto_parquet_root: D:/Trading/practical_crypto_strategy/data/parquet
+  crypto_primary_timeframe: 1h
+  crypto_micro_timeframe: 15m
+  start: "2026-08-01 00:00:00"
+  end: "2026-08-31 23:59:59"
+
+split:
+  discovery_end: "202608152300"
+  validation_start: "202608160000"
+  validation_end: "202608252300"
+  holdout_start: "202608260000"
+
+evaluation:
+  horizon: 4
+  entry_lag: 1
+  min_daily_names: 10
+  min_coverage: 0.70
+  nw_lags: 12
+  bootstrap_samples: 20
+  bootstrap_block: 24
+  periods_per_year: 8760
+  strategy_cost_bps: 4.0
+  strategy_top_pct: 0.25
+  robustness_horizons: [1, 4, 12]
+
+search:
+  fields:
+    - ret_4h
+    - residual_ret_24h
+    - realized_vol_24h
+    - volatility_term_slope
+    - volume_shock_24h
+    - taker_imbalance
+    - taker_imbalance_mean_24h
+    - taker_micro_divergence
+    - micro_return_reversal
+    - micro_path_efficiency
+    - micro_volume_trend
+    - micro_imbalance_trend
+  windows: [4, 8, 12, 24, 48, 72, 168, 336]
+  max_expressions: 32
+  max_per_family: 8
+  seed: 20260925
+  template_config: configs/research/templates_crypto.yaml
+  max_cache_items: 32
+  diversity_share: 0.70
+  coarse_keep_n: 12
+  checkpoint_batch_size: 8
+  coarse_max_per_family: 4
+  coarse_max_per_primary_field: 4
+
+selection:
+  top_n: 8
+  max_per_family: 2
+  max_per_primary_field: 2
+  pair_top_n: 4
+  pair_candidate_n: 8
+  pair_max_similarity: 0.70
+
+output:
+  out_dir: outputs/crypto_real_smoke_20260925_v3_two_stage
+  store_path: outputs/crypto_research_index.duckdb
+  save_factor_panels: false
+
+reporting:
+  enabled: true
+  top_n: 8

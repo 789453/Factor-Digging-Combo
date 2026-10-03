@@ -1,0 +1,135 @@
+version: alpha_research_crypto_time_series_v3_template_diversity
+
+data:
+  source: crypto_parquet
+  crypto_parquet_root: D:/Trading/practical_crypto_strategy/data/parquet
+  crypto_primary_timeframe: 1h
+  crypto_micro_timeframe: 15m
+  start: "2023-01-01 00:00:00"
+  end: "2026-08-31 23:59:59"
+
+split:
+  discovery_end: "202412312300"
+  validation_start: "202501010000"
+  validation_end: "202603312300"
+  holdout_start: "202604010000"
+
+evaluation:
+  factor_mode: time_series
+  horizon: 4
+  entry_lag: 1
+  min_daily_names: 3
+  min_coverage: 0.80
+  nw_lags: 4
+  bootstrap_samples: 100
+  bootstrap_block: 4
+  periods_per_year: 8760
+  strategy_cost_bps: 4.0
+  strategy_top_pct: 0.25
+  robustness_horizons: [1, 4, 12]
+  time_series_block: 168
+  time_series_position_window: 168
+  time_series_position_clip: 2.0
+  score_weights:
+    validation_edge_rank: 0.18
+    validation_ir_rank: 0.12
+    validation_hit_rank: 0.05
+    discovery_edge_rank: 0.08
+    sign_consistency_rank: 0.04
+    coverage_rank: 0.03
+    turnover_rank: 0.04
+    complexity_rank: 0.02
+    validation_sharpe_rank: 0.22
+    discovery_sharpe_rank: 0.10
+    horizon_robustness_rank: 0.12
+
+search:
+  fields:
+    - ret_1h
+    - ret_4h
+    - ret_24h
+    - ret_168h
+    - hl_range
+    - oc_ret
+    - close_pos
+    - vwap_bias
+    - range_body_ratio
+    - realized_vol_4h
+    - realized_vol_24h
+    - realized_vol_168h
+    - downside_vol_24h
+    - trend_efficiency_24h
+    - trend_efficiency_168h
+    - short_long_momentum_gap
+    - volatility_term_slope
+    - volume_ratio_24h
+    - volume_ratio_168h
+    - volume_shock_24h
+    - trade_count_shock_24h
+    - avg_trade_size_shock_24h
+    - amihud_shock_24h
+    - taker_imbalance
+    - taker_imbalance_change_4h
+    - taker_imbalance_mean_4h
+    - taker_imbalance_mean_24h
+    - taker_price_agreement
+    - taker_micro_divergence
+    - micro_first_return
+    - micro_last_return
+    - micro_return_reversal
+    - micro_realized_vol
+    - micro_volatility_ratio
+    - micro_path_efficiency
+    - micro_volume_concentration
+    - micro_volume_trend
+    - micro_taker_imbalance
+    - micro_imbalance_trend
+    - micro_flow_price_agreement
+    - micro_trade_concentration
+    - micro_range_expansion
+    - micro_vwap_dispersion
+  windows: [4, 12, 24, 72, 168, 336]
+  max_expressions: 10000
+  max_per_family: 1600
+  seed: 20260926
+  template_config: configs/research/templates_crypto_timeseries.yaml
+  max_cache_items: 96
+  priority_fields:
+    - ret_24h
+    - short_long_momentum_gap
+    - volatility_term_slope
+    - volume_shock_24h
+    - taker_imbalance_mean_24h
+    - micro_volume_trend
+    - micro_imbalance_trend
+    - micro_path_efficiency
+  priority_operators: [TsZScore, TsEMA, TsDelta, TsCorr, GatePos, GateNeg]
+  priority_templates:
+    - ts_price_volume_confirmation
+    - ts_price_flow_confirmation
+    - ts_risk_regime_gate
+    - ts_liquidity_flow_state
+    - ts_correlation_dynamics
+  priority_windows: [12, 24, 168, 336]
+  diversity_share: 0.75
+  coarse_keep_n: 600
+  checkpoint_batch_size: 200
+  coarse_max_per_family: 100
+  coarse_max_per_primary_field: 50
+
+selection:
+  top_n: 20
+  max_per_family: 5
+  max_per_primary_field: 4
+  pair_top_n: 10
+  pair_candidate_n: 20
+  pair_max_similarity: 0.65
+
+output:
+  out_dir: outputs/crypto_timeseries_10000_final_20260926
+  store_path: outputs/crypto_research_index.duckdb
+  save_factor_panels: false
+
+reporting:
+  enabled: true
+  top_n: 20

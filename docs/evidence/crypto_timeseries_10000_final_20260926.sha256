@@ -1,0 +1,9 @@
+# Immutable evidence snapshot recorded 2026-09-26 (SHA-256,bytes,file)
+09134379F2D22305A9EA24E9B6CF596C5A4B10923E458ADD993FA7E994543E0F,11802,manifest.json
+F78BC1690FD1D674F5417FBC26F4786AC4C02EF7983ADAEC2B7C11AE74ACFFF9,5805,crypto_time_series_backtest_metrics.csv
+B7516DA0A9B8808D123BF275EC1CDAE3435B2A5F1A38A6912AD405786812A732,3692745,crypto_time_series_factor_returns.html
+B8E803814A776B402AF569BA91C4530BCE08D687304FA66923008F8B0D17F998,3719,factor_pairs.csv
+24870CF69FD8DDC17A1B1165F4F8255E6A38FD6130F6AAB04995A432788206C9,4359,holdout_audit.csv
+# search_results.csv and selected_factors.csv were open by another process;
+# sizes were 7,661,282 and 24,017 bytes. The completed output directory is
+# protected by the workflow's immutable-output check and was not modified.

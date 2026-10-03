@@ -1,0 +1,103 @@
+version: crypto_native5_residual_alpha_v1
+families:
+  - name: native5_flow_price_dislocation
+    kind: time_series_formula
+    order: 3
+    target_modes: [return]
+    hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+    fields_a: [ret_5m, ret_15m, ret_1h, range_5m, vwap_bias, ret_15m_completed]
+    fields_b: [taker_imbalance, flow_trend_12, flow_15m_completed, flow_price_agreement, volume_shock_12]
+    fields_c: [rv_12, upside_share_12, jump_share_12, path_efficiency_12, amihud_shock_12]
+    short_windows: [3, 6, 12]
+    long_windows: [24, 48, 96, 288]
+    forms:
+      - Mul(Sub(TsZScore(TsEMA({A},{S}),{L}),TsZScore({B},{L})),TsZScore({C},{L}))
+      - GateNeg(TsZScore({C},{L}),Sub(TsZScore({B},{L}),TsZScore({A},{L})))
+      - GatePos(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L}))
+      - TsZScore(TsDelta(TsCorr({A},{B},{L}),{S}),{L})
+    max_count: 2500
+    max_depth: 11
+    max_nodes: 26
+    max_ts_ops: 7
+    max_pair_ops: 1
+    max_binary_ops: 3
+  - name: native5_cross_clock_confirmation
+    kind: time_series_formula
+    order: 2
+    target_modes: [return]
+    hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+    fields_a: [ret_5m, ret_15m, ret_1h, vwap_bias, taker_imbalance, flow_trend_12]
+    fields_b: [ret_15m_completed, flow_15m_completed, volume_shock_12, trade_shock_12, rv_12, jump_share_12]
+    short_windows: [3, 6, 12]
+    long_windows: [24, 48, 96, 288]
+    forms:
+      - Sub(TsZScore(TsEMA({A},{S}),{L}),TsZScore(TsEMA({B},{S}),{L}))
+      - Mul(TsZScore({A},{L}),TsZScore({B},{L}))
+      - TsZScore(TsCorr({A},{B},{L}),{L})
+      - TsZScore(TsDelta(TsCorr({A},{B},{L}),{S}),{L})
+    max_count: 2500
+    max_depth: 10
+    max_nodes: 23
+    max_ts_ops: 7
+    max_pair_ops: 1
+    max_binary_ops: 2
+  - name: native5_liquidity_absorption
+    kind: time_series_formula
+    order: 3
+    target_modes: [return]
+    hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+    fields_a: [ret_5m, ret_15m, vwap_bias, taker_imbalance, flow_trend_12]
+    fields_b: [volume_shock_12, trade_shock_12, amihud_shock_12, jump_share_12, rv_12]
+    fields_c: [path_efficiency_12, upside_share_12, ret_15m_completed, flow_15m_completed, flow_price_agreement]
+    short_windows: [3, 6, 12]
+    long_windows: [24, 48, 96, 288]
+    forms:
+      - Mul(GateNeg(TsZScore({A},{L}),TsZScore(TsEMA({B},{S}),{L})),TsZScore({C},{L}))
+      - Div(Mul(TsZScore({A},{L}),TsZScore({C},{L})),Add(Abs(TsZScore({B},{L})),1))
+      - Mul(TsZScore(TsDelta({A},{S}),{L}),TsZScore(TsCorr({B},{C},{L}),{L}))
+    max_count: 2500
+    max_depth: 11
+    max_nodes: 27
+    max_ts_ops: 7
+    max_pair_ops: 1
+    max_binary_ops: 4
+  - name: native5_asymmetric_path
+    kind: time_series_formula
+    order: 2
+    target_modes: [return]
+    hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+    fields_a: [ret_5m, ret_15m, ret_1h, range_5m, vwap_bias, flow_price_agreement]
+    fields_b: [rv_12, upside_share_12, jump_share_12, path_efficiency_12, amihud_shock_12, volume_shock_12]
+    short_windows: [3, 6, 12]
+    long_windows: [24, 48, 96, 288]
+    forms:
+      - Mul(TsZScore(TsEMA({A},{S}),{L}),TsZScore(TsDelta({B},{S}),{L}))
+      - GatePos(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L}))
+      - GateNeg(TsZScore({B},{L}),TsZScore(TsEMA({A},{S}),{L}))
+      - TsZScore(Sub(TsCorr({A},{B},{S}),TsCorr({A},{B},{L})),{L})
+    max_count: 2500
+    max_depth: 11
+    max_nodes: 26
+    max_ts_ops: 7
+    max_pair_ops: 2
+    max_binary_ops: 3
+  - name: native5_ny_flow_gate
+    kind: time_series_formula
+    order: 3
+    target_modes: [return]
+    hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+    fields_a: [taker_imbalance, flow_trend_12, flow_15m_completed, ret_5m, vwap_bias]
+    fields_b: [volume_shock_12, trade_shock_12, rv_12, jump_share_12, amihud_shock_12]
+    fields_c: [us_day_flag, us_evening_flag, us_overnight_flag]
+    short_windows: [3, 6, 12]
+    long_windows: [24, 48, 96, 288]
+    forms:
+      - Mul({C},Mul(TsZScore(TsEMA({A},{S}),{L}),TsZScore({B},{L})))
+      - Mul({C},GateNeg(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L})))
+      - Mul({C},TsZScore(TsDelta(TsCorr({A},{B},{L}),{S}),{L}))
+    max_count: 2500
+    max_depth: 11
+    max_nodes: 26
+    max_ts_ops: 7
+    max_pair_ops: 1
+    max_binary_ops: 3

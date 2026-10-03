@@ -1,0 +1,77 @@
+version: alpha_research_futures_v1
+
+data:
+  source: futures_parquet
+  parquet_path: future_data_processed/overseas_major_commodities.parquet
+  futures_universe: commodity_main
+  start: "20170103"
+  end: "20260806"
+
+split:
+  discovery_end: "20231229"
+  validation_start: "20240101"
+  validation_end: "20251231"
+  holdout_start: "20260101"
+
+evaluation:
+  horizon: 5
+  entry_lag: 1
+  min_daily_names: 8
+  min_coverage: 0.55
+  nw_lags: 5
+  bootstrap_samples: 100
+  bootstrap_block: 20
+
+search:
+  # All search inputs are dimensionless fields or log/standardized liquidity
+  # transforms.  The futures block intentionally emphasizes OI construction.
+  fields:
+    - ret_1d
+    - hl_range
+    - close_pos
+    - volume_ratio_x_ret
+    - realized_vol_20
+    - trend_efficiency_20
+    - liquidity_shock_20
+    - oi_change_1d
+    - oi_change_5d
+    - oi_volume_ratio
+    - oi_turnover_pressure
+    - oi_price_divergence
+    - oi_return_agreement
+    - oi_change_acceleration_5
+    - oi_relative_20
+  windows: [5, 10, 20, 40]
+  max_expressions: 5000
+  max_per_family: 700
+  seed: 20260905
+  template_config: configs/research/templates.yaml
+  priority_fields:
+    - oi_price_divergence
+    - oi_volume_ratio
+    - oi_change_acceleration_5
+    - oi_relative_20
+  priority_templates:
+    - binary_mixed_state
+    - short_long_gap
+    - normalized_spread
+    - triple_modulation
+  priority_windows: [5, 20, 40]
+  diversity_share: 0.60
+
+selection:
+  top_n: 50
+  max_per_family: 10
+  max_per_primary_field: 8
+  pair_top_n: 20
+  pair_candidate_n: 50
+  pair_max_similarity: 0.70
+
+output:
+  out_dir: outputs/futures_commodity_oi_5000_20260905_v2
+  store_path: outputs/futures_research_index.duckdb
+  save_factor_panels: false
+
+reporting:
+  enabled: true
+  top_n: 50

@@ -1,0 +1,215 @@
+{
+  "Residual alpha": {
+    "directories": [
+      "crypto_residual_alpha_10000_v2_2023",
+      "crypto_frozen_alpha_2024",
+      "crypto_frozen_alpha_2025"
+    ],
+    "budget": {
+      "expressions": 10000,
+      "successful": 10000,
+      "eligible": 283,
+      "selected": 20,
+      "pairs": 10,
+      "newly_evaluated": 10000,
+      "fine_evaluated": 400,
+      "medium_evaluated": 1200,
+      "reused_results": 0,
+      "resumed_results": 0
+    },
+    "years": {
+      "2023": {
+        "positive_incremental": 18,
+        "median_incremental": 0.00034399919184795,
+        "eligible": 20,
+        "median_validation_ic": 0.0236390432243757
+      },
+      "2024": {
+        "positive_incremental": 1,
+        "median_incremental": -0.00105547139118655,
+        "eligible": 8,
+        "median_validation_ic": 0.0023347616224067497
+      },
+      "2025": {
+        "positive_incremental": 8,
+        "median_incremental": -0.00014785102547060648,
+        "eligible": 13,
+        "median_validation_ic": 0.00873869204827305
+      }
+    },
+    "positive_2024_and_2025": 0,
+    "persistent_expressions": []
+  },
+  "Common downside risk": {
+    "directories": [
+      "crypto_common_risk_10000_v2_2023",
+      "crypto_frozen_common_2024",
+      "crypto_frozen_common_2025"
+    ],
+    "budget": {
+      "expressions": 10000,
+      "successful": 9992,
+      "eligible": 364,
+      "selected": 20,
+      "pairs": 10,
+      "newly_evaluated": 10000,
+      "fine_evaluated": 400,
+      "medium_evaluated": 1200,
+      "reused_results": 0,
+      "resumed_results": 0
+    },
+    "years": {
+      "2023": {
+        "positive_incremental": 20,
+        "median_incremental": 0.01157413937359365,
+        "eligible": 20,
+        "median_validation_ic": 0.08043125515949309
+      },
+      "2024": {
+        "positive_incremental": 10,
+        "median_incremental": 0.0007069443297715181,
+        "eligible": 11,
+        "median_validation_ic": 0.0052236508864836
+      },
+      "2025": {
+        "positive_incremental": 5,
+        "median_incremental": -0.005614216696241301,
+        "eligible": 13,
+        "median_validation_ic": 0.0285842339044048
+      }
+    },
+    "positive_2024_and_2025": 1,
+    "persistent_expressions": [
+      {
+        "expr": "GateNeg(TsZScore($taker_imbalance_change_4h,168),TsZScore(TsEMA($micro5_realized_vol,12),168))",
+        "template_name": "beta_flow_jump_pressure",
+        "gain_2023": 0.0124483365307758,
+        "gain_2024": 0.0032574341597369,
+        "gain_2025": 0.0050810434630129
+      }
+    ]
+  },
+  "Hybrid": {
+    "directories": [
+      "crypto_hybrid_10000_v2_2023",
+      "crypto_frozen_hybrid_2024",
+      "crypto_frozen_hybrid_2025"
+    ],
+    "budget": {
+      "expressions": 10000,
+      "successful": 10000,
+      "eligible": 213,
+      "selected": 20,
+      "pairs": 10,
+      "newly_evaluated": 10000,
+      "fine_evaluated": 400,
+      "medium_evaluated": 1200,
+      "reused_results": 0,
+      "resumed_results": 0
+    },
+    "years": {
+      "2023": {
+        "positive_incremental": 9,
+        "median_incremental": -1.625757830311771e-05,
+        "eligible": 20,
+        "median_validation_ic": 0.017484788286837652
+      },
+      "2024": {
+        "positive_incremental": 0,
+        "median_incremental": -0.0016109341342537,
+        "eligible": 2,
+        "median_validation_ic": -0.0169903378119123
+      },
+      "2025": {
+        "positive_incremental": 0,
+        "median_incremental": -0.00134853142416635,
+        "eligible": 5,
+        "median_validation_ic": -0.0044380913983958995
+      }
+    },
+    "positive_2024_and_2025": 0,
+    "persistent_expressions": []
+  },
+  "Native 5m residual": {
+    "directories": [
+      "crypto_native5_residual_alpha_10000_2023",
+      "crypto_frozen_native5_2024",
+      "crypto_frozen_native5_2025"
+    ],
+    "budget": {
+      "expressions": 10000,
+      "successful": 10000,
+      "eligible": 300,
+      "selected": 20,
+      "pairs": 10,
+      "newly_evaluated": 10000,
+      "fine_evaluated": 300,
+      "medium_evaluated": 1000,
+      "reused_results": 0,
+      "resumed_results": 0
+    },
+    "years": {
+      "2023": {
+        "positive_incremental": 20,
+        "median_incremental": 0.0003933384420382,
+        "eligible": 20,
+        "median_validation_ic": 0.02937198666401345
+      },
+      "2024": {
+        "positive_incremental": 9,
+        "median_incremental": -2.9464492482109544e-05,
+        "eligible": 20,
+        "median_validation_ic": 0.011186138494685
+      },
+      "2025": {
+        "positive_incremental": 3,
+        "median_incremental": -6.88952948705753e-05,
+        "eligible": 17,
+        "median_validation_ic": 0.0041723750749381
+      }
+    },
+    "positive_2024_and_2025": 0,
+    "persistent_expressions": []
+  },
+  "Volume HHI style": {
+    "directories": [
+      "crypto_style_hhi_10000_2023",
+      "crypto_frozen_style_hhi_2024",
+      "crypto_frozen_style_hhi_2025"
+    ],
+    "budget": {
+      "expressions": 10000,
+      "successful": 10000,
+      "eligible": 398,
+      "selected": 20,
+      "pairs": 10,
+      "newly_evaluated": 9940,
+      "fine_evaluated": 400,
+      "medium_evaluated": 1191,
+      "reused_results": 64,
+      "resumed_results": 0
+    },
+    "years": {
+      "2023": {
+        "positive_incremental": 20,
+        "median_incremental": 0.0045869197436075,
+        "eligible": 20,
+        "median_validation_ic": 0.0940758996871173
+      },
+      "2024": {
+        "positive_incremental": 10,
+        "median_incremental": 6.713439135820001e-05,
+        "eligible": 19,
+        "median_validation_ic": 0.037342187439956195
+      },
+      "2025": {
+        "positive_incremental": 4,
+        "median_incremental": -0.0008770880827664,
+        "eligible": 16,
+        "median_validation_ic": 0.03584629647669195
+      }
+    },
+    "positive_2024_and_2025": 0,
+    "persistent_expressions": []
+  }
+}

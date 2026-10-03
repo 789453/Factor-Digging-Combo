@@ -1,0 +1,68 @@
+version: crypto_frozen_native5_2024_v1
+data:
+  source: crypto_parquet
+  crypto_parquet_root: D:/Trading/practical_crypto_strategy/data/parquet
+  crypto_primary_timeframe: 5m
+  crypto_micro_timeframe: 15m
+  crypto_fast_timeframe: 5m
+  crypto_feature_cache_dir: outputs/cache/crypto_features
+  start: "2024-01-01 00:00:00"
+  end: "2024-03-31 23:59:59"
+split:
+  discovery_end: "202402292355"
+  validation_start: "202403010000"
+  validation_end: "202403202355"
+  holdout_start: "202403210000"
+evaluation:
+  factor_mode: time_series
+  research_track: residual_alpha
+  target_mode: return
+  horizon: 1
+  entry_lag: 0
+  min_daily_names: 3
+  min_coverage: 0.65
+  nw_lags: 12
+  bootstrap_samples: 20
+  bootstrap_block: 12
+  periods_per_year: 105120
+  time_series_block: 288
+  time_series_position_window: 288
+  score_weights:
+    validation_edge_rank: 0.35
+    validation_ir_rank: 0.10
+    validation_hit_rank: 0.05
+    discovery_edge_rank: 0.10
+    sign_consistency_rank: 0.05
+    coverage_rank: 0.05
+    complexity_rank: 0.05
+    incremental_r2_rank: 0.25
+search:
+  fields: [ret_5m, ret_15m, ret_1h, range_5m, vwap_bias, ret_15m_completed, taker_imbalance, flow_trend_12, flow_15m_completed, flow_price_agreement, volume_shock_12, trade_shock_12, amihud_shock_12, rv_12, upside_share_12, jump_share_12, path_efficiency_12, us_day_flag, us_evening_flag, us_overnight_flag]
+  windows: [3, 6, 12, 24, 48, 96, 288]
+  max_expressions: 20
+  max_per_family: 20
+  seed: 20260928
+  template_config: configs/research/templates_frozen_native5_2023.yaml
+  max_cache_items: 24
+  diversity_share: 0.80
+  coarse_keep_n: 0
+  checkpoint_batch_size: 100
+  coarse_max_per_family: 250
+  coarse_max_per_primary_field: 100
+  medium_keep_n: 0
+  medium_max_per_family: 100
+  medium_max_per_primary_field: 40
+selection:
+  top_n: 20
+  max_per_family: 20
+  max_per_primary_field: 5
+  pair_top_n: 10
+  pair_candidate_n: 20
+  pair_max_similarity: 0.8
+output:
+  out_dir: outputs/crypto_frozen_native5_2024
+  store_path: outputs/crypto_frozen_2024_index.duckdb
+  save_factor_panels: false
+reporting:
+  enabled: true
+  top_n: 20

@@ -1,0 +1,72 @@
+version: alpha_research_v1
+
+data:
+  source: duckdb
+  duckdb_path: D:/Trading/data_ever_26_3_14/data/meta/warehouse.duckdb
+  pool_json: static_pool_200.json
+  start: "20220101"
+  end: "20260430"
+
+split:
+  discovery_end: "20231231"
+  validation_start: "20240101"
+  validation_end: "20251231"
+  holdout_start: "20260101"
+
+evaluation:
+  horizon: 5
+  min_daily_names: 30
+  min_coverage: 0.55
+  nw_lags: 5
+  bootstrap_samples: 300
+  bootstrap_block: 20
+
+search:
+  fields:
+    - ret_1d
+    - hl_range
+    - oc_ret
+    - close_pos
+    - gap_ret
+    - intraday_reversal
+    - amount_log
+    - vol_log
+    - turnover_log
+    - price_volume_pressure
+    - amplitude_turnover
+    - volume_ratio_x_ret
+    - sm_net_ratio
+    - md_net_ratio
+    - lg_net_ratio
+    - main_net_ratio
+    - retail_pressure
+    - big_vs_small_flow
+    - flow_imbalance
+    - large_order_intensity
+    - active_big_buy_pressure
+    - chip_width_90
+    - chip_width_70
+    - chip_cost_bias
+    - chip_median_bias
+    - chip_upper_pressure
+    - chip_lower_support
+    - winner_rate_norm
+    - hist_price_position
+    - winner_cost_divergence
+  windows: [10, 20, 30, 40, 50]
+  max_expressions: 500
+  max_per_family: 150
+  seed: 42
+  template_config: configs/research/templates.yaml
+
+selection:
+  top_n: 50
+  max_per_family: 15
+  max_per_primary_field: 8
+  pair_top_n: 20
+  pair_candidate_n: 40
+  pair_max_similarity: 0.70
+
+output:
+  out_dir: outputs/research_real_small
+  save_factor_panels: false

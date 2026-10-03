@@ -1,0 +1,119 @@
+version: alpha_research_v2
+
+data:
+  source: duckdb
+  duckdb_path: D:/Trading/data_ever_26_3_14/data/meta/warehouse.duckdb
+  pool_json: static_pool_200.json
+  start: "20220101"
+  end: "20260430"
+
+split:
+  discovery_end: "20231231"
+  validation_start: "20240101"
+  validation_end: "20251231"
+  holdout_start: "20260101"
+
+evaluation:
+  horizon: 5
+  entry_lag: 1
+  min_daily_names: 30
+  min_coverage: 0.55
+  nw_lags: 5
+  bootstrap_samples: 100
+  bootstrap_block: 20
+
+search:
+  fields:
+    - ret_1d
+    - hl_range
+    - oc_ret
+    - close_pos
+    - gap_ret
+    - intraday_reversal
+    - amount_log
+    - vol_log
+    - turnover_log
+    - price_volume_pressure
+    - amplitude_turnover
+    - volume_ratio_x_ret
+    - sm_net_ratio
+    - md_net_ratio
+    - lg_net_ratio
+    - main_net_ratio
+    - retail_pressure
+    - big_vs_small_flow
+    - flow_imbalance
+    - large_order_intensity
+    - active_big_buy_pressure
+    - chip_width_90
+    - chip_width_70
+    - chip_cost_bias
+    - chip_median_bias
+    - chip_upper_pressure
+    - chip_lower_support
+    - winner_rate_norm
+    - hist_price_position
+    - winner_cost_divergence
+    - ret_5d
+    - ret_20d
+    - residual_ret_1d
+    - realized_vol_10
+    - realized_vol_20
+    - downside_vol_20
+    - trend_efficiency_20
+    - vol_change_5d
+    - amount_change_5d
+    - turnover_change_5d
+    - amihud_20
+    - main_flow_persistence_5
+    - flow_agreement
+    - main_return_divergence
+    - chip_pressure_balance
+    - chip_concentration
+    - winner_position_interaction
+    - liquidity_shock_20
+    - overnight_intraday_spread
+    - range_vol_ratio
+  windows: [10, 20, 30, 40, 60]
+  max_expressions: 2500
+  max_per_family: 500
+  max_cache_items: 384
+  seed: 427
+  template_config: configs/research/templates.yaml
+  priority_fields:
+    - residual_ret_1d
+    - realized_vol_20
+    - trend_efficiency_20
+    - amihud_20
+    - main_flow_persistence_5
+    - main_return_divergence
+    - chip_pressure_balance
+    - liquidity_shock_20
+    - flow_imbalance
+    - big_vs_small_flow
+  priority_operators: [TsMean, TsStd, TsDelta, TsRank, TsCorr, Rank]
+  priority_templates:
+    - relationship_change
+    - normalized_spread
+    - cross_window_state
+    - rolling_relationship
+    - short_long_gap
+  priority_windows: [10, 20]
+  diversity_share: 0.45
+
+selection:
+  top_n: 50
+  max_per_family: 15
+  max_per_primary_field: 8
+  pair_top_n: 30
+  pair_candidate_n: 50
+  pair_max_similarity: 0.70
+
+reporting:
+  enabled: true
+  top_n: 50
+
+output:
+  out_dir: outputs/research_real_2500_v3
+  store_path: outputs/research_index.duckdb
+  save_factor_panels: false

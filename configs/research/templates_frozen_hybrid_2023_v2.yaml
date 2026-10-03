@@ -1,0 +1,41 @@
+version: frozen_hybrid_2023_v2
+families:
+- name: frozen_hybrid_2023_v2
+  kind: time_series_formula
+  order: 1
+  target_modes:
+  - return
+  hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+  fields_a:
+  - ret_1h
+  short_windows:
+  - 3
+  long_windows:
+  - 48
+  forms:
+  - Mul(TsZScore(TsEMA($taker_imbalance_mean_4h,6),96),TsZScore(TsEMA($micro5_volume_hhi,6),96))
+  - Mul(TsZScore(TsEMA($taker_imbalance_mean_4h,6),168),TsZScore(TsEMA($micro5_volume_hhi,6),168))
+  - Mul(TsZScore(TsEMA($taker_imbalance,12),168),TsZScore(TsEMA($micro5_volume_hhi,12),168))
+  - GateNeg(TsZScore($session_illiquidity_surprise,48),TsZScore(TsEMA($session_flow_surprise,3),48))
+  - GatePos(TsZScore($micro5_realized_vol,336),TsZScore(TsDelta($session_flow_surprise,12),336))
+  - Mul($us_day_flag,TsZScore(TsDelta(TsCorr($micro5_imbalance_trend,$session_illiquidity_surprise,96),6),96))
+  - Mul($ny_hour_sin,TsZScore(TsDelta(TsCorr($session_flow_surprise,$downside_vol_24h,336),3),336))
+  - Mul(GateNeg(TsZScore($taker_imbalance,168),TsZScore(TsEMA($volume_shock_24h,3),168)),TsZScore($downside_vol_24h,168))
+  - Mul(GateNeg(TsZScore($session_illiquidity_surprise,96),TsZScore(TsEMA($micro_return_reversal,12),96)),TsZScore($micro5_15_flow_gap,96))
+  - Mul($us_evening_flag,TsZScore(TsDelta(TsCorr($session_flow_surprise,$micro5_jump_share,96),6),96))
+  - Mul($us_day_flag,GateNeg(TsZScore($micro5_jump_share,336),TsZScore(TsDelta($micro5_imbalance_trend,12),336)))
+  - Mul($us_day_flag,Mul(TsZScore(TsEMA($session_cumulative_return,6),96),TsZScore($session_illiquidity_surprise,96)))
+  - Mul(GateNeg(TsZScore($session_illiquidity_surprise,96),TsZScore(TsEMA($micro_return_reversal,6),96)),TsZScore($micro5_15_flow_gap,96))
+  - Mul(GateNeg(TsZScore($micro5_volume_hhi,168),TsZScore(TsEMA($micro_return_reversal,12),168)),TsZScore($micro5_15_flow_gap,168))
+  - Mul(TsZScore(TsDelta(TsCorr($ret_4h,$taker_imbalance,336),12),336),TsZScore($session_volatility_surprise,336))
+  - Mul(GateNeg(TsZScore($micro5_imbalance_trend,48),TsZScore(TsEMA($volume_shock_24h,3),48)),TsZScore($vwap_bias,48))
+  - Sub(TsZScore(TsCorr($ret_4h,$micro5_imbalance_trend,48),48),TsZScore(TsCorr($micro5_imbalance_trend,$session_volatility_surprise,48),48))
+  - Mul(GateNeg(TsZScore($session_illiquidity_surprise,168),TsZScore(TsEMA($vwap_bias,6),168)),TsZScore($micro5_15_flow_gap,168))
+  - Mul(GateNeg(TsZScore($volatility_direction_24h,96),TsZScore(TsEMA($vwap_bias,3),96)),TsZScore($micro5_imbalance_trend,96))
+  - Sub(TsZScore(TsCorr($ret_24h,$micro5_15_flow_gap,168),168),TsZScore(TsCorr($micro5_15_flow_gap,$session_volatility_surprise,168),168))
+  max_count: 20
+  max_depth: 12
+  max_nodes: 32
+  max_ts_ops: 9
+  max_pair_ops: 3
+  max_binary_ops: 5

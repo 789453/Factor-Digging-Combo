@@ -1,0 +1,5 @@
+base_config: configs/research/crypto_multitimeframe_10000.yaml
+source_csv: D:/Trading/My_factor_mining_427/outputs/crypto_multitimeframe_10000_two_stage_20_20260925/search_results.csv
+output_html: D:/Trading/My_factor_mining_427/outputs/crypto_return_audit_top30_20260926/crypto_factor_returns.html
+ranking_column: validation_net_total_return
+top_n: 30

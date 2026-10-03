@@ -1,0 +1,41 @@
+version: frozen_style_hhi_2023_v1
+families:
+- name: frozen_style_hhi_2023
+  kind: time_series_formula
+  order: 1
+  target_modes:
+  - liquidity_concentration
+  hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+  fields_a:
+  - ret_1h
+  short_windows:
+  - 3
+  long_windows:
+  - 48
+  forms:
+  - GatePos(TsZScore($micro5_volume_trend,336),TsZScore(TsEMA($liquidity_efficiency,12),336))
+  - GatePos(TsZScore($session_volume_surprise,336),TsZScore(TsEMA($liquidity_efficiency,12),336))
+  - GatePos(TsZScore($session_volume_surprise,336),TsZScore(TsEMA($liquidity_efficiency,6),336))
+  - TsZScore(TsDelta($us_day_flag,12),48)
+  - GatePos(TsZScore($micro5_volume_trend,336),TsZScore(TsEMA($liquidity_efficiency,6),336))
+  - GateNeg(TsZScore($micro5_jump_share,336),TsZScore(TsEMA($session_volume_surprise,3),336))
+  - Mul($us_day_flag,TsZScore(TsDelta(TsCorr($session_volume_surprise,$trade_count_shock_24h,96),3),96))
+  - TsZScore(TsEMA($us_evening_flag,6),48)
+  - TsZScore(TsEMA($us_evening_flag,12),48)
+  - TsZScore(TsDelta($us_evening_flag,12),48)
+  - TsZScore(TsEMA($us_evening_flag,3),48)
+  - Mul($us_day_flag,TsZScore(TsDelta(TsCorr($session_volume_surprise,$trade_count_shock_24h,96),6),96))
+  - TsZScore(TsDelta(TsCorr($volume_shock_24h,$session_volume_surprise,168),3),168)
+  - TsZScore(TsDelta(TsCorr($volume_shock_24h,$session_volume_surprise,96),3),96)
+  - Mul($ny_hour_sin,TsZScore(TsDelta(TsCorr($session_volume_surprise,$trade_count_shock_24h,48),12),48))
+  - Mul($us_overnight_flag,TsZScore(TsDelta(TsCorr($session_volume_surprise,$micro5_trade_hhi,48),3),48))
+  - TsZScore(TsDelta(TsCorr($trade_count_shock_24h,$session_volume_surprise,96),3),96)
+  - TsZScore(TsDelta(TsCorr($volume_shock_24h,$liquidity_efficiency,96),3),96)
+  - Mul($us_day_flag,TsZScore(TsDelta(TsCorr($micro5_volume_trend,$trade_count_shock_24h,48),12),48))
+  - GateNeg(TsZScore($taker_imbalance_change_4h,96),Mul(TsZScore($volume_shock_24h,96),TsZScore($realized_vol_4h,96)))
+  max_count: 20
+  max_depth: 15
+  max_nodes: 38
+  max_ts_ops: 11
+  max_pair_ops: 3
+  max_binary_ops: 6

@@ -1,0 +1,162 @@
+mode: aligned_crypto
+version: aligned-phase-balanced-smoke-v7
+data:
+  source: simulated
+  root: D:/Trading/practical_crypto_strategy/data/parquet
+  start: '2023-01-01 00:00:00'
+  end: '2023-04-30 23:55:00'
+  feature_cache: outputs/cache/aligned_crypto
+split:
+  discovery_end: '202302282355'
+  validation_start: '202303010000'
+  validation_end: '202303312355'
+  holdout_start: '202304010000'
+search:
+  sources:
+  - role: alpha
+    path: configs/research/templates_crypto_residual_alpha_v2.yaml
+    limit: 60
+  - role: conditional_alpha
+    path: configs/research/templates_crypto_aligned_conditional_v1.yaml
+    limit: 60
+  - role: beta
+    path: configs/research/templates_crypto_timeseries.yaml
+    limit: 30
+  - role: risk
+    path: configs/research/templates_crypto_common_risk_v2.yaml
+    limit: 30
+  fields:
+  - amihud_shock_24h
+  - avg_trade_size_shock_24h
+  - downside_vol_24h
+  - hl_range
+  - liquidity_efficiency
+  - micro5_15_efficiency_gap
+  - micro5_15_flow_gap
+  - micro5_15_jump_gap
+  - micro5_imbalance_trend
+  - micro5_jump_share
+  - micro5_path_efficiency
+  - micro5_realized_vol
+  - micro5_trade_hhi
+  - micro5_upside_share
+  - micro5_volatility_ratio
+  - micro5_volume_hhi
+  - micro5_volume_trend
+  - micro_imbalance_trend
+  - micro_last_return
+  - micro_path_efficiency
+  - micro_range_expansion
+  - micro_realized_vol
+  - micro_return_reversal
+  - micro_taker_imbalance
+  - micro_trade_concentration
+  - micro_volatility_ratio
+  - micro_volume_concentration
+  - micro_volume_trend
+  - micro_vwap_dispersion
+  - ny_hour_sin
+  - oc_ret
+  - realized_vol_24h
+  - realized_vol_4h
+  - residual_ret_1h
+  - residual_ret_24h
+  - ret_1h
+  - ret_24h
+  - ret_4h
+  - return_skew_24h
+  - session_cumulative_return
+  - session_flow_surprise
+  - session_illiquidity_surprise
+  - session_volatility_surprise
+  - session_volume_surprise
+  - short_long_momentum_gap
+  - taker_imbalance
+  - taker_imbalance_change_4h
+  - taker_imbalance_mean_24h
+  - taker_imbalance_mean_4h
+  - taker_micro_divergence
+  - trade_count_shock_24h
+  - trend_efficiency_24h
+  - upside_vol_24h
+  - us_day_flag
+  - us_evening_flag
+  - us_overnight_flag
+  - volatility_direction_24h
+  - volatility_term_slope
+  - volume_ratio_24h
+  - volume_shock_24h
+  - vwap_bias
+  windows:
+  - 3
+  - 6
+  - 12
+  - 24
+  - 48
+  - 96
+  - 168
+  - 336
+  horizons_5m:
+  - 12
+  - 48
+  coarse_keep: 90
+  medium_keep: 36
+  checkpoint_batch: 20
+  seed: 20260930
+selection:
+  max_per_family: 20
+  max_per_field: 20
+  max_per_horizon: 24
+  alpha_n: 3
+  beta_n: 2
+  risk_n: 1
+combo:
+  cost_bps: 4.0
+  alpha_budget: 0.7
+  beta_budget: 0.3
+  max_abs_position: 1.5
+  risk_floor: 0.5
+output:
+  out_dir: outputs/crypto_aligned_simulated_native5_smoke_v7
+native5:
+  enabled: true
+  template: configs/research/templates_crypto_native5_alpha_v1.yaml
+  fields:
+  - ret_5m
+  - ret_15m
+  - ret_1h
+  - range_5m
+  - vwap_bias
+  - ret_15m_completed
+  - taker_imbalance
+  - flow_trend_12
+  - flow_15m_completed
+  - flow_price_agreement
+  - volume_shock_12
+  - trade_shock_12
+  - amihud_shock_12
+  - rv_12
+  - upside_share_12
+  - jump_share_12
+  - path_efficiency_12
+  - us_day_flag
+  - us_evening_flag
+  - us_overnight_flag
+  windows:
+  - 3
+  - 6
+  - 12
+  - 24
+  - 48
+  - 96
+  - 288
+  limit: 60
+  coarse_keep: 30
+  medium_keep: 12
+  horizons_5m:
+  - 3
+  - 12
+  - 48
+  selected_n: 2
+  alpha_budget: 0.2
+  feature_cache: outputs/cache/aligned_crypto_native5

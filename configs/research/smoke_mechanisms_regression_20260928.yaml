@@ -1,0 +1,55 @@
+version: alpha_research_simulated_smoke_mechanisms_20260928
+
+data:
+  source: simulated
+  start: "20230102"
+  end: "20241231"
+  simulated_days: 520
+  simulated_stocks: 80
+
+split:
+  discovery_end: "20231231"
+  validation_start: "20240101"
+  validation_end: "20240930"
+  holdout_start: "20241001"
+
+evaluation:
+  horizon: 5
+  min_daily_names: 30
+  min_coverage: 0.55
+  nw_lags: 5
+  bootstrap_samples: 100
+  bootstrap_block: 20
+
+search:
+  fields:
+    - ret_1d
+    - hl_range
+    - oc_ret
+    - close_pos
+    - amount_log
+    - vol_log
+    - sm_net_ratio
+    - main_net_ratio
+    - flow_imbalance
+    - chip_cost_bias
+  windows: [10, 20, 30]
+  max_expressions: 24
+  max_per_family: 40
+  seed: 42
+  template_config: configs/research/templates.yaml
+
+selection:
+  top_n: 20
+  max_per_family: 8
+  max_per_primary_field: 5
+  pair_top_n: 10
+  pair_candidate_n: 20
+  pair_max_similarity: 0.70
+
+output:
+  out_dir: outputs/research_simulated_smoke_mechanisms_20260928
+  save_factor_panels: false
+
+
+

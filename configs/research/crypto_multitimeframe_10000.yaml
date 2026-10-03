@@ -1,0 +1,136 @@
+version: alpha_research_crypto_multitimeframe_v3_two_stage
+
+data:
+  source: crypto_parquet
+  crypto_parquet_root: D:/Trading/practical_crypto_strategy/data/parquet
+  crypto_primary_timeframe: 1h
+  crypto_micro_timeframe: 15m
+  start: "2023-01-01 00:00:00"
+  end: "2026-08-31 23:59:59"
+
+split:
+  discovery_end: "202412312300"
+  validation_start: "202501010000"
+  validation_end: "202603312300"
+  holdout_start: "202604010000"
+
+evaluation:
+  horizon: 4
+  entry_lag: 1
+  min_daily_names: 10
+  min_coverage: 0.80
+  nw_lags: 24
+  bootstrap_samples: 100
+  bootstrap_block: 48
+  periods_per_year: 8760
+  strategy_cost_bps: 4.0
+  strategy_top_pct: 0.25
+  robustness_horizons: [1, 4, 12]
+  score_weights:
+    validation_edge_rank: 0.18
+    validation_ir_rank: 0.12
+    validation_hit_rank: 0.05
+    discovery_edge_rank: 0.07
+    sign_consistency_rank: 0.05
+    coverage_rank: 0.04
+    turnover_rank: 0.03
+    complexity_rank: 0.02
+    validation_sharpe_rank: 0.22
+    discovery_sharpe_rank: 0.08
+    horizon_robustness_rank: 0.14
+
+search:
+  fields:
+    - ret_1h
+    - ret_4h
+    - ret_24h
+    - ret_168h
+    - residual_ret_1h
+    - residual_ret_24h
+    - hl_range
+    - oc_ret
+    - close_pos
+    - vwap_bias
+    - range_body_ratio
+    - realized_vol_4h
+    - realized_vol_24h
+    - realized_vol_168h
+    - downside_vol_24h
+    - trend_efficiency_24h
+    - trend_efficiency_168h
+    - short_long_momentum_gap
+    - volatility_term_slope
+    - volume_ratio_24h
+    - volume_ratio_168h
+    - volume_shock_24h
+    - trade_count_shock_24h
+    - avg_trade_size_shock_24h
+    - amihud_shock_24h
+    - taker_imbalance
+    - taker_imbalance_change_4h
+    - taker_imbalance_mean_4h
+    - taker_imbalance_mean_24h
+    - taker_price_agreement
+    - taker_return_divergence
+    - taker_micro_divergence
+    - micro_first_return
+    - micro_last_return
+    - micro_return_reversal
+    - micro_realized_vol
+    - micro_volatility_ratio
+    - micro_path_efficiency
+    - micro_volume_concentration
+    - micro_volume_trend
+    - micro_taker_imbalance
+    - micro_imbalance_trend
+    - micro_flow_price_agreement
+    - micro_trade_concentration
+    - micro_range_expansion
+    - micro_vwap_dispersion
+  windows: [4, 8, 12, 24, 48, 72, 168, 336]
+  max_expressions: 10000
+  max_per_family: 1400
+  seed: 20260925
+  template_config: configs/research/templates_crypto.yaml
+  max_cache_items: 96
+  priority_fields:
+    - residual_ret_24h
+    - volatility_term_slope
+    - volume_shock_24h
+    - taker_imbalance_mean_24h
+    - taker_micro_divergence
+    - micro_path_efficiency
+    - micro_volume_trend
+    - micro_imbalance_trend
+  priority_operators: [TsCorr, TsRank, TsEMA, TsDelta]
+  priority_templates:
+    - crypto_binary_mixed
+    - crypto_short_long_gap
+    - crypto_normalized_spread
+    - crypto_triple_modulation
+    - crypto_quad_balanced
+  priority_windows: [4, 24, 168, 336]
+  diversity_share: 0.65
+  # Stage 1 computes only primary-horizon IC in matrix form. Stage 2 runs the
+  # expensive bootstrap, NW, cost-aware portfolio and multi-horizon checks.
+  coarse_keep_n: 800
+  checkpoint_batch_size: 200
+  coarse_max_per_family: 120
+  coarse_max_per_primary_field: 60
+
+selection:
+  top_n: 20
+  max_per_family: 8
+  max_per_primary_field: 4
+  pair_top_n: 10
+  pair_candidate_n: 20
+  pair_max_similarity: 0.65
+
+output:
+  out_dir: outputs/crypto_multitimeframe_10000_two_stage_20_20260925
+  store_path: outputs/crypto_research_index.duckdb
+  save_factor_panels: false
+
+reporting:
+  enabled: true
+  top_n: 20

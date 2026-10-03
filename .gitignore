@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Environments and secrets
+.venv/
+venv/
+env/
+.env
+.env.*
+*.pem
+*.key
+
+# Build and editor state
+build/
+dist/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Runtime artifacts
+*.log
+*.tmp
+*.bak
+*.duckdb.wal
+outputs/**
+
+# Local research data and binary caches; publish code, configs and lightweight reports only.
+data/
+*.parquet
+*.feather
+*.arrow
+*.npy
+*.npz
+*.duckdb
+*.sqlite
+*.sqlite3
+
+# DuckDB spill files must use the system temp directory. Ignore defensively.
+part-*.parquet
+page-*-offset-*.parquet
+
+# Historical tracked expression examples remain in Git; new output is ignored.

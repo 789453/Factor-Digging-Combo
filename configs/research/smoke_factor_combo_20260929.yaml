@@ -1,0 +1,82 @@
+mode: factor_combo
+version: factor_combo_signal_engine_simulated_smoke_v9
+data_root: simulated
+out_dir: outputs/research_simulated_factor_combo_signal_engine_20260929_v9
+warmup_days: 35
+segments:
+  - {name: "2023", start: "2023-01-01 00:00:00", end: "2023-01-30 23:55:00"}
+  - {name: "2024", start: "2024-01-01 00:00:00", end: "2024-01-30 23:55:00"}
+  - {name: "2025", start: "2025-01-01 00:00:00", end: "2025-01-30 23:55:00"}
+training: {segment: "2023", end: "2023-01-20 23:55:00"}
+similarity_threshold: 0.97
+cost_bps: [0, 1, 4]
+dynamic_combo:
+  lookback_bars: 288
+  update_bars: 12
+  min_history_bars: 48
+  max_factors_per_family: 2
+  max_active_families: 4
+  entry_z: 0.25
+  exit_z: -0.25
+  anchor_weight: 0.35
+  weight_speed: 0.25
+  max_factor_weight: 0.40
+  alpha_budget: 0.80
+  beta_budget: 0.20
+  risk_floor: 0.50
+  target_half_life_bars: 12
+  event_band: 0.25
+  strategy_cost_bps: 4.0
+  plot_stride_bars: 12
+signal_engine:
+  scale_lookback_bars: 2016
+  scale_floor_fraction: 0.50
+  max_abs_position: 1.50
+  leverage_diagnostic: 1.50
+  profiles:
+    - name: fast
+      native5_share: 0.75
+      hourly_share: 0.15
+      beta_share: 0.10
+      allocation: 0.45
+      half_life_bars: 4
+      min_hold_bars: 24
+      max_hold_bars: 144
+      cooldown_bars: 6
+      rebalance_bars: 12
+      target_trades_per_asset_week: 6.0
+      entry_candidates: [1.60, 2.20, 2.80, 3.40, 4.00, 4.80, 5.60, 6.40]
+      exit_ratio: 0.45
+      size_band: 0.12
+    - name: medium
+      native5_share: 0.45
+      hourly_share: 0.35
+      beta_share: 0.20
+      allocation: 0.40
+      half_life_bars: 24
+      min_hold_bars: 48
+      max_hold_bars: 576
+      cooldown_bars: 12
+      rebalance_bars: 24
+      target_trades_per_asset_week: 3.0
+      entry_candidates: [0.25, 0.35, 0.50, 0.70, 0.90, 1.20, 1.60, 2.20]
+      exit_ratio: 0.45
+      size_band: 0.12
+    - name: slow
+      native5_share: 0.15
+      hourly_share: 0.55
+      beta_share: 0.30
+      allocation: 0.35
+      half_life_bars: 144
+      min_hold_bars: 144
+      max_hold_bars: 1440
+      cooldown_bars: 72
+      rebalance_bars: 72
+      target_trades_per_asset_week: 1.0
+      entry_candidates: [0.25, 0.35, 0.50, 0.70, 0.90, 1.20, 1.60, 2.20]
+      exit_ratio: 0.45
+      size_band: 0.12
+factor_sources:
+  - {clock: native5, role: alpha, path: outputs/crypto_native5_residual_alpha_10000_2023/selected_factors.csv, limit: 4}
+  - {clock: hourly, role: alpha, path: outputs/crypto_residual_alpha_10000_v2_2023/selected_factors.csv, limit: 4}
+  - {clock: hourly, role: mixed, path: outputs/crypto_hybrid_10000_v2_2023/selected_factors.csv, limit: 2}

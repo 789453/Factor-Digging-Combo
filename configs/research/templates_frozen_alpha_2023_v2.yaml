@@ -1,0 +1,41 @@
+version: frozen_alpha_2023_v2
+families:
+- name: frozen_alpha_2023_v2
+  kind: time_series_formula
+  order: 1
+  target_modes:
+  - return
+  hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+  fields_a:
+  - ret_1h
+  short_windows:
+  - 3
+  long_windows:
+  - 48
+  forms:
+  - GateNeg(TsZScore($micro5_trade_hhi,48),TsZScore(TsDelta($residual_ret_24h,6),48))
+  - TsZScore(Sub(TsCorr($ret_1h,$downside_vol_24h,12),TsCorr($ret_1h,$downside_vol_24h,48)),48)
+  - GateNeg(TsZScore($session_flow_surprise,48),TsZScore(TsDelta($residual_ret_24h,6),48))
+  - TsZScore(TsDelta(TsCorr($residual_ret_24h,$amihud_shock_24h,48),6),48)
+  - GateNeg(TsZScore($taker_imbalance_mean_4h,96),TsZScore(TsDelta($residual_ret_1h,12),96))
+  - GateNeg(TsZScore($taker_imbalance_mean_4h,96),TsZScore(TsDelta($residual_ret_1h,6),96))
+  - GateNeg(TsZScore($session_flow_surprise,96),TsZScore(TsDelta($residual_ret_24h,6),96))
+  - GateNeg(TsZScore($taker_imbalance_mean_4h,48),TsZScore(TsDelta($residual_ret_1h,12),48))
+  - TsZScore(TsCorr($residual_ret_24h,$session_flow_surprise,336),336)
+  - GateNeg(TsZScore($taker_imbalance_mean_4h,48),TsZScore(TsDelta($residual_ret_1h,6),48))
+  - TsZScore(Sub(TsCorr($ret_4h,$downside_vol_24h,12),TsCorr($ret_4h,$downside_vol_24h,96)),96)
+  - GatePos(TsZScore($micro5_imbalance_trend,48),TsZScore(TsDelta($residual_ret_1h,6),48))
+  - TsZScore(TsDelta(TsCorr($ret_1h,$micro5_15_flow_gap,336),6),336)
+  - GateNeg(TsZScore($micro5_jump_share,336),Sub(TsZScore($micro5_15_flow_gap,336),TsZScore($residual_ret_1h,336)))
+  - GateNeg(TsZScore($taker_imbalance_mean_4h,168),TsZScore(TsDelta($residual_ret_1h,12),168))
+  - GatePos(TsZScore($volume_shock_24h,336),TsZScore(Sub(TsEMA($micro_return_reversal,3),TsEMA($taker_imbalance_change_4h,3)),336))
+  - TsZScore(TsDelta(TsCorr($residual_ret_1h,$session_illiquidity_surprise,168),6),168)
+  - GatePos(TsZScore($volume_shock_24h,96),TsZScore(Sub(TsEMA($vwap_bias,3),TsEMA($taker_imbalance_change_4h,3)),96))
+  - GatePos(TsZScore($micro5_15_efficiency_gap,168),TsZScore(Sub(TsEMA($residual_ret_1h,3),TsEMA($micro5_15_flow_gap,3)),168))
+  - TsZScore(Sub(TsCorr($ret_4h,$downside_vol_24h,6),TsCorr($ret_4h,$downside_vol_24h,48)),48)
+  max_count: 20
+  max_depth: 12
+  max_nodes: 32
+  max_ts_ops: 9
+  max_pair_ops: 3
+  max_binary_ops: 5

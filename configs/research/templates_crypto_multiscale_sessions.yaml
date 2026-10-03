@@ -1,0 +1,242 @@
+version: crypto_multiscale_session_templates_v2
+
+# Pure time-series grammar: cross-sectional expression share is exactly 0%.
+# S/M/L are intraday, multi-day and regime windows. Each family has bounded
+# complexity and deterministic enumeration through the global seed.
+families:
+  - name: multiscale_structure
+    kind: time_series_formula
+    order: 2
+    short_windows: [3, 6, 12, 24]
+    long_windows: [72, 168, 336, 720]
+    fields_a: [micro5_path_efficiency, micro5_jump_share, micro5_upside_share, micro5_volume_hhi, micro5_trade_hhi, micro5_volume_trend, micro5_imbalance_trend]
+    fields_b: [micro_path_efficiency, micro_jump_share, micro_upside_share, micro_volume_hhi, micro_trade_hhi, micro_volume_trend, micro_imbalance_trend]
+    forms:
+      - TsZScore(Sub({A},{B}),{L})
+      - TsZScore(TsDelta(Sub({A},{B}),{S}),{L})
+      - Mul(TsZScore({A},{L}),TsZScore({B},{L}))
+      - TsZScore(TsCorr({A},{B},{L}),{L})
+      - GatePos(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L}))
+    max_count: 4000
+    max_depth: 9
+    max_nodes: 22
+    max_ts_ops: 5
+    max_pair_ops: 1
+    max_binary_ops: 2
+
+  - name: session_state
+    kind: time_series_formula
+    order: 2
+    short_windows: [3, 6, 12, 24]
+    long_windows: [72, 168, 336, 720]
+    fields_a: [session_cumulative_return, session_cumulative_volume_ratio, session_volume_surprise, session_volatility_surprise, session_illiquidity_surprise, session_flow_surprise]
+    fields_b: [us_day_flag, us_evening_flag, us_overnight_flag, ny_hour_sin, ny_hour_cos, weekday_sin, weekday_cos, session_progress]
+    forms:
+      - Mul({B},TsZScore(TsEMA({A},{S}),{L}))
+      - GatePos({B},TsZScore(TsDelta({A},{S}),{L}))
+      - TsZScore(TsCorr({A},{B},{L}),{L})
+      - Mul(TsZScore({A},{L}),TsZScore(TsDelta({B},{S}),{L}))
+    max_count: 3600
+    max_depth: 9
+    max_nodes: 22
+    max_ts_ops: 5
+    max_pair_ops: 1
+    max_binary_ops: 2
+
+  - name: session_adjusted_price_flow
+    kind: time_series_formula
+    order: 2
+    short_windows: [3, 6, 12, 24]
+    long_windows: [72, 168, 336, 720]
+    fields_a: [ret_1h, ret_4h, ret_24h, oc_ret, vwap_bias, short_long_momentum_gap, taker_imbalance, micro5_taker_imbalance, micro5_15_flow_gap]
+    fields_b: [session_volume_surprise, session_volatility_surprise, session_illiquidity_surprise, session_flow_surprise, session_cumulative_volume_ratio]
+    forms:
+      - Mul(TsZScore(TsEMA({A},{S}),{L}),TsZScore({B},{L}))
+      - GatePos(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L}))
+      - GateNeg(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L}))
+      - TsZScore(TsCorr({A},{B},{L}),{L})
+      - TsZScore(TsDelta(TsCorr({A},{B},{L}),{S}),{L})
+    max_count: 4200
+    max_depth: 10
+    max_nodes: 24
+    max_ts_ops: 6
+    max_pair_ops: 1
+    max_binary_ops: 2
+
+  - name: volatility_asymmetry
+    kind: time_series_formula
+    order: 2
+    short_windows: [3, 6, 12, 24]
+    long_windows: [72, 168, 336, 720]
+    fields_a: [ret_1h, ret_4h, ret_24h, session_cumulative_return, taker_imbalance, micro5_imbalance_trend]
+    fields_b: [realized_vol_4h, realized_vol_24h, downside_vol_24h, upside_vol_24h, volatility_direction_24h, return_skew_24h, volatility_term_slope, micro5_volatility_ratio, micro5_jump_share]
+    forms:
+      - Div(TsZScore(TsEMA({A},{S}),{L}),Add(Abs(TsZScore({B},{L})),1))
+      - Mul(Sign(TsZScore({B},{L})),TsZScore(TsDelta({A},{S}),{L}))
+      - GatePos(TsZScore({B},{L}),TsZScore(TsEMA({A},{S}),{L}))
+      - GateNeg(TsZScore({B},{L}),TsZScore(TsEMA({A},{S}),{L}))
+      - TsZScore(TsCorr({A},{B},{L}),{L})
+    max_count: 4000
+    max_depth: 10
+    max_nodes: 24
+    max_ts_ops: 6
+    max_pair_ops: 1
+    max_binary_ops: 3
+
+  - name: liquidity_efficiency
+    kind: time_series_formula
+    order: 2
+    short_windows: [3, 6, 12, 24]
+    long_windows: [72, 168, 336, 720]
+    fields_a: [ret_1h, ret_4h, vwap_bias, taker_imbalance, micro5_taker_imbalance, micro5_volume_trend, micro5_imbalance_trend]
+    fields_b: [volume_shock_24h, trade_count_shock_24h, avg_trade_size_shock_24h, amihud_shock_24h, liquidity_efficiency, session_volume_surprise, session_illiquidity_surprise, micro5_volume_hhi, micro5_trade_hhi]
+    forms:
+      - Mul(TsZScore(TsEMA({A},{S}),{L}),TsZScore({B},{L}))
+      - Div(TsZScore(TsEMA({A},{S}),{L}),Add(Abs(TsZScore({B},{L})),1))
+      - TsZScore(TsCorr({A},{B},{L}),{L})
+      - TsZScore(TsDelta(TsCorr({A},{B},{L}),{S}),{L})
+      - GateNeg(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L}))
+    max_count: 4200
+    max_depth: 10
+    max_nodes: 24
+    max_ts_ops: 6
+    max_pair_ops: 1
+    max_binary_ops: 3
+
+  - name: flow_structure
+    kind: time_series_formula
+    order: 2
+    short_windows: [3, 6, 12, 24]
+    long_windows: [72, 168, 336, 720]
+    fields_a: [taker_imbalance, taker_imbalance_change_4h, taker_imbalance_mean_4h, taker_imbalance_mean_24h, micro_taker_imbalance, micro5_taker_imbalance, micro5_15_flow_gap]
+    fields_b: [ret_1h, ret_4h, ret_24h, vwap_bias, session_cumulative_return, micro_return_reversal, micro5_path_efficiency]
+    forms:
+      - Sub(TsZScore(TsEMA({A},{S}),{L}),TsZScore(TsEMA({B},{S}),{L}))
+      - Mul(TsZScore({A},{L}),TsZScore({B},{L}))
+      - TsZScore(TsCorr({A},{B},{L}),{L})
+      - GatePos(TsZScore({A},{L}),TsZScore(TsDelta({B},{S}),{L}))
+      - TsZScore(TsDelta(TsCorr({A},{B},{L}),{S}),{L})
+    max_count: 4000
+    max_depth: 10
+    max_nodes: 24
+    max_ts_ops: 6
+    max_pair_ops: 1
+    max_binary_ops: 2
+
+  - name: derivative_dynamics
+    kind: time_series_formula
+    order: 1
+    short_windows: [3, 6, 12, 24]
+    long_windows: [72, 168, 336, 720]
+    fields_a: [ret_1h, ret_4h, ret_24h, realized_vol_24h, volatility_direction_24h, return_skew_24h, volume_shock_24h, taker_imbalance, micro5_jump_share, micro5_path_efficiency, micro5_volume_trend, session_volume_surprise, session_volatility_surprise, session_flow_surprise]
+    forms:
+      - TsZScore(TsDelta({A},{S}),{L})
+      - TsZScore(TsDelta(TsDelta({A},{S}),{S}),{L})
+      - TsZScore(TsDelta(TsEMA({A},{S}),{S}),{L})
+      - TsZScore(Sub(TsEMA({A},{S}),TsEMA({A},{L})),{L})
+      - TsIr(TsDelta({A},{S}),{L})
+    max_count: 3600
+    max_depth: 9
+    max_nodes: 20
+    max_ts_ops: 6
+    max_pair_ops: 0
+    max_binary_ops: 2
+
+  - name: correlation_regime
+    kind: time_series_formula
+    order: 2
+    short_windows: [3, 6, 12, 24]
+    long_windows: [72, 168, 336, 720]
+    fields_a: [ret_1h, ret_4h, ret_24h, taker_imbalance, micro5_taker_imbalance, micro5_jump_share, session_cumulative_return]
+    fields_b: [realized_vol_24h, volatility_direction_24h, volume_shock_24h, amihud_shock_24h, micro5_volume_hhi, micro5_path_efficiency, session_volume_surprise, session_volatility_surprise, session_illiquidity_surprise]
+    forms:
+      - TsZScore(TsCorr({A},{B},{L}),{L})
+      - TsZScore(TsDelta(TsCorr({A},{B},{L}),{S}),{L})
+      - TsZScore(Sub(TsCorr({A},{B},{S}),TsCorr({A},{B},{L})),{L})
+      - GatePos(TsZScore(TsCorr({A},{B},{L}),{L}),TsZScore(TsDelta({A},{S}),{L}))
+    max_count: 4000
+    max_depth: 10
+    max_nodes: 24
+    max_ts_ops: 7
+    max_pair_ops: 2
+    max_binary_ops: 2
+
+  - name: accumulation_state
+    kind: time_series_formula
+    order: 2
+    short_windows: [3, 6, 12, 24]
+    long_windows: [72, 168, 336, 720]
+    fields_a: [session_cumulative_return, ret_24h, trend_efficiency_24h, short_long_momentum_gap, micro5_15_efficiency_gap]
+    fields_b: [session_cumulative_volume_ratio, session_flow_surprise, taker_imbalance_mean_24h, micro5_15_flow_gap, volatility_direction_24h]
+    forms:
+      - Mul(TsZScore(TsEMA({A},{S}),{L}),TsZScore(TsEMA({B},{S}),{L}))
+      - Sub(TsZScore(TsEMA({A},{S}),{L}),TsZScore(TsEMA({B},{S}),{L}))
+      - GatePos(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L}))
+      - GateNeg(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L}))
+      - TsZScore(TsCorr({A},{B},{L}),{L})
+    max_count: 4000
+    max_depth: 10
+    max_nodes: 24
+    max_ts_ops: 6
+    max_pair_ops: 1
+    max_binary_ops: 2
+
+  - name: level_smoothing
+    kind: time_series_formula
+    order: 1
+    short_windows: [3, 6, 12, 24]
+    long_windows: [72, 168, 336, 720]
+    fields_a: [ret_1h, ret_4h, ret_24h, vwap_bias, realized_vol_24h, volatility_direction_24h, return_skew_24h, volume_shock_24h, liquidity_efficiency, taker_imbalance, micro5_taker_imbalance, micro5_jump_share, micro5_path_efficiency, micro5_volume_trend, micro5_imbalance_trend, session_cumulative_return, session_cumulative_volume_ratio, session_volume_surprise, session_volatility_surprise, session_illiquidity_surprise, session_flow_surprise]
+    forms:
+      - TsZScore({A},{L})
+      - TsZScore(TsEMA({A},{S}),{L})
+      - TsZScore(TsWMA({A},{S}),{L})
+      - TsIr({A},{L})
+      - TsZScore(Sub(TsEMA({A},{S}),TsEMA({A},{L})),{L})
+    max_count: 4000
+    max_depth: 8
+    max_nodes: 18
+    max_ts_ops: 5
+    max_pair_ops: 0
+    max_binary_ops: 2
+
+  - name: cross_scale_regime
+    kind: time_series_formula
+    order: 2
+    short_windows: [3, 6, 12, 24]
+    long_windows: [72, 168, 336, 720]
+    fields_a: [micro5_volatility_ratio, micro5_15_efficiency_gap, micro5_15_flow_gap, micro5_15_jump_gap, volatility_term_slope, short_long_momentum_gap]
+    fields_b: [session_volume_surprise, session_volatility_surprise, session_illiquidity_surprise, volatility_direction_24h, return_skew_24h, amihud_shock_24h]
+    forms:
+      - Mul(TsZScore(TsEMA({A},{S}),{L}),TsZScore(TsEMA({B},{S}),{L}))
+      - Sub(TsZScore({A},{L}),TsZScore({B},{L}))
+      - TsZScore(TsCorr({A},{B},{L}),{L})
+      - TsZScore(TsDelta(TsCorr({A},{B},{L}),{S}),{L})
+      - GatePos(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L}))
+      - GateNeg(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L}))
+    max_count: 4000
+    max_depth: 10
+    max_nodes: 24
+    max_ts_ops: 6
+    max_pair_ops: 1
+    max_binary_ops: 2
+
+  - name: tri_state_interaction
+    kind: time_series_formula
+    order: 3
+    short_windows: [3, 6, 12, 24]
+    long_windows: [72, 168, 336, 720]
+    fields_a: [ret_1h, ret_4h, session_cumulative_return, taker_imbalance, micro5_15_flow_gap, micro5_path_efficiency]
+    fields_b: [realized_vol_24h, volatility_direction_24h, return_skew_24h, micro5_jump_share, micro5_volatility_ratio, session_volatility_surprise]
+    fields_c: [volume_shock_24h, amihud_shock_24h, session_volume_surprise, session_illiquidity_surprise, session_flow_surprise, micro5_volume_hhi]
+    forms:
+      - Mul(Mul(TsZScore(TsEMA({A},{S}),{L}),TsZScore({B},{L})),TsZScore({C},{L}))
+      - GatePos(TsZScore({C},{L}),Mul(TsZScore({A},{L}),TsZScore({B},{L})))
+      - GateNeg(TsZScore({B},{L}),Mul(TsZScore(TsDelta({A},{S}),{L}),TsZScore({C},{L})))
+      - Add(TsZScore(TsCorr({A},{B},{L}),{L}),TsZScore(TsCorr({A},{C},{L}),{L}))
+    max_count: 4000
+    max_depth: 11
+    max_nodes: 28
+    max_ts_ops: 7
+    max_pair_ops: 2
+    max_binary_ops: 3

@@ -1,0 +1,41 @@
+version: frozen_native5_2023
+families:
+- name: frozen_native5_2023
+  kind: time_series_formula
+  order: 1
+  target_modes:
+  - return
+  hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+  fields_a:
+  - ret_5m
+  short_windows:
+  - 3
+  long_windows:
+  - 24
+  forms:
+  - GatePos(TsZScore($flow_price_agreement,24),TsZScore(TsDelta($vwap_bias,3),24))
+  - Sub(TsZScore(TsEMA($vwap_bias,3),24),TsZScore(TsEMA($trade_shock_12,3),24))
+  - Sub(TsZScore(TsEMA($taker_imbalance,6),24),TsZScore(TsEMA($ret_15m_completed,6),24))
+  - GateNeg(TsZScore($jump_share_12,24),TsZScore(TsEMA($vwap_bias,3),24))
+  - Sub(TsZScore(TsEMA($vwap_bias,3),24),TsZScore(TsEMA($volume_shock_12,3),24))
+  - Sub(TsZScore(TsEMA($vwap_bias,3),48),TsZScore(TsEMA($trade_shock_12,3),48))
+  - Sub(TsZScore(TsEMA($taker_imbalance,3),48),TsZScore(TsEMA($trade_shock_12,3),48))
+  - GateNeg(TsZScore($rv_12,288),TsZScore(TsEMA($vwap_bias,3),288))
+  - GateNeg(TsZScore($upside_share_12,48),TsZScore(TsEMA($vwap_bias,3),48))
+  - GateNeg(TsZScore($jump_share_12,24),TsZScore(TsEMA($vwap_bias,6),24))
+  - GatePos(TsZScore($flow_price_agreement,96),TsZScore(TsDelta($vwap_bias,12),96))
+  - GateNeg(TsZScore($path_efficiency_12,24),TsZScore(TsEMA($vwap_bias,3),24))
+  - GatePos(TsZScore($flow_price_agreement,96),TsZScore(TsDelta($vwap_bias,3),96))
+  - GatePos(TsZScore($flow_price_agreement,48),TsZScore(TsDelta($ret_5m,3),48))
+  - GatePos(TsZScore($flow_price_agreement,24),TsZScore(TsDelta($ret_5m,3),24))
+  - Div(Mul(TsZScore($flow_trend_12,24),TsZScore($flow_price_agreement,24)),Add(Abs(TsZScore($rv_12,24)),1))
+  - Div(Mul(TsZScore($taker_imbalance,24),TsZScore($flow_price_agreement,24)),Add(Abs(TsZScore($rv_12,24)),1))
+  - Div(Mul(TsZScore($flow_trend_12,24),TsZScore($flow_price_agreement,24)),Add(Abs(TsZScore($amihud_shock_12,24)),1))
+  - Div(Mul(TsZScore($taker_imbalance,24),TsZScore($flow_price_agreement,24)),Add(Abs(TsZScore($amihud_shock_12,24)),1))
+  - Div(Mul(TsZScore($flow_trend_12,288),TsZScore($flow_price_agreement,288)),Add(Abs(TsZScore($trade_shock_12,288)),1))
+  max_count: 20
+  max_depth: 12
+  max_nodes: 32
+  max_ts_ops: 9
+  max_pair_ops: 3
+  max_binary_ops: 5

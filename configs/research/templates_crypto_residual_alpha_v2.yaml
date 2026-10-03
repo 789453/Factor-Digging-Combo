@@ -1,0 +1,124 @@
+version: crypto_residual_alpha_mechanisms_v2_alias_pruned
+families:
+  - name: alpha_flow_price_dislocation
+    kind: time_series_formula
+    order: 3
+    target_modes: [return]
+    hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+    fields_a: [ret_1h, ret_4h, vwap_bias, residual_ret_1h, micro_return_reversal, short_long_momentum_gap]
+    fields_b: [taker_imbalance, taker_imbalance_mean_4h, micro5_15_flow_gap, session_flow_surprise, micro5_imbalance_trend]
+    fields_c: [volume_shock_24h, micro5_volume_hhi, amihud_shock_24h, micro5_jump_share, session_illiquidity_surprise]
+    short_windows: [3, 6, 12]
+    long_windows: [48, 96, 168, 336]
+    forms:
+      - Mul(Sub(TsZScore(TsEMA({A},{S}),{L}),TsZScore({B},{L})),TsZScore({C},{L}))
+      - GateNeg(TsZScore({C},{L}),Sub(TsZScore({B},{L}),TsZScore({A},{L})))
+      - GatePos(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L}))
+      - TsZScore(TsDelta(TsCorr({A},{B},{L}),{S}),{L})
+    max_count: 2500
+    max_depth: 11
+    max_nodes: 26
+    max_ts_ops: 7
+    max_pair_ops: 1
+    max_binary_ops: 3
+  - name: alpha_impact_response
+    kind: time_series_formula
+    order: 2
+    target_modes: [return]
+    hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+    fields_a: [ret_1h, ret_4h, vwap_bias, micro_return_reversal, residual_ret_24h, micro5_path_efficiency]
+    fields_b: [taker_imbalance_mean_4h, micro5_volume_hhi, micro5_trade_hhi, amihud_shock_24h, trade_count_shock_24h, session_flow_surprise]
+    short_windows: [3, 6, 12]
+    long_windows: [48, 96, 168, 336]
+    forms:
+      - Div(TsZScore(TsEMA({A},{S}),{L}),Add(Abs(TsZScore({B},{L})),1))
+      - TsZScore(TsCorr({A},{B},{L}),{L})
+      - TsZScore(TsDelta(TsCorr({A},{B},{L}),{S}),{L})
+      - GateNeg(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L}))
+    max_count: 2500
+    max_depth: 10
+    max_nodes: 23
+    max_ts_ops: 7
+    max_pair_ops: 1
+    max_binary_ops: 3
+  - name: alpha_session_liquidity_transfer
+    kind: time_series_formula
+    order: 3
+    target_modes: [return]
+    hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+    fields_a: [session_cumulative_return, session_flow_surprise, taker_imbalance, micro5_15_flow_gap, micro5_imbalance_trend]
+    fields_b: [session_volatility_surprise, session_illiquidity_surprise, volume_shock_24h, micro5_jump_share, micro5_volume_hhi]
+    fields_c: [us_day_flag, us_evening_flag, us_overnight_flag, ny_hour_sin]
+    short_windows: [3, 6, 12]
+    long_windows: [48, 96, 168, 336]
+    forms:
+      - Mul({C},Mul(TsZScore(TsEMA({A},{S}),{L}),TsZScore({B},{L})))
+      - Mul({C},GateNeg(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L})))
+      - Mul({C},TsZScore(TsDelta(TsCorr({A},{B},{L}),{S}),{L}))
+    max_count: 2500
+    max_depth: 11
+    max_nodes: 26
+    max_ts_ops: 7
+    max_pair_ops: 1
+    max_binary_ops: 3
+  - name: alpha_asymmetric_path
+    kind: time_series_formula
+    order: 2
+    target_modes: [return]
+    hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+    fields_a: [ret_1h, ret_4h, ret_24h, vwap_bias, short_long_momentum_gap, micro5_path_efficiency]
+    fields_b: [upside_vol_24h, downside_vol_24h, volatility_direction_24h, micro5_upside_share, micro5_jump_share, return_skew_24h]
+    short_windows: [3, 6, 12]
+    long_windows: [48, 96, 168, 336]
+    forms:
+      - Mul(TsZScore(TsEMA({A},{S}),{L}),TsZScore(TsDelta({B},{S}),{L}))
+      - GatePos(TsZScore({B},{L}),TsZScore(TsDelta({A},{S}),{L}))
+      - GateNeg(TsZScore({B},{L}),TsZScore(TsEMA({A},{S}),{L}))
+      - TsZScore(Sub(TsCorr({A},{B},{S}),TsCorr({A},{B},{L})),{L})
+    max_count: 2500
+    max_depth: 11
+    max_nodes: 26
+    max_ts_ops: 7
+    max_pair_ops: 2
+    max_binary_ops: 3
+  - name: alpha_flow_persistence_reversal
+    kind: time_series_formula
+    order: 2
+    target_modes: [return]
+    hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+    fields_a: [taker_imbalance, taker_imbalance_mean_4h, micro5_15_flow_gap, session_flow_surprise, micro5_imbalance_trend, taker_imbalance_change_4h]
+    fields_b: [ret_1h, ret_4h, vwap_bias, residual_ret_1h, micro_return_reversal, session_cumulative_return]
+    short_windows: [3, 6, 12]
+    long_windows: [48, 96, 168, 336]
+    forms:
+      - Sub(TsZScore(TsEMA({A},{S}),{L}),TsZScore(TsEMA({B},{S}),{L}))
+      - GatePos(TsZScore({A},{L}),TsZScore(TsDelta({B},{S}),{L}))
+      - GateNeg(TsZScore({A},{L}),TsZScore(TsDelta({B},{S}),{L}))
+      - TsZScore(TsCorr({A},{B},{L}),{L})
+    max_count: 2500
+    max_depth: 10
+    max_nodes: 24
+    max_ts_ops: 6
+    max_pair_ops: 1
+    max_binary_ops: 2
+  - name: alpha_cross_scale_innovation
+    kind: time_series_formula
+    order: 3
+    target_modes: [return]
+    hypothesis_card: docs/cards/crypto_purpose_search_hypotheses.md
+    fields_a: [ret_1h, ret_4h, residual_ret_1h, micro_return_reversal, vwap_bias]
+    fields_b: [micro5_15_flow_gap, taker_imbalance_mean_4h, taker_imbalance_change_4h, session_flow_surprise, micro5_imbalance_trend]
+    fields_c: [micro5_15_efficiency_gap, micro5_jump_share, micro5_volume_hhi, volume_shock_24h, session_illiquidity_surprise]
+    short_windows: [3, 6, 12]
+    long_windows: [48, 96, 168, 336]
+    forms:
+      - Mul(TsZScore(Sub({A},{B}),{L}),TsZScore(TsDelta({C},{S}),{L}))
+      - GatePos(TsZScore({C},{L}),TsZScore(Sub(TsEMA({A},{S}),TsEMA({B},{S})),{L}))
+      - TsZScore(TsDelta(TsCorr({A},{C},{L}),{S}),{L})
+    max_count: 2000
+    max_depth: 11
+    max_nodes: 26
+    max_ts_ops: 7
+    max_pair_ops: 1
+    max_binary_ops: 3
+

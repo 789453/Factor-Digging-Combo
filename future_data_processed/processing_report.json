@@ -1,0 +1,25 @@
+{
+  "scope": {
+    "commodities": "Exchange codes 38/39/44; contract type 1 (NYMEX/COMEX, CBOT, ICE commodity futures)",
+    "indexes": "Major US/HK/global index futures identified by canonical contract tickers or index names",
+    "frequency": "stat_period source code retained; code 5 is the source daily frequency"
+  },
+  "files": [
+    {
+      "file": "overseas_major_commodities.parquet",
+      "records": 2194449,
+      "columns": 28,
+      "bytes": 23566779
+    },
+    {
+      "file": "global_major_index_futures.parquet",
+      "records": 511186,
+      "columns": 38,
+      "bytes": 3939620
+    }
+  ],
+  "summary_files": [
+    "commodity_scope_summary.csv",
+    "index_scope_summary.csv"
+  ]
+}

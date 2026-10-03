@@ -1,0 +1,152 @@
+version: research_templates_v2
+
+families:
+  - name: single_state
+    kind: single
+    order: 1
+    enabled: true
+    unary_pre: [Id, Abs, SLog1p]
+    ts_ops: [TsMean, TsStd, TsIr, TsRank, TsDelta, TsDiv, TsPctChange, TsWMA, TsEMA]
+    outer_transforms: [Rank, SLog1p, RankSLog1p]
+    max_count: 1200
+    max_depth: 5
+    max_nodes: 12
+    max_ts_ops: 2
+    max_pair_ops: 0
+    max_binary_ops: 1
+
+  - name: binary_same_state
+    kind: binary_same
+    order: 2
+    enabled: true
+    ts_ops: [TsMean, TsStd, TsDelta, TsEMA, TsWMA]
+    binary_ops: [Add, Sub, Mul, Div, Greater, Less]
+    outer_transforms: [Rank, SLog1p, RankSLog1p]
+    max_count: 2000
+    max_depth: 6
+    max_nodes: 16
+    max_ts_ops: 4
+    max_pair_ops: 0
+    max_binary_ops: 2
+
+  - name: binary_mixed_state
+    kind: binary_mixed
+    order: 2
+    enabled: true
+    left_ts_ops: [TsMean, TsEMA, TsDelta, TsIr]
+    right_ts_ops: [TsMean, TsStd, TsRank, TsWMA]
+    binary_ops: [Sub, Div, Mul]
+    outer_transforms: [Rank]
+    max_count: 1200
+    max_depth: 6
+    max_nodes: 16
+    max_ts_ops: 3
+    max_pair_ops: 0
+    max_binary_ops: 2
+
+  - name: rolling_relationship
+    kind: pair_rolling
+    order: 2
+    enabled: true
+    pair_ops: [TsCorr]
+    outer_transforms: [Rank, SLog1p]
+    max_count: 800
+    max_depth: 5
+    max_nodes: 12
+    max_ts_ops: 1
+    max_pair_ops: 1
+    max_binary_ops: 0
+
+  - name: short_long_gap
+    kind: multi_window
+    order: 2
+    enabled: true
+    short_windows: [5, 10, 20]
+    long_windows: [30, 40, 60, 80]
+    ts_ops: [TsMean, TsStd, TsEMA, TsRank]
+    binary_ops: [Sub, Div]
+    outer_transforms: [Rank]
+    max_count: 800
+    max_depth: 6
+    max_nodes: 16
+    max_ts_ops: 3
+    max_pair_ops: 0
+    max_binary_ops: 2
+
+  - name: cross_window_state
+    kind: cross_window_binary
+    order: 2
+    enabled: true
+    short_windows: [5, 10, 20]
+    long_windows: [30, 40, 60, 80]
+    left_ts_ops: [TsMean, TsDelta, TsRank]
+    right_ts_ops: [TsMean, TsStd, TsEMA]
+    binary_ops: [Sub, Div, Mul]
+    outer_transforms: [Rank]
+    max_count: 1000
+    max_depth: 6
+    max_nodes: 18
+    max_ts_ops: 3
+    max_pair_ops: 0
+    max_binary_ops: 2
+
+  - name: normalized_spread
+    kind: normalized_binary
+    order: 2
+    enabled: true
+    ts_ops: [TsMean, TsEMA, TsDelta]
+    outer_transforms: [Rank]
+    max_count: 800
+    max_depth: 7
+    max_nodes: 22
+    max_ts_ops: 4
+    max_pair_ops: 0
+    max_binary_ops: 4
+
+  - name: relationship_change
+    kind: pair_change
+    order: 2
+    enabled: true
+    short_windows: [5, 10]
+    long_windows: [20, 30, 40, 60]
+    pair_ops: [TsCorr]
+    outer_transforms: [Rank]
+    max_count: 600
+    max_depth: 6
+    max_nodes: 14
+    max_ts_ops: 2
+    max_pair_ops: 1
+    max_binary_ops: 0
+
+  - name: triple_modulation
+    kind: triple
+    order: 3
+    enabled: true
+    ts_ops: [TsMean, TsDelta, TsEMA]
+    forms:
+      - Rank(Mul(Sub({A},{B}),{C}))
+      - Rank(Div(Sub({A},{B}),Abs({C})))
+      - Rank(Sub(Mul({A},{B}),{C}))
+      - Rank(Add(Mul({A},{B}),{C}))
+    max_count: 1000
+    max_depth: 7
+    max_nodes: 22
+    max_ts_ops: 4
+    max_pair_ops: 0
+    max_binary_ops: 3
+
+  - name: quad_balanced
+    kind: quad
+    order: 4
+    enabled: false
+    ts_ops: [TsMean, TsEMA]
+    forms:
+      - Rank(Sub(Mul({A},{B}),Mul({C},{D})))
+      - Rank(Sub(Div({A},{B}),Div({C},{D})))
+      - Rank(Mul(Sub({A},{B}),Sub({C},{D})))
+    max_count: 400
+    max_depth: 8
+    max_nodes: 28
+    max_ts_ops: 5
+    max_pair_ops: 0
+    max_binary_ops: 4

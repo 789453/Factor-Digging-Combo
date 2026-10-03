@@ -1,0 +1,54 @@
+version: alpha_research_v1
+
+data:
+  source: duckdb
+  duckdb_path: D:/Trading/data_ever_26_3_14/data/meta/warehouse.duckdb
+  pool_json: static_pool_200.json
+  start: "20230101"
+  end: "20260430"
+
+split:
+  discovery_end: "20231231"
+  validation_start: "20240101"
+  validation_end: "20251231"
+  holdout_start: "20260101"
+
+evaluation:
+  horizon: 5
+  min_daily_names: 30
+  min_coverage: 0.55
+  nw_lags: 5
+  bootstrap_samples: 50
+  bootstrap_block: 20
+
+search:
+  fields:
+    - ret_1d
+    - hl_range
+    - oc_ret
+    - close_pos
+    - amount_log
+    - vol_log
+    - turnover_log
+    - main_net_ratio
+    - big_vs_small_flow
+    - flow_imbalance
+    - chip_width_90
+    - chip_cost_bias
+  windows: [10, 20, 30]
+  max_expressions: 60
+  max_per_family: 10
+  seed: 42
+  template_config: configs/research/templates.yaml
+
+selection:
+  top_n: 15
+  max_per_family: 5
+  max_per_primary_field: 4
+  pair_top_n: 8
+  pair_candidate_n: 15
+  pair_max_similarity: 0.70
+
+output:
+  out_dir: outputs/research_real_smoke
+  save_factor_panels: false

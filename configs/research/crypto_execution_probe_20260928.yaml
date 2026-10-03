@@ -1,0 +1,79 @@
+version: alpha_research_crypto_execution_probe_v1
+data:
+  source: crypto_parquet
+  crypto_parquet_root: D:/Trading/practical_crypto_strategy/data/parquet
+  crypto_primary_timeframe: 1h
+  crypto_micro_timeframe: 15m
+  crypto_fast_timeframe: 5m
+  crypto_feature_cache_dir: outputs/cache/crypto_features
+  start: "2023-01-01 00:00:00"
+  end: "2023-06-30 23:59:59"
+split:
+  discovery_end: "202303312300"
+  validation_start: "202304010000"
+  validation_end: "202305312300"
+  holdout_start: "202306010000"
+evaluation:
+  factor_mode: time_series
+  horizon: 4
+  entry_lag: 1
+  min_daily_names: 3
+  min_coverage: 0.5
+  nw_lags: 4
+  bootstrap_samples: 10
+  bootstrap_block: 4
+  periods_per_year: 8760
+  strategy_cost_bps: 4.0
+  strategy_top_pct: 0.25
+  robustness_horizons: [1, 4]
+  time_series_block: 168
+  time_series_position_window: 168
+  time_series_position_clip: 2.0
+  # Units are 1h decision bars; 5m/15m fields remain completed-hour aggregates.
+  execution_horizons: [1, 4, 12]
+  execution_rebalance_bars: [1, 4]
+  execution_no_trade_bands: [0.0, 0.25]
+  execution_cost_bps: [0.0, 4.0, 8.0]
+  execution_probe_n: 6
+  score_weights:
+    validation_edge_rank: 0.16
+    validation_ir_rank: 0.10
+    validation_hit_rank: 0.05
+    discovery_edge_rank: 0.08
+    sign_consistency_rank: 0.04
+    coverage_rank: 0.03
+    turnover_rank: 0.04
+    complexity_rank: 0.02
+    validation_sharpe_rank: 0.22
+    discovery_sharpe_rank: 0.10
+    horizon_robustness_rank: 0.16
+search:
+  fields: [ret_1h, ret_4h, ret_24h, realized_vol_24h, volatility_direction_24h, return_skew_24h, volume_shock_24h, amihud_shock_24h, taker_imbalance, micro_taker_imbalance, micro_path_efficiency, micro_jump_share, micro5_jump_share, micro5_path_efficiency, micro5_taker_imbalance, micro5_15_flow_gap, micro5_volatility_ratio, session_cumulative_return, session_cumulative_volume_ratio, session_volume_surprise, session_volatility_surprise, session_illiquidity_surprise, session_flow_surprise, us_day_flag, us_evening_flag, us_overnight_flag, ny_hour_sin, ny_hour_cos, session_progress]
+  windows: [3, 6, 12, 24, 72, 168]
+  max_expressions: 80
+  max_per_family: 8
+  seed: 20260927
+  template_config: configs/research/templates_crypto_multiscale_sessions.yaml
+  max_cache_items: 32
+  diversity_share: 0.8
+  coarse_keep_n: 40
+  checkpoint_batch_size: 8
+  coarse_max_per_family: 4
+  coarse_max_per_primary_field: 4
+  medium_keep_n: 20
+  medium_max_per_family: 3
+  medium_max_per_primary_field: 3
+selection:
+  top_n: 4
+  max_per_family: 2
+  max_per_primary_field: 2
+  pair_top_n: 2
+  pair_candidate_n: 4
+  pair_max_similarity: 0.8
+output:
+  out_dir: outputs/crypto_execution_probe_20260928
+  store_path: outputs/crypto_research_index.duckdb
+  save_factor_panels: false
+reporting:
+  enabled: true
+  top_n: 4
