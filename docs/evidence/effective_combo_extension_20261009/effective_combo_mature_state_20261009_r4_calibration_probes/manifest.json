@@ -1,0 +1,24 @@
+{
+  "status": "COMPLETED",
+  "role": "fixed coefficient/input probes, not new selected strategies",
+  "no_refit": true,
+  "no_rescale": true,
+  "sources_unchanged": {
+    "outputs\\effective_combo_mature_state_20261009_r4_history\\state_cal1_prediction.npy": "002e58480d3b986920337503de58b7143d69e54511797236a26ec73a379851de",
+    "outputs\\effective_combo_mature_state_20261009_r4_history\\state_coefficients.csv": "9ec8d56dece18745af6e413e892dc5c65ea095d925b57f17e8980733de814c5c",
+    "outputs\\effective_combo_mature_state_20261009_r4_history\\portfolio_metrics.csv": "fa6c7fc210ecc18834efd9cecfa574106193ca047ad5c1153de31c14091534ab",
+    "outputs\\effective_combo_mature_state_20261009_r4_history\\config.yaml": "68de388137edd9ea7650ef9a679014fd08a836fde2a504979097d21f032d0cab",
+    "outputs\\effective_combo_mature_state_20261009_r4_history\\manifest.json": "20765805383e1908e8eff49278973cb22ba120aa04291099f198ea9f62cd6879",
+    "outputs\\effective_combo_mature_state_20261009_r4_oos\\state_cal1_prediction.npy": "d3011d81ce953d3aae225a75703e6b34a2667ebdf92b0f0f7cdc686e94ccbe82",
+    "outputs\\effective_combo_mature_state_20261009_r4_oos\\state_coefficients.csv": "b80061c80c74efb79dc50c887d013514e67dddd1e859489f3aaa5c337eb8ded9",
+    "outputs\\effective_combo_mature_state_20261009_r4_oos\\portfolio_metrics.csv": "ac403a5dce553c3f64dd2d9d9f41c24ca5a4eae943c249502b346090dd28f711",
+    "outputs\\effective_combo_mature_state_20261009_r4_oos\\config.yaml": "24b17c888fb60c687a5c708831142fc9ef460582d1c4d5d425309f31804134e6",
+    "outputs\\effective_combo_mature_state_20261009_r4_oos\\manifest.json": "57fd83d49ba5b10e239d129bfbe53ebd696ccba3735fe63fed0083da84a274e8"
+  },
+  "probes": [
+    "warmup_zero",
+    "negative_gamma_zero",
+    "gamma_abs_cap_half"
+  ],
+  "interpretation": "all coefficients outside each intervention remain frozen; not additive causal PnL attribution"
+}

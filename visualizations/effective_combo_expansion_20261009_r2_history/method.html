@@ -1,0 +1,292 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>事前冻结、来源、标签成熟与复现</title><style>
+body{margin:0;background:#f5f7fa;color:#192638;font:15px/1.5 system-ui,'Microsoft YaHei',sans-serif}
+nav{background:#102b47;color:white;padding:13px 28px;position:sticky;top:0;z-index:10}
+nav a{color:#d6eaff;margin-right:20px;text-decoration:none;font-weight:600}
+main{max-width:1440px;margin:25px auto;padding:0 20px 50px}
+h1{font-size:29px;margin:10px 0}h2{font-size:21px;margin:32px 0 12px}
+.muted{color:#52677a}.note{background:#fff8e8;border-left:4px solid #dfac35;padding:12px 16px;margin:18px 0}
+.card{background:white;border:1px solid #dce4ec;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #1433500b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stat{background:#edf4fb;border-radius:8px;padding:13px}.stat b{font-size:24px;display:block}
+table{border-collapse:collapse;width:100%;background:white;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e1e8ee;text-align:right}th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:#eaf0f5}tr:hover{background:#f4f9fd}
+.scroll{overflow:auto;max-height:560px}.links a{display:inline-block;padding:6px 10px;margin:4px;background:#e6f0fb;border-radius:5px;color:#12385b;text-decoration:none}
+footer{color:#657789;font-size:12px;margin-top:30px}
+</style><script src="plotly.min.js"></script></head><body><nav><a href="index.html">总览</a> · <a href="comparison.html">公平模型比较</a> · <a href="factors.html">弱信号扩池</a> · <a href="weights.html">组合权重</a> · <a href="periods.html">月季广度</a> · <a href="assets.html">逐币证据</a> · <a href="costs.html">成本与暴露</a> · <a href="method.html">冻结与复现</a></nav><main><h1>事前冻结、来源、标签成熟与复现</h1><p>4h完成决策与收益预测，之后原生5m实际份额账本；单边4bps/终点平仓/简单收益复利；日Sharpe sqrt(365.25)。旧候选发现期反馈OOF非独立，历史验证已见；2026为历史OOS复核，月更仅用过去成熟标签。</p><p>自动发现推荐保持 wide_ridge__edge8，不按OOS重新选。每次输出不可变；同一生产CLI入口。</p><pre>{
+  &quot;protocol&quot;: {
+    &quot;stage&quot;: &quot;effective_combo_extension&quot;,
+    &quot;source_pool_run&quot;: &quot;outputs/complex_alpha_prediction_estimation_20261009_v1&quot;,
+    &quot;baseline_run&quot;: &quot;outputs/effective_combo_20261009_round1&quot;,
+    &quot;pool&quot;: {
+      &quot;shortlist_count&quot;: 256,
+      &quot;additional_per_stream&quot;: 48,
+      &quot;correlation_limit&quot;: 0.95
+    },
+    &quot;models&quot;: [
+      {
+        &quot;id&quot;: &quot;base_ridge&quot;,
+        &quot;backend&quot;: &quot;ridge&quot;,
+        &quot;trees&quot;: 1,
+        &quot;leaves&quot;: 2,
+        &quot;min_leaf&quot;: 4,
+        &quot;learning_rate&quot;: 0.05,
+        &quot;penalty&quot;: 10.0,
+        &quot;window_months&quot;: 12,
+        &quot;update_months&quot;: 1,
+        &quot;pool&quot;: &quot;base&quot;
+      },
+      {
+        &quot;id&quot;: &quot;base15&quot;,
+        &quot;backend&quot;: &quot;lightgbm&quot;,
+        &quot;trees&quot;: 160,
+        &quot;leaves&quot;: 15,
+        &quot;min_leaf&quot;: 256,
+        &quot;learning_rate&quot;: 0.05,
+        &quot;penalty&quot;: 10.0,
+        &quot;window_months&quot;: 12,
+        &quot;update_months&quot;: 1,
+        &quot;pool&quot;: &quot;base&quot;
+      },
+      {
+        &quot;id&quot;: &quot;base31&quot;,
+        &quot;backend&quot;: &quot;lightgbm&quot;,
+        &quot;trees&quot;: 240,
+        &quot;leaves&quot;: 31,
+        &quot;min_leaf&quot;: 128,
+        &quot;learning_rate&quot;: 0.05,
+        &quot;penalty&quot;: 10.0,
+        &quot;window_months&quot;: 12,
+        &quot;update_months&quot;: 1,
+        &quot;pool&quot;: &quot;base&quot;
+      },
+      {
+        &quot;id&quot;: &quot;wide_ridge&quot;,
+        &quot;backend&quot;: &quot;ridge&quot;,
+        &quot;trees&quot;: 1,
+        &quot;leaves&quot;: 2,
+        &quot;min_leaf&quot;: 4,
+        &quot;learning_rate&quot;: 0.05,
+        &quot;penalty&quot;: 10.0,
+        &quot;window_months&quot;: 12,
+        &quot;update_months&quot;: 1,
+        &quot;pool&quot;: &quot;wide&quot;
+      },
+      {
+        &quot;id&quot;: &quot;wide15&quot;,
+        &quot;backend&quot;: &quot;lightgbm&quot;,
+        &quot;trees&quot;: 160,
+        &quot;leaves&quot;: 15,
+        &quot;min_leaf&quot;: 256,
+        &quot;learning_rate&quot;: 0.05,
+        &quot;penalty&quot;: 10.0,
+        &quot;window_months&quot;: 12,
+        &quot;update_months&quot;: 1,
+        &quot;pool&quot;: &quot;wide&quot;
+      },
+      {
+        &quot;id&quot;: &quot;wide31&quot;,
+        &quot;backend&quot;: &quot;lightgbm&quot;,
+        &quot;trees&quot;: 240,
+        &quot;leaves&quot;: 31,
+        &quot;min_leaf&quot;: 128,
+        &quot;learning_rate&quot;: 0.05,
+        &quot;penalty&quot;: 10.0,
+        &quot;window_months&quot;: 12,
+        &quot;update_months&quot;: 1,
+        &quot;pool&quot;: &quot;wide&quot;
+      },
+      {
+        &quot;id&quot;: &quot;wide15_static&quot;,
+        &quot;backend&quot;: &quot;lightgbm&quot;,
+        &quot;trees&quot;: 160,
+        &quot;leaves&quot;: 15,
+        &quot;min_leaf&quot;: 256,
+        &quot;learning_rate&quot;: 0.05,
+        &quot;penalty&quot;: 10.0,
+        &quot;window_months&quot;: 0,
+        &quot;update_months&quot;: 0,
+        &quot;pool&quot;: &quot;wide&quot;
+      }
+    ],
+    &quot;adaptation&quot;: {
+      &quot;shared_model&quot;: &quot;wide15&quot;,
+      &quot;asset_share&quot;: 0.25,
+      &quot;model&quot;: {
+        &quot;id&quot;: &quot;asset7&quot;,
+        &quot;backend&quot;: &quot;lightgbm&quot;,
+        &quot;trees&quot;: 120,
+        &quot;leaves&quot;: 7,
+        &quot;min_leaf&quot;: 128,
+        &quot;learning_rate&quot;: 0.05,
+        &quot;penalty&quot;: 10.0,
+        &quot;window_months&quot;: 12,
+        &quot;update_months&quot;: 1
+      }
+    },
+    &quot;weighting&quot;: {
+      &quot;members&quot;: [
+        &quot;wide_ridge&quot;,
+        &quot;wide15&quot;,
+        &quot;wide31&quot;
+      ],
+      &quot;diagonal_shrink&quot;: 0.5,
+      &quot;equal_shrink&quot;: 0.5,
+      &quot;minimum_labels&quot;: 500
+    },
+    &quot;executions&quot;: [
+      {
+        &quot;id&quot;: &quot;edge8&quot;,
+        &quot;name&quot;: &quot;net_edge&quot;,
+        &quot;floor_bps&quot;: 8.0,
+        &quot;amplitude_bps&quot;: 50.0
+      },
+      {
+        &quot;id&quot;: &quot;edge16&quot;,
+        &quot;name&quot;: &quot;net_edge&quot;,
+        &quot;floor_bps&quot;: 16.0,
+        &quot;amplitude_bps&quot;: 50.0
+      }
+    ],
+    &quot;cost_bps&quot;: 4.0,
+    &quot;gross_budget&quot;: 0.5,
+    &quot;seed&quot;: 20261009,
+    &quot;threads&quot;: 6,
+    &quot;label_clip_bps&quot;: 2000.0,
+    &quot;oos_start&quot;: &quot;202603010000&quot;,
+    &quot;oos_end&quot;: &quot;202609302355&quot;
+  },
+  &quot;extra_ids&quot;: [
+    &quot;main_F1_bf6de9a5606bb00c&quot;,
+    &quot;main_F1_e7c8c507208a1d24&quot;,
+    &quot;control_OLD_405b3ffd27bda83e&quot;,
+    &quot;control_OLD_f1b817f5fedcc7a7&quot;,
+    &quot;main_F2_0c204f70f2b7cd35&quot;,
+    &quot;main_F2_74f9af5016961b74&quot;,
+    &quot;control_OLD_27623919d75fb3c9&quot;,
+    &quot;control_OLD_7bc9db343cd09b04&quot;,
+    &quot;main_F3_58592062457bd5ad&quot;,
+    &quot;main_F3_e173020ab12c5035&quot;,
+    &quot;control_OLD_18c644c6967a00b8&quot;,
+    &quot;control_OLD_8a3cb573d953a0fa&quot;,
+    &quot;main_F4_0dab2835942ef1a7&quot;,
+    &quot;main_F4_96fc7badb43f3ae1&quot;,
+    &quot;control_OLD_965fdf2f0f6d0738&quot;,
+    &quot;control_OLD_3d15334ef3365d7a&quot;,
+    &quot;main_F5_b1265b5efb11c957&quot;,
+    &quot;main_F5_f07dfb6e588525e3&quot;,
+    &quot;control_OLD_24344e4ab3d061af&quot;,
+    &quot;control_OLD_6bb61806a9009ed5&quot;,
+    &quot;main_F6_8205c95883ada0ec&quot;,
+    &quot;main_F6_2f4098cbc8764912&quot;,
+    &quot;control_OLD_e6daa4c8d25dcb89&quot;,
+    &quot;control_OLD_39e25d882112214d&quot;,
+    &quot;main_F7_8bfc4f89d4f1ea34&quot;,
+    &quot;main_F7_6658249165482a38&quot;,
+    &quot;control_OLD_81485c36b3f0abd6&quot;,
+    &quot;control_OLD_06dd7a6d36e0917f&quot;,
+    &quot;main_OLD_40552edf9d66592f&quot;,
+    &quot;main_OLD_0d4d0acdbdb0a827&quot;,
+    &quot;control_OLD_ff9d465b4b86dfee&quot;,
+    &quot;control_OLD_cfd0533c7b748efe&quot;,
+    &quot;main_F1_f6412952df579d70&quot;,
+    &quot;main_F1_a0cd380497ed1f09&quot;,
+    &quot;control_OLD_34f81e21aa3abde1&quot;,
+    &quot;control_OLD_ae059e5cfed0e6e4&quot;,
+    &quot;main_F2_bc7cac5a039ab9d3&quot;,
+    &quot;main_F2_86a6977c34bfbbd0&quot;,
+    &quot;control_OLD_4753e1140a5efef8&quot;,
+    &quot;control_OLD_1483ca7d48e6f00a&quot;,
+    &quot;main_F3_7b10948d012f419b&quot;,
+    &quot;main_F3_d027458853dd3716&quot;,
+    &quot;control_OLD_639fc77fdf69248e&quot;,
+    &quot;control_OLD_6d110425a903c3bc&quot;,
+    &quot;main_F4_0aac2a41944df08b&quot;,
+    &quot;main_F4_13079c10c08cad2a&quot;,
+    &quot;control_OLD_3327a50467ab6131&quot;,
+    &quot;control_OLD_7323e776d529aff8&quot;,
+    &quot;main_F5_5ff80874cc771ae6&quot;,
+    &quot;main_F5_e760f60fc1dd1868&quot;,
+    &quot;control_OLD_61a75d2abed6538a&quot;,
+    &quot;control_OLD_d6deb85467169c2d&quot;,
+    &quot;main_F6_7a90e30bfbcb31fe&quot;,
+    &quot;main_F6_8bfbb7fe0dbedba7&quot;,
+    &quot;control_OLD_8354ff91dc05e5d3&quot;,
+    &quot;control_OLD_27c88986abc02d96&quot;,
+    &quot;main_F7_a69cbb312bf95d1c&quot;,
+    &quot;main_F7_e661fa9acca05f63&quot;,
+    &quot;control_OLD_4e6a09b9cb3d00b5&quot;,
+    &quot;control_OLD_582cb297d1856999&quot;,
+    &quot;main_OLD_0572b7fd963e2de2&quot;,
+    &quot;main_OLD_e7bc4e0e987f2993&quot;,
+    &quot;control_OLD_7f02af752422f51e&quot;,
+    &quot;control_OLD_5aba674cc88c8311&quot;,
+    &quot;main_F1_3e225d06468d0ed1&quot;,
+    &quot;main_F1_b44c6dba828c2bcb&quot;,
+    &quot;control_OLD_ae42aed1245d0b91&quot;,
+    &quot;control_OLD_9b58549b7de76aa6&quot;,
+    &quot;main_F2_434a691b1ffaa15d&quot;,
+    &quot;main_F2_64bca5bc14de3187&quot;,
+    &quot;control_OLD_909ed68b3e0d8119&quot;,
+    &quot;control_OLD_2068f161e8e87391&quot;,
+    &quot;main_F3_81eead8685612d2c&quot;,
+    &quot;main_F3_0a7cab45123b8b5c&quot;,
+    &quot;control_OLD_872532fb892e7954&quot;,
+    &quot;control_OLD_5dc2c61007a4fb1e&quot;,
+    &quot;main_F4_137b7db56473df58&quot;,
+    &quot;main_F4_ac908b66bf270bc5&quot;,
+    &quot;control_OLD_dee6ef1503c47bc5&quot;,
+    &quot;control_OLD_ff4b2bd7928a72ff&quot;,
+    &quot;main_F5_d3a1f5b18e28e19b&quot;,
+    &quot;main_F5_ba840a83d28a0a15&quot;,
+    &quot;control_OLD_382466e53a64ea97&quot;,
+    &quot;control_OLD_5f70d2b79ff2c825&quot;,
+    &quot;main_F6_5d317d36578b711a&quot;,
+    &quot;main_F6_ead167046aa80ecf&quot;,
+    &quot;control_OLD_7b05e437c5635393&quot;,
+    &quot;control_OLD_aeab41732d90c557&quot;,
+    &quot;main_F7_667c85f8e7e533a0&quot;,
+    &quot;main_F7_5e21817b5006f165&quot;,
+    &quot;control_OLD_ab793adc7569e0cc&quot;,
+    &quot;control_OLD_474b5aa2391081c7&quot;,
+    &quot;main_OLD_43dcc4cfd3d2135d&quot;,
+    &quot;main_OLD_388978c9e0df73a4&quot;,
+    &quot;control_OLD_708f5aca3fa45a65&quot;,
+    &quot;control_OLD_64177df304746a8b&quot;
+  ],
+  &quot;source_hashes&quot;: {
+    &quot;outputs\\complex_alpha_prediction_estimation_20261009_v1\\config.yaml&quot;: &quot;ebc2a0049562312dbbc16c347229e4dc4b54ee0cc01257706a8b680ccac93443&quot;,
+    &quot;outputs\\complex_alpha_prediction_estimation_20261009_v1\\numeric_pool_contract.json&quot;: &quot;cae7db55d78eb200b96e8497a95f99864d88aa3cdae908322fd2da495c064561&quot;,
+    &quot;outputs\\complex_alpha_prediction_estimation_20261009_v1\\feature_pool_freeze.json&quot;: &quot;32b44046c286326a4ea5f2bb3c0f02e72cecdbc69dcb3883cc2e8027f0a2e42a&quot;,
+    &quot;outputs\\complex_alpha_prediction_estimation_20261009_v1\\manifest.json&quot;: &quot;c4b842ce154fed50cd6955cf3a60d65f741043c7c82e961fe521be0a67e9c872&quot;,
+    &quot;outputs\\complex_alpha_20261008_round5\\coarse_results.csv&quot;: &quot;8b0b45dcfe04f43fa989731fed9c22307c9fa1504038cc64fa38841b1178c4aa&quot;,
+    &quot;outputs\\complex_alpha_20261008_round5\\candidate_registry.json&quot;: &quot;e01df8d2ba64ffe2e212abd25bb9dfb6a2bd9c6ba046d9ce5667830ab38e4c00&quot;,
+    &quot;outputs\\complex_alpha_20261008_round5\\initial_coordinate_scaler.json&quot;: &quot;82b3e7cfb072fb4e76a1ded8eb7c37c228b22065eea93291a8176fe8a032868f&quot;,
+    &quot;outputs\\complex_alpha_20261008_round5\\input_signature.json&quot;: &quot;92f0c0475601b76863a12c4e3b0071fb0808294254eaec4a59c2256945ee423f&quot;,
+    &quot;outputs\\effective_combo_20261009_round1\\config.yaml&quot;: &quot;71ceaf68259f8cb11af87247c28456d9f8dbcf839bfdb416c8fcff558702f586&quot;,
+    &quot;outputs\\effective_combo_20261009_round1\\manifest.json&quot;: &quot;fa20c54a3028e8f0ad572ac1a97b4b681c07b6ca4f96f2740de7299b025fd216&quot;,
+    &quot;outputs\\effective_combo_20261009_round1\\portfolio_metrics.csv&quot;: &quot;6bda4f49320fa850177c1a3b350a549cc56a491ca3b79766eb7d4f8d6ed3a4ed&quot;,
+    &quot;outputs\\effective_combo_20261009_round1\\ridge_asset_online_prediction.npy&quot;: &quot;12d09468ff175752d0d29f923690b9f0fd628500639d28501431250993ec469c&quot;,
+    &quot;outputs\\effective_combo_20261009_round1\\tree15_online_prediction.npy&quot;: &quot;4cf4ac991d21b4c3243c9bdfc1c95d0c24ee931b7e6439e39be9fa84b6f0c91d&quot;,
+    &quot;outputs\\effective_combo_20261009_round1\\tree31_online_prediction.npy&quot;: &quot;98f75b61662f21239250ed3b73d9572fc20c3a7df7544c5390017159d4ab5063&quot;
+  },
+  &quot;code&quot;: {
+    &quot;aligned_contract.py&quot;: &quot;e2375bb0d65160f534827512f21c996532c29daae525d25c0d45cdb1db983aa3&quot;,
+    &quot;complex_alpha_evaluation.py&quot;: &quot;bfa8150ce6a1652a1d1cb2be5fd2e697ab09839f565ccb8d906e925af9ce1a2e&quot;,
+    &quot;complex_alpha_prediction.py&quot;: &quot;1b8ffa1cc1e538ff984ee8c262d4f64364b075c7066fd0327594cd87f7dd611c&quot;,
+    &quot;complex_alpha_search.py&quot;: &quot;47231d3a0d717995252fad2db8c74b8fba4a142fb4c30b47458fa2e37e9637f4&quot;,
+    &quot;complex_alpha_workflow.py&quot;: &quot;60e08a702499e9904952ba06304337bfdb26646d5f072f226314cc8bc7e8cabd&quot;,
+    &quot;effective_combo.py&quot;: &quot;60d9df035efa873c6a75214ed589e408954538e8c0a82b7b629c378435262b29&quot;,
+    &quot;effective_combo_extension.py&quot;: &quot;9bd288d501344051abe015bc040fe6990397dc13cd510f66c588a2c1bd774413&quot;,
+    &quot;effective_combo_extension_reporting.py&quot;: &quot;8de68ca7f9a5889f7047fdfeeb7d3be9c4ffba12d884e8320748cfa45392d12e&quot;,
+    &quot;effective_combo_extension_workflow.py&quot;: &quot;dbcde543bd319b3a929309a5b7282f5017646f1e8e1489a2804a07ddc01c5ada&quot;,
+    &quot;manual_alpha_derivatives.py&quot;: &quot;3fb8290783f9b92f984ae2c1fede1377e52365fae91064dfe0fb91db49f6af8c&quot;
+  },
+  &quot;selection_data&quot;: &quot;source discovery allowlist and numerical discovery correlation only&quot;,
+  &quot;predeclared_anchors&quot;: [
+    &quot;base_ensemble__edge16&quot;,
+    &quot;base15__edge16&quot;
+  ],
+  &quot;holdout_opened&quot;: false,
+  &quot;historical_validation_previously_seen&quot;: true,
+  &quot;independent_oof&quot;: false
+}</pre><a href="../../outputs/effective_combo_expansion_20261009_r2_history/config.yaml">运行配置</a> · <a href="../../outputs/effective_combo_expansion_20261009_r2_history/portfolio_metrics.csv">全账本指标</a> · <a href="../../outputs/effective_combo_expansion_20261009_r2_history/update_records.csv">完整更新记录</a><footer>D:\Trading\My_factor_mining_427\outputs\effective_combo_expansion_20261009_r2_history</footer></main></body></html>

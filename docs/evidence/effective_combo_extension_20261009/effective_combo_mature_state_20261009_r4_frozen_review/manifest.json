@@ -1,0 +1,28 @@
+{
+  "status": "COMPLETED",
+  "role": "read-only conditional temporal uncertainty and QA",
+  "sources": [
+    "outputs\\effective_combo_mature_state_20261009_r4_history",
+    "outputs\\effective_combo_mature_state_20261009_r4_oos"
+  ],
+  "files_unchanged": 394,
+  "selection_identical": true,
+  "protocol_identical": true,
+  "visualizations": [
+    {
+      "root": "visualizations\\effective_combo_mature_state_20261009_r4_history",
+      "pages": 53,
+      "local_links": 577,
+      "missing": [],
+      "automatic_selection": "wide_ridge__edge8"
+    },
+    {
+      "root": "visualizations\\effective_combo_mature_state_20261009_r4_oos",
+      "pages": 53,
+      "local_links": 577,
+      "missing": [],
+      "automatic_selection": "wide_ridge__edge8"
+    }
+  ],
+  "bootstrap_scope": "conditional circular seven-day blocks; no selection/multiple-testing correction or future guarantee"
+}

@@ -1,5 +1,7 @@
 # Alpha Research Framework
 
+**最新跨期成果（2026-10-09）**：[完整扩展研究](docs/EFFECTIVE_COMBO_EXTENDED_RESEARCH_RESULTS_20261009.md)、[产品使用卡](docs/EFFECTIVE_COMBO_EXTENDED_PRODUCT_CARDS_20261009.md)、[69页总览](visualizations/effective_combo_20261009_extended_final_review_v2/index.html)。原202输入保留并增至298市场输入；有界共享/单币/收缩组合对照后，一月成熟幅度校准的两套预声明分支在验证与2026-03至数据终点都存活：OOS净+2.4679%/+2.3210%，Sharpe2.1324/2.6017，8bps仍正。原R1在2026失效、三月主假设失败、八九月集中和暖启动依赖均完整保留；历史OOS非新盲测，不改冻结推荐。173测试、三个阶段模拟CLI及真实核验通过。下面R1的有效结论仅指其原验证段。
+
 **当前有效成果（2026-10-09）**：[完整研究报告](docs/EFFECTIVE_FACTOR_AND_COMBO_RESEARCH_RESULTS_20261009.md)、[策略与因子产品卡](docs/EFFECTIVE_FACTOR_AND_COMBO_PRODUCT_CARDS_20261009.md)、[41页交互总览](visualizations/effective_combo_20261009_full_review_v2/index.html)。组合／15叶两套历史基线验证费后+5.5922%／+7.1711%，三发现折、两个完整验证季度及1月均正，8bps仍正；164测试及模拟CLI通过。原自动第一失败保留，不按验证改参数。产品为共同方向／条件择时，不标纯残差Alpha或独立未来保证。下文全亏损是较早阶段结果。
 
 这是一个支持加密货币、期货和股票的多资产因子研究框架。近期主航向是加密货币合约的逐资产时间序列因子挖掘；股票和期货的截面研究接口继续保留。

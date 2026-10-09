@@ -1,0 +1,136 @@
+{
+  "selected": {
+    "id": "wide_ridge__edge8",
+    "positive_discovery_folds": 3,
+    "discovery_score": 2.4350555070403623
+  },
+  "ranked_discovery": [
+    {
+      "id": "wide_ridge__edge8",
+      "positive_discovery_folds": 3,
+      "discovery_score": 2.4350555070403623
+    },
+    {
+      "id": "base_ridge__edge8",
+      "positive_discovery_folds": 3,
+      "discovery_score": 2.385271659411194
+    },
+    {
+      "id": "wide_ridge__edge16",
+      "positive_discovery_folds": 3,
+      "discovery_score": 2.196942451688021
+    },
+    {
+      "id": "base_ridge__edge16",
+      "positive_discovery_folds": 3,
+      "discovery_score": 2.113825720698801
+    },
+    {
+      "id": "wide15_static__edge16",
+      "positive_discovery_folds": 3,
+      "discovery_score": 1.543537505575655
+    },
+    {
+      "id": "adaptive_equal__edge16",
+      "positive_discovery_folds": 3,
+      "discovery_score": 1.4169192650140525
+    },
+    {
+      "id": "asset_shrunk__edge16",
+      "positive_discovery_folds": 3,
+      "discovery_score": 1.2111026427115816
+    },
+    {
+      "id": "wide_cov__edge16",
+      "positive_discovery_folds": 3,
+      "discovery_score": 1.187769508001681
+    },
+    {
+      "id": "wide_equal__edge16",
+      "positive_discovery_folds": 3,
+      "discovery_score": 1.1786030765995978
+    },
+    {
+      "id": "base_ensemble__edge16",
+      "positive_discovery_folds": 3,
+      "discovery_score": 1.12313577775502
+    },
+    {
+      "id": "wide15_static__edge8",
+      "positive_discovery_folds": 3,
+      "discovery_score": 1.1225685291151895
+    },
+    {
+      "id": "adaptive_equal__edge8",
+      "positive_discovery_folds": 3,
+      "discovery_score": 1.0535094239504794
+    },
+    {
+      "id": "base15__edge16",
+      "positive_discovery_folds": 3,
+      "discovery_score": 0.9267760669170391
+    },
+    {
+      "id": "wide15__edge16",
+      "positive_discovery_folds": 2,
+      "discovery_score": 0.8961480633431276
+    },
+    {
+      "id": "base_ensemble__edge8",
+      "positive_discovery_folds": 2,
+      "discovery_score": 0.8564516019354672
+    },
+    {
+      "id": "wide_cov__edge8",
+      "positive_discovery_folds": 2,
+      "discovery_score": 0.8445133983659274
+    },
+    {
+      "id": "asset_shrunk__edge8",
+      "positive_discovery_folds": 2,
+      "discovery_score": 0.841690943286325
+    },
+    {
+      "id": "wide_equal__edge8",
+      "positive_discovery_folds": 2,
+      "discovery_score": 0.8322424958941494
+    },
+    {
+      "id": "wide15__edge8",
+      "positive_discovery_folds": 2,
+      "discovery_score": 0.5219364080296658
+    },
+    {
+      "id": "base15__edge8",
+      "positive_discovery_folds": 2,
+      "discovery_score": 0.49976313990495486
+    },
+    {
+      "id": "base31__edge16",
+      "positive_discovery_folds": 2,
+      "discovery_score": 0.042809050935421644
+    },
+    {
+      "id": "wide31__edge16",
+      "positive_discovery_folds": 1,
+      "discovery_score": -0.05671717416747274
+    },
+    {
+      "id": "base31__edge8",
+      "positive_discovery_folds": 1,
+      "discovery_score": -0.1939335081508521
+    },
+    {
+      "id": "wide31__edge8",
+      "positive_discovery_folds": 1,
+      "discovery_score": -0.24349246755121953
+    }
+  ],
+  "selection_data": "discovery only",
+  "anchors": [
+    "base_ensemble__edge16",
+    "base15__edge16"
+  ],
+  "holdout_opened": false,
+  "independent_oof": false
+}

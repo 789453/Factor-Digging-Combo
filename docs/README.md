@@ -1,5 +1,12 @@
 # 文档导航与交接顺序
 
+## 最新入口（2026-10-09，R2—R4跨期扩展）
+
+- [完整扩展报告](EFFECTIVE_COMBO_EXTENDED_RESEARCH_RESULTS_20261009.md)、[使用卡](EFFECTIVE_COMBO_EXTENDED_PRODUCT_CARDS_20261009.md)、[69页完整总览](../visualizations/effective_combo_20261009_extended_final_review_v2/index.html)。原池202→298市场输入，固定旧基线、共享/单币、预测尺度权重及成熟幅度对照；一月cal两套预声明映射验证/OOS均正，173测试通过。
+- 原R1的2025高Sharpe未在2026原样延续；一月cal OOS+2.4679%/+2.3210%、Sharpe2.1324/2.6017、8bps仍正。三月主协议失败，六个月微正近空仓不认作有效交易；八九月集中、暖启动依赖、跨零块区间如实展示。不以OOS重写自动发现推荐。
+- 新设计：[R2扩池/OOS](EFFECTIVE_COMBO_EXPANSION_OOS_DESIGN_20261009.md)、[R3共享权重](EFFECTIVE_COMBO_STACK_R3_DESIGN_20261009.md)、[R4成熟状态](EFFECTIVE_COMBO_MATURE_STATE_R4_DESIGN_20261009.md)、[R4 OOS前产品说明](EFFECTIVE_COMBO_R4_PRE_OOS_PRODUCT_DECISION_20261009.md)。[迭代日志](EFFECTIVE_COMBO_ITERATION_LOG_20261009.md)承接原阶段。
+- 公共轻量证据在`docs/evidence/effective_combo_extension_20261009/`；对应10/3/4份历史源码通过冻结SHA逐文件核验，原数值矩阵/大账本留本机不可覆盖outputs。当前唯一生产CLI不变。
+
 **2026-10-09最新有效成果**：[完整研究报告](EFFECTIVE_FACTOR_AND_COMBO_RESEARCH_RESULTS_20261009.md)、[策略与因子产品卡](EFFECTIVE_FACTOR_AND_COMBO_PRODUCT_CARDS_20261009.md)、[41页交互研究台](../visualizations/effective_combo_20261009_full_review_v2/index.html)。组合／15叶两套历史基线验证费后+5.5922%／+7.1711%，三发现折、两个完整验证季度及1月均正，8bps仍正；属于共同方向／条件择时，非纯Alpha或独立未来保证。自动唯一第一失败保留。下文全部亏损说明属于先前阶段。
 
 本目录是项目的长期研究记忆。新窗口、智能体或研究者开始工作前，按以下顺序阅读：

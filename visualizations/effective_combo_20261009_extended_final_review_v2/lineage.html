@@ -1,0 +1,134 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>从有效基线到跨期解法：迭代和证据</title><style>
+body{margin:0;background:#f5f7fa;color:#192638;font:15px/1.5 system-ui,'Microsoft YaHei',sans-serif}
+nav{background:#102b47;color:white;padding:13px 28px;position:sticky;top:0;z-index:10}
+nav a{color:#d6eaff;margin-right:20px;text-decoration:none;font-weight:600}
+main{max-width:1440px;margin:25px auto;padding:0 20px 50px}
+h1{font-size:29px;margin:10px 0}h2{font-size:21px;margin:32px 0 12px}
+.muted{color:#52677a}.note{background:#fff8e8;border-left:4px solid #dfac35;padding:12px 16px;margin:18px 0}
+.card{background:white;border:1px solid #dce4ec;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #1433500b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stat{background:#edf4fb;border-radius:8px;padding:13px}.stat b{font-size:24px;display:block}
+table{border-collapse:collapse;width:100%;background:white;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e1e8ee;text-align:right}th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:#eaf0f5}tr:hover{background:#f4f9fd}
+.scroll{overflow:auto;max-height:560px}.links a{display:inline-block;padding:6px 10px;margin:4px;background:#e6f0fb;border-radius:5px;color:#12385b;text-decoration:none}
+footer{color:#657789;font-size:12px;margin-top:30px}
+</style><script src="plotly.min.js"></script></head><body><nav><a href="index.html">研究总览</a> · <a href="oos_complete.html">全部OOS</a> · <a href="comparison.html">全模型比较</a> · <a href="factors.html">完整公式卡</a> · <a href="states.html">成熟状态</a> · <a href="qualifications.html">广度与不确定性</a> · <a href="calibration_probes.html">固定校准探针</a> · <a href="assets.html">十二币路径</a> · <a href="costs.html">费用与暴露</a> · <a href="lineage.html">研究迭代</a></nav><main><h1>从有效基线到跨期解法：迭代和证据</h1><p>固定12币、4h预测/决策、5m份额账本、单边4bps、简单收益复利、UTC日Sharpe。历史OOS复核，非新盲测；末时钟2026-09-25 00:00 UTC，9月部分覆盖。</p><p>先GitHub同步e8d2fd6，再R2冻结扩池和OOS；R3预测尺度收缩组合改进历史，OOS仍弱；R4预声明1/3/6月成熟幅度/方向对照，一个月cal存活，三月主假设失败。</p><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>stream</th>
+      <th>research_tier</th>
+      <th>family</th>
+      <th>added_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mixed</td>
+      <td>conditional_or_unstable</td>
+      <td>F1</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>conditional_or_unstable</td>
+      <td>F2</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>conditional_or_unstable</td>
+      <td>F3</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>conditional_or_unstable</td>
+      <td>F4</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>conditional_or_unstable</td>
+      <td>F5</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>conditional_or_unstable</td>
+      <td>F6</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>conditional_or_unstable</td>
+      <td>F7</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>conditional_or_unstable</td>
+      <td>OLD</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>predictive_candidate</td>
+      <td>F1</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>predictive_candidate</td>
+      <td>F2</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>predictive_candidate</td>
+      <td>F3</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>predictive_candidate</td>
+      <td>F4</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>predictive_candidate</td>
+      <td>F5</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>predictive_candidate</td>
+      <td>F6</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>predictive_candidate</td>
+      <td>F7</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>mixed</td>
+      <td>predictive_candidate</td>
+      <td>OLD</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>old</td>
+      <td>conditional_or_unstable</td>
+      <td>OLD</td>
+      <td>24.0000</td>
+    </tr>
+    <tr>
+      <td>old</td>
+      <td>predictive_candidate</td>
+      <td>OLD</td>
+      <td>24.0000</td>
+    </tr>
+  </tbody>
+</table></div><p><a href="../effective_combo_20261009_full_review_v2/index.html">R1完整报告</a> · <a href="../effective_combo_expansion_20261009_r2_history/index.html">R2历史</a> · <a href="../effective_combo_expansion_20261009_r2_oos/index.html">R2 OOS</a> · <a href="../effective_combo_stacking_20261009_r3_history/index.html">R3历史</a> · <a href="../effective_combo_stacking_20261009_r3_oos/index.html">R3 OOS</a></p><p>新增96公式来源、全部失败、原始数值和代码/源散列均保留。完整Python生产入口与本机outputs是权威证据，Git公开轻量副本不代替原账本。</p></main></body></html>

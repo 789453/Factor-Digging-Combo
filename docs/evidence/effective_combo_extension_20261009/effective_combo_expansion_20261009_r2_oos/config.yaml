@@ -1,0 +1,123 @@
+mode: aligned_crypto
+version: effective-combo-expansion-20261009-r2-oos
+complex_alpha:
+  stage: effective_combo_extension
+  phase: oos
+  source_pool_run: outputs/complex_alpha_prediction_estimation_20261009_v1
+  baseline_run: outputs/effective_combo_20261009_round1
+  frozen_run: outputs/effective_combo_expansion_20261009_r2_history
+  pool:
+    shortlist_count: 256
+    additional_per_stream: 48
+    correlation_limit: 0.95
+  models:
+  - id: base_ridge
+    backend: ridge
+    trees: 1
+    leaves: 2
+    min_leaf: 4
+    learning_rate: 0.05
+    penalty: 10.0
+    window_months: 12
+    update_months: 1
+    pool: base
+  - id: base15
+    backend: lightgbm
+    trees: 160
+    leaves: 15
+    min_leaf: 256
+    learning_rate: 0.05
+    penalty: 10.0
+    window_months: 12
+    update_months: 1
+    pool: base
+  - id: base31
+    backend: lightgbm
+    trees: 240
+    leaves: 31
+    min_leaf: 128
+    learning_rate: 0.05
+    penalty: 10.0
+    window_months: 12
+    update_months: 1
+    pool: base
+  - id: wide_ridge
+    backend: ridge
+    trees: 1
+    leaves: 2
+    min_leaf: 4
+    learning_rate: 0.05
+    penalty: 10.0
+    window_months: 12
+    update_months: 1
+    pool: wide
+  - id: wide15
+    backend: lightgbm
+    trees: 160
+    leaves: 15
+    min_leaf: 256
+    learning_rate: 0.05
+    penalty: 10.0
+    window_months: 12
+    update_months: 1
+    pool: wide
+  - id: wide31
+    backend: lightgbm
+    trees: 240
+    leaves: 31
+    min_leaf: 128
+    learning_rate: 0.05
+    penalty: 10.0
+    window_months: 12
+    update_months: 1
+    pool: wide
+  - id: wide15_static
+    backend: lightgbm
+    trees: 160
+    leaves: 15
+    min_leaf: 256
+    learning_rate: 0.05
+    penalty: 10.0
+    window_months: 0
+    update_months: 0
+    pool: wide
+  adaptation:
+    shared_model: wide15
+    asset_share: 0.25
+    model:
+      id: asset7
+      backend: lightgbm
+      trees: 120
+      leaves: 7
+      min_leaf: 128
+      learning_rate: 0.05
+      penalty: 10.0
+      window_months: 12
+      update_months: 1
+  weighting:
+    members:
+    - wide_ridge
+    - wide15
+    - wide31
+    diagonal_shrink: 0.5
+    equal_shrink: 0.5
+    minimum_labels: 500
+  executions:
+  - id: edge8
+    name: net_edge
+    floor_bps: 8.0
+    amplitude_bps: 50.0
+  - id: edge16
+    name: net_edge
+    floor_bps: 16.0
+    amplitude_bps: 50.0
+  cost_bps: 4.0
+  gross_budget: 0.5
+  seed: 20261009
+  threads: 6
+  label_clip_bps: 2000.0
+  oos_start: '202603010000'
+  oos_end: '202609302355'
+output:
+  out_dir: outputs/effective_combo_expansion_20261009_r2_oos
+  visualization_dir: visualizations/effective_combo_expansion_20261009_r2_oos

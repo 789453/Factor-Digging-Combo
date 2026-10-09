@@ -1,5 +1,9 @@
 # 有效因子与组合：从弱特征档案到历史稳健基线的完整研究
 
+## 后续跨期更新（2026-10-09）
+
+本报告的有效基线只认证其原历史验证段。R2—R4已扩至2026年3—9月可用数据：[完整扩展报告](EFFECTIVE_COMBO_EXTENDED_RESEARCH_RESULTS_20261009.md)、[69页总览](../visualizations/effective_combo_20261009_extended_final_review_v2/index.html)。原R1两套在2026失效；预声明一月成熟幅度校准分支两套跨段存活，OOS+2.4679%/+2.3210%、Sharpe2.1324/2.6017，仍有时间集中与暖启动依赖。旧报告/账本不覆盖，不把原高Sharpe当全年证据。
+
 日期：2026-10-09。当前结果替代“全亏损但解释完整即可结束”的上一阶段停点，原始失败实验仍保留。本轮先写[成功验收与任务规范](EFFECTIVE_FACTOR_AND_STRATEGY_MANDATE_20261009.md)，再冻结[有限研究设计](EFFECTIVE_COMBO_ROUND1_DESIGN_20261009.md)，最终得到实际有预测结构、有持仓、有费后正收益且通过预定历史分段要求的基线。
 
 完整交互交付：[41页研究总览](../visualizations/effective_combo_20261009_full_review_v2/index.html)。研究过程与失败项：[迭代记录](EFFECTIVE_COMBO_ITERATION_LOG_20261009.md)。直接使用定义：[有效策略与因子产品卡](EFFECTIVE_FACTOR_AND_COMBO_PRODUCT_CARDS_20261009.md)。这一轮的重点是有效信号、组合、适用范围和继续研究的明确起点，不以新增工程复杂度代替研究进展。

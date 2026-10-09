@@ -88,3 +88,24 @@ These rules apply to the whole repository.
     Retain all predeclared predictions and report their validation survival;
     do not rewrite the frozen winner using validation. Fixed member removals
     keep the original divisor, units, execution and budget without refitting.
+
+## Expanded combo and OOS lessons (2026-10-09)
+
+28. Read `docs/EFFECTIVE_COMBO_EXTENDED_RESEARCH_RESULTS_20261009.md` and its
+    product cards before extending the current baseline. Preserve R1 anchors;
+    their 2025 validation success does not imply 2026 survival.
+29. Expand frozen pools with discovery-only correlation and protected conditional
+    diversity. Preserve the old numerical prefix; more formulas or per-asset
+    models are hypotheses, not automatic quality improvements.
+30. Separate prediction covariance from the large common target term in error
+    covariance. Declare the objective, units, shrinkage and prior; report direct
+    predictions before state or execution controls.
+31. Freeze the whole protocol before OOS loading. Mature past OOS labels may
+    update predeclared coefficients; OOS must not select windows, thresholds,
+    assets or formulas. Report all branches without rewriting the frozen winner.
+32. Calibration coefficients, warm-up rules, clipping and minimum sample counts
+    are part of the model. Save maturity cutoffs and flag their boundary states.
+    Distinguish calibrated return forecasts from direction scores.
+33. High Sharpe requires exposure, natural/censored holds, cost, asset and time
+    breadth alongside it. Near-flat diagnostic products are not active baselines;
+    block uncertainty is evidence, not a new per-feature admission gate.

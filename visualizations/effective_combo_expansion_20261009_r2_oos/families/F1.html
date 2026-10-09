@@ -1,0 +1,758 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>F1公式卡</title><style>
+body{margin:0;background:#f5f7fa;color:#192638;font:15px/1.5 system-ui,'Microsoft YaHei',sans-serif}
+nav{background:#102b47;color:white;padding:13px 28px;position:sticky;top:0;z-index:10}
+nav a{color:#d6eaff;margin-right:20px;text-decoration:none;font-weight:600}
+main{max-width:1440px;margin:25px auto;padding:0 20px 50px}
+h1{font-size:29px;margin:10px 0}h2{font-size:21px;margin:32px 0 12px}
+.muted{color:#52677a}.note{background:#fff8e8;border-left:4px solid #dfac35;padding:12px 16px;margin:18px 0}
+.card{background:white;border:1px solid #dce4ec;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #1433500b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stat{background:#edf4fb;border-radius:8px;padding:13px}.stat b{font-size:24px;display:block}
+table{border-collapse:collapse;width:100%;background:white;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e1e8ee;text-align:right}th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:#eaf0f5}tr:hover{background:#f4f9fd}
+.scroll{overflow:auto;max-height:560px}.links a{display:inline-block;padding:6px 10px;margin:4px;background:#e6f0fb;border-radius:5px;color:#12385b;text-decoration:none}
+footer{color:#657789;font-size:12px;margin-top:30px}
+</style><script src="../plotly.min.js"></script></head><body><nav><a href="../index.html">总览</a> · <a href="../comparison.html">公平模型比较</a> · <a href="../factors.html">弱信号扩池</a> · <a href="../weights.html">组合权重</a> · <a href="../periods.html">月季广度</a> · <a href="../assets.html">逐币证据</a> · <a href="../costs.html">成本与暴露</a> · <a href="../method.html">冻结与复现</a></nav><main><h1>F1公式卡</h1><p>4h完成决策与收益预测，之后原生5m实际份额账本；单边4bps/终点平仓/简单收益复利；日Sharpe sqrt(365.25)。旧候选发现期反馈OOF非独立，历史验证已见；2026为历史OOS复核，月更仅用过去成熟标签。</p><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>family</th>
+      <th>mode</th>
+      <th>horizon_hours</th>
+      <th>direction</th>
+      <th>discovery_score</th>
+      <th>discovery_mean_ic</th>
+      <th>discovery_min_ic</th>
+      <th>positive_folds</th>
+      <th>fold0_ic</th>
+      <th>fold1_ic</th>
+      <th>fold2_ic</th>
+      <th>fold3_ic</th>
+      <th>research_tier</th>
+      <th>sign_changes</th>
+      <th>stream</th>
+      <th>role</th>
+      <th>reason</th>
+      <th>representative</th>
+      <th>max_abs_correlation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>main_F1_8de27776249b486a</td>
+      <td>F1</td>
+      <td>cubic</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0118</td>
+      <td>0.0140</td>
+      <td>0.0047</td>
+      <td>4.0000</td>
+      <td>0.0136</td>
+      <td>0.0221</td>
+      <td>0.0154</td>
+      <td>0.0047</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_F1_cd67664cb453ad84</td>
+      <td>F1</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0105</td>
+      <td>-0.0028</td>
+      <td>-0.0211</td>
+      <td>1.0000</td>
+      <td>-0.0211</td>
+      <td>-0.0137</td>
+      <td>0.0350</td>
+      <td>-0.0114</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_F1_57796e62ae080a9d</td>
+      <td>F1</td>
+      <td>asinh_difference</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0115</td>
+      <td>0.0136</td>
+      <td>0.0075</td>
+      <td>4.0000</td>
+      <td>0.0094</td>
+      <td>0.0075</td>
+      <td>0.0147</td>
+      <td>0.0228</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_F1_28236a3cabbf8862</td>
+      <td>F1</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0005</td>
+      <td>0.0054</td>
+      <td>-0.0075</td>
+      <td>1.0000</td>
+      <td>-0.0075</td>
+      <td>-0.0044</td>
+      <td>0.0340</td>
+      <td>-0.0007</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_F1_873fb20c5f20d6be</td>
+      <td>F1</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0113</td>
+      <td>0.0137</td>
+      <td>0.0051</td>
+      <td>4.0000</td>
+      <td>0.0091</td>
+      <td>0.0222</td>
+      <td>0.0186</td>
+      <td>0.0051</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_F1_fb5685979abb8630</td>
+      <td>F1</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0049</td>
+      <td>0.0015</td>
+      <td>-0.0208</td>
+      <td>1.0000</td>
+      <td>-0.0208</td>
+      <td>-0.0019</td>
+      <td>0.0303</td>
+      <td>-0.0014</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_F1_bf6de9a5606bb00c</td>
+      <td>F1</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0064</td>
+      <td>-0.0006</td>
+      <td>-0.0136</td>
+      <td>1.0000</td>
+      <td>-0.0069</td>
+      <td>-0.0096</td>
+      <td>0.0277</td>
+      <td>-0.0136</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3955</td>
+    </tr>
+    <tr>
+      <td>main_F1_e7c8c507208a1d24</td>
+      <td>F1</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0111</td>
+      <td>0.0122</td>
+      <td>0.0070</td>
+      <td>4.0000</td>
+      <td>0.0162</td>
+      <td>0.0070</td>
+      <td>0.0126</td>
+      <td>0.0131</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.1952</td>
+    </tr>
+    <tr>
+      <td>main_F1_f6412952df579d70</td>
+      <td>F1</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0041</td>
+      <td>0.0014</td>
+      <td>-0.0107</td>
+      <td>1.0000</td>
+      <td>-0.0011</td>
+      <td>-0.0102</td>
+      <td>0.0276</td>
+      <td>-0.0107</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2731</td>
+    </tr>
+    <tr>
+      <td>main_F1_a0cd380497ed1f09</td>
+      <td>F1</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0109</td>
+      <td>0.0119</td>
+      <td>0.0092</td>
+      <td>4.0000</td>
+      <td>0.0161</td>
+      <td>0.0102</td>
+      <td>0.0120</td>
+      <td>0.0092</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2055</td>
+    </tr>
+    <tr>
+      <td>main_F1_3e225d06468d0ed1</td>
+      <td>F1</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0047</td>
+      <td>0.0009</td>
+      <td>-0.0128</td>
+      <td>1.0000</td>
+      <td>-0.0088</td>
+      <td>-0.0024</td>
+      <td>0.0276</td>
+      <td>-0.0128</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3412</td>
+    </tr>
+    <tr>
+      <td>main_F1_b44c6dba828c2bcb</td>
+      <td>F1</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0105</td>
+      <td>0.0120</td>
+      <td>0.0070</td>
+      <td>4.0000</td>
+      <td>0.0070</td>
+      <td>0.0187</td>
+      <td>0.0101</td>
+      <td>0.0122</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.4195</td>
+    </tr>
+  </tbody>
+</table></div><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature</th>
+      <th>discovery_raw_ic</th>
+      <th>period</th>
+      <th>evaluation_raw_ic</th>
+      <th>discovery_direction</th>
+      <th>evaluation_discovery_signed_ic</th>
+      <th>direction_source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>main_F1_8de27776249b486a</td>
+      <td>-0.0040</td>
+      <td>oos</td>
+      <td>0.0233</td>
+      <td>-1.0000</td>
+      <td>-0.0233</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F1_cd67664cb453ad84</td>
+      <td>-0.0175</td>
+      <td>oos</td>
+      <td>-0.0295</td>
+      <td>-1.0000</td>
+      <td>0.0295</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F1_57796e62ae080a9d</td>
+      <td>0.0078</td>
+      <td>oos</td>
+      <td>-0.0006</td>
+      <td>1.0000</td>
+      <td>-0.0006</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F1_28236a3cabbf8862</td>
+      <td>0.0341</td>
+      <td>oos</td>
+      <td>0.0285</td>
+      <td>1.0000</td>
+      <td>0.0285</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F1_873fb20c5f20d6be</td>
+      <td>-0.0170</td>
+      <td>oos</td>
+      <td>0.0103</td>
+      <td>-1.0000</td>
+      <td>-0.0103</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F1_fb5685979abb8630</td>
+      <td>0.0205</td>
+      <td>oos</td>
+      <td>0.0389</td>
+      <td>1.0000</td>
+      <td>0.0389</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F1_bf6de9a5606bb00c</td>
+      <td>-0.0317</td>
+      <td>oos</td>
+      <td>-0.0229</td>
+      <td>-1.0000</td>
+      <td>0.0229</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F1_e7c8c507208a1d24</td>
+      <td>-0.0109</td>
+      <td>oos</td>
+      <td>0.0103</td>
+      <td>-1.0000</td>
+      <td>-0.0103</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F1_f6412952df579d70</td>
+      <td>0.0128</td>
+      <td>oos</td>
+      <td>0.0249</td>
+      <td>1.0000</td>
+      <td>0.0249</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F1_a0cd380497ed1f09</td>
+      <td>-0.0089</td>
+      <td>oos</td>
+      <td>-0.0185</td>
+      <td>-1.0000</td>
+      <td>0.0185</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F1_3e225d06468d0ed1</td>
+      <td>0.0168</td>
+      <td>oos</td>
+      <td>0.0208</td>
+      <td>1.0000</td>
+      <td>0.0208</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F1_b44c6dba828c2bcb</td>
+      <td>-0.0052</td>
+      <td>oos</td>
+      <td>0.0040</td>
+      <td>-1.0000</td>
+      <td>-0.0040</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+  </tbody>
+</table></div><details><summary>main_F1_8de27776249b486a</summary><pre>{
+  &quot;id&quot;: &quot;main_F1_8de27776249b486a&quot;,
+  &quot;family&quot;: &quot;F1&quot;,
+  &quot;mode&quot;: &quot;cubic&quot;,
+  &quot;left&quot;: [
+    97,
+    129,
+    133
+  ],
+  &quot;left_weights&quot;: [
+    0.6666666666666666,
+    0.6666666666666666,
+    0.3333333333333333
+  ],
+  &quot;right&quot;: [
+    117,
+    172,
+    792
+  ],
+  &quot;right_weights&quot;: [
+    0.5773502691896258,
+    0.5773502691896258,
+    -0.5773502691896258
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 3,
+  &quot;nodes&quot;: 18
+}</pre></details><details><summary>main_F1_cd67664cb453ad84</summary><pre>{
+  &quot;id&quot;: &quot;main_F1_cd67664cb453ad84&quot;,
+  &quot;family&quot;: &quot;F1&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    792,
+    798
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    98,
+    176,
+    704,
+    709
+  ],
+  &quot;right_weights&quot;: [
+    0.2773500981126146,
+    0.5547001962252291,
+    -0.5547001962252291,
+    0.5547001962252291
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>main_F1_57796e62ae080a9d</summary><pre>{
+  &quot;id&quot;: &quot;main_F1_57796e62ae080a9d&quot;,
+  &quot;family&quot;: &quot;F1&quot;,
+  &quot;mode&quot;: &quot;asinh_difference&quot;,
+  &quot;left&quot;: [
+    89,
+    181,
+    572,
+    612
+  ],
+  &quot;left_weights&quot;: [
+    0.2773500981126146,
+    0.5547001962252291,
+    -0.5547001962252291,
+    0.5547001962252291
+  ],
+  &quot;right&quot;: [
+    174,
+    612,
+    799
+  ],
+  &quot;right_weights&quot;: [
+    0.5773502691896258,
+    0.5773502691896258,
+    0.5773502691896258
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>main_F1_28236a3cabbf8862</summary><pre>{
+  &quot;id&quot;: &quot;main_F1_28236a3cabbf8862&quot;,
+  &quot;family&quot;: &quot;F1&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    794,
+    807
+  ],
+  &quot;left_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;right&quot;: [
+    165,
+    176
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>main_F1_873fb20c5f20d6be</summary><pre>{
+  &quot;id&quot;: &quot;main_F1_873fb20c5f20d6be&quot;,
+  &quot;family&quot;: &quot;F1&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    124,
+    788,
+    805
+  ],
+  &quot;left_weights&quot;: [
+    0.8164965809277261,
+    0.4082482904638631,
+    -0.4082482904638631
+  ],
+  &quot;right&quot;: [
+    100,
+    717
+  ],
+  &quot;right_weights&quot;: [
+    0.4472135954999579,
+    -0.8944271909999159
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>main_F1_fb5685979abb8630</summary><pre>{
+  &quot;id&quot;: &quot;main_F1_fb5685979abb8630&quot;,
+  &quot;family&quot;: &quot;F1&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    176,
+    571
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    165,
+    580,
+    699,
+    706
+  ],
+  &quot;right_weights&quot;: [
+    0.5,
+    -0.5,
+    0.5,
+    -0.5
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>main_F1_bf6de9a5606bb00c</summary><pre>{
+  &quot;id&quot;: &quot;main_F1_bf6de9a5606bb00c&quot;,
+  &quot;family&quot;: &quot;F1&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    128,
+    167,
+    618,
+    795
+  ],
+  &quot;left_weights&quot;: [
+    0.2773500981126146,
+    -0.5547001962252291,
+    0.5547001962252291,
+    0.5547001962252291
+  ],
+  &quot;right&quot;: [
+    119,
+    794
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>main_F1_e7c8c507208a1d24</summary><pre>{
+  &quot;id&quot;: &quot;main_F1_e7c8c507208a1d24&quot;,
+  &quot;family&quot;: &quot;F1&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    103,
+    613,
+    617,
+    705
+  ],
+  &quot;left_weights&quot;: [
+    0.3779644730092272,
+    -0.7559289460184544,
+    0.3779644730092272,
+    -0.3779644730092272
+  ],
+  &quot;right&quot;: [
+    90,
+    121,
+    130,
+    579
+  ],
+  &quot;right_weights&quot;: [
+    0.2773500981126146,
+    0.5547001962252291,
+    -0.5547001962252291,
+    -0.5547001962252291
+  ],
+  &quot;support_minutes&quot;: 360,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 21
+}</pre></details><details><summary>main_F1_f6412952df579d70</summary><pre>{
+  &quot;id&quot;: &quot;main_F1_f6412952df579d70&quot;,
+  &quot;family&quot;: &quot;F1&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    117,
+    696,
+    715,
+    798
+  ],
+  &quot;left_weights&quot;: [
+    0.31622776601683794,
+    0.6324555320336759,
+    0.6324555320336759,
+    0.31622776601683794
+  ],
+  &quot;right&quot;: [
+    94,
+    107,
+    139,
+    580
+  ],
+  &quot;right_weights&quot;: [
+    0.31622776601683794,
+    0.6324555320336759,
+    -0.31622776601683794,
+    -0.6324555320336759
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 21
+}</pre></details><details><summary>main_F1_a0cd380497ed1f09</summary><pre>{
+  &quot;id&quot;: &quot;main_F1_a0cd380497ed1f09&quot;,
+  &quot;family&quot;: &quot;F1&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    124,
+    126,
+    157,
+    609
+  ],
+  &quot;left_weights&quot;: [
+    0.3779644730092272,
+    0.7559289460184544,
+    0.3779644730092272,
+    0.3779644730092272
+  ],
+  &quot;right&quot;: [
+    166,
+    798
+  ],
+  &quot;right_weights&quot;: [
+    0.4472135954999579,
+    0.8944271909999159
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>main_F1_3e225d06468d0ed1</summary><pre>{
+  &quot;id&quot;: &quot;main_F1_3e225d06468d0ed1&quot;,
+  &quot;family&quot;: &quot;F1&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    100,
+    108,
+    704,
+    790
+  ],
+  &quot;left_weights&quot;: [
+    0.5,
+    0.5,
+    -0.5,
+    -0.5
+  ],
+  &quot;right&quot;: [
+    570,
+    717
+  ],
+  &quot;right_weights&quot;: [
+    0.4472135954999579,
+    0.8944271909999159
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>main_F1_b44c6dba828c2bcb</summary><pre>{
+  &quot;id&quot;: &quot;main_F1_b44c6dba828c2bcb&quot;,
+  &quot;family&quot;: &quot;F1&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    139,
+    176,
+    181,
+    571
+  ],
+  &quot;left_weights&quot;: [
+    0.31622776601683794,
+    -0.6324555320336759,
+    0.31622776601683794,
+    -0.6324555320336759
+  ],
+  &quot;right&quot;: [
+    139,
+    168,
+    792
+  ],
+  &quot;right_weights&quot;: [
+    0.5773502691896258,
+    -0.5773502691896258,
+    0.5773502691896258
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><footer>D:\Trading\My_factor_mining_427\outputs\effective_combo_expansion_20261009_r2_oos</footer></main></body></html>

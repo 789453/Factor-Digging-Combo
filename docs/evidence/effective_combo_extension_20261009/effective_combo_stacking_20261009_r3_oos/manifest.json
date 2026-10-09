@@ -1,0 +1,14 @@
+{
+  "status": "COMPLETED",
+  "stage": "effective_combo_stacking",
+  "phase": "oos",
+  "results": {
+    "models": 17,
+    "portfolio_variants": 34,
+    "wide_columns": 310,
+    "extra_formulas": 96,
+    "actual_end": "202609250000",
+    "holdout_opened": true
+  },
+  "config": "configs/research/effective_combo_stacking_20261009_r3_oos.yaml"
+}

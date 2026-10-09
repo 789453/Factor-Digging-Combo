@@ -17,3 +17,8 @@
 为复跑指定新的输出目录，继续通过唯一入口
 `python -m src.alpha_mvp.research_cli --config ...` 启动。
 测试期已用于历史诊断，后续不能作为全新独立 OOS 反复调参。
+# 2026-10-09 R2—R4扩展发布
+
+先同步原当前状态到Factor-Digging-Combo/main的e8d2fd6并远端核验，再开展扩池和OOS。新增[完整扩展报告](EFFECTIVE_COMBO_EXTENDED_RESEARCH_RESULTS_20261009.md)、[产品卡](EFFECTIVE_COMBO_EXTENDED_PRODUCT_CARDS_20261009.md)、[69页完整总览](../visualizations/effective_combo_20261009_extended_final_review_v2/index.html)，同时保留R2/R3/R4六份历史/OOS报告及原R1/复杂表示全套证据。原始数值矩阵和大账本不进入Git；公开轻量证据见docs/evidence/effective_combo_extension_20261009，包含109份源复制、精确历史源码与运行库版本。
+
+新结果为预声明一月幅度校准分支跨段存活，OOS净+2.4679%/+2.3210%、Sharpe2.1324/2.6017，8bps仍正；三月主协议失败、原R1在2026失效、暖启动和八九月集中、不确定性均不掩盖。自动冻结推荐不重写。发布仍使用独立索引，不改用户普通索引、分支或旧origin。

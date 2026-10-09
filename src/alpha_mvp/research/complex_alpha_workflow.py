@@ -193,6 +193,12 @@ def _final_oof_gamma(pred,base,target,mask):
 
 
 def run_complex_alpha(cfg,config_path):
+    if cfg.get('complex_alpha', {}).get('stage') == 'effective_combo_stacking':
+        from .effective_combo_stacking_workflow import run_stacking
+        return run_stacking(cfg, config_path)
+    if cfg.get('complex_alpha', {}).get('stage') == 'effective_combo_extension':
+        from .effective_combo_extension_workflow import run_extension
+        return run_extension(cfg, config_path)
     if cfg.get('complex_alpha', {}).get('stage') == 'effective_combo':
         from .effective_combo_workflow import run_effective_combo
         return run_effective_combo(cfg, config_path)

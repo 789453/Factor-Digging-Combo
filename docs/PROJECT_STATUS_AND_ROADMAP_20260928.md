@@ -1,5 +1,7 @@
 # 项目阶段收束与路线图 — 2026-09-28
 
+> **最新2026扩展OOS更新**：[完整报告](EFFECTIVE_COMBO_EXTENDED_RESEARCH_RESULTS_20261009.md)、[产品卡](EFFECTIVE_COMBO_EXTENDED_PRODUCT_CARDS_20261009.md)、[69页总览](../visualizations/effective_combo_20261009_extended_final_review_v2/index.html)。先GitHub同步e8d2fd6，再完成R2扩池/R3共享与单币权重/R4成熟状态。原202市场输入保留，增加96旧档案公式至298；一月幅度校准两套验证/OOS均正，OOS净+2.4679%/+2.3210%、Sharpe2.1324/2.6017，8bps正，有1786/614自然持有。原R1在2026失效、三月主协议失败、一月收益集中八九月及暖启动依赖未掩盖；时间块区间跨零，非独立未来认证。173测试与模拟CLI通过；参数/原推荐不改，保存历史存活基线及完整失败，下一未见数据须另冻结问题。
+
 > **2026-10-09当前有效基线**：[完整报告](EFFECTIVE_FACTOR_AND_COMBO_RESEARCH_RESULTS_20261009.md)、[产品卡](EFFECTIVE_FACTOR_AND_COMBO_PRODUCT_CARDS_20261009.md)、[41页总览](../visualizations/effective_combo_20261009_full_review_v2/index.html)。复用202维池的有限条件模型、成熟月更新和固定成本边际形成组合／15叶历史基线，验证净财富+5.5922%／+7.1711%，三反馈折、两个完整季度及1月均正，8bps仍正。弱条件函数固定置零使组合收益下降1.6583个百分点。产品为共同方向择时，非纯残差Alpha；自动第一失败和幅度校准不足保留。历史任务验收已达成，冻结有效基线；后续独立证据、成熟幅度校准或自动选优须另提出有界问题。
 
 > **用户最新验收纠正**：此前全亏损阶段未通过，继续按[有效策略任务规范](EFFECTIVE_FACTOR_AND_STRATEGY_MANDATE_20261009.md)推进。[条件组合研究日志](EFFECTIVE_COMBO_ITERATION_LOG_20261009.md)记录容量、币种条件、成熟标签更新和净边际映射的后续研究。下面的“停止对照／先只做Ridge”是上一阶段说明，不能覆盖当前任务目标。

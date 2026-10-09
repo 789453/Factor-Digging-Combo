@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "base15__edge16",
+      "max_metric_error": 9.880660734040703e-08
+    },
+    {
+      "id": "base_ensemble__edge16",
+      "max_metric_error": 9.295300085199187e-08
+    }
+  ]
+}

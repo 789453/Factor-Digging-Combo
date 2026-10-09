@@ -1,0 +1,25 @@
+window_months,update,mature_labels,gamma,last_eligible_origin,role
+1,202602010000,475,0.26655130077822103,202601311600,matured direct prediction calibration; signed score separately declared
+1,202603010000,459,-0.01576265518218628,202602281600,matured direct prediction calibration; signed score separately declared
+1,202604010000,345,0.3724378993118604,202603311600,matured direct prediction calibration; signed score separately declared
+1,202605010000,374,-0.08885352780418931,202604301600,matured direct prediction calibration; signed score separately declared
+1,202606010000,366,0.1879166067217663,202605311600,matured direct prediction calibration; signed score separately declared
+1,202607010000,426,-0.9251979331594979,202606301600,matured direct prediction calibration; signed score separately declared
+1,202608010000,245,1.0,202607311600,matured direct prediction calibration; signed score separately declared
+1,202609010000,316,1.0,202608311600,matured direct prediction calibration; signed score separately declared
+3,202602010000,1443,0.3766588904897314,202601311600,matured direct prediction calibration; signed score separately declared
+3,202603010000,1440,0.1744945135897717,202602281600,matured direct prediction calibration; signed score separately declared
+3,202604010000,1287,0.14759495282561946,202603311600,matured direct prediction calibration; signed score separately declared
+3,202605010000,1189,0.051123388017997165,202604301600,matured direct prediction calibration; signed score separately declared
+3,202606010000,1090,0.15520929801966052,202605311600,matured direct prediction calibration; signed score separately declared
+3,202607010000,1168,-0.455412383157229,202606301600,matured direct prediction calibration; signed score separately declared
+3,202608010000,1037,-0.5152424779671219,202607311600,matured direct prediction calibration; signed score separately declared
+3,202609010000,989,-0.1657852457415372,202608311600,matured direct prediction calibration; signed score separately declared
+6,202602010000,2864,0.31669463937006825,202601311600,matured direct prediction calibration; signed score separately declared
+6,202603010000,2810,0.2371399226241846,202602281600,matured direct prediction calibration; signed score separately declared
+6,202604010000,2768,0.2465820411111392,202603311600,matured direct prediction calibration; signed score separately declared
+6,202605010000,2632,0.2558251941386103,202604301600,matured direct prediction calibration; signed score separately declared
+6,202606010000,2538,0.1742914701805742,202605311600,matured direct prediction calibration; signed score separately declared
+6,202607010000,2458,-0.06992108593886787,202606301600,matured direct prediction calibration; signed score separately declared
+6,202608010000,2228,-0.16981073660239232,202607311600,matured direct prediction calibration; signed score separately declared
+6,202609010000,2079,-0.02518190227191503,202608311600,matured direct prediction calibration; signed score separately declared

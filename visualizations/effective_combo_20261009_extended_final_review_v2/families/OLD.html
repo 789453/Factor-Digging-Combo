@@ -1,0 +1,6262 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OLD公式卡</title><style>
+body{margin:0;background:#f5f7fa;color:#192638;font:15px/1.5 system-ui,'Microsoft YaHei',sans-serif}
+nav{background:#102b47;color:white;padding:13px 28px;position:sticky;top:0;z-index:10}
+nav a{color:#d6eaff;margin-right:20px;text-decoration:none;font-weight:600}
+main{max-width:1440px;margin:25px auto;padding:0 20px 50px}
+h1{font-size:29px;margin:10px 0}h2{font-size:21px;margin:32px 0 12px}
+.muted{color:#52677a}.note{background:#fff8e8;border-left:4px solid #dfac35;padding:12px 16px;margin:18px 0}
+.card{background:white;border:1px solid #dce4ec;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #1433500b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stat{background:#edf4fb;border-radius:8px;padding:13px}.stat b{font-size:24px;display:block}
+table{border-collapse:collapse;width:100%;background:white;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e1e8ee;text-align:right}th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:#eaf0f5}tr:hover{background:#f4f9fd}
+.scroll{overflow:auto;max-height:560px}.links a{display:inline-block;padding:6px 10px;margin:4px;background:#e6f0fb;border-radius:5px;color:#12385b;text-decoration:none}
+footer{color:#657789;font-size:12px;margin-top:30px}
+</style><script src="../plotly.min.js"></script></head><body><nav><a href="../index.html">总览</a> · <a href="../comparison.html">公平模型比较</a> · <a href="../factors.html">弱信号扩池</a> · <a href="../weights.html">组合权重</a> · <a href="../periods.html">月季广度</a> · <a href="../assets.html">逐币证据</a> · <a href="../costs.html">成本与暴露</a> · <a href="../method.html">冻结与复现</a> · <a href="../states.html">成熟状态</a></nav><main><h1>OLD公式卡</h1><p>4h完成决策与收益预测，之后原生5m实际份额账本；单边4bps/终点平仓/简单收益复利；日Sharpe sqrt(365.25)。旧候选发现期反馈OOF非独立，历史验证已见；2026为历史OOS复核，月更仅用过去成熟标签。</p><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>family</th>
+      <th>mode</th>
+      <th>horizon_hours</th>
+      <th>direction</th>
+      <th>discovery_score</th>
+      <th>discovery_mean_ic</th>
+      <th>discovery_min_ic</th>
+      <th>positive_folds</th>
+      <th>fold0_ic</th>
+      <th>fold1_ic</th>
+      <th>fold2_ic</th>
+      <th>fold3_ic</th>
+      <th>research_tier</th>
+      <th>sign_changes</th>
+      <th>stream</th>
+      <th>role</th>
+      <th>reason</th>
+      <th>representative</th>
+      <th>max_abs_correlation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>control_OLD_23bc122670a21261</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0158</td>
+      <td>0.0214</td>
+      <td>0.0063</td>
+      <td>4.0000</td>
+      <td>0.0475</td>
+      <td>0.0213</td>
+      <td>0.0063</td>
+      <td>0.0108</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_c0867d9d641fa502</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0032</td>
+      <td>0.0092</td>
+      <td>-0.0165</td>
+      <td>1.0000</td>
+      <td>0.0704</td>
+      <td>-0.0104</td>
+      <td>-0.0066</td>
+      <td>-0.0165</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_cb13223aa14aa3f8</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0148</td>
+      <td>0.0170</td>
+      <td>0.0129</td>
+      <td>4.0000</td>
+      <td>0.0278</td>
+      <td>0.0135</td>
+      <td>0.0129</td>
+      <td>0.0137</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_95513de90e14d3ed</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0148</td>
+      <td>-0.0032</td>
+      <td>-0.0256</td>
+      <td>1.0000</td>
+      <td>-0.0256</td>
+      <td>-0.0199</td>
+      <td>0.0539</td>
+      <td>-0.0212</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_81664b8c52b661ed</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0147</td>
+      <td>0.0165</td>
+      <td>0.0117</td>
+      <td>4.0000</td>
+      <td>0.0117</td>
+      <td>0.0242</td>
+      <td>0.0177</td>
+      <td>0.0124</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_533a028ba2690981</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0149</td>
+      <td>-0.0033</td>
+      <td>-0.0375</td>
+      <td>1.0000</td>
+      <td>-0.0375</td>
+      <td>-0.0091</td>
+      <td>0.0510</td>
+      <td>-0.0177</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_0c78cabde2869d88</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0143</td>
+      <td>0.0175</td>
+      <td>0.0061</td>
+      <td>4.0000</td>
+      <td>0.0234</td>
+      <td>0.0061</td>
+      <td>0.0289</td>
+      <td>0.0116</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_1a95943366b284ce</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0109</td>
+      <td>-0.0004</td>
+      <td>-0.0285</td>
+      <td>1.0000</td>
+      <td>0.0490</td>
+      <td>-0.0024</td>
+      <td>-0.0196</td>
+      <td>-0.0285</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_01b364c2a2f7ac79</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0142</td>
+      <td>0.0160</td>
+      <td>0.0076</td>
+      <td>4.0000</td>
+      <td>0.0175</td>
+      <td>0.0224</td>
+      <td>0.0166</td>
+      <td>0.0076</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_7a859225c1db2021</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0084</td>
+      <td>0.0013</td>
+      <td>-0.0264</td>
+      <td>1.0000</td>
+      <td>0.0470</td>
+      <td>-0.0058</td>
+      <td>-0.0097</td>
+      <td>-0.0264</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_68d3b30bfe966bc8</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0136</td>
+      <td>0.0152</td>
+      <td>0.0074</td>
+      <td>4.0000</td>
+      <td>0.0178</td>
+      <td>0.0170</td>
+      <td>0.0185</td>
+      <td>0.0074</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_28cb21350974a060</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0100</td>
+      <td>-0.0011</td>
+      <td>-0.0242</td>
+      <td>1.0000</td>
+      <td>0.0419</td>
+      <td>-0.0242</td>
+      <td>-0.0150</td>
+      <td>-0.0071</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_e0223a2520e394a1</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0133</td>
+      <td>0.0154</td>
+      <td>0.0054</td>
+      <td>4.0000</td>
+      <td>0.0054</td>
+      <td>0.0184</td>
+      <td>0.0213</td>
+      <td>0.0164</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_49d21e489b589d06</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0042</td>
+      <td>0.0034</td>
+      <td>-0.0193</td>
+      <td>1.0000</td>
+      <td>-0.0011</td>
+      <td>0.0394</td>
+      <td>-0.0053</td>
+      <td>-0.0193</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_8fd20805d8ed5d8b</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0133</td>
+      <td>0.0139</td>
+      <td>0.0107</td>
+      <td>4.0000</td>
+      <td>0.0147</td>
+      <td>0.0107</td>
+      <td>0.0158</td>
+      <td>0.0146</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_45740a6cbfadbdba</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0141</td>
+      <td>-0.0040</td>
+      <td>-0.0309</td>
+      <td>2.0000</td>
+      <td>0.0391</td>
+      <td>-0.0309</td>
+      <td>-0.0303</td>
+      <td>0.0064</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_16029ad45bcdc5a8</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0132</td>
+      <td>0.0153</td>
+      <td>0.0092</td>
+      <td>4.0000</td>
+      <td>0.0119</td>
+      <td>0.0255</td>
+      <td>0.0147</td>
+      <td>0.0092</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_569c5837bad6cf68</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0059</td>
+      <td>0.0020</td>
+      <td>-0.0218</td>
+      <td>1.0000</td>
+      <td>0.0388</td>
+      <td>-0.0218</td>
+      <td>-0.0080</td>
+      <td>-0.0011</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ed6a2a927d1ad0b9</td>
+      <td>OLD</td>
+      <td>cubic</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0131</td>
+      <td>0.0152</td>
+      <td>0.0091</td>
+      <td>4.0000</td>
+      <td>0.0243</td>
+      <td>0.0161</td>
+      <td>0.0091</td>
+      <td>0.0113</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_97cf9d40b6119a9d</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0144</td>
+      <td>-0.0046</td>
+      <td>-0.0376</td>
+      <td>1.0000</td>
+      <td>-0.0038</td>
+      <td>-0.0158</td>
+      <td>0.0387</td>
+      <td>-0.0376</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_08ff41b2d8f34829</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0129</td>
+      <td>0.0150</td>
+      <td>0.0066</td>
+      <td>4.0000</td>
+      <td>0.0227</td>
+      <td>0.0176</td>
+      <td>0.0066</td>
+      <td>0.0130</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_14c15e1eb7196a8d</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0060</td>
+      <td>0.0014</td>
+      <td>-0.0161</td>
+      <td>1.0000</td>
+      <td>-0.0161</td>
+      <td>-0.0067</td>
+      <td>0.0379</td>
+      <td>-0.0093</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_f41051a886ad07bd</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0128</td>
+      <td>0.0138</td>
+      <td>0.0100</td>
+      <td>4.0000</td>
+      <td>0.0128</td>
+      <td>0.0100</td>
+      <td>0.0149</td>
+      <td>0.0174</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_38fcb2b4f074bf67</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0025</td>
+      <td>0.0083</td>
+      <td>-0.0021</td>
+      <td>1.0000</td>
+      <td>0.0371</td>
+      <td>-0.0021</td>
+      <td>-0.0013</td>
+      <td>-0.0005</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_14d5a0f9eab9fb62</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0127</td>
+      <td>0.0130</td>
+      <td>0.0115</td>
+      <td>4.0000</td>
+      <td>0.0143</td>
+      <td>0.0135</td>
+      <td>0.0115</td>
+      <td>0.0129</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_65bc847d9e321642</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0094</td>
+      <td>-0.0009</td>
+      <td>-0.0237</td>
+      <td>2.0000</td>
+      <td>0.0369</td>
+      <td>-0.0206</td>
+      <td>-0.0237</td>
+      <td>0.0038</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_de8ba14e7778fcc0</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0126</td>
+      <td>0.0139</td>
+      <td>0.0082</td>
+      <td>4.0000</td>
+      <td>0.0141</td>
+      <td>0.0082</td>
+      <td>0.0178</td>
+      <td>0.0154</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_d2a594cac72c211d</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0034</td>
+      <td>0.0034</td>
+      <td>-0.0117</td>
+      <td>1.0000</td>
+      <td>-0.0117</td>
+      <td>-0.0031</td>
+      <td>0.0369</td>
+      <td>-0.0082</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_5a90447cc6227596</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0126</td>
+      <td>0.0166</td>
+      <td>0.0001</td>
+      <td>4.0000</td>
+      <td>0.0200</td>
+      <td>0.0141</td>
+      <td>0.0322</td>
+      <td>0.0001</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_16dba59e9c2a9d08</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0093</td>
+      <td>-0.0006</td>
+      <td>-0.0312</td>
+      <td>2.0000</td>
+      <td>-0.0105</td>
+      <td>0.0024</td>
+      <td>0.0368</td>
+      <td>-0.0312</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_cc4b117223665fac</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0125</td>
+      <td>0.0147</td>
+      <td>0.0060</td>
+      <td>4.0000</td>
+      <td>0.0231</td>
+      <td>0.0173</td>
+      <td>0.0060</td>
+      <td>0.0126</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_3c6785782215842a</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0046</td>
+      <td>0.0026</td>
+      <td>-0.0172</td>
+      <td>1.0000</td>
+      <td>-0.0030</td>
+      <td>-0.0063</td>
+      <td>0.0367</td>
+      <td>-0.0172</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_503785de10957d96</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0125</td>
+      <td>0.0154</td>
+      <td>0.0066</td>
+      <td>4.0000</td>
+      <td>0.0066</td>
+      <td>0.0257</td>
+      <td>0.0077</td>
+      <td>0.0217</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_637bc229dd9aaf74</td>
+      <td>OLD</td>
+      <td>asinh_difference</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0057</td>
+      <td>0.0021</td>
+      <td>-0.0255</td>
+      <td>1.0000</td>
+      <td>-0.0008</td>
+      <td>-0.0019</td>
+      <td>-0.0255</td>
+      <td>0.0365</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_d8144148a5d350f1</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0124</td>
+      <td>0.0132</td>
+      <td>0.0100</td>
+      <td>4.0000</td>
+      <td>0.0132</td>
+      <td>0.0130</td>
+      <td>0.0166</td>
+      <td>0.0100</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_7c18e2b11c279d93</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0088</td>
+      <td>-0.0004</td>
+      <td>-0.0308</td>
+      <td>1.0000</td>
+      <td>-0.0308</td>
+      <td>-0.0017</td>
+      <td>0.0362</td>
+      <td>-0.0053</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_c60f9543b9dd33ab</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0124</td>
+      <td>0.0140</td>
+      <td>0.0101</td>
+      <td>4.0000</td>
+      <td>0.0216</td>
+      <td>0.0101</td>
+      <td>0.0135</td>
+      <td>0.0107</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_19d7b2ad30f90bf4</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0123</td>
+      <td>-0.0041</td>
+      <td>-0.0255</td>
+      <td>1.0000</td>
+      <td>-0.0255</td>
+      <td>-0.0158</td>
+      <td>0.0356</td>
+      <td>-0.0107</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_8b23156b7afc23a8</td>
+      <td>OLD</td>
+      <td>cubic</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0123</td>
+      <td>0.0150</td>
+      <td>0.0022</td>
+      <td>4.0000</td>
+      <td>0.0022</td>
+      <td>0.0159</td>
+      <td>0.0209</td>
+      <td>0.0211</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_218de2d8f4f305b4</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0102</td>
+      <td>-0.0009</td>
+      <td>-0.0392</td>
+      <td>2.0000</td>
+      <td>0.0354</td>
+      <td>-0.0392</td>
+      <td>-0.0016</td>
+      <td>0.0018</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_85cd32bb5fae2c18</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0123</td>
+      <td>0.0137</td>
+      <td>0.0069</td>
+      <td>4.0000</td>
+      <td>0.0149</td>
+      <td>0.0069</td>
+      <td>0.0162</td>
+      <td>0.0169</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_3e6496a961ee8a99</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0109</td>
+      <td>-0.0024</td>
+      <td>-0.0266</td>
+      <td>2.0000</td>
+      <td>-0.0203</td>
+      <td>-0.0266</td>
+      <td>0.0354</td>
+      <td>0.0018</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_6c9b8d81f94456c0</td>
+      <td>OLD</td>
+      <td>cubic</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0122</td>
+      <td>0.0133</td>
+      <td>0.0099</td>
+      <td>4.0000</td>
+      <td>0.0172</td>
+      <td>0.0103</td>
+      <td>0.0159</td>
+      <td>0.0099</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_900cd8fe2e1d06f0</td>
+      <td>OLD</td>
+      <td>asinh_difference</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0144</td>
+      <td>-0.0059</td>
+      <td>-0.0261</td>
+      <td>1.0000</td>
+      <td>0.0351</td>
+      <td>-0.0261</td>
+      <td>-0.0191</td>
+      <td>-0.0137</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_293d6d77331d3ace</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0122</td>
+      <td>0.0146</td>
+      <td>0.0050</td>
+      <td>4.0000</td>
+      <td>0.0241</td>
+      <td>0.0132</td>
+      <td>0.0159</td>
+      <td>0.0050</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ef91da280de71271</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0059</td>
+      <td>0.0011</td>
+      <td>-0.0166</td>
+      <td>1.0000</td>
+      <td>-0.0054</td>
+      <td>0.0351</td>
+      <td>-0.0087</td>
+      <td>-0.0166</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_f9a325988a05b4c2</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0122</td>
+      <td>0.0146</td>
+      <td>0.0056</td>
+      <td>4.0000</td>
+      <td>0.0131</td>
+      <td>0.0247</td>
+      <td>0.0056</td>
+      <td>0.0148</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_75fddc8327006606</td>
+      <td>OLD</td>
+      <td>cubic</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0137</td>
+      <td>-0.0044</td>
+      <td>-0.0391</td>
+      <td>1.0000</td>
+      <td>0.0349</td>
+      <td>-0.0391</td>
+      <td>-0.0134</td>
+      <td>-0.0000</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_OLD_e7ac9236bda42a44</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0133</td>
+      <td>0.0167</td>
+      <td>0.0060</td>
+      <td>4.0000</td>
+      <td>0.0231</td>
+      <td>0.0294</td>
+      <td>0.0060</td>
+      <td>0.0082</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_OLD_78018282a608914d</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0000</td>
+      <td>0.0063</td>
+      <td>-0.0072</td>
+      <td>1.0000</td>
+      <td>-0.0001</td>
+      <td>-0.0048</td>
+      <td>0.0373</td>
+      <td>-0.0072</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_OLD_265d0da06b14cc92</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0126</td>
+      <td>0.0162</td>
+      <td>0.0039</td>
+      <td>4.0000</td>
+      <td>0.0284</td>
+      <td>0.0235</td>
+      <td>0.0089</td>
+      <td>0.0039</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_OLD_c9b556e83f154c7f</td>
+      <td>OLD</td>
+      <td>asinh_difference</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0071</td>
+      <td>0.0004</td>
+      <td>-0.0208</td>
+      <td>1.0000</td>
+      <td>-0.0025</td>
+      <td>-0.0107</td>
+      <td>-0.0208</td>
+      <td>0.0355</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_OLD_6c4fc0af95001e9b</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0124</td>
+      <td>0.0136</td>
+      <td>0.0078</td>
+      <td>4.0000</td>
+      <td>0.0078</td>
+      <td>0.0140</td>
+      <td>0.0157</td>
+      <td>0.0170</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_OLD_3e120c03ce9ad207</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0033</td>
+      <td>0.0029</td>
+      <td>-0.0172</td>
+      <td>1.0000</td>
+      <td>-0.0172</td>
+      <td>-0.0018</td>
+      <td>0.0316</td>
+      <td>-0.0010</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>control_OLD_405b3ffd27bda83e</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0059</td>
+      <td>0.0012</td>
+      <td>-0.0180</td>
+      <td>1.0000</td>
+      <td>-0.0112</td>
+      <td>-0.0006</td>
+      <td>0.0345</td>
+      <td>-0.0180</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3091</td>
+    </tr>
+    <tr>
+      <td>control_OLD_f1b817f5fedcc7a7</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0122</td>
+      <td>0.0124</td>
+      <td>0.0111</td>
+      <td>4.0000</td>
+      <td>0.0131</td>
+      <td>0.0126</td>
+      <td>0.0131</td>
+      <td>0.0111</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2852</td>
+    </tr>
+    <tr>
+      <td>control_OLD_27623919d75fb3c9</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0016</td>
+      <td>0.0045</td>
+      <td>-0.0072</td>
+      <td>1.0000</td>
+      <td>0.0344</td>
+      <td>-0.0046</td>
+      <td>-0.0072</td>
+      <td>-0.0046</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3583</td>
+    </tr>
+    <tr>
+      <td>control_OLD_7bc9db343cd09b04</td>
+      <td>OLD</td>
+      <td>cubic</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0120</td>
+      <td>0.0133</td>
+      <td>0.0093</td>
+      <td>4.0000</td>
+      <td>0.0133</td>
+      <td>0.0188</td>
+      <td>0.0093</td>
+      <td>0.0117</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.4153</td>
+    </tr>
+    <tr>
+      <td>control_OLD_18c644c6967a00b8</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0025</td>
+      <td>0.0037</td>
+      <td>-0.0074</td>
+      <td>1.0000</td>
+      <td>-0.0068</td>
+      <td>-0.0074</td>
+      <td>0.0343</td>
+      <td>-0.0054</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.4045</td>
+    </tr>
+    <tr>
+      <td>control_OLD_8a3cb573d953a0fa</td>
+      <td>OLD</td>
+      <td>cubic</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0120</td>
+      <td>0.0161</td>
+      <td>0.0022</td>
+      <td>4.0000</td>
+      <td>0.0022</td>
+      <td>0.0318</td>
+      <td>0.0224</td>
+      <td>0.0081</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3099</td>
+    </tr>
+    <tr>
+      <td>control_OLD_965fdf2f0f6d0738</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0083</td>
+      <td>-0.0005</td>
+      <td>-0.0264</td>
+      <td>2.0000</td>
+      <td>-0.0264</td>
+      <td>-0.0118</td>
+      <td>0.0341</td>
+      <td>0.0020</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.4094</td>
+    </tr>
+    <tr>
+      <td>control_OLD_3d15334ef3365d7a</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0120</td>
+      <td>0.0153</td>
+      <td>0.0016</td>
+      <td>4.0000</td>
+      <td>0.0255</td>
+      <td>0.0115</td>
+      <td>0.0227</td>
+      <td>0.0016</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3262</td>
+    </tr>
+    <tr>
+      <td>control_OLD_24344e4ab3d061af</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0092</td>
+      <td>-0.0012</td>
+      <td>-0.0270</td>
+      <td>2.0000</td>
+      <td>0.0340</td>
+      <td>-0.0146</td>
+      <td>-0.0270</td>
+      <td>0.0028</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3487</td>
+    </tr>
+    <tr>
+      <td>control_OLD_6bb61806a9009ed5</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0120</td>
+      <td>0.0153</td>
+      <td>0.0063</td>
+      <td>4.0000</td>
+      <td>0.0310</td>
+      <td>0.0120</td>
+      <td>0.0118</td>
+      <td>0.0063</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.1874</td>
+    </tr>
+    <tr>
+      <td>control_OLD_e6daa4c8d25dcb89</td>
+      <td>OLD</td>
+      <td>linear</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0036</td>
+      <td>0.0027</td>
+      <td>-0.0110</td>
+      <td>1.0000</td>
+      <td>-0.0073</td>
+      <td>-0.0044</td>
+      <td>0.0335</td>
+      <td>-0.0110</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3457</td>
+    </tr>
+    <tr>
+      <td>control_OLD_39e25d882112214d</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0119</td>
+      <td>0.0136</td>
+      <td>0.0068</td>
+      <td>4.0000</td>
+      <td>0.0146</td>
+      <td>0.0201</td>
+      <td>0.0128</td>
+      <td>0.0068</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2120</td>
+    </tr>
+    <tr>
+      <td>control_OLD_81485c36b3f0abd6</td>
+      <td>OLD</td>
+      <td>asinh_difference</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0008</td>
+      <td>0.0050</td>
+      <td>-0.0082</td>
+      <td>1.0000</td>
+      <td>-0.0082</td>
+      <td>-0.0019</td>
+      <td>-0.0034</td>
+      <td>0.0334</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.4556</td>
+    </tr>
+    <tr>
+      <td>control_OLD_06dd7a6d36e0917f</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0118</td>
+      <td>0.0167</td>
+      <td>-0.0040</td>
+      <td>3.0000</td>
+      <td>0.0339</td>
+      <td>0.0138</td>
+      <td>0.0230</td>
+      <td>-0.0040</td>
+      <td>predictive_candidate</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2772</td>
+    </tr>
+    <tr>
+      <td>main_OLD_40552edf9d66592f</td>
+      <td>OLD</td>
+      <td>asinh_difference</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0088</td>
+      <td>-0.0018</td>
+      <td>-0.0205</td>
+      <td>1.0000</td>
+      <td>0.0308</td>
+      <td>-0.0205</td>
+      <td>-0.0148</td>
+      <td>-0.0027</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3605</td>
+    </tr>
+    <tr>
+      <td>main_OLD_0d4d0acdbdb0a827</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0112</td>
+      <td>0.0124</td>
+      <td>0.0092</td>
+      <td>4.0000</td>
+      <td>0.0112</td>
+      <td>0.0092</td>
+      <td>0.0183</td>
+      <td>0.0109</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2041</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ff9d465b4b86dfee</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0035</td>
+      <td>0.0027</td>
+      <td>-0.0083</td>
+      <td>1.0000</td>
+      <td>-0.0083</td>
+      <td>-0.0077</td>
+      <td>0.0330</td>
+      <td>-0.0063</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3321</td>
+    </tr>
+    <tr>
+      <td>control_OLD_cfd0533c7b748efe</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0118</td>
+      <td>0.0134</td>
+      <td>0.0090</td>
+      <td>4.0000</td>
+      <td>0.0090</td>
+      <td>0.0142</td>
+      <td>0.0208</td>
+      <td>0.0097</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3170</td>
+    </tr>
+    <tr>
+      <td>control_OLD_34f81e21aa3abde1</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0010</td>
+      <td>0.0047</td>
+      <td>-0.0056</td>
+      <td>1.0000</td>
+      <td>0.0329</td>
+      <td>-0.0056</td>
+      <td>-0.0049</td>
+      <td>-0.0035</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2891</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ae059e5cfed0e6e4</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0117</td>
+      <td>0.0144</td>
+      <td>0.0045</td>
+      <td>4.0000</td>
+      <td>0.0244</td>
+      <td>0.0190</td>
+      <td>0.0045</td>
+      <td>0.0096</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.1605</td>
+    </tr>
+    <tr>
+      <td>control_OLD_4753e1140a5efef8</td>
+      <td>OLD</td>
+      <td>asinh_difference</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0087</td>
+      <td>-0.0012</td>
+      <td>-0.0197</td>
+      <td>2.0000</td>
+      <td>0.0329</td>
+      <td>-0.0197</td>
+      <td>-0.0192</td>
+      <td>0.0013</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3184</td>
+    </tr>
+    <tr>
+      <td>control_OLD_1483ca7d48e6f00a</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0116</td>
+      <td>0.0128</td>
+      <td>0.0099</td>
+      <td>4.0000</td>
+      <td>0.0109</td>
+      <td>0.0182</td>
+      <td>0.0099</td>
+      <td>0.0121</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2573</td>
+    </tr>
+    <tr>
+      <td>control_OLD_639fc77fdf69248e</td>
+      <td>OLD</td>
+      <td>cubic</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0034</td>
+      <td>0.0028</td>
+      <td>-0.0111</td>
+      <td>1.0000</td>
+      <td>-0.0093</td>
+      <td>-0.0009</td>
+      <td>0.0326</td>
+      <td>-0.0111</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3353</td>
+    </tr>
+    <tr>
+      <td>control_OLD_6d110425a903c3bc</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0116</td>
+      <td>0.0152</td>
+      <td>0.0038</td>
+      <td>4.0000</td>
+      <td>0.0307</td>
+      <td>0.0038</td>
+      <td>0.0178</td>
+      <td>0.0086</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2223</td>
+    </tr>
+    <tr>
+      <td>control_OLD_3327a50467ab6131</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0040</td>
+      <td>0.0023</td>
+      <td>-0.0160</td>
+      <td>1.0000</td>
+      <td>-0.0160</td>
+      <td>-0.0043</td>
+      <td>0.0324</td>
+      <td>-0.0028</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3319</td>
+    </tr>
+    <tr>
+      <td>control_OLD_7323e776d529aff8</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0116</td>
+      <td>0.0130</td>
+      <td>0.0075</td>
+      <td>4.0000</td>
+      <td>0.0117</td>
+      <td>0.0075</td>
+      <td>0.0186</td>
+      <td>0.0143</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2065</td>
+    </tr>
+    <tr>
+      <td>control_OLD_61a75d2abed6538a</td>
+      <td>OLD</td>
+      <td>linear</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0113</td>
+      <td>-0.0021</td>
+      <td>-0.0383</td>
+      <td>2.0000</td>
+      <td>0.0102</td>
+      <td>-0.0126</td>
+      <td>0.0323</td>
+      <td>-0.0383</td>
+      <td>conditional_or_unstable</td>
+      <td>3.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.4578</td>
+    </tr>
+    <tr>
+      <td>control_OLD_d6deb85467169c2d</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0116</td>
+      <td>0.0127</td>
+      <td>0.0078</td>
+      <td>4.0000</td>
+      <td>0.0151</td>
+      <td>0.0078</td>
+      <td>0.0125</td>
+      <td>0.0154</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.1575</td>
+    </tr>
+    <tr>
+      <td>control_OLD_8354ff91dc05e5d3</td>
+      <td>OLD</td>
+      <td>asinh_difference</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0053</td>
+      <td>0.0012</td>
+      <td>-0.0141</td>
+      <td>1.0000</td>
+      <td>-0.0104</td>
+      <td>0.0323</td>
+      <td>-0.0031</td>
+      <td>-0.0141</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2748</td>
+    </tr>
+    <tr>
+      <td>control_OLD_27c88986abc02d96</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0116</td>
+      <td>0.0146</td>
+      <td>0.0015</td>
+      <td>4.0000</td>
+      <td>0.0145</td>
+      <td>0.0249</td>
+      <td>0.0015</td>
+      <td>0.0174</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2585</td>
+    </tr>
+    <tr>
+      <td>control_OLD_4e6a09b9cb3d00b5</td>
+      <td>OLD</td>
+      <td>linear</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0046</td>
+      <td>0.0022</td>
+      <td>-0.0223</td>
+      <td>1.0000</td>
+      <td>0.0322</td>
+      <td>-0.0223</td>
+      <td>-0.0005</td>
+      <td>-0.0005</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.5047</td>
+    </tr>
+    <tr>
+      <td>control_OLD_582cb297d1856999</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0115</td>
+      <td>0.0161</td>
+      <td>-0.0052</td>
+      <td>3.0000</td>
+      <td>0.0258</td>
+      <td>0.0273</td>
+      <td>-0.0052</td>
+      <td>0.0164</td>
+      <td>predictive_candidate</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2027</td>
+    </tr>
+    <tr>
+      <td>main_OLD_0572b7fd963e2de2</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0106</td>
+      <td>-0.0034</td>
+      <td>-0.0261</td>
+      <td>1.0000</td>
+      <td>-0.0261</td>
+      <td>-0.0063</td>
+      <td>0.0299</td>
+      <td>-0.0113</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.0857</td>
+    </tr>
+    <tr>
+      <td>main_OLD_e7bc4e0e987f2993</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0107</td>
+      <td>0.0116</td>
+      <td>0.0070</td>
+      <td>4.0000</td>
+      <td>0.0137</td>
+      <td>0.0128</td>
+      <td>0.0070</td>
+      <td>0.0130</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3094</td>
+    </tr>
+    <tr>
+      <td>control_OLD_7f02af752422f51e</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0046</td>
+      <td>0.0020</td>
+      <td>-0.0206</td>
+      <td>1.0000</td>
+      <td>0.0319</td>
+      <td>-0.0013</td>
+      <td>-0.0206</td>
+      <td>-0.0018</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3496</td>
+    </tr>
+    <tr>
+      <td>control_OLD_5aba674cc88c8311</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0114</td>
+      <td>0.0135</td>
+      <td>0.0041</td>
+      <td>4.0000</td>
+      <td>0.0166</td>
+      <td>0.0134</td>
+      <td>0.0197</td>
+      <td>0.0041</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2940</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ae42aed1245d0b91</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0089</td>
+      <td>-0.0015</td>
+      <td>-0.0259</td>
+      <td>1.0000</td>
+      <td>-0.0009</td>
+      <td>-0.0259</td>
+      <td>0.0316</td>
+      <td>-0.0109</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2734</td>
+    </tr>
+    <tr>
+      <td>control_OLD_9b58549b7de76aa6</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0114</td>
+      <td>0.0152</td>
+      <td>0.0007</td>
+      <td>4.0000</td>
+      <td>0.0095</td>
+      <td>0.0216</td>
+      <td>0.0290</td>
+      <td>0.0007</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3132</td>
+    </tr>
+    <tr>
+      <td>control_OLD_909ed68b3e0d8119</td>
+      <td>OLD</td>
+      <td>cubic</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0102</td>
+      <td>-0.0031</td>
+      <td>-0.0186</td>
+      <td>1.0000</td>
+      <td>0.0315</td>
+      <td>-0.0186</td>
+      <td>-0.0091</td>
+      <td>-0.0161</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.4676</td>
+    </tr>
+    <tr>
+      <td>control_OLD_2068f161e8e87391</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0114</td>
+      <td>0.0135</td>
+      <td>0.0054</td>
+      <td>4.0000</td>
+      <td>0.0054</td>
+      <td>0.0145</td>
+      <td>0.0222</td>
+      <td>0.0118</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2590</td>
+    </tr>
+    <tr>
+      <td>control_OLD_872532fb892e7954</td>
+      <td>OLD</td>
+      <td>linear</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0114</td>
+      <td>-0.0031</td>
+      <td>-0.0344</td>
+      <td>2.0000</td>
+      <td>0.0314</td>
+      <td>-0.0344</td>
+      <td>-0.0113</td>
+      <td>0.0018</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.5656</td>
+    </tr>
+    <tr>
+      <td>control_OLD_5dc2c61007a4fb1e</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0113</td>
+      <td>0.0135</td>
+      <td>0.0029</td>
+      <td>4.0000</td>
+      <td>0.0190</td>
+      <td>0.0156</td>
+      <td>0.0167</td>
+      <td>0.0029</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3439</td>
+    </tr>
+    <tr>
+      <td>control_OLD_dee6ef1503c47bc5</td>
+      <td>OLD</td>
+      <td>linear</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0036</td>
+      <td>0.0026</td>
+      <td>-0.0173</td>
+      <td>1.0000</td>
+      <td>0.0313</td>
+      <td>-0.0173</td>
+      <td>-0.0030</td>
+      <td>-0.0005</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.4254</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ff4b2bd7928a72ff</td>
+      <td>OLD</td>
+      <td>asinh_difference</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0113</td>
+      <td>0.0142</td>
+      <td>0.0027</td>
+      <td>4.0000</td>
+      <td>0.0242</td>
+      <td>0.0109</td>
+      <td>0.0190</td>
+      <td>0.0027</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.5591</td>
+    </tr>
+    <tr>
+      <td>control_OLD_382466e53a64ea97</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0090</td>
+      <td>-0.0017</td>
+      <td>-0.0269</td>
+      <td>1.0000</td>
+      <td>-0.0079</td>
+      <td>0.0311</td>
+      <td>-0.0269</td>
+      <td>-0.0030</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2110</td>
+    </tr>
+    <tr>
+      <td>control_OLD_5f70d2b79ff2c825</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0113</td>
+      <td>0.0143</td>
+      <td>0.0032</td>
+      <td>4.0000</td>
+      <td>0.0238</td>
+      <td>0.0086</td>
+      <td>0.0032</td>
+      <td>0.0217</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2224</td>
+    </tr>
+    <tr>
+      <td>control_OLD_7b05e437c5635393</td>
+      <td>OLD</td>
+      <td>asinh_difference</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0143</td>
+      <td>-0.0057</td>
+      <td>-0.0335</td>
+      <td>2.0000</td>
+      <td>0.0010</td>
+      <td>-0.0215</td>
+      <td>-0.0335</td>
+      <td>0.0311</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.5870</td>
+    </tr>
+    <tr>
+      <td>control_OLD_aeab41732d90c557</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0112</td>
+      <td>0.0134</td>
+      <td>0.0035</td>
+      <td>4.0000</td>
+      <td>0.0135</td>
+      <td>0.0188</td>
+      <td>0.0177</td>
+      <td>0.0035</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3118</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ab793adc7569e0cc</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0026</td>
+      <td>0.0031</td>
+      <td>-0.0119</td>
+      <td>1.0000</td>
+      <td>-0.0119</td>
+      <td>-0.0036</td>
+      <td>0.0307</td>
+      <td>-0.0026</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3926</td>
+    </tr>
+    <tr>
+      <td>control_OLD_474b5aa2391081c7</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0112</td>
+      <td>0.0124</td>
+      <td>0.0087</td>
+      <td>4.0000</td>
+      <td>0.0096</td>
+      <td>0.0155</td>
+      <td>0.0087</td>
+      <td>0.0157</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3181</td>
+    </tr>
+    <tr>
+      <td>main_OLD_43dcc4cfd3d2135d</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0127</td>
+      <td>-0.0048</td>
+      <td>-0.0335</td>
+      <td>1.0000</td>
+      <td>-0.0335</td>
+      <td>-0.0103</td>
+      <td>0.0299</td>
+      <td>-0.0051</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2059</td>
+    </tr>
+    <tr>
+      <td>main_OLD_388978c9e0df73a4</td>
+      <td>OLD</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0107</td>
+      <td>0.0134</td>
+      <td>0.0018</td>
+      <td>4.0000</td>
+      <td>0.0216</td>
+      <td>0.0110</td>
+      <td>0.0193</td>
+      <td>0.0018</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.4662</td>
+    </tr>
+    <tr>
+      <td>control_OLD_708f5aca3fa45a65</td>
+      <td>OLD</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0127</td>
+      <td>-0.0054</td>
+      <td>-0.0199</td>
+      <td>1.0000</td>
+      <td>0.0306</td>
+      <td>-0.0199</td>
+      <td>-0.0196</td>
+      <td>-0.0127</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.7102</td>
+    </tr>
+    <tr>
+      <td>control_OLD_64177df304746a8b</td>
+      <td>OLD</td>
+      <td>cubic</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0111</td>
+      <td>0.0133</td>
+      <td>0.0025</td>
+      <td>4.0000</td>
+      <td>0.0158</td>
+      <td>0.0175</td>
+      <td>0.0174</td>
+      <td>0.0025</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>old</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.3679</td>
+    </tr>
+  </tbody>
+</table></div><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature</th>
+      <th>discovery_raw_ic</th>
+      <th>period</th>
+      <th>evaluation_raw_ic</th>
+      <th>discovery_direction</th>
+      <th>evaluation_discovery_signed_ic</th>
+      <th>direction_source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>control_OLD_23bc122670a21261</td>
+      <td>0.0176</td>
+      <td>oos</td>
+      <td>-0.0119</td>
+      <td>1.0000</td>
+      <td>-0.0119</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_c0867d9d641fa502</td>
+      <td>-0.0022</td>
+      <td>oos</td>
+      <td>0.0077</td>
+      <td>-1.0000</td>
+      <td>-0.0077</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_cb13223aa14aa3f8</td>
+      <td>-0.0044</td>
+      <td>oos</td>
+      <td>-0.0042</td>
+      <td>-1.0000</td>
+      <td>0.0042</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_95513de90e14d3ed</td>
+      <td>-0.0028</td>
+      <td>oos</td>
+      <td>0.0177</td>
+      <td>-1.0000</td>
+      <td>-0.0177</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_81664b8c52b661ed</td>
+      <td>0.0120</td>
+      <td>oos</td>
+      <td>-0.0049</td>
+      <td>1.0000</td>
+      <td>-0.0049</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_533a028ba2690981</td>
+      <td>0.0073</td>
+      <td>oos</td>
+      <td>0.0042</td>
+      <td>1.0000</td>
+      <td>0.0042</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_0c78cabde2869d88</td>
+      <td>0.0139</td>
+      <td>oos</td>
+      <td>-0.0057</td>
+      <td>1.0000</td>
+      <td>-0.0057</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_1a95943366b284ce</td>
+      <td>-0.0043</td>
+      <td>oos</td>
+      <td>-0.0227</td>
+      <td>-1.0000</td>
+      <td>0.0227</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_01b364c2a2f7ac79</td>
+      <td>-0.0386</td>
+      <td>oos</td>
+      <td>0.0108</td>
+      <td>-1.0000</td>
+      <td>-0.0108</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_7a859225c1db2021</td>
+      <td>0.0148</td>
+      <td>oos</td>
+      <td>0.0053</td>
+      <td>1.0000</td>
+      <td>0.0053</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_68d3b30bfe966bc8</td>
+      <td>0.0078</td>
+      <td>oos</td>
+      <td>-0.0241</td>
+      <td>1.0000</td>
+      <td>-0.0241</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_28cb21350974a060</td>
+      <td>-0.0118</td>
+      <td>oos</td>
+      <td>0.0100</td>
+      <td>-1.0000</td>
+      <td>-0.0100</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_e0223a2520e394a1</td>
+      <td>-0.0316</td>
+      <td>oos</td>
+      <td>-0.0204</td>
+      <td>-1.0000</td>
+      <td>0.0204</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_49d21e489b589d06</td>
+      <td>-0.0087</td>
+      <td>oos</td>
+      <td>-0.0018</td>
+      <td>-1.0000</td>
+      <td>0.0018</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_8fd20805d8ed5d8b</td>
+      <td>0.0042</td>
+      <td>oos</td>
+      <td>0.0034</td>
+      <td>1.0000</td>
+      <td>0.0034</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_45740a6cbfadbdba</td>
+      <td>-0.0030</td>
+      <td>oos</td>
+      <td>-0.0202</td>
+      <td>-1.0000</td>
+      <td>0.0202</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_16029ad45bcdc5a8</td>
+      <td>0.0191</td>
+      <td>oos</td>
+      <td>0.0092</td>
+      <td>1.0000</td>
+      <td>0.0092</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_569c5837bad6cf68</td>
+      <td>-0.0029</td>
+      <td>oos</td>
+      <td>-0.0148</td>
+      <td>-1.0000</td>
+      <td>0.0148</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ed6a2a927d1ad0b9</td>
+      <td>0.0240</td>
+      <td>oos</td>
+      <td>0.0120</td>
+      <td>1.0000</td>
+      <td>0.0120</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_97cf9d40b6119a9d</td>
+      <td>0.0192</td>
+      <td>oos</td>
+      <td>0.0070</td>
+      <td>1.0000</td>
+      <td>0.0070</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_08ff41b2d8f34829</td>
+      <td>-0.0117</td>
+      <td>oos</td>
+      <td>-0.0019</td>
+      <td>-1.0000</td>
+      <td>0.0019</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_14c15e1eb7196a8d</td>
+      <td>-0.0081</td>
+      <td>oos</td>
+      <td>-0.0100</td>
+      <td>-1.0000</td>
+      <td>0.0100</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_f41051a886ad07bd</td>
+      <td>0.0095</td>
+      <td>oos</td>
+      <td>0.0021</td>
+      <td>1.0000</td>
+      <td>0.0021</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_38fcb2b4f074bf67</td>
+      <td>0.0237</td>
+      <td>oos</td>
+      <td>0.0067</td>
+      <td>1.0000</td>
+      <td>0.0067</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_14d5a0f9eab9fb62</td>
+      <td>-0.0138</td>
+      <td>oos</td>
+      <td>-0.0075</td>
+      <td>-1.0000</td>
+      <td>0.0075</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_65bc847d9e321642</td>
+      <td>0.0232</td>
+      <td>oos</td>
+      <td>0.0113</td>
+      <td>1.0000</td>
+      <td>0.0113</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_de8ba14e7778fcc0</td>
+      <td>0.0048</td>
+      <td>oos</td>
+      <td>0.0100</td>
+      <td>1.0000</td>
+      <td>0.0100</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_d2a594cac72c211d</td>
+      <td>-0.0068</td>
+      <td>oos</td>
+      <td>0.0006</td>
+      <td>-1.0000</td>
+      <td>-0.0006</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_5a90447cc6227596</td>
+      <td>0.0059</td>
+      <td>oos</td>
+      <td>-0.0030</td>
+      <td>1.0000</td>
+      <td>-0.0030</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_16dba59e9c2a9d08</td>
+      <td>0.0070</td>
+      <td>oos</td>
+      <td>0.0032</td>
+      <td>1.0000</td>
+      <td>0.0032</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_cc4b117223665fac</td>
+      <td>0.0138</td>
+      <td>oos</td>
+      <td>-0.0065</td>
+      <td>1.0000</td>
+      <td>-0.0065</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_3c6785782215842a</td>
+      <td>-0.0058</td>
+      <td>oos</td>
+      <td>-0.0154</td>
+      <td>-1.0000</td>
+      <td>0.0154</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_503785de10957d96</td>
+      <td>0.0249</td>
+      <td>oos</td>
+      <td>0.0035</td>
+      <td>1.0000</td>
+      <td>0.0035</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_637bc229dd9aaf74</td>
+      <td>0.0225</td>
+      <td>oos</td>
+      <td>0.0006</td>
+      <td>1.0000</td>
+      <td>0.0006</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_d8144148a5d350f1</td>
+      <td>0.0116</td>
+      <td>oos</td>
+      <td>0.0055</td>
+      <td>1.0000</td>
+      <td>0.0055</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_7c18e2b11c279d93</td>
+      <td>0.0086</td>
+      <td>oos</td>
+      <td>0.0136</td>
+      <td>1.0000</td>
+      <td>0.0136</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_c60f9543b9dd33ab</td>
+      <td>0.0271</td>
+      <td>oos</td>
+      <td>-0.0078</td>
+      <td>1.0000</td>
+      <td>-0.0078</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_19d7b2ad30f90bf4</td>
+      <td>-0.0164</td>
+      <td>oos</td>
+      <td>-0.0134</td>
+      <td>-1.0000</td>
+      <td>0.0134</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_8b23156b7afc23a8</td>
+      <td>-0.0064</td>
+      <td>oos</td>
+      <td>-0.0225</td>
+      <td>-1.0000</td>
+      <td>0.0225</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_218de2d8f4f305b4</td>
+      <td>0.0064</td>
+      <td>oos</td>
+      <td>0.0051</td>
+      <td>1.0000</td>
+      <td>0.0051</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_85cd32bb5fae2c18</td>
+      <td>0.0081</td>
+      <td>oos</td>
+      <td>-0.0095</td>
+      <td>1.0000</td>
+      <td>-0.0095</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_3e6496a961ee8a99</td>
+      <td>0.0047</td>
+      <td>oos</td>
+      <td>-0.0148</td>
+      <td>1.0000</td>
+      <td>-0.0148</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_6c9b8d81f94456c0</td>
+      <td>-0.0114</td>
+      <td>oos</td>
+      <td>-0.0198</td>
+      <td>-1.0000</td>
+      <td>0.0198</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_900cd8fe2e1d06f0</td>
+      <td>-0.0125</td>
+      <td>oos</td>
+      <td>-0.0038</td>
+      <td>-1.0000</td>
+      <td>0.0038</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_293d6d77331d3ace</td>
+      <td>-0.0164</td>
+      <td>oos</td>
+      <td>-0.0042</td>
+      <td>-1.0000</td>
+      <td>0.0042</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ef91da280de71271</td>
+      <td>0.0331</td>
+      <td>oos</td>
+      <td>0.0071</td>
+      <td>1.0000</td>
+      <td>0.0071</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_f9a325988a05b4c2</td>
+      <td>-0.0066</td>
+      <td>oos</td>
+      <td>-0.0011</td>
+      <td>-1.0000</td>
+      <td>0.0011</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_75fddc8327006606</td>
+      <td>0.0046</td>
+      <td>oos</td>
+      <td>-0.0019</td>
+      <td>1.0000</td>
+      <td>-0.0019</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_OLD_e7ac9236bda42a44</td>
+      <td>0.0147</td>
+      <td>oos</td>
+      <td>-0.0034</td>
+      <td>1.0000</td>
+      <td>-0.0034</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_OLD_78018282a608914d</td>
+      <td>0.0141</td>
+      <td>oos</td>
+      <td>-0.0078</td>
+      <td>1.0000</td>
+      <td>-0.0078</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_OLD_265d0da06b14cc92</td>
+      <td>0.0382</td>
+      <td>oos</td>
+      <td>-0.0005</td>
+      <td>1.0000</td>
+      <td>-0.0005</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_OLD_c9b556e83f154c7f</td>
+      <td>0.0128</td>
+      <td>oos</td>
+      <td>0.0077</td>
+      <td>1.0000</td>
+      <td>0.0077</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_OLD_6c4fc0af95001e9b</td>
+      <td>-0.0071</td>
+      <td>oos</td>
+      <td>-0.0325</td>
+      <td>-1.0000</td>
+      <td>0.0325</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_OLD_3e120c03ce9ad207</td>
+      <td>0.0302</td>
+      <td>oos</td>
+      <td>0.0104</td>
+      <td>1.0000</td>
+      <td>0.0104</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_405b3ffd27bda83e</td>
+      <td>0.0112</td>
+      <td>oos</td>
+      <td>-0.0001</td>
+      <td>1.0000</td>
+      <td>-0.0001</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_f1b817f5fedcc7a7</td>
+      <td>-0.0172</td>
+      <td>oos</td>
+      <td>-0.0059</td>
+      <td>-1.0000</td>
+      <td>0.0059</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_27623919d75fb3c9</td>
+      <td>-0.0297</td>
+      <td>oos</td>
+      <td>-0.0062</td>
+      <td>-1.0000</td>
+      <td>0.0062</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_7bc9db343cd09b04</td>
+      <td>0.0070</td>
+      <td>oos</td>
+      <td>-0.0160</td>
+      <td>1.0000</td>
+      <td>-0.0160</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_18c644c6967a00b8</td>
+      <td>-0.0272</td>
+      <td>oos</td>
+      <td>0.0041</td>
+      <td>-1.0000</td>
+      <td>-0.0041</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_8a3cb573d953a0fa</td>
+      <td>-0.0008</td>
+      <td>oos</td>
+      <td>0.0047</td>
+      <td>-1.0000</td>
+      <td>-0.0047</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_965fdf2f0f6d0738</td>
+      <td>-0.0200</td>
+      <td>oos</td>
+      <td>-0.0425</td>
+      <td>-1.0000</td>
+      <td>0.0425</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_3d15334ef3365d7a</td>
+      <td>-0.0015</td>
+      <td>oos</td>
+      <td>0.0126</td>
+      <td>-1.0000</td>
+      <td>-0.0126</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_24344e4ab3d061af</td>
+      <td>0.0066</td>
+      <td>oos</td>
+      <td>-0.0059</td>
+      <td>1.0000</td>
+      <td>-0.0059</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_6bb61806a9009ed5</td>
+      <td>-0.0164</td>
+      <td>oos</td>
+      <td>0.0057</td>
+      <td>-1.0000</td>
+      <td>-0.0057</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_e6daa4c8d25dcb89</td>
+      <td>-0.0042</td>
+      <td>oos</td>
+      <td>-0.0046</td>
+      <td>-1.0000</td>
+      <td>0.0046</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_39e25d882112214d</td>
+      <td>-0.0095</td>
+      <td>oos</td>
+      <td>0.0250</td>
+      <td>-1.0000</td>
+      <td>-0.0250</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_81485c36b3f0abd6</td>
+      <td>0.0227</td>
+      <td>oos</td>
+      <td>0.0186</td>
+      <td>1.0000</td>
+      <td>0.0186</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_06dd7a6d36e0917f</td>
+      <td>0.0044</td>
+      <td>oos</td>
+      <td>0.0001</td>
+      <td>1.0000</td>
+      <td>0.0001</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_OLD_40552edf9d66592f</td>
+      <td>0.0136</td>
+      <td>oos</td>
+      <td>-0.0042</td>
+      <td>1.0000</td>
+      <td>-0.0042</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_OLD_0d4d0acdbdb0a827</td>
+      <td>-0.0049</td>
+      <td>oos</td>
+      <td>-0.0230</td>
+      <td>-1.0000</td>
+      <td>0.0230</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ff9d465b4b86dfee</td>
+      <td>0.0189</td>
+      <td>oos</td>
+      <td>0.0110</td>
+      <td>1.0000</td>
+      <td>0.0110</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_cfd0533c7b748efe</td>
+      <td>0.0015</td>
+      <td>oos</td>
+      <td>-0.0065</td>
+      <td>1.0000</td>
+      <td>-0.0065</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_34f81e21aa3abde1</td>
+      <td>0.0096</td>
+      <td>oos</td>
+      <td>0.0205</td>
+      <td>1.0000</td>
+      <td>0.0205</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ae059e5cfed0e6e4</td>
+      <td>-0.0055</td>
+      <td>oos</td>
+      <td>-0.0014</td>
+      <td>-1.0000</td>
+      <td>0.0014</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_4753e1140a5efef8</td>
+      <td>-0.0031</td>
+      <td>oos</td>
+      <td>0.0098</td>
+      <td>-1.0000</td>
+      <td>-0.0098</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_1483ca7d48e6f00a</td>
+      <td>0.0115</td>
+      <td>oos</td>
+      <td>0.0071</td>
+      <td>1.0000</td>
+      <td>0.0071</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_639fc77fdf69248e</td>
+      <td>0.0051</td>
+      <td>oos</td>
+      <td>-0.0003</td>
+      <td>1.0000</td>
+      <td>-0.0003</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_6d110425a903c3bc</td>
+      <td>-0.0092</td>
+      <td>oos</td>
+      <td>-0.0024</td>
+      <td>-1.0000</td>
+      <td>0.0024</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_3327a50467ab6131</td>
+      <td>0.0123</td>
+      <td>oos</td>
+      <td>0.0040</td>
+      <td>1.0000</td>
+      <td>0.0040</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_7323e776d529aff8</td>
+      <td>0.0010</td>
+      <td>oos</td>
+      <td>-0.0052</td>
+      <td>1.0000</td>
+      <td>-0.0052</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_61a75d2abed6538a</td>
+      <td>0.0007</td>
+      <td>oos</td>
+      <td>-0.0177</td>
+      <td>1.0000</td>
+      <td>-0.0177</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_d6deb85467169c2d</td>
+      <td>0.0130</td>
+      <td>oos</td>
+      <td>-0.0147</td>
+      <td>1.0000</td>
+      <td>-0.0147</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_8354ff91dc05e5d3</td>
+      <td>0.0025</td>
+      <td>oos</td>
+      <td>0.0086</td>
+      <td>1.0000</td>
+      <td>0.0086</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_27c88986abc02d96</td>
+      <td>-0.0013</td>
+      <td>oos</td>
+      <td>0.0015</td>
+      <td>-1.0000</td>
+      <td>-0.0015</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_4e6a09b9cb3d00b5</td>
+      <td>-0.0110</td>
+      <td>oos</td>
+      <td>-0.0245</td>
+      <td>-1.0000</td>
+      <td>0.0245</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_582cb297d1856999</td>
+      <td>0.0008</td>
+      <td>oos</td>
+      <td>0.0060</td>
+      <td>1.0000</td>
+      <td>0.0060</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_OLD_0572b7fd963e2de2</td>
+      <td>0.0128</td>
+      <td>oos</td>
+      <td>-0.0037</td>
+      <td>1.0000</td>
+      <td>-0.0037</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_OLD_e7bc4e0e987f2993</td>
+      <td>0.0052</td>
+      <td>oos</td>
+      <td>-0.0165</td>
+      <td>1.0000</td>
+      <td>-0.0165</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_7f02af752422f51e</td>
+      <td>-0.0104</td>
+      <td>oos</td>
+      <td>-0.0208</td>
+      <td>-1.0000</td>
+      <td>0.0208</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_5aba674cc88c8311</td>
+      <td>0.0081</td>
+      <td>oos</td>
+      <td>-0.0036</td>
+      <td>1.0000</td>
+      <td>-0.0036</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ae42aed1245d0b91</td>
+      <td>-0.0041</td>
+      <td>oos</td>
+      <td>0.0037</td>
+      <td>-1.0000</td>
+      <td>-0.0037</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_9b58549b7de76aa6</td>
+      <td>-0.0015</td>
+      <td>oos</td>
+      <td>-0.0056</td>
+      <td>-1.0000</td>
+      <td>0.0056</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_909ed68b3e0d8119</td>
+      <td>0.0208</td>
+      <td>oos</td>
+      <td>-0.0101</td>
+      <td>1.0000</td>
+      <td>-0.0101</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_2068f161e8e87391</td>
+      <td>0.0042</td>
+      <td>oos</td>
+      <td>-0.0079</td>
+      <td>1.0000</td>
+      <td>-0.0079</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_872532fb892e7954</td>
+      <td>0.0006</td>
+      <td>oos</td>
+      <td>-0.0027</td>
+      <td>1.0000</td>
+      <td>-0.0027</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_5dc2c61007a4fb1e</td>
+      <td>0.0098</td>
+      <td>oos</td>
+      <td>0.0211</td>
+      <td>1.0000</td>
+      <td>0.0211</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_dee6ef1503c47bc5</td>
+      <td>-0.0129</td>
+      <td>oos</td>
+      <td>-0.0127</td>
+      <td>-1.0000</td>
+      <td>0.0127</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ff4b2bd7928a72ff</td>
+      <td>0.0175</td>
+      <td>oos</td>
+      <td>0.0213</td>
+      <td>1.0000</td>
+      <td>0.0213</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_382466e53a64ea97</td>
+      <td>-0.0109</td>
+      <td>oos</td>
+      <td>0.0214</td>
+      <td>-1.0000</td>
+      <td>-0.0214</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_5f70d2b79ff2c825</td>
+      <td>-0.0009</td>
+      <td>oos</td>
+      <td>-0.0053</td>
+      <td>-1.0000</td>
+      <td>0.0053</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_7b05e437c5635393</td>
+      <td>0.0061</td>
+      <td>oos</td>
+      <td>-0.0081</td>
+      <td>1.0000</td>
+      <td>-0.0081</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_aeab41732d90c557</td>
+      <td>-0.0020</td>
+      <td>oos</td>
+      <td>0.0188</td>
+      <td>-1.0000</td>
+      <td>-0.0188</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_ab793adc7569e0cc</td>
+      <td>-0.0277</td>
+      <td>oos</td>
+      <td>-0.0171</td>
+      <td>-1.0000</td>
+      <td>0.0171</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_474b5aa2391081c7</td>
+      <td>-0.0064</td>
+      <td>oos</td>
+      <td>-0.0111</td>
+      <td>-1.0000</td>
+      <td>0.0111</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_OLD_43dcc4cfd3d2135d</td>
+      <td>0.0115</td>
+      <td>oos</td>
+      <td>-0.0019</td>
+      <td>1.0000</td>
+      <td>-0.0019</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_OLD_388978c9e0df73a4</td>
+      <td>-0.0049</td>
+      <td>oos</td>
+      <td>-0.0076</td>
+      <td>-1.0000</td>
+      <td>0.0076</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_708f5aca3fa45a65</td>
+      <td>-0.0349</td>
+      <td>oos</td>
+      <td>0.0097</td>
+      <td>-1.0000</td>
+      <td>-0.0097</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>control_OLD_64177df304746a8b</td>
+      <td>0.0289</td>
+      <td>oos</td>
+      <td>0.0119</td>
+      <td>1.0000</td>
+      <td>0.0119</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+  </tbody>
+</table></div><details><summary>control_OLD_23bc122670a21261</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_23bc122670a21261&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    24,
+    27
+  ],
+  &quot;left_weights&quot;: [
+    0.8944271909999159,
+    -0.4472135954999579
+  ],
+  &quot;right&quot;: [
+    73,
+    961
+  ],
+  &quot;right_weights&quot;: [
+    0.4472135954999579,
+    -0.8944271909999159
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>control_OLD_c0867d9d641fa502</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_c0867d9d641fa502&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    2,
+    47,
+    51,
+    73
+  ],
+  &quot;left_weights&quot;: [
+    0.5547001962252291,
+    0.5547001962252291,
+    -0.5547001962252291,
+    -0.2773500981126146
+  ],
+  &quot;right&quot;: [
+    1,
+    79,
+    876
+  ],
+  &quot;right_weights&quot;: [
+    0.8164965809277261,
+    -0.4082482904638631,
+    0.4082482904638631
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_cb13223aa14aa3f8</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_cb13223aa14aa3f8&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    20,
+    41,
+    45,
+    882
+  ],
+  &quot;left_weights&quot;: [
+    0.6324555320336759,
+    0.31622776601683794,
+    0.31622776601683794,
+    -0.6324555320336759
+  ],
+  &quot;right&quot;: [
+    35,
+    883
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 240,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_95513de90e14d3ed</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_95513de90e14d3ed&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    55,
+    75,
+    892
+  ],
+  &quot;left_weights&quot;: [
+    0.4082482904638631,
+    0.4082482904638631,
+    -0.8164965809277261
+  ],
+  &quot;right&quot;: [
+    25,
+    51
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_81664b8c52b661ed</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_81664b8c52b661ed&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    0,
+    77
+  ],
+  &quot;left_weights&quot;: [
+    0.4472135954999579,
+    0.8944271909999159
+  ],
+  &quot;right&quot;: [
+    2,
+    21
+  ],
+  &quot;right_weights&quot;: [
+    0.4472135954999579,
+    0.8944271909999159
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>control_OLD_533a028ba2690981</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_533a028ba2690981&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    7,
+    880,
+    881,
+    892
+  ],
+  &quot;left_weights&quot;: [
+    0.5,
+    -0.5,
+    0.5,
+    -0.5
+  ],
+  &quot;right&quot;: [
+    52,
+    78,
+    878
+  ],
+  &quot;right_weights&quot;: [
+    0.5773502691896258,
+    0.5773502691896258,
+    0.5773502691896258
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_0c78cabde2869d88</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_0c78cabde2869d88&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    7,
+    49,
+    69,
+    72
+  ],
+  &quot;left_weights&quot;: [
+    0.7559289460184544,
+    -0.3779644730092272,
+    -0.3779644730092272,
+    -0.3779644730092272
+  ],
+  &quot;right&quot;: [
+    24,
+    30,
+    60
+  ],
+  &quot;right_weights&quot;: [
+    0.5773502691896258,
+    0.5773502691896258,
+    -0.5773502691896258
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_1a95943366b284ce</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_1a95943366b284ce&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    23,
+    78,
+    878,
+    958
+  ],
+  &quot;left_weights&quot;: [
+    0.5,
+    -0.5,
+    -0.5,
+    -0.5
+  ],
+  &quot;right&quot;: [
+    7,
+    27,
+    76
+  ],
+  &quot;right_weights&quot;: [
+    0.6666666666666666,
+    0.6666666666666666,
+    -0.3333333333333333
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_01b364c2a2f7ac79</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_01b364c2a2f7ac79&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    61,
+    881,
+    958
+  ],
+  &quot;left_weights&quot;: [
+    0.4082482904638631,
+    -0.8164965809277261,
+    -0.4082482904638631
+  ],
+  &quot;right&quot;: [
+    60,
+    69,
+    883
+  ],
+  &quot;right_weights&quot;: [
+    0.6666666666666666,
+    -0.6666666666666666,
+    0.3333333333333333
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_7a859225c1db2021</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_7a859225c1db2021&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    26,
+    78
+  ],
+  &quot;left_weights&quot;: [
+    0.4472135954999579,
+    0.8944271909999159
+  ],
+  &quot;right&quot;: [
+    27,
+    34
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>control_OLD_68d3b30bfe966bc8</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_68d3b30bfe966bc8&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    6,
+    55,
+    66,
+    883
+  ],
+  &quot;left_weights&quot;: [
+    0.31622776601683794,
+    0.6324555320336759,
+    -0.6324555320336759,
+    0.31622776601683794
+  ],
+  &quot;right&quot;: [
+    46,
+    66,
+    67,
+    75
+  ],
+  &quot;right_weights&quot;: [
+    0.5547001962252291,
+    -0.2773500981126146,
+    -0.5547001962252291,
+    -0.5547001962252291
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 21
+}</pre></details><details><summary>control_OLD_28cb21350974a060</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_28cb21350974a060&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    11,
+    24
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    54,
+    882
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>control_OLD_e0223a2520e394a1</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_e0223a2520e394a1&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    71,
+    72
+  ],
+  &quot;left_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;right&quot;: [
+    24,
+    42,
+    76
+  ],
+  &quot;right_weights&quot;: [
+    0.6666666666666666,
+    -0.3333333333333333,
+    -0.6666666666666666
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_49d21e489b589d06</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_49d21e489b589d06&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    13,
+    27,
+    68,
+    888
+  ],
+  &quot;left_weights&quot;: [
+    0.31622776601683794,
+    0.6324555320336759,
+    0.31622776601683794,
+    -0.6324555320336759
+  ],
+  &quot;right&quot;: [
+    38,
+    50,
+    884,
+    959
+  ],
+  &quot;right_weights&quot;: [
+    0.31622776601683794,
+    -0.6324555320336759,
+    -0.31622776601683794,
+    -0.6324555320336759
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 21
+}</pre></details><details><summary>control_OLD_8fd20805d8ed5d8b</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_8fd20805d8ed5d8b&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    10,
+    57,
+    887,
+    958
+  ],
+  &quot;left_weights&quot;: [
+    0.7559289460184544,
+    -0.3779644730092272,
+    -0.3779644730092272,
+    -0.3779644730092272
+  ],
+  &quot;right&quot;: [
+    53,
+    961
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_45740a6cbfadbdba</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_45740a6cbfadbdba&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    20,
+    41,
+    962
+  ],
+  &quot;left_weights&quot;: [
+    0.8164965809277261,
+    0.4082482904638631,
+    0.4082482904638631
+  ],
+  &quot;right&quot;: [
+    15,
+    20,
+    27,
+    963
+  ],
+  &quot;right_weights&quot;: [
+    0.5547001962252291,
+    0.2773500981126146,
+    0.5547001962252291,
+    -0.5547001962252291
+  ],
+  &quot;support_minutes&quot;: 480,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_16029ad45bcdc5a8</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_16029ad45bcdc5a8&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    7,
+    56,
+    67,
+    75
+  ],
+  &quot;left_weights&quot;: [
+    0.31622776601683794,
+    -0.6324555320336759,
+    0.6324555320336759,
+    0.31622776601683794
+  ],
+  &quot;right&quot;: [
+    13,
+    71,
+    887
+  ],
+  &quot;right_weights&quot;: [
+    0.5773502691896258,
+    0.5773502691896258,
+    -0.5773502691896258
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_569c5837bad6cf68</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_569c5837bad6cf68&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    14,
+    17,
+    24,
+    886
+  ],
+  &quot;left_weights&quot;: [
+    0.31622776601683794,
+    0.6324555320336759,
+    0.6324555320336759,
+    -0.31622776601683794
+  ],
+  &quot;right&quot;: [
+    2,
+    7,
+    891
+  ],
+  &quot;right_weights&quot;: [
+    0.5773502691896258,
+    0.5773502691896258,
+    -0.5773502691896258
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_ed6a2a927d1ad0b9</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_ed6a2a927d1ad0b9&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;cubic&quot;,
+  &quot;left&quot;: [
+    56,
+    79
+  ],
+  &quot;left_weights&quot;: [
+    0.4472135954999579,
+    0.8944271909999159
+  ],
+  &quot;right&quot;: [
+    12,
+    34,
+    883
+  ],
+  &quot;right_weights&quot;: [
+    0.4082482904638631,
+    0.4082482904638631,
+    0.8164965809277261
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 3,
+  &quot;nodes&quot;: 16
+}</pre></details><details><summary>control_OLD_97cf9d40b6119a9d</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_97cf9d40b6119a9d&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    29,
+    78
+  ],
+  &quot;left_weights&quot;: [
+    0.4472135954999579,
+    0.8944271909999159
+  ],
+  &quot;right&quot;: [
+    1,
+    77,
+    963
+  ],
+  &quot;right_weights&quot;: [
+    0.5773502691896258,
+    -0.5773502691896258,
+    0.5773502691896258
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_08ff41b2d8f34829</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_08ff41b2d8f34829&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    17,
+    879
+  ],
+  &quot;left_weights&quot;: [
+    0.4472135954999579,
+    0.8944271909999159
+  ],
+  &quot;right&quot;: [
+    29,
+    45
+  ],
+  &quot;right_weights&quot;: [
+    0.4472135954999579,
+    -0.8944271909999159
+  ],
+  &quot;support_minutes&quot;: 240,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>control_OLD_14c15e1eb7196a8d</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_14c15e1eb7196a8d&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    14,
+    53,
+    71,
+    963
+  ],
+  &quot;left_weights&quot;: [
+    0.5,
+    -0.5,
+    -0.5,
+    0.5
+  ],
+  &quot;right&quot;: [
+    48,
+    52
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_f41051a886ad07bd</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_f41051a886ad07bd&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    39,
+    69
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    51,
+    883
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>control_OLD_38fcb2b4f074bf67</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_38fcb2b4f074bf67&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    43,
+    80
+  ],
+  &quot;left_weights&quot;: [
+    0.4472135954999579,
+    -0.8944271909999159
+  ],
+  &quot;right&quot;: [
+    39,
+    880
+  ],
+  &quot;right_weights&quot;: [
+    0.4472135954999579,
+    0.8944271909999159
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>control_OLD_14d5a0f9eab9fb62</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_14d5a0f9eab9fb62&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    5,
+    40,
+    882,
+    885
+  ],
+  &quot;left_weights&quot;: [
+    0.6324555320336759,
+    0.31622776601683794,
+    -0.6324555320336759,
+    0.31622776601683794
+  ],
+  &quot;right&quot;: [
+    44,
+    76
+  ],
+  &quot;right_weights&quot;: [
+    0.4472135954999579,
+    0.8944271909999159
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_65bc847d9e321642</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_65bc847d9e321642&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    18,
+    32,
+    57,
+    892
+  ],
+  &quot;left_weights&quot;: [
+    0.5,
+    -0.5,
+    -0.5,
+    0.5
+  ],
+  &quot;right&quot;: [
+    54,
+    876
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_de8ba14e7778fcc0</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_de8ba14e7778fcc0&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    24,
+    32
+  ],
+  &quot;left_weights&quot;: [
+    0.4472135954999579,
+    -0.8944271909999159
+  ],
+  &quot;right&quot;: [
+    72,
+    75,
+    76
+  ],
+  &quot;right_weights&quot;: [
+    0.4082482904638631,
+    -0.4082482904638631,
+    0.8164965809277261
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_d2a594cac72c211d</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_d2a594cac72c211d&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    8,
+    73,
+    75,
+    880
+  ],
+  &quot;left_weights&quot;: [
+    0.5,
+    0.5,
+    0.5,
+    -0.5
+  ],
+  &quot;right&quot;: [
+    6,
+    13,
+    44,
+    78
+  ],
+  &quot;right_weights&quot;: [
+    0.3779644730092272,
+    -0.7559289460184544,
+    -0.3779644730092272,
+    0.3779644730092272
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 21
+}</pre></details><details><summary>control_OLD_5a90447cc6227596</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_5a90447cc6227596&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    15,
+    25,
+    35,
+    886
+  ],
+  &quot;left_weights&quot;: [
+    0.3779644730092272,
+    0.3779644730092272,
+    -0.7559289460184544,
+    -0.3779644730092272
+  ],
+  &quot;right&quot;: [
+    38,
+    54
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_16dba59e9c2a9d08</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_16dba59e9c2a9d08&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    33,
+    40,
+    53,
+    54
+  ],
+  &quot;left_weights&quot;: [
+    0.3779644730092272,
+    0.3779644730092272,
+    -0.7559289460184544,
+    0.3779644730092272
+  ],
+  &quot;right&quot;: [
+    8,
+    22
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_cc4b117223665fac</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_cc4b117223665fac&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    16,
+    58
+  ],
+  &quot;left_weights&quot;: [
+    0.4472135954999579,
+    0.8944271909999159
+  ],
+  &quot;right&quot;: [
+    24,
+    36
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>control_OLD_3c6785782215842a</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_3c6785782215842a&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    38,
+    78,
+    79,
+    883
+  ],
+  &quot;left_weights&quot;: [
+    0.31622776601683794,
+    0.6324555320336759,
+    -0.31622776601683794,
+    -0.6324555320336759
+  ],
+  &quot;right&quot;: [
+    35,
+    884,
+    887
+  ],
+  &quot;right_weights&quot;: [
+    0.6666666666666666,
+    0.3333333333333333,
+    -0.6666666666666666
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_503785de10957d96</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_503785de10957d96&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    24,
+    73,
+    74
+  ],
+  &quot;left_weights&quot;: [
+    0.8164965809277261,
+    -0.4082482904638631,
+    0.4082482904638631
+  ],
+  &quot;right&quot;: [
+    2,
+    76
+  ],
+  &quot;right_weights&quot;: [
+    0.4472135954999579,
+    0.8944271909999159
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_637bc229dd9aaf74</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_637bc229dd9aaf74&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;asinh_difference&quot;,
+  &quot;left&quot;: [
+    26,
+    959
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    31,
+    51,
+    70,
+    78
+  ],
+  &quot;right_weights&quot;: [
+    0.31622776601683794,
+    -0.6324555320336759,
+    -0.31622776601683794,
+    0.6324555320336759
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_d8144148a5d350f1</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_d8144148a5d350f1&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    51,
+    963
+  ],
+  &quot;left_weights&quot;: [
+    0.4472135954999579,
+    -0.8944271909999159
+  ],
+  &quot;right&quot;: [
+    2,
+    45
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 480,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>control_OLD_7c18e2b11c279d93</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_7c18e2b11c279d93&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    9,
+    37,
+    57,
+    72
+  ],
+  &quot;left_weights&quot;: [
+    0.3779644730092272,
+    -0.7559289460184544,
+    0.3779644730092272,
+    0.3779644730092272
+  ],
+  &quot;right&quot;: [
+    54,
+    78
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_c60f9543b9dd33ab</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_c60f9543b9dd33ab&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    35,
+    44,
+    70,
+    77
+  ],
+  &quot;left_weights&quot;: [
+    0.31622776601683794,
+    -0.6324555320336759,
+    0.31622776601683794,
+    -0.6324555320336759
+  ],
+  &quot;right&quot;: [
+    42,
+    50,
+    78
+  ],
+  &quot;right_weights&quot;: [
+    0.3333333333333333,
+    0.6666666666666666,
+    -0.6666666666666666
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_19d7b2ad30f90bf4</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_19d7b2ad30f90bf4&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    7,
+    72,
+    79
+  ],
+  &quot;left_weights&quot;: [
+    0.6666666666666666,
+    0.3333333333333333,
+    -0.6666666666666666
+  ],
+  &quot;right&quot;: [
+    25,
+    54,
+    888,
+    891
+  ],
+  &quot;right_weights&quot;: [
+    0.6324555320336759,
+    0.6324555320336759,
+    -0.31622776601683794,
+    0.31622776601683794
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_8b23156b7afc23a8</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_8b23156b7afc23a8&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;cubic&quot;,
+  &quot;left&quot;: [
+    46,
+    51,
+    957
+  ],
+  &quot;left_weights&quot;: [
+    0.5773502691896258,
+    -0.5773502691896258,
+    -0.5773502691896258
+  ],
+  &quot;right&quot;: [
+    76,
+    959
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 3,
+  &quot;nodes&quot;: 16
+}</pre></details><details><summary>control_OLD_218de2d8f4f305b4</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_218de2d8f4f305b4&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    24,
+    887
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    6,
+    22,
+    36,
+    48
+  ],
+  &quot;right_weights&quot;: [
+    0.3779644730092272,
+    -0.7559289460184544,
+    0.3779644730092272,
+    -0.3779644730092272
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_85cd32bb5fae2c18</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_85cd32bb5fae2c18&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    0,
+    73,
+    890
+  ],
+  &quot;left_weights&quot;: [
+    0.3333333333333333,
+    0.6666666666666666,
+    0.6666666666666666
+  ],
+  &quot;right&quot;: [
+    15,
+    61,
+    73
+  ],
+  &quot;right_weights&quot;: [
+    0.4082482904638631,
+    0.8164965809277261,
+    0.4082482904638631
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_3e6496a961ee8a99</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_3e6496a961ee8a99&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    22,
+    45,
+    892
+  ],
+  &quot;left_weights&quot;: [
+    0.4082482904638631,
+    0.4082482904638631,
+    -0.8164965809277261
+  ],
+  &quot;right&quot;: [
+    0,
+    15
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_6c9b8d81f94456c0</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_6c9b8d81f94456c0&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;cubic&quot;,
+  &quot;left&quot;: [
+    19,
+    48
+  ],
+  &quot;left_weights&quot;: [
+    0.8944271909999159,
+    -0.4472135954999579
+  ],
+  &quot;right&quot;: [
+    76,
+    962
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 3,
+  &quot;nodes&quot;: 14
+}</pre></details><details><summary>control_OLD_900cd8fe2e1d06f0</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_900cd8fe2e1d06f0&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;asinh_difference&quot;,
+  &quot;left&quot;: [
+    18,
+    22,
+    35,
+    59
+  ],
+  &quot;left_weights&quot;: [
+    0.5547001962252291,
+    -0.2773500981126146,
+    -0.5547001962252291,
+    0.5547001962252291
+  ],
+  &quot;right&quot;: [
+    32,
+    40,
+    51
+  ],
+  &quot;right_weights&quot;: [
+    0.4082482904638631,
+    -0.4082482904638631,
+    -0.8164965809277261
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_293d6d77331d3ace</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_293d6d77331d3ace&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    24,
+    887,
+    963
+  ],
+  &quot;left_weights&quot;: [
+    0.5773502691896258,
+    -0.5773502691896258,
+    0.5773502691896258
+  ],
+  &quot;right&quot;: [
+    47,
+    76,
+    877
+  ],
+  &quot;right_weights&quot;: [
+    0.8164965809277261,
+    0.4082482904638631,
+    -0.4082482904638631
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_ef91da280de71271</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_ef91da280de71271&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    12,
+    26,
+    52,
+    61
+  ],
+  &quot;left_weights&quot;: [
+    0.3779644730092272,
+    0.7559289460184544,
+    0.3779644730092272,
+    0.3779644730092272
+  ],
+  &quot;right&quot;: [
+    48,
+    54,
+    80
+  ],
+  &quot;right_weights&quot;: [
+    0.5773502691896258,
+    0.5773502691896258,
+    -0.5773502691896258
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_f9a325988a05b4c2</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_f9a325988a05b4c2&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    15,
+    27,
+    47,
+    67
+  ],
+  &quot;left_weights&quot;: [
+    0.5,
+    0.5,
+    -0.5,
+    0.5
+  ],
+  &quot;right&quot;: [
+    22,
+    70,
+    77,
+    876
+  ],
+  &quot;right_weights&quot;: [
+    0.5547001962252291,
+    0.5547001962252291,
+    0.5547001962252291,
+    -0.2773500981126146
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 21
+}</pre></details><details><summary>control_OLD_75fddc8327006606</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_75fddc8327006606&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;cubic&quot;,
+  &quot;left&quot;: [
+    18,
+    24
+  ],
+  &quot;left_weights&quot;: [
+    0.4472135954999579,
+    0.8944271909999159
+  ],
+  &quot;right&quot;: [
+    52,
+    887
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    -0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 3,
+  &quot;nodes&quot;: 14
+}</pre></details><details><summary>main_OLD_e7ac9236bda42a44</summary><pre>{
+  &quot;id&quot;: &quot;main_OLD_e7ac9236bda42a44&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    2,
+    25,
+    963
+  ],
+  &quot;left_weights&quot;: [
+    0.6666666666666666,
+    0.3333333333333333,
+    0.6666666666666666
+  ],
+  &quot;right&quot;: [
+    2,
+    36,
+    38,
+    64
+  ],
+  &quot;right_weights&quot;: [
+    0.5,
+    0.5,
+    0.5,
+    -0.5
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>main_OLD_78018282a608914d</summary><pre>{
+  &quot;id&quot;: &quot;main_OLD_78018282a608914d&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    26,
+    46,
+    959
+  ],
+  &quot;left_weights&quot;: [
+    0.5773502691896258,
+    -0.5773502691896258,
+    -0.5773502691896258
+  ],
+  &quot;right&quot;: [
+    6,
+    11,
+    14,
+    49
+  ],
+  &quot;right_weights&quot;: [
+    0.31622776601683794,
+    0.6324555320336759,
+    -0.31622776601683794,
+    0.6324555320336759
+  ],
+  &quot;support_minutes&quot;: 480,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>main_OLD_265d0da06b14cc92</summary><pre>{
+  &quot;id&quot;: &quot;main_OLD_265d0da06b14cc92&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    9,
+    44,
+    46
+  ],
+  &quot;left_weights&quot;: [
+    0.5773502691896258,
+    -0.5773502691896258,
+    0.5773502691896258
+  ],
+  &quot;right&quot;: [
+    63,
+    883
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>main_OLD_c9b556e83f154c7f</summary><pre>{
+  &quot;id&quot;: &quot;main_OLD_c9b556e83f154c7f&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;asinh_difference&quot;,
+  &quot;left&quot;: [
+    79,
+    889
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    24,
+    78,
+    883
+  ],
+  &quot;right_weights&quot;: [
+    0.5773502691896258,
+    -0.5773502691896258,
+    0.5773502691896258
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>main_OLD_6c4fc0af95001e9b</summary><pre>{
+  &quot;id&quot;: &quot;main_OLD_6c4fc0af95001e9b&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    10,
+    34,
+    55,
+    884
+  ],
+  &quot;left_weights&quot;: [
+    0.6324555320336759,
+    -0.31622776601683794,
+    0.6324555320336759,
+    -0.31622776601683794
+  ],
+  &quot;right&quot;: [
+    12,
+    882,
+    891,
+    963
+  ],
+  &quot;right_weights&quot;: [
+    0.31622776601683794,
+    -0.6324555320336759,
+    0.6324555320336759,
+    0.31622776601683794
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 21
+}</pre></details><details><summary>main_OLD_3e120c03ce9ad207</summary><pre>{
+  &quot;id&quot;: &quot;main_OLD_3e120c03ce9ad207&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    1,
+    79,
+    884,
+    886
+  ],
+  &quot;left_weights&quot;: [
+    0.31622776601683794,
+    0.6324555320336759,
+    0.31622776601683794,
+    -0.6324555320336759
+  ],
+  &quot;right&quot;: [
+    43,
+    54
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_405b3ffd27bda83e</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_405b3ffd27bda83e&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    52,
+    68,
+    79
+  ],
+  &quot;left_weights&quot;: [
+    0.6666666666666666,
+    -0.3333333333333333,
+    -0.6666666666666666
+  ],
+  &quot;right&quot;: [
+    19,
+    31,
+    51
+  ],
+  &quot;right_weights&quot;: [
+    0.4082482904638631,
+    -0.4082482904638631,
+    0.8164965809277261
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_f1b817f5fedcc7a7</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_f1b817f5fedcc7a7&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    3,
+    18,
+    33
+  ],
+  &quot;left_weights&quot;: [
+    0.3333333333333333,
+    0.6666666666666666,
+    -0.6666666666666666
+  ],
+  &quot;right&quot;: [
+    55,
+    875,
+    879
+  ],
+  &quot;right_weights&quot;: [
+    0.6666666666666666,
+    -0.3333333333333333,
+    -0.6666666666666666
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_27623919d75fb3c9</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_27623919d75fb3c9&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    18,
+    31,
+    66
+  ],
+  &quot;left_weights&quot;: [
+    0.4082482904638631,
+    0.8164965809277261,
+    -0.4082482904638631
+  ],
+  &quot;right&quot;: [
+    0,
+    14,
+    883
+  ],
+  &quot;right_weights&quot;: [
+    0.5773502691896258,
+    -0.5773502691896258,
+    0.5773502691896258
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_7bc9db343cd09b04</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_7bc9db343cd09b04&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;cubic&quot;,
+  &quot;left&quot;: [
+    34,
+    50,
+    71,
+    963
+  ],
+  &quot;left_weights&quot;: [
+    0.6324555320336759,
+    0.31622776601683794,
+    0.31622776601683794,
+    -0.6324555320336759
+  ],
+  &quot;right&quot;: [
+    2,
+    45,
+    77,
+    79
+  ],
+  &quot;right_weights&quot;: [
+    0.6324555320336759,
+    -0.6324555320336759,
+    0.31622776601683794,
+    0.31622776601683794
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 3,
+  &quot;nodes&quot;: 22
+}</pre></details><details><summary>control_OLD_18c644c6967a00b8</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_18c644c6967a00b8&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    18,
+    19,
+    79,
+    891
+  ],
+  &quot;left_weights&quot;: [
+    0.5,
+    -0.5,
+    -0.5,
+    -0.5
+  ],
+  &quot;right&quot;: [
+    0,
+    10,
+    25,
+    28
+  ],
+  &quot;right_weights&quot;: [
+    0.6324555320336759,
+    -0.6324555320336759,
+    0.31622776601683794,
+    0.31622776601683794
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 21
+}</pre></details><details><summary>control_OLD_8a3cb573d953a0fa</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_8a3cb573d953a0fa&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;cubic&quot;,
+  &quot;left&quot;: [
+    5,
+    18,
+    882,
+    884
+  ],
+  &quot;left_weights&quot;: [
+    0.2773500981126146,
+    -0.5547001962252291,
+    -0.5547001962252291,
+    0.5547001962252291
+  ],
+  &quot;right&quot;: [
+    4,
+    878,
+    889
+  ],
+  &quot;right_weights&quot;: [
+    0.4082482904638631,
+    -0.4082482904638631,
+    -0.8164965809277261
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 3,
+  &quot;nodes&quot;: 20
+}</pre></details><details><summary>control_OLD_965fdf2f0f6d0738</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_965fdf2f0f6d0738&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    53,
+    58,
+    892
+  ],
+  &quot;left_weights&quot;: [
+    0.6666666666666666,
+    0.6666666666666666,
+    0.3333333333333333
+  ],
+  &quot;right&quot;: [
+    54,
+    60,
+    960
+  ],
+  &quot;right_weights&quot;: [
+    0.6666666666666666,
+    0.6666666666666666,
+    -0.3333333333333333
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_3d15334ef3365d7a</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_3d15334ef3365d7a&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    18,
+    38,
+    60
+  ],
+  &quot;left_weights&quot;: [
+    0.4082482904638631,
+    0.4082482904638631,
+    -0.8164965809277261
+  ],
+  &quot;right&quot;: [
+    37,
+    879,
+    884
+  ],
+  &quot;right_weights&quot;: [
+    0.3333333333333333,
+    -0.6666666666666666,
+    -0.6666666666666666
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_24344e4ab3d061af</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_24344e4ab3d061af&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    24,
+    25,
+    43
+  ],
+  &quot;left_weights&quot;: [
+    0.3333333333333333,
+    0.6666666666666666,
+    -0.6666666666666666
+  ],
+  &quot;right&quot;: [
+    23,
+    886
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 240,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_6bb61806a9009ed5</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_6bb61806a9009ed5&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    3,
+    15,
+    38,
+    884
+  ],
+  &quot;left_weights&quot;: [
+    0.31622776601683794,
+    -0.6324555320336759,
+    -0.6324555320336759,
+    0.31622776601683794
+  ],
+  &quot;right&quot;: [
+    76,
+    957
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_e6daa4c8d25dcb89</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_e6daa4c8d25dcb89&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;linear&quot;,
+  &quot;left&quot;: [
+    11,
+    41,
+    54,
+    882
+  ],
+  &quot;left_weights&quot;: [
+    0.2773500981126146,
+    0.5547001962252291,
+    0.5547001962252291,
+    -0.5547001962252291
+  ],
+  &quot;right&quot;: [],
+  &quot;right_weights&quot;: [],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 1,
+  &quot;nodes&quot;: 12
+}</pre></details><details><summary>control_OLD_39e25d882112214d</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_39e25d882112214d&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    0,
+    71,
+    73
+  ],
+  &quot;left_weights&quot;: [
+    0.8164965809277261,
+    0.4082482904638631,
+    0.4082482904638631
+  ],
+  &quot;right&quot;: [
+    38,
+    885
+  ],
+  &quot;right_weights&quot;: [
+    0.4472135954999579,
+    -0.8944271909999159
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_81485c36b3f0abd6</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_81485c36b3f0abd6&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;asinh_difference&quot;,
+  &quot;left&quot;: [
+    14,
+    63
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    68,
+    78
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    -0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>control_OLD_06dd7a6d36e0917f</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_06dd7a6d36e0917f&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    14,
+    38,
+    883
+  ],
+  &quot;left_weights&quot;: [
+    0.4082482904638631,
+    -0.4082482904638631,
+    -0.8164965809277261
+  ],
+  &quot;right&quot;: [
+    35,
+    74
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>main_OLD_40552edf9d66592f</summary><pre>{
+  &quot;id&quot;: &quot;main_OLD_40552edf9d66592f&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;asinh_difference&quot;,
+  &quot;left&quot;: [
+    13,
+    62,
+    958
+  ],
+  &quot;left_weights&quot;: [
+    0.6666666666666666,
+    0.3333333333333333,
+    -0.6666666666666666
+  ],
+  &quot;right&quot;: [
+    18,
+    43
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    -0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>main_OLD_0d4d0acdbdb0a827</summary><pre>{
+  &quot;id&quot;: &quot;main_OLD_0d4d0acdbdb0a827&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    32,
+    884
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    39,
+    51,
+    875,
+    963
+  ],
+  &quot;right_weights&quot;: [
+    0.6324555320336759,
+    -0.31622776601683794,
+    -0.6324555320336759,
+    -0.31622776601683794
+  ],
+  &quot;support_minutes&quot;: 480,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_ff9d465b4b86dfee</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_ff9d465b4b86dfee&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    8,
+    53,
+    54,
+    891
+  ],
+  &quot;left_weights&quot;: [
+    0.6324555320336759,
+    -0.31622776601683794,
+    0.31622776601683794,
+    0.6324555320336759
+  ],
+  &quot;right&quot;: [
+    881,
+    960
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_cfd0533c7b748efe</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_cfd0533c7b748efe&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    6,
+    25,
+    61,
+    73
+  ],
+  &quot;left_weights&quot;: [
+    0.5,
+    0.5,
+    0.5,
+    0.5
+  ],
+  &quot;right&quot;: [
+    20,
+    31,
+    890
+  ],
+  &quot;right_weights&quot;: [
+    0.4082482904638631,
+    -0.4082482904638631,
+    0.8164965809277261
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_34f81e21aa3abde1</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_34f81e21aa3abde1&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    51,
+    66,
+    962
+  ],
+  &quot;left_weights&quot;: [
+    0.6666666666666666,
+    -0.3333333333333333,
+    -0.6666666666666666
+  ],
+  &quot;right&quot;: [
+    7,
+    39,
+    49,
+    76
+  ],
+  &quot;right_weights&quot;: [
+    0.5547001962252291,
+    0.2773500981126146,
+    -0.5547001962252291,
+    0.5547001962252291
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_ae059e5cfed0e6e4</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_ae059e5cfed0e6e4&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    9,
+    25,
+    78
+  ],
+  &quot;left_weights&quot;: [
+    0.5773502691896258,
+    -0.5773502691896258,
+    0.5773502691896258
+  ],
+  &quot;right&quot;: [
+    10,
+    51,
+    76,
+    961
+  ],
+  &quot;right_weights&quot;: [
+    0.6324555320336759,
+    0.31622776601683794,
+    -0.31622776601683794,
+    -0.6324555320336759
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_4753e1140a5efef8</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_4753e1140a5efef8&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;asinh_difference&quot;,
+  &quot;left&quot;: [
+    27,
+    30
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    24,
+    75,
+    77,
+    957
+  ],
+  &quot;right_weights&quot;: [
+    0.7559289460184544,
+    0.3779644730092272,
+    -0.3779644730092272,
+    0.3779644730092272
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_1483ca7d48e6f00a</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_1483ca7d48e6f00a&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    15,
+    31,
+    41
+  ],
+  &quot;left_weights&quot;: [
+    0.4082482904638631,
+    0.4082482904638631,
+    -0.8164965809277261
+  ],
+  &quot;right&quot;: [
+    43,
+    69,
+    79
+  ],
+  &quot;right_weights&quot;: [
+    0.4082482904638631,
+    -0.8164965809277261,
+    -0.4082482904638631
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_639fc77fdf69248e</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_639fc77fdf69248e&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;cubic&quot;,
+  &quot;left&quot;: [
+    50,
+    54,
+    58
+  ],
+  &quot;left_weights&quot;: [
+    0.4082482904638631,
+    0.8164965809277261,
+    0.4082482904638631
+  ],
+  &quot;right&quot;: [
+    2,
+    70,
+    963
+  ],
+  &quot;right_weights&quot;: [
+    0.6666666666666666,
+    -0.3333333333333333,
+    -0.6666666666666666
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 3,
+  &quot;nodes&quot;: 18
+}</pre></details><details><summary>control_OLD_6d110425a903c3bc</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_6d110425a903c3bc&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    12,
+    38
+  ],
+  &quot;left_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;right&quot;: [
+    28,
+    70,
+    74
+  ],
+  &quot;right_weights&quot;: [
+    0.3333333333333333,
+    -0.6666666666666666,
+    -0.6666666666666666
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_3327a50467ab6131</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_3327a50467ab6131&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    887,
+    960
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    4,
+    27,
+    882
+  ],
+  &quot;right_weights&quot;: [
+    0.5773502691896258,
+    -0.5773502691896258,
+    0.5773502691896258
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_7323e776d529aff8</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_7323e776d529aff8&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    18,
+    51,
+    880,
+    885
+  ],
+  &quot;left_weights&quot;: [
+    0.7559289460184544,
+    -0.3779644730092272,
+    -0.3779644730092272,
+    -0.3779644730092272
+  ],
+  &quot;right&quot;: [
+    51,
+    55
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_61a75d2abed6538a</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_61a75d2abed6538a&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;linear&quot;,
+  &quot;left&quot;: [
+    19,
+    44,
+    78,
+    882
+  ],
+  &quot;left_weights&quot;: [
+    0.3779644730092272,
+    0.3779644730092272,
+    0.7559289460184544,
+    -0.3779644730092272
+  ],
+  &quot;right&quot;: [],
+  &quot;right_weights&quot;: [],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 1,
+  &quot;nodes&quot;: 12
+}</pre></details><details><summary>control_OLD_d6deb85467169c2d</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_d6deb85467169c2d&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    2,
+    55,
+    65,
+    80
+  ],
+  &quot;left_weights&quot;: [
+    0.5547001962252291,
+    -0.5547001962252291,
+    0.5547001962252291,
+    -0.2773500981126146
+  ],
+  &quot;right&quot;: [
+    58,
+    69,
+    875,
+    880
+  ],
+  &quot;right_weights&quot;: [
+    0.5547001962252291,
+    -0.2773500981126146,
+    0.5547001962252291,
+    -0.5547001962252291
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 21
+}</pre></details><details><summary>control_OLD_8354ff91dc05e5d3</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_8354ff91dc05e5d3&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;asinh_difference&quot;,
+  &quot;left&quot;: [
+    3,
+    11,
+    65,
+    889
+  ],
+  &quot;left_weights&quot;: [
+    0.6324555320336759,
+    -0.31622776601683794,
+    0.31622776601683794,
+    0.6324555320336759
+  ],
+  &quot;right&quot;: [
+    21,
+    24,
+    72
+  ],
+  &quot;right_weights&quot;: [
+    0.5773502691896258,
+    0.5773502691896258,
+    -0.5773502691896258
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_27c88986abc02d96</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_27c88986abc02d96&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    20,
+    76
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    46,
+    51,
+    68,
+    888
+  ],
+  &quot;right_weights&quot;: [
+    0.3779644730092272,
+    0.7559289460184544,
+    0.3779644730092272,
+    0.3779644730092272
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_4e6a09b9cb3d00b5</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_4e6a09b9cb3d00b5&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;linear&quot;,
+  &quot;left&quot;: [
+    19,
+    24,
+    74
+  ],
+  &quot;left_weights&quot;: [
+    0.5773502691896258,
+    0.5773502691896258,
+    -0.5773502691896258
+  ],
+  &quot;right&quot;: [],
+  &quot;right_weights&quot;: [],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 1,
+  &quot;nodes&quot;: 10
+}</pre></details><details><summary>control_OLD_582cb297d1856999</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_582cb297d1856999&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    24,
+    44
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    876,
+    887
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>main_OLD_0572b7fd963e2de2</summary><pre>{
+  &quot;id&quot;: &quot;main_OLD_0572b7fd963e2de2&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    24,
+    62,
+    80,
+    958
+  ],
+  &quot;left_weights&quot;: [
+    0.5547001962252291,
+    -0.5547001962252291,
+    -0.2773500981126146,
+    0.5547001962252291
+  ],
+  &quot;right&quot;: [
+    61,
+    963
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>main_OLD_e7bc4e0e987f2993</summary><pre>{
+  &quot;id&quot;: &quot;main_OLD_e7bc4e0e987f2993&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    1,
+    76,
+    878
+  ],
+  &quot;left_weights&quot;: [
+    0.4082482904638631,
+    0.4082482904638631,
+    -0.8164965809277261
+  ],
+  &quot;right&quot;: [
+    32,
+    45,
+    47
+  ],
+  &quot;right_weights&quot;: [
+    0.3333333333333333,
+    0.6666666666666666,
+    0.6666666666666666
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_7f02af752422f51e</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_7f02af752422f51e&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    10,
+    875
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    875,
+    958,
+    959
+  ],
+  &quot;right_weights&quot;: [
+    0.8164965809277261,
+    -0.4082482904638631,
+    -0.4082482904638631
+  ],
+  &quot;support_minutes&quot;: 480,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_5aba674cc88c8311</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_5aba674cc88c8311&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    883,
+    963
+  ],
+  &quot;left_weights&quot;: [
+    0.8944271909999159,
+    -0.4472135954999579
+  ],
+  &quot;right&quot;: [
+    26,
+    41,
+    78,
+    959
+  ],
+  &quot;right_weights&quot;: [
+    0.6324555320336759,
+    0.31622776601683794,
+    -0.6324555320336759,
+    0.31622776601683794
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_ae42aed1245d0b91</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_ae42aed1245d0b91&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    11,
+    48
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    42,
+    50,
+    878,
+    891
+  ],
+  &quot;right_weights&quot;: [
+    0.5,
+    -0.5,
+    -0.5,
+    0.5
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_9b58549b7de76aa6</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_9b58549b7de76aa6&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    35,
+    877
+  ],
+  &quot;left_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;right&quot;: [
+    45,
+    65,
+    74,
+    880
+  ],
+  &quot;right_weights&quot;: [
+    0.2773500981126146,
+    -0.5547001962252291,
+    0.5547001962252291,
+    -0.5547001962252291
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_909ed68b3e0d8119</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_909ed68b3e0d8119&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;cubic&quot;,
+  &quot;left&quot;: [
+    20,
+    38,
+    877
+  ],
+  &quot;left_weights&quot;: [
+    0.8164965809277261,
+    0.4082482904638631,
+    0.4082482904638631
+  ],
+  &quot;right&quot;: [
+    19,
+    35,
+    69,
+    961
+  ],
+  &quot;right_weights&quot;: [
+    0.3779644730092272,
+    -0.7559289460184544,
+    -0.3779644730092272,
+    0.3779644730092272
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 3,
+  &quot;nodes&quot;: 20
+}</pre></details><details><summary>control_OLD_2068f161e8e87391</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_2068f161e8e87391&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    2,
+    15,
+    40,
+    50
+  ],
+  &quot;left_weights&quot;: [
+    0.31622776601683794,
+    0.6324555320336759,
+    -0.6324555320336759,
+    -0.31622776601683794
+  ],
+  &quot;right&quot;: [
+    51,
+    64,
+    879
+  ],
+  &quot;right_weights&quot;: [
+    0.6666666666666666,
+    0.3333333333333333,
+    0.6666666666666666
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_872532fb892e7954</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_872532fb892e7954&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;linear&quot;,
+  &quot;left&quot;: [
+    24,
+    62
+  ],
+  &quot;left_weights&quot;: [
+    0.8944271909999159,
+    -0.4472135954999579
+  ],
+  &quot;right&quot;: [],
+  &quot;right_weights&quot;: [],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 1,
+  &quot;nodes&quot;: 8
+}</pre></details><details><summary>control_OLD_5dc2c61007a4fb1e</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_5dc2c61007a4fb1e&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    13,
+    18,
+    42
+  ],
+  &quot;left_weights&quot;: [
+    0.4082482904638631,
+    0.8164965809277261,
+    -0.4082482904638631
+  ],
+  &quot;right&quot;: [
+    884,
+    962
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 480,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_dee6ef1503c47bc5</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_dee6ef1503c47bc5&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;linear&quot;,
+  &quot;left&quot;: [
+    0,
+    24
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;right&quot;: [],
+  &quot;right_weights&quot;: [],
+  &quot;support_minutes&quot;: 120,
+  &quot;nonlinear_order&quot;: 1,
+  &quot;nodes&quot;: 8
+}</pre></details><details><summary>control_OLD_ff4b2bd7928a72ff</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_ff4b2bd7928a72ff&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;asinh_difference&quot;,
+  &quot;left&quot;: [
+    29,
+    72,
+    878
+  ],
+  &quot;left_weights&quot;: [
+    0.6666666666666666,
+    -0.6666666666666666,
+    -0.3333333333333333
+  ],
+  &quot;right&quot;: [
+    19,
+    957
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    -0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_382466e53a64ea97</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_382466e53a64ea97&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    21,
+    26,
+    53,
+    959
+  ],
+  &quot;left_weights&quot;: [
+    0.3779644730092272,
+    0.7559289460184544,
+    -0.3779644730092272,
+    0.3779644730092272
+  ],
+  &quot;right&quot;: [
+    32,
+    76
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>control_OLD_5f70d2b79ff2c825</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_5f70d2b79ff2c825&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    59,
+    60,
+    76
+  ],
+  &quot;left_weights&quot;: [
+    0.4082482904638631,
+    -0.4082482904638631,
+    0.8164965809277261
+  ],
+  &quot;right&quot;: [
+    67,
+    78
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 15
+}</pre></details><details><summary>control_OLD_7b05e437c5635393</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_7b05e437c5635393&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;asinh_difference&quot;,
+  &quot;left&quot;: [
+    24,
+    63,
+    78,
+    887
+  ],
+  &quot;left_weights&quot;: [
+    0.6324555320336759,
+    0.31622776601683794,
+    -0.6324555320336759,
+    -0.31622776601683794
+  ],
+  &quot;right&quot;: [
+    26,
+    51,
+    877
+  ],
+  &quot;right_weights&quot;: [
+    0.4082482904638631,
+    -0.4082482904638631,
+    -0.8164965809277261
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_aeab41732d90c557</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_aeab41732d90c557&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    77,
+    884
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    877,
+    892
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>control_OLD_ab793adc7569e0cc</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_ab793adc7569e0cc&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    16,
+    42,
+    879,
+    885
+  ],
+  &quot;left_weights&quot;: [
+    0.5547001962252291,
+    -0.5547001962252291,
+    0.2773500981126146,
+    -0.5547001962252291
+  ],
+  &quot;right&quot;: [
+    17,
+    79,
+    961
+  ],
+  &quot;right_weights&quot;: [
+    0.3333333333333333,
+    0.6666666666666666,
+    -0.6666666666666666
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>control_OLD_474b5aa2391081c7</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_474b5aa2391081c7&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    6,
+    69,
+    80
+  ],
+  &quot;left_weights&quot;: [
+    0.3333333333333333,
+    -0.6666666666666666,
+    -0.6666666666666666
+  ],
+  &quot;right&quot;: [
+    32,
+    67,
+    877
+  ],
+  &quot;right_weights&quot;: [
+    0.6666666666666666,
+    -0.6666666666666666,
+    -0.3333333333333333
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>main_OLD_43dcc4cfd3d2135d</summary><pre>{
+  &quot;id&quot;: &quot;main_OLD_43dcc4cfd3d2135d&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    0,
+    890
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    26,
+    29,
+    73,
+    79
+  ],
+  &quot;right_weights&quot;: [
+    0.31622776601683794,
+    -0.6324555320336759,
+    0.6324555320336759,
+    0.31622776601683794
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>main_OLD_388978c9e0df73a4</summary><pre>{
+  &quot;id&quot;: &quot;main_OLD_388978c9e0df73a4&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    20,
+    28,
+    72,
+    879
+  ],
+  &quot;left_weights&quot;: [
+    0.6324555320336759,
+    0.6324555320336759,
+    -0.31622776601683794,
+    0.31622776601683794
+  ],
+  &quot;right&quot;: [
+    26,
+    41,
+    877,
+    879
+  ],
+  &quot;right_weights&quot;: [
+    0.31622776601683794,
+    -0.31622776601683794,
+    0.6324555320336759,
+    0.6324555320336759
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 21
+}</pre></details><details><summary>control_OLD_708f5aca3fa45a65</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_708f5aca3fa45a65&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    18,
+    33
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    27,
+    882
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 240,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 13
+}</pre></details><details><summary>control_OLD_64177df304746a8b</summary><pre>{
+  &quot;id&quot;: &quot;control_OLD_64177df304746a8b&quot;,
+  &quot;family&quot;: &quot;OLD&quot;,
+  &quot;mode&quot;: &quot;cubic&quot;,
+  &quot;left&quot;: [
+    1,
+    47
+  ],
+  &quot;left_weights&quot;: [
+    0.8944271909999159,
+    -0.4472135954999579
+  ],
+  &quot;right&quot;: [
+    10,
+    28,
+    42,
+    890
+  ],
+  &quot;right_weights&quot;: [
+    0.6324555320336759,
+    -0.6324555320336759,
+    0.31622776601683794,
+    -0.31622776601683794
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 3,
+  &quot;nodes&quot;: 18
+}</pre></details><footer>D:\Trading\My_factor_mining_427\outputs\effective_combo_mature_state_20261009_r4_oos</footer></main></body></html>

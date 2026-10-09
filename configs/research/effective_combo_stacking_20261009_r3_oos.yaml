@@ -1,0 +1,37 @@
+mode: aligned_crypto
+version: effective-combo-stacking-20261009-r3-oos
+complex_alpha:
+  stage: effective_combo_stacking
+  phase: oos
+  source_history: outputs/effective_combo_expansion_20261009_r2_history
+  source_oos: outputs/effective_combo_expansion_20261009_r2_oos
+  frozen_run: outputs/effective_combo_stacking_20261009_r3_history
+  stacking:
+    members:
+    - base15
+    - base_ensemble
+    - wide15_static
+    - asset_shrunk
+    prior:
+    - 0.4
+    - 0.35
+    - 0.2
+    - 0.05
+    diagonal_shrink: 0.25
+    prior_shrink: 0.75
+    minimum_labels: 500
+    asset_share: 0.5
+  cost_bps: 4.0
+  gross_budget: 0.5
+  executions:
+  - id: edge8
+    name: net_edge
+    floor_bps: 8.0
+    amplitude_bps: 50.0
+  - id: edge16
+    name: net_edge
+    floor_bps: 16.0
+    amplitude_bps: 50.0
+output:
+  out_dir: outputs/effective_combo_stacking_20261009_r3_oos
+  visualization_dir: visualizations/effective_combo_stacking_20261009_r3_oos

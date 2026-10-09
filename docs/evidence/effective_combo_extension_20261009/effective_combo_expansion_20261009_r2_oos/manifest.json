@@ -1,0 +1,20 @@
+{
+  "status": "COMPLETED",
+  "stage": "effective_combo_extension",
+  "phase": "oos",
+  "results": {
+    "models": 12,
+    "portfolio_variants": 24,
+    "wide_columns": 310,
+    "extra_formulas": 96,
+    "actual_end": "202609250000",
+    "requested_oos_end": "202609302355",
+    "holdout_opened": true,
+    "frozen_before_oos": true
+  },
+  "historical_oos_reaudit": true,
+  "independent_oof": false,
+  "source": "outputs\\complex_alpha_prediction_estimation_20261009_v1",
+  "baseline": "outputs\\effective_combo_20261009_round1",
+  "config": "configs/research/effective_combo_expansion_20261009_r2_oos.yaml"
+}

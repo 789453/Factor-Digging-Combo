@@ -1,0 +1,27 @@
+{
+  "experiment": "effective_combo_mature_state_20261009_r4_history",
+  "source": "outputs\\effective_combo_mature_state_20261009_r4_history",
+  "checks": [
+    {
+      "file": "effective_combo_stacking.py",
+      "sha256": "a2ad96ea1d0c199a709a12430f54829ba1607c4bcf9adedd97391432dc6fbb81",
+      "verified": true
+    },
+    {
+      "file": "effective_combo_stacking_reporting.py",
+      "sha256": "325f07a145d78f04f67e1c3e1588ff56b1452bd37f0804eee2cf0020a92a297c",
+      "verified": true
+    },
+    {
+      "file": "effective_combo_stacking_workflow.py",
+      "sha256": "35abc5f6b187d080e0f011afb34d478901e8fb2760841eb8f814247c802a0484",
+      "verified": true
+    },
+    {
+      "file": "effective_combo_maturity_calibration.py",
+      "sha256": "27956348f52de70c59f6f02299a9febd2ad17a2cbaf5ccc6bc8329014ffe8f5d",
+      "verified": true
+    }
+  ],
+  "role": "exact historical source copies, original completed evidence unchanged"
+}

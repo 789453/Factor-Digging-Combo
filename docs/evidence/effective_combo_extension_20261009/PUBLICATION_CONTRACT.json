@@ -1,0 +1,570 @@
+{
+  "role": "lightweight copies for repository publication; immutable original outputs authoritative",
+  "records": [
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\manifest.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\manifest.json",
+      "sha256": "55569e32bb89a143d5eaee56afe083c13325452db620b4680119d9f16931671a"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\config.yaml",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\config.yaml",
+      "sha256": "569b3daa78de028d918c375de57fbb687247729e202e0912fae329df254088d8"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\protocol_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\protocol_freeze.json",
+      "sha256": "75901cb9cbed403289ebe923573a840e53840d9816927f2709b1ba179ef2e59b"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\selection_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\selection_freeze.json",
+      "sha256": "cb979aeadebc003564bd2a82ef96811b3276e2c03b11915108e4e3a2f1224681"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\feature_contract.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\feature_contract.json",
+      "sha256": "308022aa1d0f0cefa27368b637e657ac0e6922ada1370f8d798df69255dba76a"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\portfolio_metrics.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\portfolio_metrics.csv",
+      "sha256": "e2f6afccce83c9c226673f19d586f26348b765368ef230a3a1c02ecead8073b1"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\prediction_metrics.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\prediction_metrics.csv",
+      "sha256": "bfcd8eaf801e5cb40ec3a7f594febcd0d2e697876608118c44ad1371acdd302d"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\ensemble_weights.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\ensemble_weights.csv",
+      "sha256": "d1ebfc8c27d1149e9a25cfba85aa08187c3cfa8cf526b1d9251d77e693ec9640"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\baseline_replay_check.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\baseline_replay_check.json",
+      "sha256": "61f00f75a52b6ebdf5d16894bdb45c3e0b1d71ba7c67df04dbbc0cc9b523d2ee"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\holding_episodes.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\holding_episodes.csv",
+      "sha256": "90ab01d1e553556b54a527e7d4f8cb6dfecbd4af83251598af6d957d9881709d"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\period_breadth.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\period_breadth.csv",
+      "sha256": "95cc2ed954f544ae6b8821bba5ba910d7a56587ac18deff2e6e1c4be95849e78"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\asset_contribution.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\asset_contribution.csv",
+      "sha256": "ec06d0eb3c47a6f50052235463daa58f670e2328821e3188362b40d7f296c7cf"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\fair_comparisons.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\fair_comparisons.csv",
+      "sha256": "5dffdfc9619a28fe4f6d7d7d90739cff4efc99f6c1d79a010a00dd65d31b8894"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\cost_sensitivity.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\cost_sensitivity.csv",
+      "sha256": "b016d4378223c78844c7f124184c813d20e556e33fcdfb44e9078f9ed1ca7b29"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\exposure_decomposition.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\exposure_decomposition.csv",
+      "sha256": "fd3e37b33b417307edc58046f9c07c209bb0c115cdd7c9d05628c4ec0ea36c56"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_history\\expansion_archive.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_history\\expansion_archive.csv",
+      "sha256": "621e08a34aa7d3061b7b77411c02817b924eab6bfa54f4fc3153387325e8cb47"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\manifest.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\manifest.json",
+      "sha256": "50ee730ce37bfd9f44dc60f9993b63205cba6228030fab17a3d58cc4567f90d8"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\config.yaml",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\config.yaml",
+      "sha256": "741ec00cd7a685c2673d20beb1f3e25fb7606932d95346cf0f072c7315772093"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\protocol_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\protocol_freeze.json",
+      "sha256": "75901cb9cbed403289ebe923573a840e53840d9816927f2709b1ba179ef2e59b"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\selection_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\selection_freeze.json",
+      "sha256": "cb979aeadebc003564bd2a82ef96811b3276e2c03b11915108e4e3a2f1224681"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\feature_contract.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\feature_contract.json",
+      "sha256": "09f67952c6754dc19cce187069e4e3a065cd530e24c885b376659869d2b0968c"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\portfolio_metrics.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\portfolio_metrics.csv",
+      "sha256": "dc52b6303bcd9289c213c1309c62ab2af4ed3f1f4d666658329acda6a394e3c3"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\prediction_metrics.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\prediction_metrics.csv",
+      "sha256": "34c3f2fd08c6e28fd59a7bdeecad00fdc6675c553a1ab23998f43e355be53ab7"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\ensemble_weights.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\ensemble_weights.csv",
+      "sha256": "52a5738db004f9facb0cf845b10b877bf8dd68bf4075ce6992e24e91289344a0"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\holding_episodes.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\holding_episodes.csv",
+      "sha256": "a3d47e03b8ff841dd0d8996e1b79ab5e1006207dcf06ed486b364e241eb96c65"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\period_breadth.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\period_breadth.csv",
+      "sha256": "242fad41736a1a97f920f0651c3de9c92063ba31128096fe2abce62fb25c8f2e"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\asset_contribution.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\asset_contribution.csv",
+      "sha256": "b84890eec0c83fdda8e04752a40f00331d2ee14b2795934e09a8e5a822c84ad7"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\fair_comparisons.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\fair_comparisons.csv",
+      "sha256": "2a5dc95ee2e6d89f655669b4e8e1d2f15cfcbff4163266ce7fa2b57589a8c0ac"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\cost_sensitivity.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\cost_sensitivity.csv",
+      "sha256": "087e8530d6a048f58db958fb6489624b1c6a9352f40143efadf83e9b89b8ba13"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\exposure_decomposition.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\exposure_decomposition.csv",
+      "sha256": "838a84c71f506ff1ac9fe84f8b512d33b60f53d16a711f409fd7049c8d27014c"
+    },
+    {
+      "source": "outputs\\effective_combo_expansion_20261009_r2_oos\\expansion_archive.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_expansion_20261009_r2_oos\\expansion_archive.csv",
+      "sha256": "621e08a34aa7d3061b7b77411c02817b924eab6bfa54f4fc3153387325e8cb47"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\manifest.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\manifest.json",
+      "sha256": "e0c62962bb7177d16d22ea630ac9381da82079c04dcf9888d1a3596a405e0345"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\config.yaml",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\config.yaml",
+      "sha256": "28b67b496474e0ac149a5e4834c4bab7be94735318c37968c92f2dabcf6f4d7b"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\protocol_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\protocol_freeze.json",
+      "sha256": "75901cb9cbed403289ebe923573a840e53840d9816927f2709b1ba179ef2e59b"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\stacking_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\stacking_freeze.json",
+      "sha256": "48f38fa0282a1521ffe4bbe61984365e2a755a378f5b7b95fa2f3d6f1a346784"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\selection_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\selection_freeze.json",
+      "sha256": "51b07a4e4946b5f93a8f9adcb1534d3c196d19aae7527296142f23a70f72fa4b"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\feature_contract.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\feature_contract.json",
+      "sha256": "308022aa1d0f0cefa27368b637e657ac0e6922ada1370f8d798df69255dba76a"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\portfolio_metrics.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\portfolio_metrics.csv",
+      "sha256": "10e8bce1949e4d715a1305a71fb0fad4fd86e581896bc87c62f095d136386e2e"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\prediction_metrics.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\prediction_metrics.csv",
+      "sha256": "9d37ee687b27556087d51d500ed1784c3f069bb4d86bf406c6169148965f2684"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\ensemble_weights.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\ensemble_weights.csv",
+      "sha256": "e51893ceeaa16fc5bd0ffb278e768124b8856e18d1957629b2d98af26226cdfb"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\baseline_replay_check.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\baseline_replay_check.json",
+      "sha256": "91d9bb5fd6fc8924eb5f4cca852f2bb18715afee9eb662fde47ae90eb3a4ab65"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\holding_episodes.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\holding_episodes.csv",
+      "sha256": "8042bd61194512378734fc794da4b0782a7b967c04cc2a20df60614946a645a5"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\period_breadth.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\period_breadth.csv",
+      "sha256": "9bb17c6540ab314c8448ce2b686260eab3346c9e7d0c0427e7eff84b0754967a"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\asset_contribution.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\asset_contribution.csv",
+      "sha256": "78133e76e9ec3d425a49d93b952a006e30388ca11236f51770ca4192b864705f"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\fair_comparisons.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\fair_comparisons.csv",
+      "sha256": "b8ff355e710b7a8a715b0f65637399fbfdbd03bdfbb590ebf0439028978140ea"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\cost_sensitivity.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\cost_sensitivity.csv",
+      "sha256": "a7f7f90525a3a31ff394369d95b41b2ae658823baf74ddefed1bd4b569080d3a"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\exposure_decomposition.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\exposure_decomposition.csv",
+      "sha256": "90d3a78761b3d16f2c338ebc79618b44c43db32f3233d648805c74010872084f"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_history\\expansion_archive.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_history\\expansion_archive.csv",
+      "sha256": "621e08a34aa7d3061b7b77411c02817b924eab6bfa54f4fc3153387325e8cb47"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\manifest.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\manifest.json",
+      "sha256": "1d66f16c42066925b93eeb2c951374b05eab2057429fbb1e494332e803fee83d"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\config.yaml",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\config.yaml",
+      "sha256": "ef6f15dc19e5eb546b909d0c33b92ed7d6b7d8d8b761ef87a666a00e40b44473"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\protocol_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\protocol_freeze.json",
+      "sha256": "75901cb9cbed403289ebe923573a840e53840d9816927f2709b1ba179ef2e59b"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\stacking_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\stacking_freeze.json",
+      "sha256": "48f38fa0282a1521ffe4bbe61984365e2a755a378f5b7b95fa2f3d6f1a346784"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\selection_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\selection_freeze.json",
+      "sha256": "51b07a4e4946b5f93a8f9adcb1534d3c196d19aae7527296142f23a70f72fa4b"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\feature_contract.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\feature_contract.json",
+      "sha256": "09f67952c6754dc19cce187069e4e3a065cd530e24c885b376659869d2b0968c"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\portfolio_metrics.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\portfolio_metrics.csv",
+      "sha256": "8938ceb8409f1415a6f9f16b9e5d77465da885131cfb6dd18caf783ae35370f5"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\prediction_metrics.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\prediction_metrics.csv",
+      "sha256": "855a12fb7808d5f6703101351767340598da4b5f5de0d90e34eb089562819c11"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\ensemble_weights.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\ensemble_weights.csv",
+      "sha256": "d4ed85915fc7e4a7466c5b195ae8d1eec62598c062a4f483fcf3c1cf8874b6bf"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\baseline_replay_check.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\baseline_replay_check.json",
+      "sha256": "74b0f0ad7bca858e6ae1a7f00048c297358bf6e525144fb5c0ae5b69ae561435"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\holding_episodes.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\holding_episodes.csv",
+      "sha256": "cc39ff2d6c52f47e2b3e3a31ef8ab737fd9c4454e42367703a6d46f059e1228e"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\period_breadth.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\period_breadth.csv",
+      "sha256": "f2d536556093a6eb0a2e5a7a06eaf3a24155c24f505b3f9063b388c2c2315160"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\asset_contribution.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\asset_contribution.csv",
+      "sha256": "90dbf04aa35e61a190657c6e961cfcb814f87bf27c310c03b846ad3b06838568"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\fair_comparisons.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\fair_comparisons.csv",
+      "sha256": "177c5d45b58d01f54cd2369c303550c5e36655be1c8368fdd2a6955159803fcd"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\cost_sensitivity.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\cost_sensitivity.csv",
+      "sha256": "2c4da5c1ee6d3d7eeb826d1247e2c54c9a0c2482490fbae8f6b8cb9e6fb07d7e"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\exposure_decomposition.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\exposure_decomposition.csv",
+      "sha256": "8654d25c9bdf23074650e76838412a1fd664f21c9b61d766427aa345654337d5"
+    },
+    {
+      "source": "outputs\\effective_combo_stacking_20261009_r3_oos\\expansion_archive.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_stacking_20261009_r3_oos\\expansion_archive.csv",
+      "sha256": "621e08a34aa7d3061b7b77411c02817b924eab6bfa54f4fc3153387325e8cb47"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\manifest.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\manifest.json",
+      "sha256": "20765805383e1908e8eff49278973cb22ba120aa04291099f198ea9f62cd6879"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\config.yaml",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\config.yaml",
+      "sha256": "68de388137edd9ea7650ef9a679014fd08a836fde2a504979097d21f032d0cab"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\protocol_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\protocol_freeze.json",
+      "sha256": "75901cb9cbed403289ebe923573a840e53840d9816927f2709b1ba179ef2e59b"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\stacking_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\stacking_freeze.json",
+      "sha256": "8a7f76a6fa3041de0d64d3d049975b371bfc17c104e0aa047e7b1f9e0e100ac8"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\selection_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\selection_freeze.json",
+      "sha256": "a8754654a71c5d48af1346bf442572fce109b202c755571e463d775d0c9d2781"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\feature_contract.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\feature_contract.json",
+      "sha256": "308022aa1d0f0cefa27368b637e657ac0e6922ada1370f8d798df69255dba76a"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\portfolio_metrics.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\portfolio_metrics.csv",
+      "sha256": "fa6c7fc210ecc18834efd9cecfa574106193ca047ad5c1153de31c14091534ab"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\prediction_metrics.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\prediction_metrics.csv",
+      "sha256": "290959587d1932c7c60982b16ae3fe4de6852af02b3ff6879188c464129062ec"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\ensemble_weights.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\ensemble_weights.csv",
+      "sha256": "e51893ceeaa16fc5bd0ffb278e768124b8856e18d1957629b2d98af26226cdfb"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\state_coefficients.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\state_coefficients.csv",
+      "sha256": "9ec8d56dece18745af6e413e892dc5c65ea095d925b57f17e8980733de814c5c"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\baseline_replay_check.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\baseline_replay_check.json",
+      "sha256": "91d9bb5fd6fc8924eb5f4cca852f2bb18715afee9eb662fde47ae90eb3a4ab65"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\holding_episodes.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\holding_episodes.csv",
+      "sha256": "529e383215dc299350f08fbca8267c67ddf8c1c544145a8f5d593c1661782444"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\period_breadth.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\period_breadth.csv",
+      "sha256": "193fb8d51286d888c1fdc79d3b4e19ff82c6cf2c9924333b6ccc8c59fd45ee6b"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\asset_contribution.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\asset_contribution.csv",
+      "sha256": "3c5c5308be55d74c7342442550fcf15bfc918063011dbed48e63d9c4e57b6ced"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\fair_comparisons.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\fair_comparisons.csv",
+      "sha256": "b8ff355e710b7a8a715b0f65637399fbfdbd03bdfbb590ebf0439028978140ea"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\cost_sensitivity.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\cost_sensitivity.csv",
+      "sha256": "ec730f1686932e4b117a8a2994a45312dc492f8686d8db9ccf81620e8815d675"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\exposure_decomposition.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\exposure_decomposition.csv",
+      "sha256": "acc91f55c4511a989c51c120cd1ceb29417fffab608f54de2308323c5a7de47c"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_history\\expansion_archive.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_history\\expansion_archive.csv",
+      "sha256": "621e08a34aa7d3061b7b77411c02817b924eab6bfa54f4fc3153387325e8cb47"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\manifest.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\manifest.json",
+      "sha256": "57fd83d49ba5b10e239d129bfbe53ebd696ccba3735fe63fed0083da84a274e8"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\config.yaml",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\config.yaml",
+      "sha256": "24b17c888fb60c687a5c708831142fc9ef460582d1c4d5d425309f31804134e6"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\protocol_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\protocol_freeze.json",
+      "sha256": "75901cb9cbed403289ebe923573a840e53840d9816927f2709b1ba179ef2e59b"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\stacking_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\stacking_freeze.json",
+      "sha256": "8a7f76a6fa3041de0d64d3d049975b371bfc17c104e0aa047e7b1f9e0e100ac8"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\selection_freeze.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\selection_freeze.json",
+      "sha256": "a8754654a71c5d48af1346bf442572fce109b202c755571e463d775d0c9d2781"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\feature_contract.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\feature_contract.json",
+      "sha256": "09f67952c6754dc19cce187069e4e3a065cd530e24c885b376659869d2b0968c"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\portfolio_metrics.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\portfolio_metrics.csv",
+      "sha256": "ac403a5dce553c3f64dd2d9d9f41c24ca5a4eae943c249502b346090dd28f711"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\prediction_metrics.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\prediction_metrics.csv",
+      "sha256": "d4a70d56d82425691aa5566ac1c9cb79a09b4a0ed30b6ac30c847a1b79c0fd11"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\ensemble_weights.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\ensemble_weights.csv",
+      "sha256": "d4ed85915fc7e4a7466c5b195ae8d1eec62598c062a4f483fcf3c1cf8874b6bf"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\state_coefficients.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\state_coefficients.csv",
+      "sha256": "b80061c80c74efb79dc50c887d013514e67dddd1e859489f3aaa5c337eb8ded9"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\baseline_replay_check.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\baseline_replay_check.json",
+      "sha256": "74b0f0ad7bca858e6ae1a7f00048c297358bf6e525144fb5c0ae5b69ae561435"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\holding_episodes.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\holding_episodes.csv",
+      "sha256": "a2876b81c7c31ca656b815d71bca7251f95954d4b352dd94ad9de080332fd40a"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\period_breadth.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\period_breadth.csv",
+      "sha256": "c77428e5b9ac0f14017992b095dc890bccc113b9206cdf629fbe4d22d001793d"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\asset_contribution.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\asset_contribution.csv",
+      "sha256": "df6764d87c595f5c48567fb4bc7043ac8411e86dd8df47f9e5f5386b7df91ec4"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\fair_comparisons.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\fair_comparisons.csv",
+      "sha256": "177c5d45b58d01f54cd2369c303550c5e36655be1c8368fdd2a6955159803fcd"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\cost_sensitivity.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\cost_sensitivity.csv",
+      "sha256": "d45f6e39e836090a424c186f0e4e87ed77c815c516bda5bbad7ee371d1595a76"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\exposure_decomposition.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\exposure_decomposition.csv",
+      "sha256": "4e12eca422f6a3946ca7f477798809a2fe66148dabe5ebe535ca737dde1060d0"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_oos\\expansion_archive.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_oos\\expansion_archive.csv",
+      "sha256": "621e08a34aa7d3061b7b77411c02817b924eab6bfa54f4fc3153387325e8cb47"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_frozen_review\\manifest.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_frozen_review\\manifest.json",
+      "sha256": "c0b7d8c7bc7a11ecc5eddf075adbeab3ab9d5194d9ac27dce4167b68fc9e4a97"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_frozen_review\\temporal_uncertainty.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_frozen_review\\temporal_uncertainty.csv",
+      "sha256": "efe22235cd1335830caca08a555b6012748250a54e710ec9346fddd2b9689f06"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_frozen_review\\paired_daily_differences.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_frozen_review\\paired_daily_differences.csv",
+      "sha256": "22d8b3bdf9639bd8792b0f810096dd1e89ba9ec78fb6d5166dc26c48790b250f"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_frozen_review\\accounting_checks.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_frozen_review\\accounting_checks.csv",
+      "sha256": "37d39aa650b0aa56c3586b5ddcf4448b6e1a25cc5c4de44b192b66c7fd05f3a3"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_calibration_probes\\manifest.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_calibration_probes\\manifest.json",
+      "sha256": "4089dff80af578eebb95768dfa0c31dd82ae56b11af88c9a96859389e3ef15a5"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_calibration_probes\\frozen_calibration_probes.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_calibration_probes\\frozen_calibration_probes.csv",
+      "sha256": "660670dcd232cc25a924dc33ec3b060cb323beceefc054ebbf56a5eae01d6585"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_calibration_probes\\validation_state_boundary_flags.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_calibration_probes\\validation_state_boundary_flags.csv",
+      "sha256": "b2b510b7207ef432118d12d4b81498e56c99d254cf974da4d88440bf0ae94257"
+    },
+    {
+      "source": "outputs\\effective_combo_mature_state_20261009_r4_calibration_probes\\oos_state_boundary_flags.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\effective_combo_mature_state_20261009_r4_calibration_probes\\oos_state_boundary_flags.csv",
+      "sha256": "b6440878676d4473b183729d179b1b946e4289e07d36734cb60a44efebdfc69b"
+    },
+    {
+      "source": "outputs\\effective_combo_20261009_extended_delivery_review_v2\\delivery_qa.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\final_v2_delivery_qa.json",
+      "sha256": "eb9a8acee24397dc93592f5724ae50730e2a9acf120beaa49bbe4737b03dfaf5"
+    },
+    {
+      "source": "outputs\\effective_combo_20261009_extended_delivery_review_v2\\manifest.json",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\final_v2_manifest.json",
+      "sha256": "29a2e0e76a6c3445502fa2d03fdd7df5fcd832cf98b06d27c0160070a0cfedee"
+    },
+    {
+      "source": "outputs\\effective_combo_20261009_extended_delivery_review_v2\\core_long_short_decomposition.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\final_v2_core_long_short_decomposition.csv",
+      "sha256": "386e8a3846f190401b05177b6d27dccf72fff87e1ea15146ab17536eebc87133"
+    },
+    {
+      "source": "outputs\\effective_combo_20261009_extended_delivery_review_v2\\core_temporal_uncertainty.csv",
+      "copy": "docs\\evidence\\effective_combo_extension_20261009\\final_v2_core_temporal_uncertainty.csv",
+      "sha256": "62f73328d84f15a858e00c026ac9526f48957987cc4c7ec106e310486418fb97"
+    }
+  ]
+}

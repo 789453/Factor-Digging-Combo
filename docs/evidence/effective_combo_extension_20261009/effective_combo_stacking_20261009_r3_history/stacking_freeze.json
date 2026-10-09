@@ -1,0 +1,60 @@
+{
+  "protocol": {
+    "stage": "effective_combo_stacking",
+    "source_history": "outputs/effective_combo_expansion_20261009_r2_history",
+    "source_oos": "outputs/effective_combo_expansion_20261009_r2_oos",
+    "stacking": {
+      "members": [
+        "base15",
+        "base_ensemble",
+        "wide15_static",
+        "asset_shrunk"
+      ],
+      "prior": [
+        0.4,
+        0.35,
+        0.2,
+        0.05
+      ],
+      "diagonal_shrink": 0.25,
+      "prior_shrink": 0.75,
+      "minimum_labels": 500,
+      "asset_share": 0.5
+    },
+    "cost_bps": 4.0,
+    "gross_budget": 0.5,
+    "executions": [
+      {
+        "id": "edge8",
+        "name": "net_edge",
+        "floor_bps": 8.0,
+        "amplitude_bps": 50.0
+      },
+      {
+        "id": "edge16",
+        "name": "net_edge",
+        "floor_bps": 16.0,
+        "amplitude_bps": 50.0
+      }
+    ]
+  },
+  "source_hashes": {
+    "outputs\\effective_combo_expansion_20261009_r2_history\\manifest.json": "55569e32bb89a143d5eaee56afe083c13325452db620b4680119d9f16931671a",
+    "outputs\\effective_combo_expansion_20261009_r2_history\\protocol_freeze.json": "75901cb9cbed403289ebe923573a840e53840d9816927f2709b1ba179ef2e59b",
+    "outputs\\effective_combo_expansion_20261009_r2_history\\selection_freeze.json": "cb979aeadebc003564bd2a82ef96811b3276e2c03b11915108e4e3a2f1224681",
+    "outputs\\effective_combo_expansion_20261009_r2_history\\dates.npy": "3afd3fc019ad40ba0cccc0b0b2ac4301d7eaca00e7dff96aeb41b30fbeb5be64",
+    "outputs\\effective_combo_expansion_20261009_r2_history\\target.npy": "91bcf369abe8c329a2f15168a42557eda6802b384e6c0f896a962ed6bba9c58f",
+    "outputs\\effective_combo_expansion_20261009_r2_history\\base15_prediction.npy": "4cf4ac991d21b4c3243c9bdfc1c95d0c24ee931b7e6439e39be9fa84b6f0c91d",
+    "outputs\\effective_combo_expansion_20261009_r2_history\\base_ensemble_prediction.npy": "28eacdc11ff12dfb873c2bb790335634d0ddeec443fb5b7aa07ff290a2ee6631",
+    "outputs\\effective_combo_expansion_20261009_r2_history\\wide15_prediction.npy": "af12b667128d5e1c5f2d9dc622290bb65c31486ebdf95900144dd4fb29f50c37",
+    "outputs\\effective_combo_expansion_20261009_r2_history\\wide15_static_prediction.npy": "f39da999a1e6893dfa2c0ecffb60dfebf7d776d1efc3e7ae8d777a50c112edde",
+    "outputs\\effective_combo_expansion_20261009_r2_history\\asset_shrunk_prediction.npy": "f3380d517bafd8a3c206b37486c71d54c610762ce8bfa11319408b4a97e40609"
+  },
+  "code": {
+    "effective_combo_stacking.py": "a2ad96ea1d0c199a709a12430f54829ba1607c4bcf9adedd97391432dc6fbb81",
+    "effective_combo_stacking_reporting.py": "132558d432c441108737198fd6c9666bdb2179266ffe190decb5754285359a4f",
+    "effective_combo_stacking_workflow.py": "14f7ca471fb3ef642153393a9ee56ff93ca27191d94bef6998de07ca70b09aa8"
+  },
+  "holdout_opened": false,
+  "showcase": "pair_position__edge16"
+}

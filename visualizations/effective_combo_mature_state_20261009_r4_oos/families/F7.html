@@ -1,0 +1,740 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>F7公式卡</title><style>
+body{margin:0;background:#f5f7fa;color:#192638;font:15px/1.5 system-ui,'Microsoft YaHei',sans-serif}
+nav{background:#102b47;color:white;padding:13px 28px;position:sticky;top:0;z-index:10}
+nav a{color:#d6eaff;margin-right:20px;text-decoration:none;font-weight:600}
+main{max-width:1440px;margin:25px auto;padding:0 20px 50px}
+h1{font-size:29px;margin:10px 0}h2{font-size:21px;margin:32px 0 12px}
+.muted{color:#52677a}.note{background:#fff8e8;border-left:4px solid #dfac35;padding:12px 16px;margin:18px 0}
+.card{background:white;border:1px solid #dce4ec;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #1433500b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stat{background:#edf4fb;border-radius:8px;padding:13px}.stat b{font-size:24px;display:block}
+table{border-collapse:collapse;width:100%;background:white;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e1e8ee;text-align:right}th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:#eaf0f5}tr:hover{background:#f4f9fd}
+.scroll{overflow:auto;max-height:560px}.links a{display:inline-block;padding:6px 10px;margin:4px;background:#e6f0fb;border-radius:5px;color:#12385b;text-decoration:none}
+footer{color:#657789;font-size:12px;margin-top:30px}
+</style><script src="../plotly.min.js"></script></head><body><nav><a href="../index.html">总览</a> · <a href="../comparison.html">公平模型比较</a> · <a href="../factors.html">弱信号扩池</a> · <a href="../weights.html">组合权重</a> · <a href="../periods.html">月季广度</a> · <a href="../assets.html">逐币证据</a> · <a href="../costs.html">成本与暴露</a> · <a href="../method.html">冻结与复现</a> · <a href="../states.html">成熟状态</a></nav><main><h1>F7公式卡</h1><p>4h完成决策与收益预测，之后原生5m实际份额账本；单边4bps/终点平仓/简单收益复利；日Sharpe sqrt(365.25)。旧候选发现期反馈OOF非独立，历史验证已见；2026为历史OOS复核，月更仅用过去成熟标签。</p><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>family</th>
+      <th>mode</th>
+      <th>horizon_hours</th>
+      <th>direction</th>
+      <th>discovery_score</th>
+      <th>discovery_mean_ic</th>
+      <th>discovery_min_ic</th>
+      <th>positive_folds</th>
+      <th>fold0_ic</th>
+      <th>fold1_ic</th>
+      <th>fold2_ic</th>
+      <th>fold3_ic</th>
+      <th>research_tier</th>
+      <th>sign_changes</th>
+      <th>stream</th>
+      <th>role</th>
+      <th>reason</th>
+      <th>representative</th>
+      <th>max_abs_correlation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>main_F7_0721ad5e020e8783</td>
+      <td>F7</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0109</td>
+      <td>0.0137</td>
+      <td>0.0006</td>
+      <td>4.0000</td>
+      <td>0.0140</td>
+      <td>0.0006</td>
+      <td>0.0178</td>
+      <td>0.0225</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_F7_1bc818d67e99b54a</td>
+      <td>F7</td>
+      <td>cubic</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0017</td>
+      <td>0.0060</td>
+      <td>-0.0015</td>
+      <td>1.0000</td>
+      <td>0.0275</td>
+      <td>-0.0003</td>
+      <td>-0.0015</td>
+      <td>-0.0015</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_F7_e83bf33138589e57</td>
+      <td>F7</td>
+      <td>linear</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0105</td>
+      <td>0.0123</td>
+      <td>0.0063</td>
+      <td>4.0000</td>
+      <td>0.0082</td>
+      <td>0.0063</td>
+      <td>0.0197</td>
+      <td>0.0151</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_F7_a23d1571eb062b5c</td>
+      <td>F7</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0030</td>
+      <td>0.0019</td>
+      <td>-0.0122</td>
+      <td>1.0000</td>
+      <td>0.0250</td>
+      <td>-0.0037</td>
+      <td>-0.0014</td>
+      <td>-0.0122</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_F7_45fed66e880b06f5</td>
+      <td>F7</td>
+      <td>cubic</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0101</td>
+      <td>0.0114</td>
+      <td>0.0072</td>
+      <td>4.0000</td>
+      <td>0.0175</td>
+      <td>0.0103</td>
+      <td>0.0108</td>
+      <td>0.0072</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_F7_dace584d4ff6a4e6</td>
+      <td>F7</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0008</td>
+      <td>0.0030</td>
+      <td>-0.0048</td>
+      <td>1.0000</td>
+      <td>-0.0020</td>
+      <td>-0.0048</td>
+      <td>0.0219</td>
+      <td>-0.0031</td>
+      <td>conditional_or_unstable</td>
+      <td>2.0000</td>
+      <td>mixed</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>main_F7_8bfc4f89d4f1ea34</td>
+      <td>F7</td>
+      <td>linear</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>-0.0065</td>
+      <td>-0.0000</td>
+      <td>-0.0285</td>
+      <td>2.0000</td>
+      <td>-0.0030</td>
+      <td>0.0216</td>
+      <td>-0.0285</td>
+      <td>0.0098</td>
+      <td>conditional_or_unstable</td>
+      <td>3.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2855</td>
+    </tr>
+    <tr>
+      <td>main_F7_6658249165482a38</td>
+      <td>F7</td>
+      <td>asinh_difference</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0100</td>
+      <td>0.0110</td>
+      <td>0.0082</td>
+      <td>4.0000</td>
+      <td>0.0082</td>
+      <td>0.0086</td>
+      <td>0.0122</td>
+      <td>0.0150</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.5655</td>
+    </tr>
+    <tr>
+      <td>main_F7_a69cbb312bf95d1c</td>
+      <td>F7</td>
+      <td>signed_energy</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0009</td>
+      <td>0.0029</td>
+      <td>-0.0066</td>
+      <td>1.0000</td>
+      <td>0.0213</td>
+      <td>-0.0066</td>
+      <td>-0.0010</td>
+      <td>-0.0022</td>
+      <td>conditional_or_unstable</td>
+      <td>1.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.1419</td>
+    </tr>
+    <tr>
+      <td>main_F7_e661fa9acca05f63</td>
+      <td>F7</td>
+      <td>linear</td>
+      <td>4.0000</td>
+      <td>-1.0000</td>
+      <td>0.0098</td>
+      <td>0.0108</td>
+      <td>0.0073</td>
+      <td>4.0000</td>
+      <td>0.0122</td>
+      <td>0.0073</td>
+      <td>0.0090</td>
+      <td>0.0149</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.6200</td>
+    </tr>
+    <tr>
+      <td>main_F7_667c85f8e7e533a0</td>
+      <td>F7</td>
+      <td>asinh_difference</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>-0.0052</td>
+      <td>-0.0003</td>
+      <td>-0.0173</td>
+      <td>2.0000</td>
+      <td>-0.0173</td>
+      <td>0.0023</td>
+      <td>-0.0073</td>
+      <td>0.0211</td>
+      <td>conditional_or_unstable</td>
+      <td>3.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2375</td>
+    </tr>
+    <tr>
+      <td>main_F7_5e21817b5006f165</td>
+      <td>F7</td>
+      <td>tanh_product</td>
+      <td>4.0000</td>
+      <td>1.0000</td>
+      <td>0.0098</td>
+      <td>0.0118</td>
+      <td>0.0032</td>
+      <td>4.0000</td>
+      <td>0.0151</td>
+      <td>0.0032</td>
+      <td>0.0104</td>
+      <td>0.0183</td>
+      <td>predictive_candidate</td>
+      <td>0.0000</td>
+      <td>mixed</td>
+      <td>added</td>
+      <td>retained</td>
+      <td>NaN</td>
+      <td>0.2125</td>
+    </tr>
+  </tbody>
+</table></div><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature</th>
+      <th>discovery_raw_ic</th>
+      <th>period</th>
+      <th>evaluation_raw_ic</th>
+      <th>discovery_direction</th>
+      <th>evaluation_discovery_signed_ic</th>
+      <th>direction_source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>main_F7_0721ad5e020e8783</td>
+      <td>0.0112</td>
+      <td>oos</td>
+      <td>0.0089</td>
+      <td>1.0000</td>
+      <td>0.0089</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F7_1bc818d67e99b54a</td>
+      <td>-0.0009</td>
+      <td>oos</td>
+      <td>0.0129</td>
+      <td>-1.0000</td>
+      <td>-0.0129</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F7_e83bf33138589e57</td>
+      <td>-0.0107</td>
+      <td>oos</td>
+      <td>-0.0080</td>
+      <td>-1.0000</td>
+      <td>0.0080</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F7_a23d1571eb062b5c</td>
+      <td>-0.0037</td>
+      <td>oos</td>
+      <td>-0.0201</td>
+      <td>-1.0000</td>
+      <td>0.0201</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F7_45fed66e880b06f5</td>
+      <td>0.0122</td>
+      <td>oos</td>
+      <td>0.0182</td>
+      <td>1.0000</td>
+      <td>0.0182</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F7_dace584d4ff6a4e6</td>
+      <td>0.0045</td>
+      <td>oos</td>
+      <td>0.0276</td>
+      <td>1.0000</td>
+      <td>0.0276</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F7_8bfc4f89d4f1ea34</td>
+      <td>-0.0110</td>
+      <td>oos</td>
+      <td>-0.0212</td>
+      <td>-1.0000</td>
+      <td>0.0212</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F7_6658249165482a38</td>
+      <td>0.0176</td>
+      <td>oos</td>
+      <td>-0.0012</td>
+      <td>1.0000</td>
+      <td>-0.0012</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F7_a69cbb312bf95d1c</td>
+      <td>0.0018</td>
+      <td>oos</td>
+      <td>0.0132</td>
+      <td>1.0000</td>
+      <td>0.0132</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F7_e661fa9acca05f63</td>
+      <td>0.0197</td>
+      <td>oos</td>
+      <td>0.0095</td>
+      <td>1.0000</td>
+      <td>0.0095</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F7_667c85f8e7e533a0</td>
+      <td>0.0012</td>
+      <td>oos</td>
+      <td>-0.0116</td>
+      <td>1.0000</td>
+      <td>-0.0116</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+    <tr>
+      <td>main_F7_5e21817b5006f165</td>
+      <td>0.0125</td>
+      <td>oos</td>
+      <td>0.0132</td>
+      <td>1.0000</td>
+      <td>0.0132</td>
+      <td>same-source discovery only; feedback evidence</td>
+    </tr>
+  </tbody>
+</table></div><details><summary>main_F7_0721ad5e020e8783</summary><pre>{
+  &quot;id&quot;: &quot;main_F7_0721ad5e020e8783&quot;,
+  &quot;family&quot;: &quot;F7&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    514,
+    955
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;right&quot;: [
+    541,
+    542,
+    911,
+    942
+  ],
+  &quot;right_weights&quot;: [
+    0.7559289460184544,
+    -0.3779644730092272,
+    -0.3779644730092272,
+    -0.3779644730092272
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>main_F7_1bc818d67e99b54a</summary><pre>{
+  &quot;id&quot;: &quot;main_F7_1bc818d67e99b54a&quot;,
+  &quot;family&quot;: &quot;F7&quot;,
+  &quot;mode&quot;: &quot;cubic&quot;,
+  &quot;left&quot;: [
+    512,
+    518,
+    564,
+    947
+  ],
+  &quot;left_weights&quot;: [
+    0.5547001962252291,
+    0.2773500981126146,
+    0.5547001962252291,
+    0.5547001962252291
+  ],
+  &quot;right&quot;: [
+    544,
+    910,
+    914,
+    937
+  ],
+  &quot;right_weights&quot;: [
+    0.5,
+    -0.5,
+    -0.5,
+    -0.5
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 3,
+  &quot;nodes&quot;: 22
+}</pre></details><details><summary>main_F7_e83bf33138589e57</summary><pre>{
+  &quot;id&quot;: &quot;main_F7_e83bf33138589e57&quot;,
+  &quot;family&quot;: &quot;F7&quot;,
+  &quot;mode&quot;: &quot;linear&quot;,
+  &quot;left&quot;: [
+    519,
+    534,
+    536,
+    542
+  ],
+  &quot;left_weights&quot;: [
+    0.6324555320336759,
+    -0.31622776601683794,
+    0.31622776601683794,
+    -0.6324555320336759
+  ],
+  &quot;right&quot;: [],
+  &quot;right_weights&quot;: [],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 1,
+  &quot;nodes&quot;: 12
+}</pre></details><details><summary>main_F7_a23d1571eb062b5c</summary><pre>{
+  &quot;id&quot;: &quot;main_F7_a23d1571eb062b5c&quot;,
+  &quot;family&quot;: &quot;F7&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    520,
+    553,
+    944
+  ],
+  &quot;left_weights&quot;: [
+    0.5773502691896258,
+    0.5773502691896258,
+    0.5773502691896258
+  ],
+  &quot;right&quot;: [
+    554,
+    927,
+    949
+  ],
+  &quot;right_weights&quot;: [
+    0.6666666666666666,
+    -0.3333333333333333,
+    -0.6666666666666666
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>main_F7_45fed66e880b06f5</summary><pre>{
+  &quot;id&quot;: &quot;main_F7_45fed66e880b06f5&quot;,
+  &quot;family&quot;: &quot;F7&quot;,
+  &quot;mode&quot;: &quot;cubic&quot;,
+  &quot;left&quot;: [
+    532,
+    549,
+    929,
+    952
+  ],
+  &quot;left_weights&quot;: [
+    0.3779644730092272,
+    -0.3779644730092272,
+    0.3779644730092272,
+    -0.7559289460184544
+  ],
+  &quot;right&quot;: [
+    552,
+    562,
+    902,
+    916
+  ],
+  &quot;right_weights&quot;: [
+    0.5547001962252291,
+    -0.5547001962252291,
+    -0.2773500981126146,
+    0.5547001962252291
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 3,
+  &quot;nodes&quot;: 22
+}</pre></details><details><summary>main_F7_dace584d4ff6a4e6</summary><pre>{
+  &quot;id&quot;: &quot;main_F7_dace584d4ff6a4e6&quot;,
+  &quot;family&quot;: &quot;F7&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    510,
+    552,
+    565,
+    947
+  ],
+  &quot;left_weights&quot;: [
+    0.5,
+    0.5,
+    0.5,
+    -0.5
+  ],
+  &quot;right&quot;: [
+    519,
+    930
+  ],
+  &quot;right_weights&quot;: [
+    0.8944271909999159,
+    0.4472135954999579
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>main_F7_8bfc4f89d4f1ea34</summary><pre>{
+  &quot;id&quot;: &quot;main_F7_8bfc4f89d4f1ea34&quot;,
+  &quot;family&quot;: &quot;F7&quot;,
+  &quot;mode&quot;: &quot;linear&quot;,
+  &quot;left&quot;: [
+    524,
+    939
+  ],
+  &quot;left_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;right&quot;: [],
+  &quot;right_weights&quot;: [],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 1,
+  &quot;nodes&quot;: 8
+}</pre></details><details><summary>main_F7_6658249165482a38</summary><pre>{
+  &quot;id&quot;: &quot;main_F7_6658249165482a38&quot;,
+  &quot;family&quot;: &quot;F7&quot;,
+  &quot;mode&quot;: &quot;asinh_difference&quot;,
+  &quot;left&quot;: [
+    520,
+    545,
+    546,
+    893
+  ],
+  &quot;left_weights&quot;: [
+    0.5547001962252291,
+    -0.5547001962252291,
+    0.2773500981126146,
+    0.5547001962252291
+  ],
+  &quot;right&quot;: [
+    551,
+    955
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    -0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>main_F7_a69cbb312bf95d1c</summary><pre>{
+  &quot;id&quot;: &quot;main_F7_a69cbb312bf95d1c&quot;,
+  &quot;family&quot;: &quot;F7&quot;,
+  &quot;mode&quot;: &quot;signed_energy&quot;,
+  &quot;left&quot;: [
+    563,
+    906,
+    949
+  ],
+  &quot;left_weights&quot;: [
+    0.5773502691896258,
+    0.5773502691896258,
+    0.5773502691896258
+  ],
+  &quot;right&quot;: [
+    513,
+    536,
+    912,
+    923
+  ],
+  &quot;right_weights&quot;: [
+    0.31622776601683794,
+    0.6324555320336759,
+    -0.6324555320336759,
+    0.31622776601683794
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 19
+}</pre></details><details><summary>main_F7_e661fa9acca05f63</summary><pre>{
+  &quot;id&quot;: &quot;main_F7_e661fa9acca05f63&quot;,
+  &quot;family&quot;: &quot;F7&quot;,
+  &quot;mode&quot;: &quot;linear&quot;,
+  &quot;left&quot;: [
+    547,
+    556,
+    911,
+    914
+  ],
+  &quot;left_weights&quot;: [
+    0.2773500981126146,
+    -0.5547001962252291,
+    0.5547001962252291,
+    0.5547001962252291
+  ],
+  &quot;right&quot;: [],
+  &quot;right_weights&quot;: [],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 1,
+  &quot;nodes&quot;: 12
+}</pre></details><details><summary>main_F7_667c85f8e7e533a0</summary><pre>{
+  &quot;id&quot;: &quot;main_F7_667c85f8e7e533a0&quot;,
+  &quot;family&quot;: &quot;F7&quot;,
+  &quot;mode&quot;: &quot;asinh_difference&quot;,
+  &quot;left&quot;: [
+    563,
+    947
+  ],
+  &quot;left_weights&quot;: [
+    0.8944271909999159,
+    -0.4472135954999579
+  ],
+  &quot;right&quot;: [
+    548,
+    911,
+    926,
+    932
+  ],
+  &quot;right_weights&quot;: [
+    0.31622776601683794,
+    -0.6324555320336759,
+    0.6324555320336759,
+    0.31622776601683794
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><details><summary>main_F7_5e21817b5006f165</summary><pre>{
+  &quot;id&quot;: &quot;main_F7_5e21817b5006f165&quot;,
+  &quot;family&quot;: &quot;F7&quot;,
+  &quot;mode&quot;: &quot;tanh_product&quot;,
+  &quot;left&quot;: [
+    503,
+    546,
+    560,
+    933
+  ],
+  &quot;left_weights&quot;: [
+    0.3779644730092272,
+    -0.3779644730092272,
+    0.7559289460184544,
+    -0.3779644730092272
+  ],
+  &quot;right&quot;: [
+    529,
+    915
+  ],
+  &quot;right_weights&quot;: [
+    0.7071067811865475,
+    0.7071067811865475
+  ],
+  &quot;support_minutes&quot;: 720,
+  &quot;nonlinear_order&quot;: 2,
+  &quot;nodes&quot;: 17
+}</pre></details><footer>D:\Trading\My_factor_mining_427\outputs\effective_combo_mature_state_20261009_r4_oos</footer></main></body></html>

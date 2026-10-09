@@ -1,0 +1,22 @@
+{
+  "experiment": "effective_combo_stacking_20261009_r3_history",
+  "source": "outputs\\effective_combo_stacking_20261009_r3_history",
+  "checks": [
+    {
+      "file": "effective_combo_stacking.py",
+      "sha256": "a2ad96ea1d0c199a709a12430f54829ba1607c4bcf9adedd97391432dc6fbb81",
+      "verified": true
+    },
+    {
+      "file": "effective_combo_stacking_reporting.py",
+      "sha256": "132558d432c441108737198fd6c9666bdb2179266ffe190decb5754285359a4f",
+      "verified": true
+    },
+    {
+      "file": "effective_combo_stacking_workflow.py",
+      "sha256": "14f7ca471fb3ef642153393a9ee56ff93ca27191d94bef6998de07ca70b09aa8",
+      "verified": true
+    }
+  ],
+  "role": "exact historical source copies, original completed evidence unchanged"
+}

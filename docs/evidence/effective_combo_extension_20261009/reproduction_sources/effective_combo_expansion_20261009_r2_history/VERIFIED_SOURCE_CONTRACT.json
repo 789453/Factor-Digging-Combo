@@ -1,0 +1,57 @@
+{
+  "experiment": "effective_combo_expansion_20261009_r2_history",
+  "source": "outputs\\effective_combo_expansion_20261009_r2_history",
+  "checks": [
+    {
+      "file": "aligned_contract.py",
+      "sha256": "e2375bb0d65160f534827512f21c996532c29daae525d25c0d45cdb1db983aa3",
+      "verified": true
+    },
+    {
+      "file": "complex_alpha_evaluation.py",
+      "sha256": "bfa8150ce6a1652a1d1cb2be5fd2e697ab09839f565ccb8d906e925af9ce1a2e",
+      "verified": true
+    },
+    {
+      "file": "complex_alpha_prediction.py",
+      "sha256": "1b8ffa1cc1e538ff984ee8c262d4f64364b075c7066fd0327594cd87f7dd611c",
+      "verified": true
+    },
+    {
+      "file": "complex_alpha_search.py",
+      "sha256": "47231d3a0d717995252fad2db8c74b8fba4a142fb4c30b47458fa2e37e9637f4",
+      "verified": true
+    },
+    {
+      "file": "complex_alpha_workflow.py",
+      "sha256": "60e08a702499e9904952ba06304337bfdb26646d5f072f226314cc8bc7e8cabd",
+      "verified": true
+    },
+    {
+      "file": "effective_combo.py",
+      "sha256": "60d9df035efa873c6a75214ed589e408954538e8c0a82b7b629c378435262b29",
+      "verified": true
+    },
+    {
+      "file": "effective_combo_extension.py",
+      "sha256": "9bd288d501344051abe015bc040fe6990397dc13cd510f66c588a2c1bd774413",
+      "verified": true
+    },
+    {
+      "file": "effective_combo_extension_reporting.py",
+      "sha256": "8de68ca7f9a5889f7047fdfeeb7d3be9c4ffba12d884e8320748cfa45392d12e",
+      "verified": true
+    },
+    {
+      "file": "effective_combo_extension_workflow.py",
+      "sha256": "dbcde543bd319b3a929309a5b7282f5017646f1e8e1489a2804a07ddc01c5ada",
+      "verified": true
+    },
+    {
+      "file": "manual_alpha_derivatives.py",
+      "sha256": "3fb8290783f9b92f984ae2c1fede1377e52365fae91064dfe0fb91db49f6af8c",
+      "verified": true
+    }
+  ],
+  "role": "exact historical source copies, original completed evidence unchanged"
+}

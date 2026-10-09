@@ -1,0 +1,5 @@
+id,period,long_price_contribution_pct,short_price_contribution_pct
+state_cal1__edge8,validation,3.4043328865787115,1.146456910629973
+state_cal1__edge16,validation,2.2854304989374885,0.31740316021465276
+state_cal1__edge8,oos,3.8985971560491883,-0.4446615403698728
+state_cal1__edge16,oos,2.938276311218225,-0.18980967953082453

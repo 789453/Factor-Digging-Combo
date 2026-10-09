@@ -1,5 +1,7 @@
 # 有效基线的解法、效果与可保留经验
 
+> 后续问题已完成R2—R4复核，最新见[完整扩展报告](EFFECTIVE_COMBO_EXTENDED_RESEARCH_RESULTS_20261009.md)和[使用卡](EFFECTIVE_COMBO_EXTENDED_PRODUCT_CARDS_20261009.md)。下面是OOS前的经验；R1高Sharpe没有原样延续到2026。新的关键经验是预测幅度/经济强度匹配：预声明一月cal OOS净+2.4679%/+2.3210%、Sharpe2.1324/2.6017，而只保持原强度的方向评分仍亏。更多公式、币种模型、误差协方差权重不是自动改进。暖启动和八九月集中仍是边界，三月主假设失败和全部旧结果保留。
+
 本页是当前已完成研究的经验沉淀，不提前使用2026年3—9月结果决定下一轮。实证来源为[完整报告](EFFECTIVE_FACTOR_AND_COMBO_RESEARCH_RESULTS_20261009.md)、[产品卡](EFFECTIVE_FACTOR_AND_COMBO_PRODUCT_CARDS_20261009.md)与[41页交互页](../visualizations/effective_combo_20261009_full_review_v2/index.html)。轻量证据副本在`docs/evidence/effective_combo_20261009_round1/`；全部数值池、模型、账本仍以本机不可覆盖outputs为准。
 
 ## 当前真正有效的解法
