@@ -1,0 +1,78 @@
+{
+  "role": "lightweight frozen evidence copies; full local outputs authoritative",
+  "holdout_opened": false,
+  "files": {
+    "manifest.json": {
+      "source": "outputs\\effective_combo_20261009_round1\\manifest.json",
+      "sha256": "fa20c54a3028e8f0ad572ac1a97b4b681c07b6ca4f96f2740de7299b025fd216"
+    },
+    "config.yaml": {
+      "source": "outputs\\effective_combo_20261009_round1\\config.yaml",
+      "sha256": "71ceaf68259f8cb11af87247c28456d9f8dbcf839bfdb416c8fcff558702f586"
+    },
+    "feature_contract.json": {
+      "source": "outputs\\effective_combo_20261009_round1\\feature_contract.json",
+      "sha256": "99a56cb6a44a353f790e5379527c73bf29d50bec63b0279355e0b4fea8dd627f"
+    },
+    "feature_pool_freeze.json": {
+      "source": "outputs\\effective_combo_20261009_round1\\feature_pool_freeze.json",
+      "sha256": "32b44046c286326a4ea5f2bb3c0f02e72cecdbc69dcb3883cc2e8027f0a2e42a"
+    },
+    "portfolio_metrics.csv": {
+      "source": "outputs\\effective_combo_20261009_round1\\portfolio_metrics.csv",
+      "sha256": "6bda4f49320fa850177c1a3b350a549cc56a491ca3b79766eb7d4f8d6ed3a4ed"
+    },
+    "prediction_metrics.csv": {
+      "source": "outputs\\effective_combo_20261009_round1\\prediction_metrics.csv",
+      "sha256": "e5d77ebe9019e9225ea12b86b960dcf90a9e25fb858066ab5cd832276c4f8a06"
+    },
+    "selection_freeze.json": {
+      "source": "outputs\\effective_combo_20261009_round1\\selection_freeze.json",
+      "sha256": "75b74a6d852c4639226e78572ba42bd5b5dd7c7fe51f67ee356e8006f2c011dd"
+    },
+    "update_records.csv": {
+      "source": "outputs\\effective_combo_20261009_round1\\update_records.csv",
+      "sha256": "0b384ef223bc2dd47e456b8057ec124dc4b3eb7d68884ab0a5409793a4816337"
+    },
+    "source_provenance.json": {
+      "source": "outputs\\effective_combo_20261009_round1\\source_provenance.json",
+      "sha256": "c1ada94222baf970205200e56368910334e1a899efdce2ab46c5a5d27f8f8b48"
+    },
+    "acceptance.csv": {
+      "source": "outputs\\effective_combo_20261009_frozen_review_v2\\acceptance.csv",
+      "sha256": "6d153aa94d26d59acce3b915d4993b605ffa3d17859d81b4361bfa23dfa32a5b"
+    },
+    "monthly.csv": {
+      "source": "outputs\\effective_combo_20261009_frozen_review_v2\\monthly.csv",
+      "sha256": "f206b4c650bbf41cecdb0c22bb74c080826227026588d3a1509757387e16acaa"
+    },
+    "quarterly.csv": {
+      "source": "outputs\\effective_combo_20261009_frozen_review_v2\\quarterly.csv",
+      "sha256": "1184ab89d469bf0922a9761b7dc061547bdc90b9f985f7ed4cbc4c7f86d0ad61"
+    },
+    "fixed_removal.csv": {
+      "source": "outputs\\effective_combo_20261009_frozen_review_v2\\fixed_removal.csv",
+      "sha256": "6a8840896474a90e55b2715dad545bdc762ec6ffa500e22f3a5e1ede128599dd"
+    },
+    "fixed_removal_prediction.csv": {
+      "source": "outputs\\effective_combo_20261009_frozen_review_v2\\fixed_removal_prediction.csv",
+      "sha256": "60e024dcd59bd7d9536902297db659674c2fcc1f16b2d9f02d2cf1eba1201778"
+    },
+    "reproduction.json": {
+      "source": "outputs\\effective_combo_20261009_frozen_review_v2\\reproduction.json",
+      "sha256": "2f4fd53dbcf9712a66e9b37d7408729b85313bea5a5a82f21a55550d70fb0eef"
+    },
+    "cost_sensitivity.csv": {
+      "source": "outputs\\effective_combo_20261009_signal_review_v1\\cost_sensitivity.csv",
+      "sha256": "70d36b66cc28adb49e3da3966ee52206fa0d656076ecf7d2d6362c8623135052"
+    },
+    "exposure_decomposition.csv": {
+      "source": "outputs\\effective_combo_20261009_signal_review_v1\\exposure_decomposition.csv",
+      "sha256": "a6f650e43a49050b84eb7ae35fac925528edee6b0875b6e91285f55c8fee703f"
+    },
+    "prediction_breadth.csv": {
+      "source": "outputs\\effective_combo_20261009_signal_review_v1\\prediction_breadth.csv",
+      "sha256": "332dbc6b842b4b17e22d3d716fe714a11f50e87909f3101b250a7c500c2db539"
+    }
+  }
+}

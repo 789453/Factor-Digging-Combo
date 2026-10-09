@@ -1,0 +1,86 @@
+mode: aligned_crypto
+version: effective-combo-20261009-round1
+complex_alpha:
+  stage: effective_combo
+  source_pool_run: outputs/complex_alpha_prediction_estimation_20261009_v1
+  models:
+  - id: ridge_asset_online
+    backend: ridge
+    trees: 1
+    leaves: 2
+    min_leaf: 4
+    learning_rate: 0.05
+    penalty: 10.0
+    window_months: 12
+    update_months: 1
+  - id: tree7_static
+    backend: lightgbm
+    trees: 120
+    leaves: 7
+    min_leaf: 512
+    learning_rate: 0.05
+    penalty: 10.0
+    window_months: 0
+    update_months: 0
+  - id: tree15_online
+    backend: lightgbm
+    trees: 160
+    leaves: 15
+    min_leaf: 256
+    learning_rate: 0.05
+    penalty: 10.0
+    window_months: 12
+    update_months: 1
+  - id: tree31_online
+    backend: lightgbm
+    trees: 240
+    leaves: 31
+    min_leaf: 128
+    learning_rate: 0.05
+    penalty: 10.0
+    window_months: 12
+    update_months: 1
+  - id: tree63_online
+    backend: lightgbm
+    trees: 240
+    leaves: 63
+    min_leaf: 64
+    learning_rate: 0.05
+    penalty: 10.0
+    window_months: 12
+    update_months: 1
+  - id: fit255_static
+    backend: lightgbm
+    trees: 500
+    leaves: 255
+    min_leaf: 8
+    learning_rate: 0.05
+    penalty: 10.0
+    window_months: 0
+    update_months: 0
+  ensemble:
+  - ridge_asset_online
+  - tree15_online
+  - tree31_online
+  executions:
+  - id: rms
+    name: rms
+    floor_bps: 0.0
+    amplitude_bps: 50.0
+  - id: edge8
+    name: net_edge
+    floor_bps: 8.0
+    amplitude_bps: 50.0
+  - id: edge16
+    name: net_edge
+    floor_bps: 16.0
+    amplitude_bps: 50.0
+  cost_bps: 4.0
+  gross_budget: 0.5
+  seed: 20261009
+  threads: 6
+  label_clip_bps: 2000.0
+  diagnostic_model: fit255_static
+output:
+  out_dir: outputs/effective_combo_20261009_round1
+  visualization_dir: visualizations/effective_combo_20261009_round1

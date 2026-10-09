@@ -1,0 +1,603 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>新表示到底保存了什么</title><style>
+body{margin:0;background:#f5f7fa;color:#192638;font:15px/1.5 system-ui,'Microsoft YaHei',sans-serif}
+nav{background:#102b47;color:white;padding:13px 28px;position:sticky;top:0;z-index:10}
+nav a{color:#d6eaff;margin-right:20px;text-decoration:none;font-weight:600}
+main{max-width:1440px;margin:25px auto;padding:0 20px 50px}
+h1{font-size:29px;margin:10px 0}h2{font-size:21px;margin:32px 0 12px}
+.muted{color:#52677a}.note{background:#fff8e8;border-left:4px solid #dfac35;padding:12px 16px;margin:18px 0}
+.card{background:white;border:1px solid #dce4ec;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #1433500b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stat{background:#edf4fb;border-radius:8px;padding:13px}.stat b{font-size:24px;display:block}
+table{border-collapse:collapse;width:100%;background:white;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e1e8ee;text-align:right}th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:#eaf0f5}tr:hover{background:#f4f9fd}
+.scroll{overflow:auto;max-height:560px}.links a{display:inline-block;padding:6px 10px;margin:4px;background:#e6f0fb;border-radius:5px;color:#12385b;text-decoration:none}
+footer{color:#657789;font-size:12px;margin-top:30px}
+</style><script src='plotly.min.js'></script></head><body><nav><a href="index.html">研究结论</a> · <a href="readouts.html">读出与消融</a> · <a href="uncertainty.html">不确定性</a> · <a href="structure.html">结构辨识</a> · <a href="economics.html">成本与执行</a> · <a href="iterations.html">迭代档案</a> · <a href="decay.html">期限与波动触发</a> · <a href="audit.html">全部通道迁移</a> · <a href="additive.html">修正基线的贡献</a> · <a href="coins.html">逐币归因</a></nav><main><h1>新表示到底保存了什么</h1><div class='note'>历史发现与验证可用于研究；此前已见测试只有最终冻结审计。零入选表示没有通过全部门槛，空仓不是收益胜利。结构输出变化不等于预测或可交易 Alpha。</div><div class="card"><div class="card"><div>                            <div id="81d25ae4-fec5-4900-919c-e1f8a050e980" class="plotly-graph-div" style="height:370px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("81d25ae4-fec5-4900-919c-e1f8a050e980")) {                    Plotly.newPlot(                        "81d25ae4-fec5-4900-919c-e1f8a050e980",                        [{"mode":"markers","name":"round1","x":{"dtype":"f8","bdata":"0jm+G1wl2z8uSYMptjftP9GvXcogyuY\u002fdiBPe8Hs5T+UI2DWsuXkP1x1UJsdOOU\u002fVo5hpMPI4j\u002fwPnfzHVXiPyjG7AzzBOc\u002fboqN2Nr\u002f6T9ltwHNVW\u002fvPyiPKzhHT+E\u002fsACXhygw4j8UTwz\u002fNproP1mJFtntOOg\u002ffar0rox95T8xirwIZujkPw8banCYTOo\u002fQtqGvzb15T+cfwQifarpP26KR4HI8eM\u002fVvtaolNi4j9QAptCsdTlP6DizNbFJOk\u002fethBLoEv5z9nR5TTz\u002fLiPxZwmoSWGOg\u002fqW9bSCv37j+tixvM5OfmPy3DNHqV8OQ\u002fOC71Ozsr4j8RIFIZeG\u002flP8EumjV\u002fueQ\u002frm8QogCM7T8kUph8o1\u002fqPyUybdi0iOQ\u002f8VFYsBai4z9HuRyyq8rgP5pqRO93hek\u002fYUblaIkB5D\u002fC\u002f38nGhfjP0o108xSxOU\u002foD8kkcYz4j\u002fbH\u002fK\u002fL87qP4HGUSyMOeE\u002fVHmDtRHK4z+idHmtPFPsP7LCrrcr9eI\u002fw5rxd3fd6T9kdpMf2LDmPzkdmnPuUus\u002fBUY6ppzR5D\u002f28kLAasjnPy0q+vQd6eI\u002f5uMkDp7T4z96kZGsKhbmP7zv4+VIE\u002fA\u002ffvhXJpol6z8f\u002fdxeCAXnPw5jLx8cMOo\u002fJUZpTv1k5D9SNIjj88DkP3aNXWNKuOQ\u002fVCTxMcO63j89PTPBWRDiP0ADx9j5DOM\u002fMxtWRZsF4T8m0\u002f\u002f6rO3kP3z3PlqV2OQ\u002f9ppbvpZ17j91DRFEMTDoP1u0ANXM2u0\u002fIsEJS64Z5T8XDIQI293pP81SESl+LuY\u002fT8RtNsXa6j9f0SqV+5nqP4mItX3nIuU\u002fkDWboLlf5j+gyOr5NqrkPyzT4SLE2+I\u002fOf0gDZ4C6T8qS3aY8sblP8p2k21Th+Y\u002fBr7jUQXc5T+za+j6yfbnP1plFb\u002f8E+U\u002f2qD1hNn94D8y2cGHTPPzP80Np4SiU+o\u002fLBwOug0P5j\u002f\u002fvVsSs43lPzRlWPHH4+Q\u002fC15GaTda5j8Ec3L4Y7nnP4wv4hXTtuI\u002fKkV7R7P28T8CjuuFStLvP2pgCXqZqeE\u002fr0BEZBv\u002f6T9PlRr2l2frP8iA7tbN9+M\u002feRRgvqux5T9afPwFy+riP9faTINAz+A\u002fYSxhx1W85T9v+n2\u002fNR7nP\u002fO8QspnnuQ\u002fCtC+i+i45j9rVLtjv1juP+GS\u002fiJNFOo\u002fFK0Ycn0O8z\u002fQxJyUHmrsP\u002fe0Dxo+bes\u002fHvTPCEJC5z9P+lfpiDLnP\u002fL2bKAtjeQ\u002fDxsJSQu+5D\u002f5j+bHU\u002fLgP1AIRMo5g+M\u002f1wFRnkED4T9KRJYpS\u002fzrP7KhTqWVXek\u002fjtr3Lo0k5j\u002fEkiApgFPmP+by4d5zRuo\u002fHqwWJsL75z+5p\u002f1CpQ\u002fjP2iJVrim\u002fuY\u002fChFuMN085D\u002fLz5PhzJ3lP7BvuPLHG+c\u002f+SQG2fw95z9JSwvn\u002ffrhP8xRRJoNPuY\u002fuxDWjIUV5j+Wvq9jDirjPyn5MDk+veI\u002fkzZsKGFc7j8isBHjev\u002fqP9SPb1Ex0OY\u002fBF3KWFWH5j\u002fO8CENzZLkP1feP34eYeI\u002fGd8VytwH6T+9cM6aIp\u002fnP7DtK4JWGuU\u002fT76Eie1Z5j\u002fiRixRzC7lPwF0z2nu0+Q\u002f"},"y":{"dtype":"f8","bdata":"CFYekufo1T9dw9igCObkP2weT3NZrPY\u002f\u002fHcMXpMf9z+NAW+OJCrqP8syH2xlZOU\u002fEUwo3V1D6z8pT7PzzjTxP7L\u002fnXNXAOs\u002fRZgkHRa4\u002fT\u002fIMqsUR+b8Pwfl43CnA+Q\u002fTr2s523A4D8rp0hZnoL5Px6Ua2coUvU\u002fD\u002f+X+\u002fue6D9j3ZnXz0b4P\u002fkqUQBJ9e0\u002fJizuEfml5j\u002fOfdnZWeP4PwyrBh50mO4\u002fH4e2tDVj4j\u002fpwwfQQQznPzl9G\u002f2Asuk\u002f3\u002ftxPtuh6j\u002fhr85S+KrkP894dhkrUuM\u002ftyfulgwb6j+\u002feB+WbUHkP+PP6Ew9oe8\u002fR5OXUUqf7T\u002f+xVxIHT3kPwRFUeDHvOc\u002fb\u002fBpaXB1A0CCT9wnhCrqPwAPyP2bh+g\u002fih3BpBu35z\u002fowOZCKCPxP\u002fz1yTL6o+s\u002f7HQpgKP48T\u002f3vKBHiSDyPytLqKwhads\u002fJ9Xq4\u002f+h5T+Fvvf3mUPyP5mOsd2Rwe4\u002fP4ORd9N56T\u002fHyIQs9JzqP3NYa9cJ9\u002fY\u002fpq66LoII6z+jx7WYrZbkPwjrXTLyyQBArgrvTnaE7j+8yAdix\u002f3wPyIbq+\u002f2vPA\u002fw3Guk6dd7z\u002f9EZJdGyHjP4PmL\u002fWr8PI\u002fmBvIpOZ29j+EKHof\u002fPftP7tnG9MMqvc\u002f6HjNKTlm7T92F\u002f4ioIXhP1gxgqPFCwFAQcnSuXq98T8JsJ0LoznyP\u002ff33Sz4o\u002fM\u002fKZN786YT5D\u002f9Wm1MWdLqP7imZ1S1Uus\u002fcLnxhZWu5z\u002fULnznfTHwP69+FE9GiwRAdXYN8K998D\u002fvGRwiFwnyP35OQ6Jwquc\u002fxRYOZg7v2z+C6zdBSDPwP1ITR19kJek\u002frUoa9Xza6T+htPjACZz0PxkqaQk5Jew\u002f\u002fmzXS8jU7D9KDkSmgFXuP+wmhDMfWOo\u002fBXV2XjN78D9H71Kg5QjmP\u002fVkvDcm\u002fec\u002fVsoIFvm3AkC21E+M9fn7PxXBaaQh1wBAMChL50KR5j+SbANwh2QAQM0E5pff4fI\u002fZRLR+OBj8D+Bp5OkwTfnP4RV4NIdUvQ\u002fMygmxwjsCkB\u002fcll65DT4P2Akiv6bCOI\u002foV9HVFKy+T9x\u002fPrtkBL8P8lXHzMTZfQ\u002f2ZmUCuQo8z\u002foY37zheb3P7Ssiw+bsus\u002fu0AbMyPe6T8+HsFJC97oP\u002fWjYrqOR+8\u002fSSGW1x1c7T8E5Pg3NMjoPxXYjQKCCPA\u002fJ7ZEdqa\u002fAEBI5zIHHxnuP3vaI8svn\u002fY\u002fx3VUwxv79D9frdtSNLPnP7FDZc09TfM\u002fI2Vjey097T8s+iVpJdfrP4Nim2ICeQZAHccQYVcs7z9nDgMfI+TzP\u002fP3ph0+5\u002f0\u002fT7430QbU\u002fD9HUUKSxGLqP5dDD+RkIug\u002fzSd+5o9aAEATi4PF\u002fXQGQEwD7W6z8P8\u002fs5yibTwW9D8F54qU46DkPwHkQiwLT+o\u002f2CvfGiSu8j8yljzTplnkP9AvjlnvUOY\u002fg6zGxnceAECYGfHkuN3xPxihocUBFeM\u002fG+lxa4BSCUDk8SycgzjwP787l3KgbeY\u002fwkMvuBE18z9TV78zQifmPxK54t5r1\u002fo\u002fM19\u002fDWon9T9L3iTQYDv2P43IXSUP4ew\u002fcZbnQBpd9T+lDwZ3QPvwP1K3PPzovvE\u002f"},"type":"scatter"},{"mode":"markers","name":"round2","x":{"dtype":"f8","bdata":"pG29KufX3j87UULT+vXsP44xm0jG\u002feY\u002f3nQbFHIh6D\u002f\u002fjoDK1b\u002flP6m9Rp+1juQ\u002fZXB6pztr4z+VOtJfWBTiP5Aaud54LOc\u002fqR6xae746T+9iXXmTLHwP1FUSIObBOY\u002f4tPUjslE4j\u002fvjRCXnWHpP2H\u002fWC2Koug\u002fYx1WjQDi5D87\u002fu47FW\u002flP6yYlpAa4+o\u002f0qPVC+uX5j8rAEPis07qPx2N5quD9uU\u002fK2eJoKc55D\u002fZZjp3PRHnP\u002fzQU4aGPek\u002fULEwQ8i25j9ZG7fjpn7jP+DeYo1w8eg\u002fs1ZJyfRt7j\u002fwp2dgQWvoP8XOjSyM+eY\u002fbVhdlana4j8\u002fTbfrh5voP70Wp5dktuQ\u002fPvzNPUGR7j\u002fIN3Q\u002fGZ3tPxhk2dOFFuY\u002fGslFfzlG5D\u002fUW2W4JtniP+O0e\u002fXWHuk\u002fvGTLwywC5T\u002fDUPPacoLjP+C4a+PXxOU\u002fCTRKZgJH4z8tAzTw8GTrP+n0T3uHb+I\u002f97Nm4Jo15D9fPWeCi7vrP0lHexucQOY\u002fTI0iNufr6T\u002fJtTUYiOjlP+fkTeB+geo\u002fjoEmBtnZ5T9z+hGX0s3mP5zcIojslOM\u002fbNjQW\u002f485D9k8C1KU8vmP1+g4zvPBPA\u002fup7URsev7T\u002fdADNUT83nP+HCnbKlO+o\u002fh4PmjA\u002fi4z\u002f+ftqDGBLkP8ruVhCVs+Q\u002foUZf8h3T4z\u002fC\u002f1G2xGriP4mBKGNjYOQ\u002fKAf\u002f0Q\u002fP4T+aIgxh1hzlP4F3mwhzEOU\u002fgejH+Fmx7T\u002fphZOmoafvP2p2OEGSyuc\u002f9BSECIzI6D95fYxofYPnP7YZFHUJkeo\u002f171uXmY26z97pEVhMKnlPypK7rWy7ec\u002fRE05ZWiP5T98E\u002fODEgjjP\u002fPPuoxXluk\u002fHHFkqAqV5T+kfTrgdITlP9nW0MxU0+Y\u002fGKIwwS\u002fp5z9CShith6LlP7FdeVP5kOM\u002fcKn3tCl+9T9zPgV+ixHrP3bcAi0EOeY\u002fQtHFOeKh5j\u002fSZoO1uAnmPwLSU1TZrec\u002fwoOH6Dnb5z+Z3Y7zh6LjP6D4PTyThfI\u002fKclUvQtv7j+v2XY3wkThP6ln7677Yew\u002fL4c+Kgmd7D++rmPlK8vlP5BA6NXnc+U\u002fqNbTBQFk5D\u002fuXozluK3iP0dJXUIaN+Y\u002fOCJm66+A5z9tIHaGWxjkP9QIDvm4Iuk\u002fhlyFtnwc7z8RSeYVJA\u002frP8oyNruPsvM\u002f\u002fUcwRdJN7D8hyLtILiDsP\u002f9IHq+fp+Y\u002fniPHoB\u002fx5j9r21BF0K7mPyFlXodTyOU\u002f8c3+ydhL4z\u002fZfRVhrsblPzIpgQJa1eY\u002fq3ZgOe9M6z\u002fpDcIHT9LrP21PUdpEbuY\u002fCD3ONrpq5z\u002fnB0nyXl7pP+EvVMqj3uk\u002fYhM8DjN+4j8eWpb\u002fzGDoP5+VCHiGD+Q\u002f36sVYZoK5T+SqicxBVjnP3gp\u002f1jk6uc\u002fPaOdt9Yj4j+l9HJkF8zmP9Ir+Dp1COc\u002fa\u002f+Y8m5q4j94BE0sKbHiP01L\u002flKh0fA\u002fAerT+yii7D9ZpUQpyUTnP3iZ3aiflug\u002fEpKYeitz6D\u002fTTR5ggXfjP1LOAPEPvuk\u002fFsSJdygk6j8yiqdrgnzlPxZsh562VOc\u002fDc2hhTEx5T8BT8PfQnzoPw=="},"y":{"dtype":"f8","bdata":"T1XvZpe13j9UjyV07\u002f71P9PxqLrYHPI\u002f+UeWbYnf+j8HEo+R7DzsP3ZoQwqCSu4\u002fcHJdaJ8S7z+lpdnrJITwP8g8eeh17ew\u002fbZjWRSvd8j9c5E\u002f+yGMBQF8DqZmj+O4\u002fPx82oVex5j\u002fciJIDa\u002fv1P40JsBAFn\u002fM\u002fMSUcX17X6T97zL3Br0AAQEyjX7\u002f8GO4\u002fyStgJRWc6z9msA5OQk4AQEmdzvkJP\u002fQ\u002fLARLbhzs5D\u002fysbbaDajnP8yqlrLeFu0\u002fsXs0+Cji5D+l0BOGtfXkP4NATdG9o\u002fA\u002fTs7APVUy7T9C4+9Kh5vsP7SI38bjdfA\u002fspVfF3iD7z9cfTpNUqTxP4ItKRKiHeU\u002fmuuHMoXR+D\u002fmGMK3Xvj1P4v7ZOKhkuc\u002fJYuBGseP5j9YergOZxHvP+dQQJoMLeg\u002fihwnsgB38j\u002fUG8fyuF7tP\u002fDp8UoVVuQ\u002fXzoZL4zy6z+OlTRhePP0P0YfKI8cB\u002fA\u002ftOk9\u002fDUp7j9t\u002fZpjZIrpP7krh7BD6\u002fY\u002fYZm+\u002fX408T+SsKWFQZjnP+9j4OSGDQlAesfKl4yT6j9\u002fpeob\u002ftrqPxm9cNYMiPE\u002f6A1h4vTv4T+bPbzwtCXoPwtUSUck5gRAfFi5xL1p9D8R6FTuqZTtP0vYz64TpwBAg7oEKP0Z6z\u002fIGpzEMCHxP2OEcG1P4Po\u002fu7IzFT6Y7j\u002ff3Wg24ob1P6utn2FrmPE\u002ftIDP7\u002f5a8T9jmzs6yffrP6QfoX8wMO4\u002fNZanw\u002fQU8j9+\u002fBt\u002f3fIBQAwd0jntyPI\u002f2qPcuhVV8T\u002fKqu94nOvtP\u002fvet8ArNes\u002flfxdgz+c9D9V3GKkuqflPw5IiTeJ\u002fOw\u002fpwhJzqJZ6z+He1QmacfxP4fcw2IVMfI\u002fMEuiIW3r7D9f38\u002fvkffpPyKXy8f7feo\u002fd5BEJTao9T9QdoPrrgDoP2x8jrH0EwBA9SMCxNnQ\u002fz93OOGk1tL5P+7k76oDqe0\u002fhY6RxTAy8j8mIEij24P0P3KICt70TvI\u002ftFWBOgcO7z8GlVmWIBLxP6aaP7nG4ANApapIr8Vy\u002fD9JJl+HxqrpP2NFdbc4Y\u002fc\u002fhIPmrRY8\u002fz+fXZtmTHzrP7NGqzk1oes\u002ftgpkYMMc6D\u002faEfh7i1bxPzItlGEglew\u002fpMeMW9FK7z\u002fHOVlaFPDyP1OH8CcQj\u002fE\u002fh+NuXyev6D+WHs2XyULvPxjkmciUcgdAtt1RVF3A8j\u002feUjL3p\u002fn4P2p5WkxoAvE\u002fyZiF9s\u002fY8T9+xKfTfw35P\u002fdJ3m62dPA\u002frQV+59cO7D8vTTxgOgAAQPCg\u002fNIX4PI\u002fVdqstXBQ+z\u002fPudrTOtv\u002fP+I8sYIasvs\u002f\u002fIQXYhv+7j\u002fWVQPk7iryP9nSmYF6o\u002f0\u002f3MS5cxNGAUCp8BA9NUUBQJtt\u002f7N0mfY\u002fb044mDiq5D8Q4VHh6EXqPwJIZpSG2vQ\u002fH2wtqgsv5T8D3pbeUNjuPzru3MWfuwFAQXW5XDbG7j+o5YYlBXTrP3rMB98RgAVAgEklkVKx8D\u002f\u002fcyhkIuToPxN+a9UmP\u002fk\u002f530RcCzA8j9cDpgM4A72P5P+Anz+bvo\u002fYJQHNI4V8T\u002fX32\u002ftSdbkPzjwkzeLgfU\u002fAOXTILMp6z9MPQWbCab8Pw=="},"type":"scatter"},{"mode":"markers","name":"round3","x":{"dtype":"f8","bdata":"pG29KufX3j87UULT+vXsP44xm0jG\u002feY\u002f3nQbFHIh6D\u002f\u002fjoDK1b\u002flP6m9Rp+1juQ\u002fZXB6pztr4z+VOtJfWBTiP5Aaud54LOc\u002fqR6xae746T+9iXXmTLHwP1FUSIObBOY\u002f4tPUjslE4j\u002fvjRCXnWHpP2H\u002fWC2Koug\u002fYx1WjQDi5D87\u002fu47FW\u002flP6yYlpAa4+o\u002f0qPVC+uX5j8rAEPis07qPx2N5quD9uU\u002fK2eJoKc55D\u002fZZjp3PRHnP\u002fzQU4aGPek\u002fULEwQ8i25j9ZG7fjpn7jP+DeYo1w8eg\u002fs1ZJyfRt7j\u002fwp2dgQWvoP8XOjSyM+eY\u002fbVhdlana4j8\u002fTbfrh5voP70Wp5dktuQ\u002fPvzNPUGR7j\u002fIN3Q\u002fGZ3tPxhk2dOFFuY\u002fGslFfzlG5D\u002fUW2W4JtniP+O0e\u002fXWHuk\u002fvGTLwywC5T\u002fDUPPacoLjP+C4a+PXxOU\u002fCTRKZgJH4z8tAzTw8GTrP+n0T3uHb+I\u002f97Nm4Jo15D9fPWeCi7vrP0lHexucQOY\u002fTI0iNufr6T\u002fJtTUYiOjlP+fkTeB+geo\u002fjoEmBtnZ5T9z+hGX0s3mP5zcIojslOM\u002fbNjQW\u002f485D9k8C1KU8vmP1+g4zvPBPA\u002fup7URsev7T\u002fdADNUT83nP+HCnbKlO+o\u002fh4PmjA\u002fi4z\u002f+ftqDGBLkP8ruVhCVs+Q\u002foUZf8h3T4z\u002fC\u002f1G2xGriP4mBKGNjYOQ\u002fKAf\u002f0Q\u002fP4T+aIgxh1hzlP4F3mwhzEOU\u002fgejH+Fmx7T\u002fphZOmoafvP2p2OEGSyuc\u002f9BSECIzI6D95fYxofYPnP7YZFHUJkeo\u002f171uXmY26z97pEVhMKnlPypK7rWy7ec\u002fRE05ZWiP5T98E\u002fODEgjjP\u002fPPuoxXluk\u002fHHFkqAqV5T+kfTrgdITlP9nW0MxU0+Y\u002fGKIwwS\u002fp5z9CShith6LlP7FdeVP5kOM\u002fcKn3tCl+9T9zPgV+ixHrP3bcAi0EOeY\u002fQtHFOeKh5j\u002fSZoO1uAnmPwLSU1TZrec\u002fwoOH6Dnb5z+Z3Y7zh6LjP6D4PTyThfI\u002fKclUvQtv7j+v2XY3wkThP6ln7677Yew\u002fL4c+Kgmd7D++rmPlK8vlP5BA6NXnc+U\u002fqNbTBQFk5D\u002fuXozluK3iP0dJXUIaN+Y\u002fOCJm66+A5z9tIHaGWxjkP9QIDvm4Iuk\u002fhlyFtnwc7z8RSeYVJA\u002frP8oyNruPsvM\u002f\u002fUcwRdJN7D8hyLtILiDsP\u002f9IHq+fp+Y\u002fniPHoB\u002fx5j9r21BF0K7mPyFlXodTyOU\u002f8c3+ydhL4z\u002fZfRVhrsblPzIpgQJa1eY\u002fq3ZgOe9M6z\u002fpDcIHT9LrP21PUdpEbuY\u002fCD3ONrpq5z\u002fnB0nyXl7pP+EvVMqj3uk\u002fYhM8DjN+4j8eWpb\u002fzGDoP5+VCHiGD+Q\u002f36sVYZoK5T+SqicxBVjnP3gp\u002f1jk6uc\u002fPaOdt9Yj4j+l9HJkF8zmP9Ir+Dp1COc\u002fa\u002f+Y8m5q4j94BE0sKbHiP01L\u002flKh0fA\u002fAerT+yii7D9ZpUQpyUTnP3iZ3aiflug\u002fEpKYeitz6D\u002fTTR5ggXfjP1LOAPEPvuk\u002fFsSJdygk6j8yiqdrgnzlPxZsh562VOc\u002fDc2hhTEx5T8BT8PfQnzoPw=="},"y":{"dtype":"f8","bdata":"T1XvZpe13j9UjyV07\u002f71P9PxqLrYHPI\u002f+UeWbYnf+j8HEo+R7DzsP3ZoQwqCSu4\u002fcHJdaJ8S7z+lpdnrJITwP8g8eeh17ew\u002fbZjWRSvd8j9c5E\u002f+yGMBQF8DqZmj+O4\u002fPx82oVex5j\u002fciJIDa\u002fv1P40JsBAFn\u002fM\u002fMSUcX17X6T97zL3Br0AAQEyjX7\u002f8GO4\u002fyStgJRWc6z9msA5OQk4AQEmdzvkJP\u002fQ\u002fLARLbhzs5D\u002fysbbaDajnP8yqlrLeFu0\u002fsXs0+Cji5D+l0BOGtfXkP4NATdG9o\u002fA\u002fTs7APVUy7T9C4+9Kh5vsP7SI38bjdfA\u002fspVfF3iD7z9cfTpNUqTxP4ItKRKiHeU\u002fmuuHMoXR+D\u002fmGMK3Xvj1P4v7ZOKhkuc\u002fJYuBGseP5j9YergOZxHvP+dQQJoMLeg\u002fihwnsgB38j\u002fUG8fyuF7tP\u002fDp8UoVVuQ\u002fXzoZL4zy6z+OlTRhePP0P0YfKI8cB\u002fA\u002ftOk9\u002fDUp7j9t\u002fZpjZIrpP7krh7BD6\u002fY\u002fYZm+\u002fX408T+SsKWFQZjnP+9j4OSGDQlAesfKl4yT6j9\u002fpeob\u002ftrqPxm9cNYMiPE\u002f6A1h4vTv4T+bPbzwtCXoPwtUSUck5gRAfFi5xL1p9D8R6FTuqZTtP0vYz64TpwBAg7oEKP0Z6z\u002fIGpzEMCHxP2OEcG1P4Po\u002fu7IzFT6Y7j\u002ff3Wg24ob1P6utn2FrmPE\u002ftIDP7\u002f5a8T9jmzs6yffrP6QfoX8wMO4\u002fNZanw\u002fQU8j9+\u002fBt\u002f3fIBQAwd0jntyPI\u002f2qPcuhVV8T\u002fKqu94nOvtP\u002fvet8ArNes\u002flfxdgz+c9D9V3GKkuqflPw5IiTeJ\u002fOw\u002fpwhJzqJZ6z+He1QmacfxP4fcw2IVMfI\u002fMEuiIW3r7D9f38\u002fvkffpPyKXy8f7feo\u002fd5BEJTao9T9QdoPrrgDoP2x8jrH0EwBA9SMCxNnQ\u002fz93OOGk1tL5P+7k76oDqe0\u002fhY6RxTAy8j8mIEij24P0P3KICt70TvI\u002ftFWBOgcO7z8GlVmWIBLxP6aaP7nG4ANApapIr8Vy\u002fD9JJl+HxqrpP2NFdbc4Y\u002fc\u002fhIPmrRY8\u002fz+fXZtmTHzrP7NGqzk1oes\u002ftgpkYMMc6D\u002faEfh7i1bxPzItlGEglew\u002fpMeMW9FK7z\u002fHOVlaFPDyP1OH8CcQj\u002fE\u002fh+NuXyev6D+WHs2XyULvPxjkmciUcgdAtt1RVF3A8j\u002feUjL3p\u002fn4P2p5WkxoAvE\u002fyZiF9s\u002fY8T9+xKfTfw35P\u002fdJ3m62dPA\u002frQV+59cO7D8vTTxgOgAAQPCg\u002fNIX4PI\u002fVdqstXBQ+z\u002fPudrTOtv\u002fP+I8sYIasvs\u002f\u002fIQXYhv+7j\u002fWVQPk7iryP9nSmYF6o\u002f0\u002f3MS5cxNGAUCp8BA9NUUBQJtt\u002f7N0mfY\u002fb044mDiq5D8Q4VHh6EXqPwJIZpSG2vQ\u002fH2wtqgsv5T8D3pbeUNjuPzru3MWfuwFAQXW5XDbG7j+o5YYlBXTrP3rMB98RgAVAgEklkVKx8D\u002f\u002fcyhkIuToPxN+a9UmP\u002fk\u002f530RcCzA8j9cDpgM4A72P5P+Anz+bvo\u002fYJQHNI4V8T\u002fX32\u002ftSdbkPzjwkzeLgfU\u002fAOXTILMp6z9MPQWbCab8Pw=="},"type":"scatter"},{"mode":"markers","name":"round4","x":{"dtype":"f8","bdata":"pG29KufX3j87UULT+vXsP44xm0jG\u002feY\u002f3nQbFHIh6D\u002f\u002fjoDK1b\u002flP6m9Rp+1juQ\u002fZXB6pztr4z+VOtJfWBTiP5Aaud54LOc\u002fqR6xae746T+9iXXmTLHwP1FUSIObBOY\u002f4tPUjslE4j\u002fvjRCXnWHpP2H\u002fWC2Koug\u002fYx1WjQDi5D87\u002fu47FW\u002flP6yYlpAa4+o\u002f0qPVC+uX5j8rAEPis07qPx2N5quD9uU\u002fK2eJoKc55D\u002fZZjp3PRHnP\u002fzQU4aGPek\u002fULEwQ8i25j9ZG7fjpn7jP+DeYo1w8eg\u002fs1ZJyfRt7j\u002fwp2dgQWvoP8XOjSyM+eY\u002fbVhdlana4j8\u002fTbfrh5voP70Wp5dktuQ\u002fPvzNPUGR7j\u002fIN3Q\u002fGZ3tPxhk2dOFFuY\u002fGslFfzlG5D\u002fUW2W4JtniP+O0e\u002fXWHuk\u002fvGTLwywC5T\u002fDUPPacoLjP+C4a+PXxOU\u002fCTRKZgJH4z8tAzTw8GTrP+n0T3uHb+I\u002f97Nm4Jo15D9fPWeCi7vrP0lHexucQOY\u002fTI0iNufr6T\u002fJtTUYiOjlP+fkTeB+geo\u002fjoEmBtnZ5T9z+hGX0s3mP5zcIojslOM\u002fbNjQW\u002f485D9k8C1KU8vmP1+g4zvPBPA\u002fup7URsev7T\u002fdADNUT83nP+HCnbKlO+o\u002fh4PmjA\u002fi4z\u002f+ftqDGBLkP8ruVhCVs+Q\u002foUZf8h3T4z\u002fC\u002f1G2xGriP4mBKGNjYOQ\u002fKAf\u002f0Q\u002fP4T+aIgxh1hzlP4F3mwhzEOU\u002fgejH+Fmx7T\u002fphZOmoafvP2p2OEGSyuc\u002f9BSECIzI6D95fYxofYPnP7YZFHUJkeo\u002f171uXmY26z97pEVhMKnlPypK7rWy7ec\u002fRE05ZWiP5T98E\u002fODEgjjP\u002fPPuoxXluk\u002fHHFkqAqV5T+kfTrgdITlP9nW0MxU0+Y\u002fGKIwwS\u002fp5z9CShith6LlP7FdeVP5kOM\u002fcKn3tCl+9T9zPgV+ixHrP3bcAi0EOeY\u002fQtHFOeKh5j\u002fSZoO1uAnmPwLSU1TZrec\u002fwoOH6Dnb5z+Z3Y7zh6LjP6D4PTyThfI\u002fKclUvQtv7j+v2XY3wkThP6ln7677Yew\u002fL4c+Kgmd7D++rmPlK8vlP5BA6NXnc+U\u002fqNbTBQFk5D\u002fuXozluK3iP0dJXUIaN+Y\u002fOCJm66+A5z9tIHaGWxjkP9QIDvm4Iuk\u002fhlyFtnwc7z8RSeYVJA\u002frP8oyNruPsvM\u002f\u002fUcwRdJN7D8hyLtILiDsP\u002f9IHq+fp+Y\u002fniPHoB\u002fx5j9r21BF0K7mPyFlXodTyOU\u002f8c3+ydhL4z\u002fZfRVhrsblPzIpgQJa1eY\u002fq3ZgOe9M6z\u002fpDcIHT9LrP21PUdpEbuY\u002fCD3ONrpq5z\u002fnB0nyXl7pP+EvVMqj3uk\u002fYhM8DjN+4j8eWpb\u002fzGDoP5+VCHiGD+Q\u002f36sVYZoK5T+SqicxBVjnP3gp\u002f1jk6uc\u002fPaOdt9Yj4j+l9HJkF8zmP9Ir+Dp1COc\u002fa\u002f+Y8m5q4j94BE0sKbHiP01L\u002flKh0fA\u002fAerT+yii7D9ZpUQpyUTnP3iZ3aiflug\u002fEpKYeitz6D\u002fTTR5ggXfjP1LOAPEPvuk\u002fFsSJdygk6j8yiqdrgnzlPxZsh562VOc\u002fDc2hhTEx5T8BT8PfQnzoPw=="},"y":{"dtype":"f8","bdata":"T1XvZpe13j9UjyV07\u002f71P9PxqLrYHPI\u002f+UeWbYnf+j8HEo+R7DzsP3ZoQwqCSu4\u002fcHJdaJ8S7z+lpdnrJITwP8g8eeh17ew\u002fbZjWRSvd8j9c5E\u002f+yGMBQF8DqZmj+O4\u002fPx82oVex5j\u002fciJIDa\u002fv1P40JsBAFn\u002fM\u002fMSUcX17X6T97zL3Br0AAQEyjX7\u002f8GO4\u002fyStgJRWc6z9msA5OQk4AQEmdzvkJP\u002fQ\u002fLARLbhzs5D\u002fysbbaDajnP8yqlrLeFu0\u002fsXs0+Cji5D+l0BOGtfXkP4NATdG9o\u002fA\u002fTs7APVUy7T9C4+9Kh5vsP7SI38bjdfA\u002fspVfF3iD7z9cfTpNUqTxP4ItKRKiHeU\u002fmuuHMoXR+D\u002fmGMK3Xvj1P4v7ZOKhkuc\u002fJYuBGseP5j9YergOZxHvP+dQQJoMLeg\u002fihwnsgB38j\u002fUG8fyuF7tP\u002fDp8UoVVuQ\u002fXzoZL4zy6z+OlTRhePP0P0YfKI8cB\u002fA\u002ftOk9\u002fDUp7j9t\u002fZpjZIrpP7krh7BD6\u002fY\u002fYZm+\u002fX408T+SsKWFQZjnP+9j4OSGDQlAesfKl4yT6j9\u002fpeob\u002ftrqPxm9cNYMiPE\u002f6A1h4vTv4T+bPbzwtCXoPwtUSUck5gRAfFi5xL1p9D8R6FTuqZTtP0vYz64TpwBAg7oEKP0Z6z\u002fIGpzEMCHxP2OEcG1P4Po\u002fu7IzFT6Y7j\u002ff3Wg24ob1P6utn2FrmPE\u002ftIDP7\u002f5a8T9jmzs6yffrP6QfoX8wMO4\u002fNZanw\u002fQU8j9+\u002fBt\u002f3fIBQAwd0jntyPI\u002f2qPcuhVV8T\u002fKqu94nOvtP\u002fvet8ArNes\u002flfxdgz+c9D9V3GKkuqflPw5IiTeJ\u002fOw\u002fpwhJzqJZ6z+He1QmacfxP4fcw2IVMfI\u002fMEuiIW3r7D9f38\u002fvkffpPyKXy8f7feo\u002fd5BEJTao9T9QdoPrrgDoP2x8jrH0EwBA9SMCxNnQ\u002fz93OOGk1tL5P+7k76oDqe0\u002fhY6RxTAy8j8mIEij24P0P3KICt70TvI\u002ftFWBOgcO7z8GlVmWIBLxP6aaP7nG4ANApapIr8Vy\u002fD9JJl+HxqrpP2NFdbc4Y\u002fc\u002fhIPmrRY8\u002fz+fXZtmTHzrP7NGqzk1oes\u002ftgpkYMMc6D\u002faEfh7i1bxPzItlGEglew\u002fpMeMW9FK7z\u002fHOVlaFPDyP1OH8CcQj\u002fE\u002fh+NuXyev6D+WHs2XyULvPxjkmciUcgdAtt1RVF3A8j\u002feUjL3p\u002fn4P2p5WkxoAvE\u002fyZiF9s\u002fY8T9+xKfTfw35P\u002fdJ3m62dPA\u002frQV+59cO7D8vTTxgOgAAQPCg\u002fNIX4PI\u002fVdqstXBQ+z\u002fPudrTOtv\u002fP+I8sYIasvs\u002f\u002fIQXYhv+7j\u002fWVQPk7iryP9nSmYF6o\u002f0\u002f3MS5cxNGAUCp8BA9NUUBQJtt\u002f7N0mfY\u002fb044mDiq5D8Q4VHh6EXqPwJIZpSG2vQ\u002fH2wtqgsv5T8D3pbeUNjuPzru3MWfuwFAQXW5XDbG7j+o5YYlBXTrP3rMB98RgAVAgEklkVKx8D\u002f\u002fcyhkIuToPxN+a9UmP\u002fk\u002f530RcCzA8j9cDpgM4A72P5P+Anz+bvo\u002fYJQHNI4V8T\u002fX32\u002ftSdbkPzjwkzeLgfU\u002fAOXTILMp6z9MPQWbCab8Pw=="},"type":"scatter"},{"mode":"markers","name":"round5","x":{"dtype":"f8","bdata":"pG29KufX3j87UULT+vXsP44xm0jG\u002feY\u002f3nQbFHIh6D\u002f\u002fjoDK1b\u002flP6m9Rp+1juQ\u002fZXB6pztr4z+VOtJfWBTiP5Aaud54LOc\u002fqR6xae746T+9iXXmTLHwP1FUSIObBOY\u002f4tPUjslE4j\u002fvjRCXnWHpP2H\u002fWC2Koug\u002fYx1WjQDi5D87\u002fu47FW\u002flP6yYlpAa4+o\u002f0qPVC+uX5j8rAEPis07qPx2N5quD9uU\u002fK2eJoKc55D\u002fZZjp3PRHnP\u002fzQU4aGPek\u002fULEwQ8i25j9ZG7fjpn7jP+DeYo1w8eg\u002fs1ZJyfRt7j\u002fwp2dgQWvoP8XOjSyM+eY\u002fbVhdlana4j8\u002fTbfrh5voP70Wp5dktuQ\u002fPvzNPUGR7j\u002fIN3Q\u002fGZ3tPxhk2dOFFuY\u002fGslFfzlG5D\u002fUW2W4JtniP+O0e\u002fXWHuk\u002fvGTLwywC5T\u002fDUPPacoLjP+C4a+PXxOU\u002fCTRKZgJH4z8tAzTw8GTrP+n0T3uHb+I\u002f97Nm4Jo15D9fPWeCi7vrP0lHexucQOY\u002fTI0iNufr6T\u002fJtTUYiOjlP+fkTeB+geo\u002fjoEmBtnZ5T9z+hGX0s3mP5zcIojslOM\u002fbNjQW\u002f485D9k8C1KU8vmP1+g4zvPBPA\u002fup7URsev7T\u002fdADNUT83nP+HCnbKlO+o\u002fh4PmjA\u002fi4z\u002f+ftqDGBLkP8ruVhCVs+Q\u002foUZf8h3T4z\u002fC\u002f1G2xGriP4mBKGNjYOQ\u002fKAf\u002f0Q\u002fP4T+aIgxh1hzlP4F3mwhzEOU\u002fgejH+Fmx7T\u002fphZOmoafvP2p2OEGSyuc\u002f9BSECIzI6D95fYxofYPnP7YZFHUJkeo\u002f171uXmY26z97pEVhMKnlPypK7rWy7ec\u002fRE05ZWiP5T98E\u002fODEgjjP\u002fPPuoxXluk\u002fHHFkqAqV5T+kfTrgdITlP9nW0MxU0+Y\u002fGKIwwS\u002fp5z9CShith6LlP7FdeVP5kOM\u002fcKn3tCl+9T9zPgV+ixHrP3bcAi0EOeY\u002fQtHFOeKh5j\u002fSZoO1uAnmPwLSU1TZrec\u002fwoOH6Dnb5z+Z3Y7zh6LjP6D4PTyThfI\u002fKclUvQtv7j+v2XY3wkThP6ln7677Yew\u002fL4c+Kgmd7D++rmPlK8vlP5BA6NXnc+U\u002fqNbTBQFk5D\u002fuXozluK3iP0dJXUIaN+Y\u002fOCJm66+A5z9tIHaGWxjkP9QIDvm4Iuk\u002fhlyFtnwc7z8RSeYVJA\u002frP8oyNruPsvM\u002f\u002fUcwRdJN7D8hyLtILiDsP\u002f9IHq+fp+Y\u002fniPHoB\u002fx5j9r21BF0K7mPyFlXodTyOU\u002f8c3+ydhL4z\u002fZfRVhrsblPzIpgQJa1eY\u002fq3ZgOe9M6z\u002fpDcIHT9LrP21PUdpEbuY\u002fCD3ONrpq5z\u002fnB0nyXl7pP+EvVMqj3uk\u002fYhM8DjN+4j8eWpb\u002fzGDoP5+VCHiGD+Q\u002f36sVYZoK5T+SqicxBVjnP3gp\u002f1jk6uc\u002fPaOdt9Yj4j+l9HJkF8zmP9Ir+Dp1COc\u002fa\u002f+Y8m5q4j94BE0sKbHiP01L\u002flKh0fA\u002fAerT+yii7D9ZpUQpyUTnP3iZ3aiflug\u002fEpKYeitz6D\u002fTTR5ggXfjP1LOAPEPvuk\u002fFsSJdygk6j8yiqdrgnzlPxZsh562VOc\u002fDc2hhTEx5T8BT8PfQnzoPw=="},"y":{"dtype":"f8","bdata":"T1XvZpe13j9UjyV07\u002f71P9PxqLrYHPI\u002f+UeWbYnf+j8HEo+R7DzsP3ZoQwqCSu4\u002fcHJdaJ8S7z+lpdnrJITwP8g8eeh17ew\u002fbZjWRSvd8j9c5E\u002f+yGMBQF8DqZmj+O4\u002fPx82oVex5j\u002fciJIDa\u002fv1P40JsBAFn\u002fM\u002fMSUcX17X6T97zL3Br0AAQEyjX7\u002f8GO4\u002fyStgJRWc6z9msA5OQk4AQEmdzvkJP\u002fQ\u002fLARLbhzs5D\u002fysbbaDajnP8yqlrLeFu0\u002fsXs0+Cji5D+l0BOGtfXkP4NATdG9o\u002fA\u002fTs7APVUy7T9C4+9Kh5vsP7SI38bjdfA\u002fspVfF3iD7z9cfTpNUqTxP4ItKRKiHeU\u002fmuuHMoXR+D\u002fmGMK3Xvj1P4v7ZOKhkuc\u002fJYuBGseP5j9YergOZxHvP+dQQJoMLeg\u002fihwnsgB38j\u002fUG8fyuF7tP\u002fDp8UoVVuQ\u002fXzoZL4zy6z+OlTRhePP0P0YfKI8cB\u002fA\u002ftOk9\u002fDUp7j9t\u002fZpjZIrpP7krh7BD6\u002fY\u002fYZm+\u002fX408T+SsKWFQZjnP+9j4OSGDQlAesfKl4yT6j9\u002fpeob\u002ftrqPxm9cNYMiPE\u002f6A1h4vTv4T+bPbzwtCXoPwtUSUck5gRAfFi5xL1p9D8R6FTuqZTtP0vYz64TpwBAg7oEKP0Z6z\u002fIGpzEMCHxP2OEcG1P4Po\u002fu7IzFT6Y7j\u002ff3Wg24ob1P6utn2FrmPE\u002ftIDP7\u002f5a8T9jmzs6yffrP6QfoX8wMO4\u002fNZanw\u002fQU8j9+\u002fBt\u002f3fIBQAwd0jntyPI\u002f2qPcuhVV8T\u002fKqu94nOvtP\u002fvet8ArNes\u002flfxdgz+c9D9V3GKkuqflPw5IiTeJ\u002fOw\u002fpwhJzqJZ6z+He1QmacfxP4fcw2IVMfI\u002fMEuiIW3r7D9f38\u002fvkffpPyKXy8f7feo\u002fd5BEJTao9T9QdoPrrgDoP2x8jrH0EwBA9SMCxNnQ\u002fz93OOGk1tL5P+7k76oDqe0\u002fhY6RxTAy8j8mIEij24P0P3KICt70TvI\u002ftFWBOgcO7z8GlVmWIBLxP6aaP7nG4ANApapIr8Vy\u002fD9JJl+HxqrpP2NFdbc4Y\u002fc\u002fhIPmrRY8\u002fz+fXZtmTHzrP7NGqzk1oes\u002ftgpkYMMc6D\u002faEfh7i1bxPzItlGEglew\u002fpMeMW9FK7z\u002fHOVlaFPDyP1OH8CcQj\u002fE\u002fh+NuXyev6D+WHs2XyULvPxjkmciUcgdAtt1RVF3A8j\u002feUjL3p\u002fn4P2p5WkxoAvE\u002fyZiF9s\u002fY8T9+xKfTfw35P\u002fdJ3m62dPA\u002frQV+59cO7D8vTTxgOgAAQPCg\u002fNIX4PI\u002fVdqstXBQ+z\u002fPudrTOtv\u002fP+I8sYIasvs\u002f\u002fIQXYhv+7j\u002fWVQPk7iryP9nSmYF6o\u002f0\u002f3MS5cxNGAUCp8BA9NUUBQJtt\u002f7N0mfY\u002fb044mDiq5D8Q4VHh6EXqPwJIZpSG2vQ\u002fH2wtqgsv5T8D3pbeUNjuPzru3MWfuwFAQXW5XDbG7j+o5YYlBXTrP3rMB98RgAVAgEklkVKx8D\u002f\u002fcyhkIuToPxN+a9UmP\u002fk\u002f530RcCzA8j9cDpgM4A72P5P+Anz+bvo\u002fYJQHNI4V8T\u002fX32\u002ftSdbkPzjwkzeLgfU\u002fAOXTILMp6z9MPQWbCab8Pw=="},"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"title":{"text":"旧汇总距离"}},"yaxis":{"title":{"text":"二三阶路径距离"}},"margin":{"l":55,"r":35,"t":55,"b":45},"legend":{"orientation":"h","y":-0.2},"height":370,"title":{"text":"窗口仅按历史统计近邻选择，没有未来标签"},"hovermode":"x unified"},                        {"displaylogo": false, "responsive": true}                    )                };            </script>        </div></div></div><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>round</th>
+      <th>left_time</th>
+      <th>right_time</th>
+      <th>old_distance</th>
+      <th>path_distance</th>
+      <th>selection</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>round1</td>
+      <td>202301010015.0000</td>
+      <td>202305282115.0000</td>
+      <td>0.4242</td>
+      <td>0.3423</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202301070215.0000</td>
+      <td>202310030015.0000</td>
+      <td>0.9131</td>
+      <td>0.6531</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202301130515.0000</td>
+      <td>202406050915.0000</td>
+      <td>0.7122</td>
+      <td>1.4171</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202301190815.0000</td>
+      <td>202303170615.0000</td>
+      <td>0.6852</td>
+      <td>1.4452</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202301251115.0000</td>
+      <td>202503241015.0000</td>
+      <td>0.6530</td>
+      <td>0.8176</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202301311415.0000</td>
+      <td>202311221915.0000</td>
+      <td>0.6631</td>
+      <td>0.6685</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202302061715.0000</td>
+      <td>202311281615.0000</td>
+      <td>0.5870</td>
+      <td>0.8520</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202302122015.0000</td>
+      <td>202310131815.0000</td>
+      <td>0.5729</td>
+      <td>1.0754</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202302182315.0000</td>
+      <td>202407112315.0000</td>
+      <td>0.7194</td>
+      <td>0.8438</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202302250215.0000</td>
+      <td>202305192315.0000</td>
+      <td>0.8125</td>
+      <td>1.8574</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202303030415.0000</td>
+      <td>202308152215.0000</td>
+      <td>0.9823</td>
+      <td>1.8062</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202303090715.0000</td>
+      <td>202302230215.0000</td>
+      <td>0.5409</td>
+      <td>0.6254</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202303151015.0000</td>
+      <td>202411210715.0000</td>
+      <td>0.5684</td>
+      <td>0.5235</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202303211315.0000</td>
+      <td>202505271415.0000</td>
+      <td>0.7688</td>
+      <td>1.5944</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202303271615.0000</td>
+      <td>202306261815.0000</td>
+      <td>0.7569</td>
+      <td>1.3326</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202304021915.0000</td>
+      <td>202305132115.0000</td>
+      <td>0.6716</td>
+      <td>0.7694</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202304082215.0000</td>
+      <td>202303262015.0000</td>
+      <td>0.6534</td>
+      <td>1.5173</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202304150115.0000</td>
+      <td>202308090215.0000</td>
+      <td>0.8219</td>
+      <td>0.9362</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202304210415.0000</td>
+      <td>202305050015.0000</td>
+      <td>0.6862</td>
+      <td>0.7078</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202304270615.0000</td>
+      <td>202411061315.0000</td>
+      <td>0.8021</td>
+      <td>1.5555</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202305030915.0000</td>
+      <td>202405071315.0000</td>
+      <td>0.6233</td>
+      <td>0.9561</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202305091215.0000</td>
+      <td>202303081115.0000</td>
+      <td>0.5745</td>
+      <td>0.5746</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202305151515.0000</td>
+      <td>202406301915.0000</td>
+      <td>0.6822</td>
+      <td>0.7202</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202305211815.0000</td>
+      <td>202308151615.0000</td>
+      <td>0.7857</td>
+      <td>0.8030</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202305272115.0000</td>
+      <td>202307050315.0000</td>
+      <td>0.7245</td>
+      <td>0.8323</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202306030015.0000</td>
+      <td>202302232315.0000</td>
+      <td>0.5921</td>
+      <td>0.6459</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202306090315.0000</td>
+      <td>202308101815.0000</td>
+      <td>0.7530</td>
+      <td>0.6038</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202306150615.0000</td>
+      <td>202305312315.0000</td>
+      <td>0.9677</td>
+      <td>0.8158</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202306210815.0000</td>
+      <td>202306070315.0000</td>
+      <td>0.7158</td>
+      <td>0.6330</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202306271115.0000</td>
+      <td>202310170715.0000</td>
+      <td>0.6544</td>
+      <td>0.9884</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202307031415.0000</td>
+      <td>202402051415.0000</td>
+      <td>0.5678</td>
+      <td>0.9257</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202307091715.0000</td>
+      <td>202405041615.0000</td>
+      <td>0.6699</td>
+      <td>0.6325</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202307152015.0000</td>
+      <td>202404181815.0000</td>
+      <td>0.6476</td>
+      <td>0.7418</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202307212315.0000</td>
+      <td>202310290515.0000</td>
+      <td>0.9233</td>
+      <td>2.4323</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202307280215.0000</td>
+      <td>202409090015.0000</td>
+      <td>0.8242</td>
+      <td>0.8177</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202308030515.0000</td>
+      <td>202406270015.0000</td>
+      <td>0.6417</td>
+      <td>0.7666</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202308090815.0000</td>
+      <td>202310010915.0000</td>
+      <td>0.6135</td>
+      <td>0.7411</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202308151115.0000</td>
+      <td>202309260915.0000</td>
+      <td>0.5247</td>
+      <td>1.0711</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202308211315.0000</td>
+      <td>202307171415.0000</td>
+      <td>0.7975</td>
+      <td>0.8638</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202308271615.0000</td>
+      <td>202309041815.0000</td>
+      <td>0.6252</td>
+      <td>1.1232</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202309021915.0000</td>
+      <td>202308061715.0000</td>
+      <td>0.5966</td>
+      <td>1.1329</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202309082215.0000</td>
+      <td>202310181815.0000</td>
+      <td>0.6802</td>
+      <td>0.4283</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202309150115.0000</td>
+      <td>202309060115.0000</td>
+      <td>0.5688</td>
+      <td>0.6760</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202309210415.0000</td>
+      <td>202303010215.0000</td>
+      <td>0.8377</td>
+      <td>1.1415</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202309270715.0000</td>
+      <td>202310100615.0000</td>
+      <td>0.5383</td>
+      <td>0.9611</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202310031015.0000</td>
+      <td>202303081115.0000</td>
+      <td>0.6184</td>
+      <td>0.7961</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202310091315.0000</td>
+      <td>202305211915.0000</td>
+      <td>0.8852</td>
+      <td>0.8317</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202310151515.0000</td>
+      <td>202504201215.0000</td>
+      <td>0.5924</td>
+      <td>1.4353</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202310211815.0000</td>
+      <td>202308082215.0000</td>
+      <td>0.8083</td>
+      <td>0.8448</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202310272115.0000</td>
+      <td>202306222215.0000</td>
+      <td>0.7091</td>
+      <td>0.6434</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202311030015.0000</td>
+      <td>202312090115.0000</td>
+      <td>0.8539</td>
+      <td>2.0986</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202311090315.0000</td>
+      <td>202312211115.0000</td>
+      <td>0.6506</td>
+      <td>0.9537</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202311150615.0000</td>
+      <td>202401010915.0000</td>
+      <td>0.7432</td>
+      <td>1.0620</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202311210915.0000</td>
+      <td>202411270815.0000</td>
+      <td>0.5910</td>
+      <td>1.0461</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202311271215.0000</td>
+      <td>202412181515.0000</td>
+      <td>0.6196</td>
+      <td>0.9802</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202312031515.0000</td>
+      <td>202411241215.0000</td>
+      <td>0.6902</td>
+      <td>0.5978</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202312091715.0000</td>
+      <td>202307140815.0000</td>
+      <td>1.0047</td>
+      <td>1.1838</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202312152015.0000</td>
+      <td>202401180315.0000</td>
+      <td>0.8483</td>
+      <td>1.4040</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202312212315.0000</td>
+      <td>202403272115.0000</td>
+      <td>0.7194</td>
+      <td>0.9365</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+    <tr>
+      <td>round1</td>
+      <td>202312280215.0000</td>
+      <td>202412030515.0000</td>
+      <td>0.8184</td>
+      <td>1.4790</td>
+      <td>nearest old observations excluding nearby week; no outcomes used</td>
+    </tr>
+  </tbody>
+</table></div><div class="card"><div class="card"><div>                            <div id="e5905652-a541-4b90-a1bc-23cebd2d0cc5" class="plotly-graph-div" style="height:370px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("e5905652-a541-4b90-a1bc-23cebd2d0cc5")) {                    Plotly.newPlot(                        "e5905652-a541-4b90-a1bc-23cebd2d0cc5",                        [{"name":"channel_alignment","x":["conditional_tilt","ordinary_covariance","ordinary_marginals","path_order1","path_order2","path_order3","state_flux"],"y":{"dtype":"f8","bdata":"rgZRcgBj1D92dTpyYQHNP97F9H01aZw8aR1mkTwK0DxYb1wnGDDIPxP3fPC2Zdw\u002f0XwqNCitgT8="},"type":"bar"},{"name":"time_order","x":["conditional_tilt","ordinary_covariance","ordinary_marginals","path_order1","path_order2","path_order3","state_flux"],"y":{"dtype":"f8","bdata":"PSwMcL0gijx4\u002fB78cnWmPPPH9WK7Bp48lHMKmTt+1Dyg9rYih57JP\u002fy\u002fHNG2ltI\u002f5nyFzqNNgj8="},"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"margin":{"l":55,"r":35,"t":55,"b":45},"legend":{"orientation":"h","y":-0.2},"height":370,"title":{"text":"保留边际 \u002f 联合样本后破坏顺序或对齐"},"hovermode":"x unified"},                        {"displaylogo": false, "responsive": true}                    )                };            </script>        </div></div></div><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>mode</th>
+      <th>object</th>
+      <th>rms_change</th>
+      <th>rms_original</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>channel_alignment</td>
+      <td>conditional_tilt</td>
+      <td>0.3185</td>
+      <td>0.4110</td>
+    </tr>
+    <tr>
+      <td>channel_alignment</td>
+      <td>ordinary_covariance</td>
+      <td>0.2266</td>
+      <td>0.5787</td>
+    </tr>
+    <tr>
+      <td>channel_alignment</td>
+      <td>ordinary_marginals</td>
+      <td>0.0000</td>
+      <td>0.6805</td>
+    </tr>
+    <tr>
+      <td>channel_alignment</td>
+      <td>path_order1</td>
+      <td>0.0000</td>
+      <td>4.9879</td>
+    </tr>
+    <tr>
+      <td>channel_alignment</td>
+      <td>path_order2</td>
+      <td>0.1890</td>
+      <td>2.1080</td>
+    </tr>
+    <tr>
+      <td>channel_alignment</td>
+      <td>path_order3</td>
+      <td>0.4437</td>
+      <td>2.4501</td>
+    </tr>
+    <tr>
+      <td>channel_alignment</td>
+      <td>state_flux</td>
+      <td>0.0086</td>
+      <td>0.0067</td>
+    </tr>
+    <tr>
+      <td>time_order</td>
+      <td>conditional_tilt</td>
+      <td>0.0000</td>
+      <td>0.4110</td>
+    </tr>
+    <tr>
+      <td>time_order</td>
+      <td>ordinary_covariance</td>
+      <td>0.0000</td>
+      <td>0.5787</td>
+    </tr>
+    <tr>
+      <td>time_order</td>
+      <td>ordinary_marginals</td>
+      <td>0.0000</td>
+      <td>0.6805</td>
+    </tr>
+    <tr>
+      <td>time_order</td>
+      <td>path_order1</td>
+      <td>0.0000</td>
+      <td>4.9879</td>
+    </tr>
+    <tr>
+      <td>time_order</td>
+      <td>path_order2</td>
+      <td>0.2002</td>
+      <td>2.1080</td>
+    </tr>
+    <tr>
+      <td>time_order</td>
+      <td>path_order3</td>
+      <td>0.2904</td>
+      <td>2.4501</td>
+    </tr>
+    <tr>
+      <td>time_order</td>
+      <td>state_flux</td>
+      <td>0.0089</td>
+      <td>0.0067</td>
+    </tr>
+  </tbody>
+</table></div><p>此处证明结构辨识，不证明预测必要性。预测必要性由同折一阶/二阶/三阶、占据/转移、对角/全矩阵和主效应/交互读出对照衡量。</p></main></body></html>

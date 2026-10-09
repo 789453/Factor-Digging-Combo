@@ -2,6 +2,8 @@
 
 本标准适用于本仓库从万级挖掘的候选因子进入 5m 时间序列组合、动态权重、信号执行和跨年复核的全部后续工作。生产入口始终是 `python -m src.alpha_mvp.research_cli --config ...`，`mode: factor_combo` 是同一入口中的研究模式。具体实现配置见 `configs/research/crypto_factor_combo_baseline_2023_2025.yaml`；新的研究不可覆盖 `outputs/` 已完成实验。
 
+> 2026-10-09 范围修订：当前预测池与直接组合遵循[预测研究规范](PREDICTIVE_FACTOR_RESEARCH_POLICY_20261009.md)，通过现有 aligned_crypto/complex_alpha 复用阶段消费 `coarse_results.csv` 和候选注册表的发现期字段。以下只接入 `selected_factors.csv` 的规定适用于旧 factor_combo 冻结交易因子适配器，不得阻断弱预测特征进入新组合研究。动态出入、触发及全套页面按需启用，不是所有预测研究的默认要求。
+
 ## 1. 挖掘产物接入合同
 
 - 每个 `factor_sources` 指向已完成挖掘实验的 `selected_factors.csv`，并校验同目录 `manifest.json` 的完成状态、选因子工件名、主时钟、时间序列模式、目标 `entry_lag` 与 `horizon`。清单的两个文件分别记录 SHA-256、实验号、框架版本、时钟、标签口径和来源名次。

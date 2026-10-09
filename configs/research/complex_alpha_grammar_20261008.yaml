@@ -1,0 +1,22 @@
+# Mathematical declarations for the deterministic generator, not a second run.
+version: complex-typed-search-20261008-v1
+input_type: normalized_completed_15m_coordinate
+family_boundary: same_family
+projection:
+  min_coordinates: 2
+  max_coordinates: 4
+  integer_weights: [-2, -1, 1, 2]
+  canonicalization: gcd_then_positive_first_then_l2
+complexity:
+  max_projection_coordinates_total: 8
+  max_nonlinear_order: 3
+  max_bookkeeping_nodes: 22
+  bookkeeping: 3 + 2 * coordinate_uses + nonlinear_order
+templates:
+  linear: {formula: 'L', projections: 1, order: 1}
+  tanh_product: {formula: 'tanh(L)*tanh(R)', projections: 2, order: 2, symmetric: true}
+  asinh_difference: {formula: 'asinh(L)-asinh(R)', projections: 2, order: 2}
+  signed_energy: {formula: 'tanh(L)*(logaddexp(R,-R)-log(2))', projections: 2, order: 2}
+  cubic: {formula: 'tanh(L)*tanh(R)^2', projections: 2, order: 3}
+attribution: candidate_registry.json
+missing: fit_center_imputation_after_explicit_coordinate_admission

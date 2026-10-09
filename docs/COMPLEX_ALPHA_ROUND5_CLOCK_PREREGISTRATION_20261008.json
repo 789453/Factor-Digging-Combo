@@ -1,0 +1,10 @@
+{
+  "declared_utc": "2026-10-08T08:33:04.825901+00:00",
+  "configuration": "configs\\research\\complex_alpha_20261008_round5.yaml",
+  "sha256": "5cc3ce7c44b09e04bd1e4ee2b0077f399f252375871479987d7d5949fbf5fb13",
+  "parent": "round4",
+  "changes": "Explicit UTC nanosecond sampling and nonoverlap epoch arithmetic only. Same raw representation, budgets, architecture, penalties, financial contract and admission. Runtime metadata and report corrigendum added.",
+  "historical_holdout_seen": true,
+  "holdout_feedback_for_parameters": false,
+  "clock_error_evidence": "docs/COMPLEX_ALPHA_CLOCK_CORRIGENDUM_20261008.md"
+}

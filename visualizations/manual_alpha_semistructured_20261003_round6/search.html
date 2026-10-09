@@ -1,0 +1,146 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>搜索与淘汰</title><style>
+body{margin:0;background:#f5f7fa;color:#192638;font:15px/1.5 system-ui,'Microsoft YaHei',sans-serif}
+nav{background:#102b47;color:white;padding:13px 28px;position:sticky;top:0;z-index:10}
+nav a{color:#d6eaff;margin-right:20px;text-decoration:none;font-weight:600}
+main{max-width:1440px;margin:25px auto;padding:0 20px 50px}
+h1{font-size:29px;margin:10px 0}h2{font-size:21px;margin:32px 0 12px}
+.muted{color:#52677a}.note{background:#fff8e8;border-left:4px solid #dfac35;padding:12px 16px;margin:18px 0}
+.card{background:white;border:1px solid #dce4ec;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #1433500b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stat{background:#edf4fb;border-radius:8px;padding:13px}.stat b{font-size:24px;display:block}
+table{border-collapse:collapse;width:100%;background:white;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e1e8ee;text-align:right}th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:#eaf0f5}tr:hover{background:#f4f9fd}
+.scroll{overflow:auto;max-height:560px}.links a{display:inline-block;padding:6px 10px;margin:4px;background:#e6f0fb;border-radius:5px;color:#12385b;text-decoration:none}
+footer{color:#657789;font-size:12px;margin-top:30px}
+</style><script src='plotly.min.js'></script></head><body><nav><a href="index.html">总览</a> · <a href="search.html">搜参</a> · <a href="data.html">数据</a> · <a href="execution.html">5m 执行</a> · <a href="method.html">研究口径</a></nav><main><h1>搜索与淘汰</h1><p class='muted'></p><div class='note'>每条机制独立固定种子 TPE；SQLite 保存完整试验。排序只读发现内折与验证期，测试期不参与。</div><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>mechanism</th>
+      <th>trials</th>
+      <th>valid_trials</th>
+      <th>best_objective</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sell_absorption</td>
+      <td>32.0000</td>
+      <td>25.0000</td>
+      <td>-0.0088</td>
+    </tr>
+    <tr>
+      <td>buy_failure</td>
+      <td>32.0000</td>
+      <td>28.0000</td>
+      <td>-0.0021</td>
+    </tr>
+    <tr>
+      <td>fast_flow_rejection</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>0.0022</td>
+    </tr>
+    <tr>
+      <td>latent_flow_acceleration</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>-0.0107</td>
+    </tr>
+    <tr>
+      <td>quarter_open_pressure</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>-0.0699</td>
+    </tr>
+    <tr>
+      <td>block_pressure_exhaustion</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>0.0041</td>
+    </tr>
+    <tr>
+      <td>jump_flow_exhaustion</td>
+      <td>32.0000</td>
+      <td>22.0000</td>
+      <td>-0.0038</td>
+    </tr>
+    <tr>
+      <td>liquidity_vacuum_repair</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>-0.0166</td>
+    </tr>
+    <tr>
+      <td>downside_wick_reclaim</td>
+      <td>32.0000</td>
+      <td>17.0000</td>
+      <td>0.0055</td>
+    </tr>
+    <tr>
+      <td>funding_basis_carry</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>-0.0310</td>
+    </tr>
+    <tr>
+      <td>vwap_flow_dislocation</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>0.0166</td>
+    </tr>
+    <tr>
+      <td>quarter_open_absorption</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>-0.0342</td>
+    </tr>
+    <tr>
+      <td>us_evening_continuation</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>0.0141</td>
+    </tr>
+    <tr>
+      <td>compression_release</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>-0.0336</td>
+    </tr>
+    <tr>
+      <td>downside_vol_flow_confirmation</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>-0.0068</td>
+    </tr>
+    <tr>
+      <td>btc_lead_catchup</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>-0.0669</td>
+    </tr>
+    <tr>
+      <td>shock_resilience</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>0.0200</td>
+    </tr>
+    <tr>
+      <td>basis_absorption</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>0.0031</td>
+    </tr>
+    <tr>
+      <td>trade_mark_repair</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>0.0111</td>
+    </tr>
+    <tr>
+      <td>funding_crowd_disagreement</td>
+      <td>32.0000</td>
+      <td>32.0000</td>
+      <td>0.0145</td>
+    </tr>
+  </tbody>
+</table></div><div class="card"><div>                            <div id="1dcab90f-4a49-42b2-8913-f693c4616c01" class="plotly-graph-div" style="height:520px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("1dcab90f-4a49-42b2-8913-f693c4616c01")) {                    Plotly.newPlot(                        "1dcab90f-4a49-42b2-8913-f693c4616c01",                        [{"name":"发现价格毛","x":["sell_absorption","buy_failure","fast_flow_rejection","latent_flow_acceleration","quarter_open_pressure","block_pressure_exhaustion","jump_flow_exhaustion","liquidity_vacuum_repair","downside_wick_reclaim","funding_basis_carry","vwap_flow_dislocation","quarter_open_absorption","us_evening_continuation","compression_release","downside_vol_flow_confirmation","btc_lead_catchup","shock_resilience","basis_absorption","trade_mark_repair","funding_crowd_disagreement"],"y":{"dtype":"f8","bdata":"uP8veGEgYj\u002f\u002f\u002f+9Vb0lgP\u002fT\u002fb8P2+aI\u002f+\u002f9fm03jtD\u002fs\u002f7\u002feip6eP+T\u002fb6qceok\u002f8P9fPFXSgz\u002f\u002f\u002f9+RvPl4P\u002fj\u002fv9xIRWs\u002fQv+vAHOgQz\u002f+\u002f4+iuhOtP\u002f7\u002ff9vy9Y8\u002f8\u002f8\u002f4bNPoj\u002f7\u002fx80a121P+\u002f\u002fz1aPf4o\u002fvf8vDmsUer\u002f+\u002fx8kjae4P\u002f3\u002flzWFMKM\u002f1P+fYC4gij\u002f4\u002f4dzLAeiPw=="},"type":"bar"},{"name":"发现 funding","x":["sell_absorption","buy_failure","fast_flow_rejection","latent_flow_acceleration","quarter_open_pressure","block_pressure_exhaustion","jump_flow_exhaustion","liquidity_vacuum_repair","downside_wick_reclaim","funding_basis_carry","vwap_flow_dislocation","quarter_open_absorption","us_evening_continuation","compression_release","downside_vol_flow_confirmation","btc_lead_catchup","shock_resilience","basis_absorption","trade_mark_repair","funding_crowd_disagreement"],"y":{"dtype":"f8","bdata":"XnW6LkW7Kj9dhLStjSIVv7Bi2e9VuTO\u002f7+aVcAp6Wb\u002fdEXmiIBpRP19fyyKoOCm\u002fpRhD8ifPJT+M6xiKRmpKvzZy03vUJSC\u002fupcaZB+haD\u002faKESgMzNSv4bcabSVRA8\u002f3of6rKIBMT9ZiUi0Z89Ov7Zy+G9ckjQ\u002fxNrD62\u002fYLj8vHbxjs3RFvxuRDlYAijG\u002fRnJlf6jeFr9ARPKABzBnvw=="},"type":"bar"},{"name":"发现费","x":["sell_absorption","buy_failure","fast_flow_rejection","latent_flow_acceleration","quarter_open_pressure","block_pressure_exhaustion","jump_flow_exhaustion","liquidity_vacuum_repair","downside_wick_reclaim","funding_basis_carry","vwap_flow_dislocation","quarter_open_absorption","us_evening_continuation","compression_release","downside_vol_flow_confirmation","btc_lead_catchup","shock_resilience","basis_absorption","trade_mark_repair","funding_crowd_disagreement"],"y":{"dtype":"f8","bdata":"11QejKEcej\u002fVKwrr7cNzP+O4wny4k5c\u002foMDC0z5Ssz+DQSjJYsOqP7Ki0NsHI30\u002fdp\u002fEgAOGbD98jMDP0NqZP9bd6\u002fG7uUc\u002fyfOgoOV+iT\u002f84yjXLr6UPxkLySU0fJ8\u002fqoWNVAzSlT\u002f824U3X5inPxll8UX4g5s\u002fkzo+ifb\u002foT8bCUuEKcS2Pw1KY0lTKqo\u002fANXaEJlFez+GLjhDl8iAPw=="},"type":"bar"},{"name":"发现净","x":["sell_absorption","buy_failure","fast_flow_rejection","latent_flow_acceleration","quarter_open_pressure","block_pressure_exhaustion","jump_flow_exhaustion","liquidity_vacuum_repair","downside_wick_reclaim","funding_basis_carry","vwap_flow_dislocation","quarter_open_absorption","us_evening_continuation","compression_release","downside_vol_flow_confirmation","btc_lead_catchup","shock_resilience","basis_absorption","trade_mark_repair","funding_crowd_disagreement"],"y":{"dtype":"f8","bdata":"D42ui5Y2cL\u002f6QDkKgednv\u002fQttCWfIow\u002fMxLUFGqycj\u002fO6BU0mNaVv7cOeSdrCHU\u002fEitCZCIQej8POHOds2+Uv+aNREJ8VGQ\u002fQSJmiJYcgr+quHqjCSOiP3ChdT0w446\u002fVGZ9wcMijj\u002fqY8f5OKeiP6TA15PO44u\u002fGjQDsasjpb81WjIopYd7Pydj8AqHc4y\u002fFGCYaEifeD8sqz5QDMSYPw=="},"type":"bar"},{"name":"验证净","x":["sell_absorption","buy_failure","fast_flow_rejection","latent_flow_acceleration","quarter_open_pressure","block_pressure_exhaustion","jump_flow_exhaustion","liquidity_vacuum_repair","downside_wick_reclaim","funding_basis_carry","vwap_flow_dislocation","quarter_open_absorption","us_evening_continuation","compression_release","downside_vol_flow_confirmation","btc_lead_catchup","shock_resilience","basis_absorption","trade_mark_repair","funding_crowd_disagreement"],"y":{"dtype":"f8","bdata":"i8RXEzbMaT+1ccMMdPWHv+4DglzTqZW\u002fQWfGf8BHsb+6TuzsmCqGPzVSaDO8t3Q\u002fU1pGtTqGdj+R+60BkWKSvwAAAAAAAAAAU\u002f82sq4TbT9vfjxVOJabP+R1+VOo96U\u002fvL8iNaPffD9gRGOQsoiIP6ceAItkzZa\u002fRjxuKNfukr+5qIf1PSa0vyUqwYhRyMG\u002fI1zrQHXHk78XHUo6VRSHvw=="},"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"tickangle":-45},"barmode":"group","yaxis":{"title":{"text":"每币等权，每小时 bps"}},"margin":{"l":55,"r":35,"t":55,"b":45},"legend":{"orientation":"h","y":-0.2},"height":520,"title":{"text":"20 条机制：费后与费用桥"},"hovermode":"x unified"},                        {"displaylogo": false, "responsive": true}                    )                };            </script>        </div></div><footer>完成小时决策，下一根 5m 起收益；12 币等权，市场 beta 正交；仓位变化每单位 4 bps。2026 段曾在早期项目诊断中被看过，非全新盲测。</footer></main></body></html>

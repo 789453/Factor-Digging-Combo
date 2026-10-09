@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "horizon": 4,
+      "period": "discovery",
+      "wealth_reconstruction_error_pct": 0.0
+    },
+    {
+      "horizon": 4,
+      "period": "validation",
+      "wealth_reconstruction_error_pct": 0.0
+    },
+    {
+      "horizon": 12,
+      "period": "discovery",
+      "wealth_reconstruction_error_pct": 0.0
+    },
+    {
+      "horizon": 12,
+      "period": "validation",
+      "wealth_reconstruction_error_pct": 0.0
+    }
+  ],
+  "reference_scale": "same discovery OLD RMS for both strategies",
+  "new_training": false,
+  "new_selection": false,
+  "note": "historical test audit; terminal close at each source research endpoint checked separately"
+}

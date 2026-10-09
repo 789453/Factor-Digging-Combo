@@ -282,6 +282,12 @@ def _candidate_metrics(values, record,role, horizon, direction, target, raw_hour
 
 
 def run_aligned_crypto(cfg:dict,config_path:str) -> dict:
+    if 'complex_alpha' in cfg:
+        from .complex_alpha_workflow import run_complex_alpha
+        return run_complex_alpha(cfg, config_path)
+    if 'manual_alpha' in cfg:
+        from .manual_alpha_workflow import run_manual_alpha
+        return run_manual_alpha(cfg, config_path)
     _validate(cfg)
     out=Path(cfg['output']['out_dir']);out.mkdir(parents=True,exist_ok=True)
     complete=out/'manifest.json'

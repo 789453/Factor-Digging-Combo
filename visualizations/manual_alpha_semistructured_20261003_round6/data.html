@@ -1,0 +1,95 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>数据覆盖和来源</title><style>
+body{margin:0;background:#f5f7fa;color:#192638;font:15px/1.5 system-ui,'Microsoft YaHei',sans-serif}
+nav{background:#102b47;color:white;padding:13px 28px;position:sticky;top:0;z-index:10}
+nav a{color:#d6eaff;margin-right:20px;text-decoration:none;font-weight:600}
+main{max-width:1440px;margin:25px auto;padding:0 20px 50px}
+h1{font-size:29px;margin:10px 0}h2{font-size:21px;margin:32px 0 12px}
+.muted{color:#52677a}.note{background:#fff8e8;border-left:4px solid #dfac35;padding:12px 16px;margin:18px 0}
+.card{background:white;border:1px solid #dce4ec;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #1433500b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stat{background:#edf4fb;border-radius:8px;padding:13px}.stat b{font-size:24px;display:block}
+table{border-collapse:collapse;width:100%;background:white;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e1e8ee;text-align:right}th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:#eaf0f5}tr:hover{background:#f4f9fd}
+.scroll{overflow:auto;max-height:560px}.links a{display:inline-block;padding:6px 10px;margin:4px;background:#e6f0fb;border-radius:5px;color:#12385b;text-decoration:none}
+footer{color:#657789;font-size:12px;margin-top:30px}
+</style><script src='plotly.min.js'></script></head><body><nav><a href="index.html">总览</a> · <a href="search.html">搜参</a> · <a href="data.html">数据</a> · <a href="execution.html">5m 执行</a> · <a href="method.html">研究口径</a></nav><main><h1>数据覆盖和来源</h1><p class='muted'></p><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>field</th>
+      <th>discovery</th>
+      <th>validation</th>
+      <th>holdout</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>derivative_basis</td>
+      <td>0.9981</td>
+      <td>1.0000</td>
+      <td>0.9958</td>
+    </tr>
+    <tr>
+      <td>derivative_trade_mark_gap</td>
+      <td>0.9989</td>
+      <td>1.0000</td>
+      <td>0.9958</td>
+    </tr>
+    <tr>
+      <td>derivative_funding_state</td>
+      <td>1.0000</td>
+      <td>1.0000</td>
+      <td>1.0000</td>
+    </tr>
+    <tr>
+      <td>derivative_funding_age</td>
+      <td>1.0000</td>
+      <td>1.0000</td>
+      <td>1.0000</td>
+    </tr>
+    <tr>
+      <td>derivative_funding_event</td>
+      <td>0.1250</td>
+      <td>0.1250</td>
+      <td>0.1252</td>
+    </tr>
+    <tr>
+      <td>derivative_funding_interval_missing</td>
+      <td>0.1250</td>
+      <td>0.1250</td>
+      <td>0.1252</td>
+    </tr>
+    <tr>
+      <td>quarter_open_imbalance</td>
+      <td>0.9998</td>
+      <td>0.9998</td>
+      <td>1.0000</td>
+    </tr>
+    <tr>
+      <td>quarter_other_imbalance</td>
+      <td>0.9998</td>
+      <td>0.9998</td>
+      <td>1.0000</td>
+    </tr>
+    <tr>
+      <td>quarter_open_volume_share</td>
+      <td>0.9998</td>
+      <td>0.9998</td>
+      <td>1.0000</td>
+    </tr>
+  </tbody>
+</table></div><h2>费率有效但 interval 元数据缺失的结算事件数</h2><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>discovery</th>
+      <th>validation</th>
+      <th>holdout</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>876.0000</td>
+    </tr>
+  </tbody>
+</table></div><p>OI、多空比与未知发布时间的链上字段不进入本轮训练。mark/index 完成时间和 funding 结算时间分别对齐。</p><footer>完成小时决策，下一根 5m 起收益；12 币等权，市场 beta 正交；仓位变化每单位 4 bps。2026 段曾在早期项目诊断中被看过，非全新盲测。</footer></main></body></html>

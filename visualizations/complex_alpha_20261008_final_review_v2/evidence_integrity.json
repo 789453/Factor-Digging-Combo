@@ -1,0 +1,119 @@
+{
+  "status": "PASS",
+  "experiments": [
+    {
+      "source": "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round1",
+      "status": "PASS",
+      "source_hash": "e67af68231a71ad94178b0cf71611a3f501b9fd37295a76665328f9b1c3759bc",
+      "rows": 324575,
+      "selected": [],
+      "checks": [
+        "frozen source/config signature",
+        "declared selection excludes holdout",
+        "continuous native5 clock",
+        "price+funding-fee identity",
+        "self-financing equity recursion",
+        "asset aggregate",
+        "period wealth reconciliation"
+      ]
+    },
+    {
+      "source": "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round2",
+      "status": "PASS",
+      "source_hash": "27a94e6bd0636a20bf53ef43f48f03b597d41db5aafdff36688c9ab50ae6a72f",
+      "rows": 324575,
+      "selected": [
+        "pool_4h_trial22"
+      ],
+      "checks": [
+        "frozen source/config signature",
+        "declared selection excludes holdout",
+        "continuous native5 clock",
+        "price+funding-fee identity",
+        "self-financing equity recursion",
+        "asset aggregate",
+        "period wealth reconciliation"
+      ]
+    },
+    {
+      "source": "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round3",
+      "status": "PASS",
+      "source_hash": "f903ab3bff4e7e75b25e7f6faecc0ee48170b3c6586351e530e57617f99ccd16",
+      "rows": 392544,
+      "selected": [
+        "pool_4h_trial61"
+      ],
+      "checks": [
+        "frozen source/config signature",
+        "declared selection excludes holdout",
+        "continuous native5 clock",
+        "price+funding-fee identity",
+        "self-financing equity recursion",
+        "asset aggregate",
+        "period wealth reconciliation"
+      ]
+    },
+    {
+      "source": "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round4",
+      "status": "PASS",
+      "source_hash": "1c19c13ba2f496a417454d0e9a4c7c60099db98dca033dc04a05e7c46c5da4d2",
+      "rows": 392544,
+      "selected": [],
+      "checks": [
+        "frozen source/config signature",
+        "declared selection excludes holdout",
+        "continuous native5 clock",
+        "price+funding-fee identity",
+        "self-financing equity recursion",
+        "asset aggregate",
+        "period wealth reconciliation"
+      ]
+    },
+    {
+      "source": "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round5",
+      "status": "PASS",
+      "source_hash": "18532ece8119b9cc16bdc8944359ea4b272126ec9924c820ebf18940e5337e8c",
+      "rows": 392544,
+      "selected": [],
+      "checks": [
+        "frozen source/config signature",
+        "declared selection excludes holdout",
+        "continuous native5 clock",
+        "price+funding-fee identity",
+        "self-financing equity recursion",
+        "asset aggregate",
+        "period wealth reconciliation"
+      ]
+    }
+  ],
+  "visualization_checks": {
+    "html_pages": 22,
+    "local_links_and_scripts": "PASS",
+    "visual_render_claim": "static checks only; no browser rendering",
+    "visualizations\\complex_alpha_20261008_round1": {
+      "html_pages": 39,
+      "local_links_and_scripts": "PASS",
+      "visual_render_claim": "static checks only; no browser rendering"
+    },
+    "visualizations\\complex_alpha_20261008_round2": {
+      "html_pages": 60,
+      "local_links_and_scripts": "PASS",
+      "visual_render_claim": "static checks only; no browser rendering"
+    },
+    "visualizations\\complex_alpha_20261008_round3": {
+      "html_pages": 60,
+      "local_links_and_scripts": "PASS",
+      "visual_render_claim": "static checks only; no browser rendering"
+    },
+    "visualizations\\complex_alpha_20261008_round4": {
+      "html_pages": 40,
+      "local_links_and_scripts": "PASS",
+      "visual_render_claim": "static checks only; no browser rendering"
+    },
+    "visualizations\\complex_alpha_20261008_round5": {
+      "html_pages": 40,
+      "local_links_and_scripts": "PASS",
+      "visual_render_claim": "static checks only; no browser rendering"
+    }
+  }
+}

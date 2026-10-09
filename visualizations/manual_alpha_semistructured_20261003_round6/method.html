@@ -1,0 +1,146 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>机制与评估合同</title><style>
+body{margin:0;background:#f5f7fa;color:#192638;font:15px/1.5 system-ui,'Microsoft YaHei',sans-serif}
+nav{background:#102b47;color:white;padding:13px 28px;position:sticky;top:0;z-index:10}
+nav a{color:#d6eaff;margin-right:20px;text-decoration:none;font-weight:600}
+main{max-width:1440px;margin:25px auto;padding:0 20px 50px}
+h1{font-size:29px;margin:10px 0}h2{font-size:21px;margin:32px 0 12px}
+.muted{color:#52677a}.note{background:#fff8e8;border-left:4px solid #dfac35;padding:12px 16px;margin:18px 0}
+.card{background:white;border:1px solid #dce4ec;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #1433500b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stat{background:#edf4fb;border-radius:8px;padding:13px}.stat b{font-size:24px;display:block}
+table{border-collapse:collapse;width:100%;background:white;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e1e8ee;text-align:right}th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:#eaf0f5}tr:hover{background:#f4f9fd}
+.scroll{overflow:auto;max-height:560px}.links a{display:inline-block;padding:6px 10px;margin:4px;background:#e6f0fb;border-radius:5px;color:#12385b;text-decoration:none}
+footer{color:#657789;font-size:12px;margin-top:30px}
+</style><script src='plotly.min.js'></script></head><body><nav><a href="index.html">总览</a> · <a href="search.html">搜参</a> · <a href="data.html">数据</a> · <a href="execution.html">5m 执行</a> · <a href="method.html">研究口径</a></nav><main><h1>机制与评估合同</h1><p class='muted'></p><div class='note'>一条机制只搜窗口、事件阈值、激活门限和预先声明持有期。方向规则：2023H1 固定方向；量纲尺度来自 2023H1；四个发现内折用于成本后目标，验证期检验生存，测试期只在选择文件冻结后计算。组合取入选等权，持仓按实际变仓扣费。实际结算 funding 现金流计入账本。</div><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>hypothesis</th>
+      <th>failure</th>
+      <th>dependencies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sell_absorption</td>
+      <td>Aggressive selling absorbed by a resilient close predicts rebound.</td>
+      <td>Market-wide relief rally or illiquid quote artifacts.</td>
+      <td>[taker_imbalance, ret_1h, realized_vol_24h, micro5_path_efficiency]</td>
+    </tr>
+    <tr>
+      <td>buy_failure</td>
+      <td>Heavy buying that closes low reveals exhausted demand.</td>
+      <td>Strong trend resumes despite weak close.</td>
+      <td>[taker_imbalance, close_pos, micro5_jump_share]</td>
+    </tr>
+    <tr>
+      <td>fast_flow_rejection</td>
+      <td>Late 5m flow contrary to price is an unabsorbed inventory shock.</td>
+      <td>Trade classification noise at the hour boundary.</td>
+      <td>[micro5_taker_imbalance, taker_imbalance, micro_last_return]</td>
+    </tr>
+    <tr>
+      <td>latent_flow_acceleration</td>
+      <td>Flow acceleration with muted price impact precedes delayed adjustment.</td>
+      <td>Rapid arbitrage removes any delayed response.</td>
+      <td>[taker_imbalance, ret_1h, realized_vol_24h]</td>
+    </tr>
+    <tr>
+      <td>quarter_open_pressure</td>
+      <td>Anomalous 15m-opening flow with muted price impact predicts delayed continuation.</td>
+      <td>Clock-phase bursts are mechanical and dissipate before hourly execution.</td>
+      <td>[quarter_open_imbalance, quarter_other_imbalance, quarter_open_volume_share, ret_1h, realized_vol_24h]</td>
+    </tr>
+    <tr>
+      <td>block_pressure_exhaustion</td>
+      <td>Concentrated large-order flow and jumps overshoot available liquidity.</td>
+      <td>Informed block trades continue the trend.</td>
+      <td>[avg_trade_size_log, taker_imbalance, micro5_jump_share]</td>
+    </tr>
+    <tr>
+      <td>jump_flow_exhaustion</td>
+      <td>A single 5m jump aligned with taker flow is prone to reversal.</td>
+      <td>News-driven jump has persistent information.</td>
+      <td>[micro5_jump_share, micro5_taker_imbalance, micro_last_return]</td>
+    </tr>
+    <tr>
+      <td>liquidity_vacuum_repair</td>
+      <td>Illiquid low-efficiency shock reverts after market making resumes.</td>
+      <td>Structural liquidity loss persists.</td>
+      <td>[amihud_log, micro5_path_efficiency, ret_1h]</td>
+    </tr>
+    <tr>
+      <td>downside_wick_reclaim</td>
+      <td>Wide down bar recovering into its upper range signals absorption.</td>
+      <td>Bar shape is stale quote rather than true trading.</td>
+      <td>[close_pos, hl_range, oc_ret]</td>
+    </tr>
+    <tr>
+      <td>funding_basis_carry</td>
+      <td>Crowded mark premium and paid funding favor the receiving side after a settlement.</td>
+      <td>Premium trend or missing next settlement outweighs carry and reversion.</td>
+      <td>[derivative_funding_state, derivative_basis]</td>
+    </tr>
+    <tr>
+      <td>vwap_flow_dislocation</td>
+      <td>Price far from VWAP with confirming taker flow is crowded and may repair.</td>
+      <td>VWAP lag during an information regime shift.</td>
+      <td>[vwap_bias, taker_imbalance, realized_vol_24h]</td>
+    </tr>
+    <tr>
+      <td>quarter_open_absorption</td>
+      <td>Strong 15m-opening flow opposed by later 5m trades and price is repaired.</td>
+      <td>Opening-phase order flow carries lasting information despite later opposition.</td>
+      <td>[quarter_open_imbalance, quarter_other_imbalance, ret_1h]</td>
+    </tr>
+    <tr>
+      <td>us_evening_continuation</td>
+      <td>High-volume late New York inventory stretch persists into the next session.</td>
+      <td>The inventory actually unwinds rather than persists.</td>
+      <td>[us_evening_flag, session_cumulative_return, session_cumulative_volume_ratio]</td>
+    </tr>
+    <tr>
+      <td>compression_release</td>
+      <td>Short-vol compression plus directional micro-flow resolves in flow direction.</td>
+      <td>Range-bound market has repeated false breaks.</td>
+      <td>[volatility_term_slope, micro5_imbalance_trend, micro5_path_efficiency]</td>
+    </tr>
+    <tr>
+      <td>downside_vol_flow_confirmation</td>
+      <td>Downside volatility followed by sustained buying signals repair.</td>
+      <td>Buy flow merely hedges a continuing selloff.</td>
+      <td>[downside_vol_24h, realized_vol_24h, taker_imbalance_mean_4h, micro5_volume_trend]</td>
+    </tr>
+    <tr>
+      <td>btc_lead_catchup</td>
+      <td>Altcoin beta-adjusted lag behind BTC price impulse partially closes.</td>
+      <td>Alt-specific information explains the lag.</td>
+      <td>[btc_ret_4h, ret_4h, discovery_beta, realized_vol_24h]</td>
+    </tr>
+    <tr>
+      <td>shock_resilience</td>
+      <td>Relative resilience in a market sell shock predicts continuation.</td>
+      <td>Defensive assets lag once market risk reverses.</td>
+      <td>[market_ret_1h, ret_1h, discovery_beta, market_vol_24h]</td>
+    </tr>
+    <tr>
+      <td>basis_absorption</td>
+      <td>Mark-index premium extreme with counter-flow signals local basis repair.</td>
+      <td>Mark and index share construction inputs; basis is not independent cash spread.</td>
+      <td>[derivative_basis, taker_imbalance]</td>
+    </tr>
+    <tr>
+      <td>trade_mark_repair</td>
+      <td>Traded futures price away from mark after matching price move mean-reverts.</td>
+      <td>Price leads slow mark updates rather than overshooting.</td>
+      <td>[derivative_trade_mark_gap, ret_1h]</td>
+    </tr>
+    <tr>
+      <td>funding_crowd_disagreement</td>
+      <td>High settled funding with same-direction taker crowd is fragile.</td>
+      <td>Structural bull or bear carry dominates price reversal.</td>
+      <td>[derivative_funding_state, taker_imbalance_mean_4h]</td>
+    </tr>
+  </tbody>
+</table></div><footer>完成小时决策，下一根 5m 起收益；12 币等权，市场 beta 正交；仓位变化每单位 4 bps。2026 段曾在早期项目诊断中被看过，非全新盲测。</footer></main></body></html>

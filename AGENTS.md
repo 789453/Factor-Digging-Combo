@@ -49,3 +49,42 @@ These rules apply to the whole repository.
 17. Before material research changes, read `docs/README.md`,
     `docs/PROJECT_STATUS_AND_ROADMAP_20260928.md`, and
     `docs/RESEARCH_REQUIREMENTS.md`.
+
+## Prediction research priority (2026-10-09)
+
+18. Read `docs/PREDICTIVE_FACTOR_RESEARCH_POLICY_20261009.md` before factor
+    selection, combination, or new experiments. The current research product is
+    an informative feature pool plus observable multi-factor predictions.
+19. Never require individual features to earn positive net trading returns,
+    beat fees, or have profitable hedge legs to enter a prediction pool.
+    Trading admission is a separate portfolio-level decision. Preserve unstable
+    and in-sample candidates in explicitly labelled diagnostic archives.
+20. Keep raw-return, risk-residual, and baseline-error prediction objectives
+    explicit. An error correction must not silently become a standalone return
+    forecast. Report direct prediction baselines before adding control layers.
+21. Default near-term work to reuse of frozen candidates, small Ridge baselines,
+    and heavy diagnostics disabled. Do not launch another large search until
+    the feature pool and baseline have observable results and a new research
+    question justifies it. Empty trading admission must not erase predictions.
+22. State dependence is admissible evidence, not permission to flip direction
+    using future outcomes. Fit coefficients/states using matured past labels.
+    Source-selected discovery folds are research feedback, not independent OOF.
+
+## Effective strategy mandate (2026-10-09, user correction)
+
+23. Read `docs/EFFECTIVE_FACTOR_AND_STRATEGY_MANDATE_20261009.md` before continuing
+    prediction research. Observable losing baselines and failure explanations
+    alone do not satisfy the current task; pursue useful factors and a strategy.
+24. Small Ridge baselines are the starting point, not a permanent model ceiling.
+    Their observed failures authorize bounded nonlinear, asset-conditional and
+    matured-label update research. Preserve explicit hypotheses and all attempts.
+25. Strong in-sample and overfit diagnostic products are allowed and must be
+    observable, but must never be represented as causal out-of-sample strategies.
+    The holdout firewall and real-time label maturity still apply.
+26. Do not mark the strategy task successful without passing the mandate's
+    historical signal/strategy acceptance. Restore full interactive evidence,
+    asset/time breadth, trading paths, and the iteration log, not just tables.
+27. A discovery argmax is a research recommendation, not the sole product gate.
+    Retain all predeclared predictions and report their validation survival;
+    do not rewrite the frozen winner using validation. Fixed member removals
+    keep the original divisor, units, execution and budget without refitting.

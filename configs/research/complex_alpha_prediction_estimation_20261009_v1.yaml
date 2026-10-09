@@ -1,0 +1,37 @@
+mode: aligned_crypto
+version: complex_alpha_prediction_estimation_20261009_v1
+complex_alpha:
+  stage: predictive_pool
+  source_run: outputs/complex_alpha_20261008_round5
+  bank_manifest: outputs/cache/complex_alpha_minute/8f752f2de2d9af7f3021/bank_manifest.json
+  horizon_hours: 4
+  sample_minutes: 240
+  shortlist_count: 128
+  pool_count: 48
+  correlation_limit: 0.98
+  penalties:
+  - 0.1
+  - 1.0
+  - 10.0
+  folds:
+  - - '202401010000'
+    - '202406302355'
+  - - '202407010000'
+    - '202412312355'
+  - - '202501010000'
+    - '202506302355'
+  device: cpu
+  cost_bps: 4.0
+  gross_budget: 0.25
+  targets:
+  - raw_return
+  - cash_beta_residual
+  diagnostics: []
+  estimation_study:
+    training_windows_months:
+    - 0
+    - 12
+    frozen_pool_run: outputs/complex_alpha_prediction_reuse_20261009_v1
+output:
+  out_dir: outputs/complex_alpha_prediction_estimation_20261009_v1
+  visualization_dir: visualizations/complex_alpha_prediction_estimation_20261009_v1

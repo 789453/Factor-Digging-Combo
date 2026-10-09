@@ -1,0 +1,198 @@
+mode: aligned_crypto
+version: manual-alpha-semistructured-20261003-round6
+data:
+  source: crypto_parquet
+  root: D:/Trading/practical_crypto_strategy/data/parquet
+  derivative_root: D:/Trading/practical_crypto_strategy/data/parquet/derivatives
+  start: '2023-01-01 00:00:00'
+  end: '2026-09-24 23:55:00'
+  feature_cache: outputs/cache/aligned_crypto
+split:
+  discovery_end: '202506302355'
+  validation_start: '202507010000'
+  validation_end: '202601312355'
+  holdout_start: '202602010000'
+manual_alpha:
+  seed: 20261003
+  trials_per_mechanism: 32
+  cost_bps: 4.0
+  gross_budget: 0.5
+  activation_levels: [0.15, 0.35, 0.55]
+  funding_cashflow: true
+  require_semantic_direction: true
+  min_validation_net_bps_per_hour: 0.01
+  min_positive_folds: 2
+  calibration_end: '202306302355'
+  discovery_folds:
+    - ['202307010000', '202312312355']
+    - ['202401010000', '202406302355']
+    - ['202407010000', '202412312355']
+    - ['202501010000', '202506302355']
+  max_selected: 20
+  mechanisms:
+    - id: sell_absorption
+      hypothesis: Aggressive selling absorbed by a resilient close predicts rebound.
+      failure: Market-wide relief rally or illiquid quote artifacts.
+      dependencies: [taker_imbalance, ret_1h, realized_vol_24h, micro5_path_efficiency]
+      windows: [6, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 8
+    - id: buy_failure
+      hypothesis: Heavy buying that closes low reveals exhausted demand.
+      failure: Strong trend resumes despite weak close.
+      dependencies: [taker_imbalance, close_pos, micro5_jump_share]
+      windows: [6, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 7
+    - id: fast_flow_rejection
+      hypothesis: Late 5m flow contrary to price is an unabsorbed inventory shock.
+      failure: Trade classification noise at the hour boundary.
+      dependencies: [micro5_taker_imbalance, taker_imbalance, micro_last_return]
+      windows: [4, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [1, 4, 12, 24]
+      complexity_nodes: 8
+    - id: latent_flow_acceleration
+      hypothesis: Flow acceleration with muted price impact precedes delayed adjustment.
+      failure: Rapid arbitrage removes any delayed response.
+      dependencies: [taker_imbalance, ret_1h, realized_vol_24h]
+      windows: [4, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 7
+    - id: quarter_open_pressure
+      hypothesis: Anomalous 15m-opening flow with muted price impact predicts delayed continuation.
+      failure: Clock-phase bursts are mechanical and dissipate before hourly execution.
+      dependencies: [quarter_open_imbalance, quarter_other_imbalance, quarter_open_volume_share, ret_1h, realized_vol_24h]
+      windows: [4, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24]
+      complexity_nodes: 8
+    - id: block_pressure_exhaustion
+      hypothesis: Concentrated large-order flow and jumps overshoot available liquidity.
+      failure: Informed block trades continue the trend.
+      dependencies: [avg_trade_size_log, taker_imbalance, micro5_jump_share]
+      windows: [12, 24, 48]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 8
+    - id: jump_flow_exhaustion
+      hypothesis: A single 5m jump aligned with taker flow is prone to reversal.
+      failure: News-driven jump has persistent information.
+      dependencies: [micro5_jump_share, micro5_taker_imbalance, micro_last_return]
+      windows: [4, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [1, 4, 12, 24]
+      complexity_nodes: 6
+    - id: liquidity_vacuum_repair
+      hypothesis: Illiquid low-efficiency shock reverts after market making resumes.
+      failure: Structural liquidity loss persists.
+      dependencies: [amihud_log, micro5_path_efficiency, ret_1h]
+      windows: [12, 24, 48]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 7
+    - id: downside_wick_reclaim
+      hypothesis: Wide down bar recovering into its upper range signals absorption.
+      failure: Bar shape is stale quote rather than true trading.
+      dependencies: [close_pos, hl_range, oc_ret]
+      windows: [12, 24, 48]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 6
+    - id: funding_basis_carry
+      hypothesis: Crowded mark premium and paid funding favor the receiving side after a settlement.
+      failure: Premium trend or missing next settlement outweighs carry and reversion.
+      dependencies: [derivative_funding_state, derivative_basis]
+      windows: [24, 48, 96]
+      thresholds: [0.25, 0.5, 1.0]
+      horizons_hours: [12, 24, 48]
+      complexity_nodes: 7
+    - id: vwap_flow_dislocation
+      hypothesis: Price far from VWAP with confirming taker flow is crowded and may repair.
+      failure: VWAP lag during an information regime shift.
+      dependencies: [vwap_bias, taker_imbalance, realized_vol_24h]
+      windows: [4, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 7
+    - id: quarter_open_absorption
+      hypothesis: Strong 15m-opening flow opposed by later 5m trades and price is repaired.
+      failure: Opening-phase order flow carries lasting information despite later opposition.
+      dependencies: [quarter_open_imbalance, quarter_other_imbalance, ret_1h]
+      windows: [4, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24]
+      complexity_nodes: 7
+    - id: us_evening_continuation
+      hypothesis: High-volume late New York inventory stretch persists into the next session.
+      failure: The inventory actually unwinds rather than persists.
+      dependencies: [us_evening_flag, session_cumulative_return, session_cumulative_volume_ratio]
+      windows: [4, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 6
+    - id: compression_release
+      hypothesis: Short-vol compression plus directional micro-flow resolves in flow direction.
+      failure: Range-bound market has repeated false breaks.
+      dependencies: [volatility_term_slope, micro5_imbalance_trend, micro5_path_efficiency]
+      windows: [4, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 7
+    - id: downside_vol_flow_confirmation
+      hypothesis: Downside volatility followed by sustained buying signals repair.
+      failure: Buy flow merely hedges a continuing selloff.
+      dependencies: [downside_vol_24h, realized_vol_24h, taker_imbalance_mean_4h, micro5_volume_trend]
+      windows: [4, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 8
+    - id: btc_lead_catchup
+      hypothesis: Altcoin beta-adjusted lag behind BTC price impulse partially closes.
+      failure: Alt-specific information explains the lag.
+      dependencies: [btc_ret_4h, ret_4h, discovery_beta, realized_vol_24h]
+      windows: [4, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 8
+    - id: shock_resilience
+      hypothesis: Relative resilience in a market sell shock predicts continuation.
+      failure: Defensive assets lag once market risk reverses.
+      dependencies: [market_ret_1h, ret_1h, discovery_beta, market_vol_24h]
+      windows: [4, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 8
+    - id: basis_absorption
+      hypothesis: Mark-index premium extreme with counter-flow signals local basis repair.
+      failure: Mark and index share construction inputs; basis is not independent cash spread.
+      dependencies: [derivative_basis, taker_imbalance]
+      windows: [12, 24, 48]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 7
+    - id: trade_mark_repair
+      hypothesis: Traded futures price away from mark after matching price move mean-reverts.
+      failure: Price leads slow mark updates rather than overshooting.
+      dependencies: [derivative_trade_mark_gap, ret_1h]
+      windows: [12, 24, 48]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 7
+    - id: funding_crowd_disagreement
+      hypothesis: High settled funding with same-direction taker crowd is fragile.
+      failure: Structural bull or bear carry dominates price reversal.
+      dependencies: [derivative_funding_state, taker_imbalance_mean_4h]
+      windows: [4, 12, 24]
+      thresholds: [0.5, 1.0, 1.5]
+      horizons_hours: [4, 12, 24, 48]
+      complexity_nodes: 6
+output:
+  out_dir: outputs/manual_alpha_semistructured_20261003_round6
+
+
+
+

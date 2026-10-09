@@ -1,0 +1,26 @@
+{
+  "status": "COMPLETED",
+  "source": "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round5",
+  "horizons": [
+    1,
+    4,
+    12,
+    24
+  ],
+  "periods": [
+    "discovery",
+    "validation"
+  ],
+  "decay_labels_use_holdout": false,
+  "selection_feedback": false,
+  "contract": "fixed-share funded simple returns projected to frozen-origin cash/common-beta space",
+  "protocol": "docs/COMPLEX_ALPHA_DECAY_DIAGNOSTIC_PROTOCOL_20261008.md",
+  "rows": 208,
+  "discovery_start": "202307010000",
+  "synthetic": false,
+  "supplemental_fixed_channel_audit": true,
+  "supplemental_audit_opens_historical_holdout_after_freeze": true,
+  "additive_baseline_comparison": true,
+  "audit_changes_frozen_selection": false,
+  "time_contract": "complex-utc-explicit-ns-20261008-v1"
+}

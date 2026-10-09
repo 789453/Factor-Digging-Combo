@@ -1,0 +1,93 @@
+mode: aligned_crypto
+version: complex-alpha-20261008-smoke-v6
+data:
+  source: simulated
+  root: simulated
+  derivative_root: simulated
+  assets:
+  - SIM0
+  - SIM1
+  - SIM2
+  - SIM3
+  start: '2023-01-01 00:00:00'
+  end: '2023-03-10 23:59:00'
+  feature_cache: outputs/cache/complex_alpha_simulated
+split:
+  discovery_end: '202302152355'
+  validation_start: '202302160000'
+  validation_end: '202302242355'
+  holdout_start: '202302250000'
+complex_alpha:
+  seed: 20261008
+  device: cpu
+  representation:
+    windows_minutes:
+    - 60
+    - 120
+    - 240
+    normalization_minutes: 720
+    normalization_min_count: 120
+    seed: 4271008
+  budgets:
+    F1: 10
+    F2: 10
+    F3: 10
+    F4: 10
+    F5: 10
+    F6: 10
+    F7: 10
+    OLD: 10
+  old_control_budget: 20
+  modes:
+  - linear
+  - tanh_product
+  - asinh_difference
+  - signed_energy
+  - cubic
+  coarse_batch: 32
+  medium_count: 30
+  fine_count: 10
+  model_trials: 12
+  model_kinds:
+  - old
+  - old_nonlinear
+  - F1
+  - F3
+  - joint
+  - pool
+  feature_calibration_end: '202301202355'
+  folds:
+  - - '202301210000'
+    - '202301252355'
+  - - '202301260000'
+    - '202301302355'
+  - - '202301310000'
+    - '202302042355'
+  - - '202302050000'
+    - '202302092355'
+  - - '202302100000'
+    - '202302152355'
+  cost_bps: 4.0
+  gross_budget: 0.5
+  execution:
+    ema_bars: 16
+    deadband: 0.025
+  max_selected: 4
+  bootstrap_trials: 20
+  audit_holdout: true
+  readout_policy: orthogonal_increment
+  target_policy: causal_volatility
+  oof_calibration: true
+  edge_floor_bps: 8.0
+  execution_by_horizon:
+    4:
+      ema_bars: 4
+      deadband: 0.05
+    12:
+      ema_bars: 12
+      deadband: 0.05
+  initial_penalty: 10.0
+  structure_probe_examples: 0
+output:
+  out_dir: outputs/complex_alpha_20261008_smoke_v6
+  visualization_dir: visualizations/complex_alpha_20261008_smoke_v6

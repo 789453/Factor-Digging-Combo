@@ -1,0 +1,36 @@
+{
+  "status": "COMPLETED",
+  "pages": [
+    "index.html",
+    "readouts.html",
+    "uncertainty.html",
+    "structure.html",
+    "economics.html",
+    "iterations.html",
+    "decay.html",
+    "audit.html",
+    "additive.html",
+    "coins.html",
+    "coin_ADAUSDT.html",
+    "coin_AVAXUSDT.html",
+    "coin_BCHUSDT.html",
+    "coin_BNBUSDT.html",
+    "coin_BTCUSDT.html",
+    "coin_DOGEUSDT.html",
+    "coin_ETHUSDT.html",
+    "coin_LINKUSDT.html",
+    "coin_LTCUSDT.html",
+    "coin_SOLUSDT.html",
+    "coin_TRXUSDT.html",
+    "coin_XRPUSDT.html"
+  ],
+  "sources": [
+    "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round1",
+    "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round2",
+    "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round3",
+    "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round4",
+    "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round5"
+  ],
+  "page_count": 22,
+  "completion_authority": "review_provenance.json and evidence_integrity.json"
+}

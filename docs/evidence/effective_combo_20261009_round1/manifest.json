@@ -1,0 +1,19 @@
+{
+  "status": "COMPLETED",
+  "stage": "effective_combo",
+  "version": "effective-combo-20261009-round1",
+  "source": "outputs\\complex_alpha_prediction_estimation_20261009_v1",
+  "models": 7,
+  "selected": "ridge_asset_online__edge8",
+  "holdout_opened": false,
+  "feature_columns": 214,
+  "diagnostic_product": "overfit_diagnostic",
+  "config": "configs/research/effective_combo_20261009_round1.yaml",
+  "results": {
+    "models": 7,
+    "portfolio_variants": 21,
+    "selected": "ridge_asset_online__edge8",
+    "holdout_opened": false,
+    "diagnostic_product": "overfit_diagnostic"
+  }
+}

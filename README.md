@@ -1,5 +1,7 @@
 # Alpha Research Framework
 
+**当前有效成果（2026-10-09）**：[完整研究报告](docs/EFFECTIVE_FACTOR_AND_COMBO_RESEARCH_RESULTS_20261009.md)、[策略与因子产品卡](docs/EFFECTIVE_FACTOR_AND_COMBO_PRODUCT_CARDS_20261009.md)、[41页交互总览](visualizations/effective_combo_20261009_full_review_v2/index.html)。组合／15叶两套历史基线验证费后+5.5922%／+7.1711%，三发现折、两个完整验证季度及1月均正，8bps仍正；164测试及模拟CLI通过。原自动第一失败保留，不按验证改参数。产品为共同方向／条件择时，不标纯残差Alpha或独立未来保证。下文全亏损是较早阶段结果。
+
 这是一个支持加密货币、期货和股票的多资产因子研究框架。近期主航向是加密货币合约的逐资产时间序列因子挖掘；股票和期货的截面研究接口继续保留。
 
 框架的目标不是保存一批“最终因子”，而是可复现地完成：
@@ -8,8 +10,26 @@
 2. 通过有界 YAML 模板确定性生成、校验和去重表达式；
 3. 用 discovery / validation / holdout 防火墙评估；
 4. 通过初筛、中筛、细筛高效处理大候选池；
-5. 选择结构多样、回测稳健的因子并形成低相似度配对；
+5. 保留有信息线索及条件适用性的预测特征，控制冗余并建立组合预测；
 6. 累积字段、算子、窗口、频率和模板证据，为结构化/半挖掘因子提供基础。
+
+## 当前优先级 预测特征与直接组合（2026-10-09）
+
+最新[深度研究报告](docs/PREDICTIVE_FACTOR_DEEP_RESEARCH_RESULTS_20261009.md)进一步拆开弱信号的共同方向、均值偏差和动态幅度；同一冻结池扩展／十二个月训练共十二模型的验证损失仍均不如零预测，固定交易映射均亏损。数值特征、对齐目标、全部预测和失败解释已经交付；157测试、模拟与有限十二币真实核验通过，不新搜索、不读holdout。[完整结果页](visualizations/predictive_factor_deep_review_20261009_v1/index.html)。滚动跨度没有被升级为默认赢家，后续先研究一个成熟标签校准／更新假设。
+
+最新[整改报告](docs/PREDICTIVE_FACTOR_RESEARCH_RECTIFICATION_20261009.md)与[项目级规范](docs/PREDICTIVE_FACTOR_RESEARCH_POLICY_20261009.md)优先约束后续研究：预测池不要求单因子独立支付交易费用，组合预测与交易准入分别交付。重用R5候选完成48条OLD、48条混合函数和六个直接Ridge基线；结果可观察但历史验证仍弱、固定交易映射均亏损，不称已得到稳定Alpha。151项测试通过。
+
+当前配置为 `configs/research/complex_alpha_prediction_reuse_20261009.yaml`，通过同一 `research_cli --config`、同一 `aligned_crypto/complex_alpha` 路由的候选复用阶段执行。完成输出不可覆盖，复跑须改版本和输出目录。默认重用旧候选，重型诊断关闭，不新开大搜索。[结果页](visualizations/complex_alpha_prediction_reuse_20261009_v1/index.html)。
+
+## 复杂表示与联合 Alpha 历史研究（2026-10-08—10-09）
+
+在原 `aligned_crypto` 生产入口内，已加入分钟分布、单侧尺度、独立三阶对数签名、状态转移、SPD几何、有限记忆和核分布表示；主30k＋旧表示30k同预算搜索，保留全部试验和折内模型。最新读出1024维包含结构、旧控制及筛选函数，不能称1024条已证Alpha。
+
+详见[研究报告](docs/COMPLEX_ALPHA_RESEARCH_RESULTS_20261008.md)、[字段与算子规格](docs/COMPLEX_ALPHA_FIELDS_AND_OPERATORS_20261008.md)及[迭代日志](docs/COMPLEX_ALPHA_ITERATION_LOG_20261008.md)。原R3联合候选在两段已见历史迁移中有稀疏费后正结果，固定家族移除支持旧非线性和转移结构共同参与；证据及边界见[产品卡](docs/COMPLEX_ALPHA_PRODUCT_CARD_20261008.md)和[固定移除可视化](visualizations/complex_alpha_20261009_fixed_readout_ablation_v3/index.html)。
+
+自查修复Pandas日期整数单位对相位抽样和非重叠诊断的影响，[时钟勘误](docs/COMPLEX_ALPHA_CLOCK_CORRIGENDUM_20261008.md)必须联读。五轮真实研究均已完成；R5相同参数修复复跑冻结0入选，主pool12h验证−6.8190%，费用高于毛边际。147项测试、原生产模拟v17和有界真实检查通过；原历史结果不覆盖。
+
+结果入口：[五轮综合交互总览（22页）](visualizations/complex_alpha_20261008_final_review_v2/index.html)及[R5核心结果（40页）](visualizations/complex_alpha_20261008_round5/index.html)。最终复核状态PASS，覆盖原账本、输入/源码指纹、基线复原和静态链接；静态PNG已检查，未声称浏览器渲染验收。
 
 ## 最新一体化研究（2026-09-30）
 
@@ -28,6 +48,12 @@
 ```powershell
 python -m src.alpha_mvp.research_cli --config configs/research/crypto_aligned_11000_native5_20260930_v9.yaml
 ```
+
+## 人工半结构化 Alpha 研究（2026-10-03）
+
+同一 `aligned_crypto` 入口已加入 20 条逐项声明的加密货币交易机制、Optuna 有界搜参、衍生品 funding 结算和原始 5m 四分之一小时相位字段。六轮真实数据研究最终只有 1 条机制通过发现/验证筛选，且在已见 2026 测试段转负；不能把这 20 条候选称为已证实的高 Alpha。详见[完整研究报告](docs/MANUAL_ALPHA_SEMISTRUCTURED_RESULTS_20261003.md)与[25 页离线总览](visualizations/manual_alpha_semistructured_20261003_round6/index.html)。
+
+本机运行需安装 Optuna；当前可用环境是 `D:\Total_Tools\miniforge3\envs\universal`。已完成输出不可覆盖，复跑时先复制[配置](configs/research/manual_alpha_semistructured_20261003_round6.yaml)并更改版本和输出目录。
 
 ## 历史冻结实验
 

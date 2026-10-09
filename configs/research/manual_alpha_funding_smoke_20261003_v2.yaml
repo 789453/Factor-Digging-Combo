@@ -1,0 +1,40 @@
+mode: aligned_crypto
+version: manual-alpha-funding-smoke-20261003-v2
+data:
+  source: simulated
+  root: unused
+  derivative_root: unused
+  start: '2023-01-01 00:00:00'
+  end: '2023-04-15 23:55:00'
+  feature_cache: unused
+split:
+  discovery_end: '202303152355'
+  validation_start: '202303160000'
+  validation_end: '202303312355'
+  holdout_start: '202304010000'
+manual_alpha:
+  seed: 20261003
+  trials_per_mechanism: 2
+  cost_bps: 4.0
+  gross_budget: 0.5
+  activation_levels: [0.15, 0.35]
+  funding_cashflow: true
+  require_semantic_direction: true
+  min_validation_net_bps_per_hour: 0.01
+  min_positive_folds: 1
+  calibration_end: '202302152355'
+  discovery_folds:
+    - ['202302160000', '202303152355']
+  max_selected: 1
+  mechanisms:
+    - id: funding_basis_carry
+      hypothesis: Crowded basis with paid funding favors the receiving side.
+      failure: Price trend overwhelms funding carry.
+      dependencies: [derivative_funding_state, derivative_basis]
+      windows: [24, 48]
+      thresholds: [0.25, 0.5]
+      horizons_hours: [12, 24]
+      complexity_nodes: 7
+output:
+  out_dir: outputs/manual_alpha_funding_smoke_20261003_v2
+

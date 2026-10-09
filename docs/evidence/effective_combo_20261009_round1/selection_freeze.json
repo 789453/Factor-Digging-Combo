@@ -1,0 +1,294 @@
+{
+  "selected": {
+    "id": "ridge_asset_online__edge8",
+    "model": "ridge_asset_online",
+    "execution": {
+      "id": "edge8",
+      "name": "net_edge",
+      "floor_bps": 8.0,
+      "amplitude_bps": 50.0
+    },
+    "scale": 0.0007027010846547204,
+    "discovery_score": 2.385271658322551,
+    "positive_discovery_folds": 3
+  },
+  "ranked_discovery": [
+    {
+      "id": "ridge_asset_online__edge8",
+      "model": "ridge_asset_online",
+      "execution": {
+        "id": "edge8",
+        "name": "net_edge",
+        "floor_bps": 8.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0007027010846547204,
+      "discovery_score": 2.385271658322551,
+      "positive_discovery_folds": 3
+    },
+    {
+      "id": "ridge_asset_online__edge16",
+      "model": "ridge_asset_online",
+      "execution": {
+        "id": "edge16",
+        "name": "net_edge",
+        "floor_bps": 16.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0007027010846547204,
+      "discovery_score": 2.11382574937884,
+      "positive_discovery_folds": 3
+    },
+    {
+      "id": "tree7_static__edge16",
+      "model": "tree7_static",
+      "execution": {
+        "id": "edge16",
+        "name": "net_edge",
+        "floor_bps": 16.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0014549417719920837,
+      "discovery_score": 1.6551110563328677,
+      "positive_discovery_folds": 3
+    },
+    {
+      "id": "tree7_static__edge8",
+      "model": "tree7_static",
+      "execution": {
+        "id": "edge8",
+        "name": "net_edge",
+        "floor_bps": 8.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0014549417719920837,
+      "discovery_score": 1.4734081618875254,
+      "positive_discovery_folds": 3
+    },
+    {
+      "id": "ensemble__edge16",
+      "model": "ensemble",
+      "execution": {
+        "id": "edge16",
+        "name": "net_edge",
+        "floor_bps": 16.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.001994009490051714,
+      "discovery_score": 1.1231357604684429,
+      "positive_discovery_folds": 3
+    },
+    {
+      "id": "tree15_online__edge16",
+      "model": "tree15_online",
+      "execution": {
+        "id": "edge16",
+        "name": "net_edge",
+        "floor_bps": 16.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0025357716036248285,
+      "discovery_score": 0.9267760546644717,
+      "positive_discovery_folds": 3
+    },
+    {
+      "id": "ensemble__edge8",
+      "model": "ensemble",
+      "execution": {
+        "id": "edge8",
+        "name": "net_edge",
+        "floor_bps": 8.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.001994009490051714,
+      "discovery_score": 0.8564515839502181,
+      "positive_discovery_folds": 2
+    },
+    {
+      "id": "ridge_asset_online__rms",
+      "model": "ridge_asset_online",
+      "execution": {
+        "id": "rms",
+        "name": "rms",
+        "floor_bps": 0.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0007027010846547204,
+      "discovery_score": 0.8339463315644591,
+      "positive_discovery_folds": 2
+    },
+    {
+      "id": "tree7_static__rms",
+      "model": "tree7_static",
+      "execution": {
+        "id": "rms",
+        "name": "rms",
+        "floor_bps": 0.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0014549417719920837,
+      "discovery_score": 0.5318700130258407,
+      "positive_discovery_folds": 2
+    },
+    {
+      "id": "tree15_online__edge8",
+      "model": "tree15_online",
+      "execution": {
+        "id": "edge8",
+        "name": "net_edge",
+        "floor_bps": 8.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0025357716036248285,
+      "discovery_score": 0.49976313091891683,
+      "positive_discovery_folds": 2
+    },
+    {
+      "id": "fit255_static__edge16",
+      "model": "fit255_static",
+      "execution": {
+        "id": "edge16",
+        "name": "net_edge",
+        "floor_bps": 16.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.003808767521043945,
+      "discovery_score": 0.49353099334754885,
+      "positive_discovery_folds": 2
+    },
+    {
+      "id": "tree63_online__edge16",
+      "model": "tree63_online",
+      "execution": {
+        "id": "edge16",
+        "name": "net_edge",
+        "floor_bps": 16.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0038096099417774276,
+      "discovery_score": 0.39878587311919356,
+      "positive_discovery_folds": 2
+    },
+    {
+      "id": "fit255_static__edge8",
+      "model": "fit255_static",
+      "execution": {
+        "id": "edge8",
+        "name": "net_edge",
+        "floor_bps": 8.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.003808767521043945,
+      "discovery_score": 0.23923852783619767,
+      "positive_discovery_folds": 2
+    },
+    {
+      "id": "tree63_online__edge8",
+      "model": "tree63_online",
+      "execution": {
+        "id": "edge8",
+        "name": "net_edge",
+        "floor_bps": 8.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0038096099417774276,
+      "discovery_score": 0.1286046071302512,
+      "positive_discovery_folds": 2
+    },
+    {
+      "id": "tree31_online__edge16",
+      "model": "tree31_online",
+      "execution": {
+        "id": "edge16",
+        "name": "net_edge",
+        "floor_bps": 16.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0033900149417637206,
+      "discovery_score": 0.04280903881516307,
+      "positive_discovery_folds": 2
+    },
+    {
+      "id": "fit255_static__rms",
+      "model": "fit255_static",
+      "execution": {
+        "id": "rms",
+        "name": "rms",
+        "floor_bps": 0.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.003808767521043945,
+      "discovery_score": -0.319906789249257,
+      "positive_discovery_folds": 2
+    },
+    {
+      "id": "ensemble__rms",
+      "model": "ensemble",
+      "execution": {
+        "id": "rms",
+        "name": "rms",
+        "floor_bps": 0.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.001994009490051714,
+      "discovery_score": -0.0036235181332557875,
+      "positive_discovery_folds": 1
+    },
+    {
+      "id": "tree31_online__edge8",
+      "model": "tree31_online",
+      "execution": {
+        "id": "edge8",
+        "name": "net_edge",
+        "floor_bps": 8.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0033900149417637206,
+      "discovery_score": -0.1939335219999476,
+      "positive_discovery_folds": 1
+    },
+    {
+      "id": "tree15_online__rms",
+      "model": "tree15_online",
+      "execution": {
+        "id": "rms",
+        "name": "rms",
+        "floor_bps": 0.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0025357716036248285,
+      "discovery_score": -0.37119081356504974,
+      "positive_discovery_folds": 1
+    },
+    {
+      "id": "tree63_online__rms",
+      "model": "tree63_online",
+      "execution": {
+        "id": "rms",
+        "name": "rms",
+        "floor_bps": 0.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0038096099417774276,
+      "discovery_score": -0.3901401346394609,
+      "positive_discovery_folds": 0
+    },
+    {
+      "id": "tree31_online__rms",
+      "model": "tree31_online",
+      "execution": {
+        "id": "rms",
+        "name": "rms",
+        "floor_bps": 0.0,
+        "amplitude_bps": 50.0
+      },
+      "scale": 0.0033900149417637206,
+      "discovery_score": -0.6560485751011014,
+      "positive_discovery_folds": 1
+    }
+  ],
+  "selection_data": "discovery chronological portfolio metrics only",
+  "holdout_opened": false,
+  "independent_oof": false,
+  "historical_validation_previously_seen": true
+}

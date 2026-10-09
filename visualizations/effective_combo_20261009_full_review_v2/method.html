@@ -1,0 +1,227 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>第一性目标、数据合同与研究迭代</title><style>
+body{margin:0;background:#f5f7fa;color:#192638;font:15px/1.5 system-ui,'Microsoft YaHei',sans-serif}
+nav{background:#102b47;color:white;padding:13px 28px;position:sticky;top:0;z-index:10}
+nav a{color:#d6eaff;margin-right:20px;text-decoration:none;font-weight:600}
+main{max-width:1440px;margin:25px auto;padding:0 20px 50px}
+h1{font-size:29px;margin:10px 0}h2{font-size:21px;margin:32px 0 12px}
+.muted{color:#52677a}.note{background:#fff8e8;border-left:4px solid #dfac35;padding:12px 16px;margin:18px 0}
+.card{background:white;border:1px solid #dce4ec;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #1433500b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stat{background:#edf4fb;border-radius:8px;padding:13px}.stat b{font-size:24px;display:block}
+table{border-collapse:collapse;width:100%;background:white;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e1e8ee;text-align:right}th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:#eaf0f5}tr:hover{background:#f4f9fd}
+.scroll{overflow:auto;max-height:560px}.links a{display:inline-block;padding:6px 10px;margin:4px;background:#e6f0fb;border-radius:5px;color:#12385b;text-decoration:none}
+footer{color:#657789;font-size:12px;margin-top:30px}
+</style><script src='plotly.min.js'></script></head><body><nav><a href="index.html">总览</a> · <a href="models.html">预测对照</a> · <a href="factors.html">因子池</a> · <a href="execution.html">组合执行</a> · <a href="periods.html">月度季度</a> · <a href="assets.html">十二币贡献</a> · <a href="overfit.html">强拟合诊断</a> · <a href="method.html">规范与迭代</a> · <a href="robustness.html">稳健验收</a> · <a href="ablation.html">固定移除</a> · <a href="forecasts.html">预测分组</a> · <a href="costs.html">成本余量</a> · <a href="exposures.html">长短与共同暴露</a> · <a href="feature_evidence.html">逐因子证据</a></nav><main><h1>第一性目标、数据合同与研究迭代</h1><p class='muted'>源候选经过全发现搜索；反馈OOF非独立。历史验证已见。成熟标签训练／更新；未来收益不作输入。4h完成决策、之后完整5m收益，实际份额资金费价格代理，单位单向变仓4bps，终点平仓；净值逐行简单收益复利。</p><p>当前成功标准：有效信号＋历史稳健基线。没有通过就继续研究，过拟合诊断不能冒充稳健。</p><p><a href="../../docs/EFFECTIVE_FACTOR_AND_COMBO_RESEARCH_RESULTS_20261009.md">EFFECTIVE_FACTOR_AND_COMBO_RESEARCH_RESULTS_20261009.md</a></p><p><a href="../../docs/EFFECTIVE_FACTOR_AND_STRATEGY_MANDATE_20261009.md">EFFECTIVE_FACTOR_AND_STRATEGY_MANDATE_20261009.md</a></p><p><a href="../../docs/EFFECTIVE_COMBO_ROUND1_DESIGN_20261009.md">EFFECTIVE_COMBO_ROUND1_DESIGN_20261009.md</a></p><p><a href="../../docs/EFFECTIVE_COMBO_ITERATION_LOG_20261009.md">EFFECTIVE_COMBO_ITERATION_LOG_20261009.md</a></p><p>记录发现选择、所有模型和执行，不读holdout。</p><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>status</th>
+      <th>stage</th>
+      <th>version</th>
+      <th>source</th>
+      <th>models</th>
+      <th>selected</th>
+      <th>holdout_opened</th>
+      <th>feature_columns</th>
+      <th>diagnostic_product</th>
+      <th>config</th>
+      <th>results</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>COMPLETED</td>
+      <td>effective_combo</td>
+      <td>effective-combo-20261009-round1</td>
+      <td>outputs\complex_alpha_prediction_estimation_20261009_v1</td>
+      <td>7.0000</td>
+      <td>ridge_asset_online__edge8</td>
+      <td>False</td>
+      <td>214.0000</td>
+      <td>overfit_diagnostic</td>
+      <td>configs/research/effective_combo_20261009_round1.yaml</td>
+      <td>{'models': 7, 'portfolio_variants': 21, 'selected': 'ridge_asset_online__edge8', 'holdout_opened': False, 'diagnostic_product': 'overfit_diagnostic'}</td>
+    </tr>
+  </tbody>
+</table></div><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>model</th>
+      <th>execution</th>
+      <th>scale</th>
+      <th>discovery_score</th>
+      <th>positive_discovery_folds</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ridge_asset_online__edge8</td>
+      <td>ridge_asset_online</td>
+      <td>{'id': 'edge8', 'name': 'net_edge', 'floor_bps': 8.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0007</td>
+      <td>2.3853</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>ridge_asset_online__edge16</td>
+      <td>ridge_asset_online</td>
+      <td>{'id': 'edge16', 'name': 'net_edge', 'floor_bps': 16.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0007</td>
+      <td>2.1138</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>tree7_static__edge16</td>
+      <td>tree7_static</td>
+      <td>{'id': 'edge16', 'name': 'net_edge', 'floor_bps': 16.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0015</td>
+      <td>1.6551</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>tree7_static__edge8</td>
+      <td>tree7_static</td>
+      <td>{'id': 'edge8', 'name': 'net_edge', 'floor_bps': 8.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0015</td>
+      <td>1.4734</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>ensemble__edge16</td>
+      <td>ensemble</td>
+      <td>{'id': 'edge16', 'name': 'net_edge', 'floor_bps': 16.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0020</td>
+      <td>1.1231</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>tree15_online__edge16</td>
+      <td>tree15_online</td>
+      <td>{'id': 'edge16', 'name': 'net_edge', 'floor_bps': 16.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0025</td>
+      <td>0.9268</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <td>ensemble__edge8</td>
+      <td>ensemble</td>
+      <td>{'id': 'edge8', 'name': 'net_edge', 'floor_bps': 8.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0020</td>
+      <td>0.8565</td>
+      <td>2.0000</td>
+    </tr>
+    <tr>
+      <td>ridge_asset_online__rms</td>
+      <td>ridge_asset_online</td>
+      <td>{'id': 'rms', 'name': 'rms', 'floor_bps': 0.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0007</td>
+      <td>0.8339</td>
+      <td>2.0000</td>
+    </tr>
+    <tr>
+      <td>tree7_static__rms</td>
+      <td>tree7_static</td>
+      <td>{'id': 'rms', 'name': 'rms', 'floor_bps': 0.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0015</td>
+      <td>0.5319</td>
+      <td>2.0000</td>
+    </tr>
+    <tr>
+      <td>tree15_online__edge8</td>
+      <td>tree15_online</td>
+      <td>{'id': 'edge8', 'name': 'net_edge', 'floor_bps': 8.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0025</td>
+      <td>0.4998</td>
+      <td>2.0000</td>
+    </tr>
+    <tr>
+      <td>fit255_static__edge16</td>
+      <td>fit255_static</td>
+      <td>{'id': 'edge16', 'name': 'net_edge', 'floor_bps': 16.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0038</td>
+      <td>0.4935</td>
+      <td>2.0000</td>
+    </tr>
+    <tr>
+      <td>tree63_online__edge16</td>
+      <td>tree63_online</td>
+      <td>{'id': 'edge16', 'name': 'net_edge', 'floor_bps': 16.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0038</td>
+      <td>0.3988</td>
+      <td>2.0000</td>
+    </tr>
+    <tr>
+      <td>fit255_static__edge8</td>
+      <td>fit255_static</td>
+      <td>{'id': 'edge8', 'name': 'net_edge', 'floor_bps': 8.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0038</td>
+      <td>0.2392</td>
+      <td>2.0000</td>
+    </tr>
+    <tr>
+      <td>tree63_online__edge8</td>
+      <td>tree63_online</td>
+      <td>{'id': 'edge8', 'name': 'net_edge', 'floor_bps': 8.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0038</td>
+      <td>0.1286</td>
+      <td>2.0000</td>
+    </tr>
+    <tr>
+      <td>tree31_online__edge16</td>
+      <td>tree31_online</td>
+      <td>{'id': 'edge16', 'name': 'net_edge', 'floor_bps': 16.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0034</td>
+      <td>0.0428</td>
+      <td>2.0000</td>
+    </tr>
+    <tr>
+      <td>fit255_static__rms</td>
+      <td>fit255_static</td>
+      <td>{'id': 'rms', 'name': 'rms', 'floor_bps': 0.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0038</td>
+      <td>-0.3199</td>
+      <td>2.0000</td>
+    </tr>
+    <tr>
+      <td>ensemble__rms</td>
+      <td>ensemble</td>
+      <td>{'id': 'rms', 'name': 'rms', 'floor_bps': 0.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0020</td>
+      <td>-0.0036</td>
+      <td>1.0000</td>
+    </tr>
+    <tr>
+      <td>tree31_online__edge8</td>
+      <td>tree31_online</td>
+      <td>{'id': 'edge8', 'name': 'net_edge', 'floor_bps': 8.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0034</td>
+      <td>-0.1939</td>
+      <td>1.0000</td>
+    </tr>
+    <tr>
+      <td>tree15_online__rms</td>
+      <td>tree15_online</td>
+      <td>{'id': 'rms', 'name': 'rms', 'floor_bps': 0.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0025</td>
+      <td>-0.3712</td>
+      <td>1.0000</td>
+    </tr>
+    <tr>
+      <td>tree63_online__rms</td>
+      <td>tree63_online</td>
+      <td>{'id': 'rms', 'name': 'rms', 'floor_bps': 0.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0038</td>
+      <td>-0.3901</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <td>tree31_online__rms</td>
+      <td>tree31_online</td>
+      <td>{'id': 'rms', 'name': 'rms', 'floor_bps': 0.0, 'amplitude_bps': 50.0}</td>
+      <td>0.0034</td>
+      <td>-0.6560</td>
+      <td>1.0000</td>
+    </tr>
+  </tbody>
+</table></div><footer>源：D:\Trading\My_factor_mining_427\outputs\effective_combo_20261009_round1</footer></main></body></html>

@@ -1,0 +1,128 @@
+mode: aligned_crypto
+version: complex-alpha-20261008-round4-residual-interaction
+data:
+  source: crypto_parquet
+  root: D:/Trading/practical_crypto_strategy/data/parquet
+  derivative_root: D:/Trading/practical_crypto_strategy/data/parquet/derivatives
+  assets:
+  - ADAUSDT
+  - AVAXUSDT
+  - BCHUSDT
+  - BNBUSDT
+  - BTCUSDT
+  - DOGEUSDT
+  - ETHUSDT
+  - LINKUSDT
+  - LTCUSDT
+  - SOLUSDT
+  - TRXUSDT
+  - XRPUSDT
+  start: '2023-01-01 00:00:00'
+  end: '2026-09-24 23:59:00'
+  feature_cache: outputs/cache/complex_alpha_minute
+split:
+  discovery_end: '202506302355'
+  validation_start: '202507010000'
+  validation_end: '202601312355'
+  holdout_start: '202602010000'
+complex_alpha:
+  seed: 20261008
+  device: cuda
+  representation:
+    windows_minutes:
+    - 120
+    - 240
+    - 720
+    normalization_minutes: 10080
+    normalization_min_count: 1440
+    seed: 4271008
+  budgets:
+    F1: 6000
+    F2: 6000
+    F3: 6000
+    F4: 2250
+    F5: 2250
+    F6: 2250
+    F7: 2250
+    OLD: 3000
+  old_control_budget: 30000
+  modes:
+  - linear
+  - tanh_product
+  - asinh_difference
+  - signed_energy
+  - cubic
+  coarse_batch: 128
+  medium_count: 600
+  fine_count: 60
+  model_trials: 72
+  model_kinds:
+  - old
+  - old_nonlinear
+  - F3
+  - F4
+  - joint
+  - joint_interaction
+  - joint_interaction_residual
+  - pool
+  - seed_F3
+  - seed_F4
+  - seed_OLD
+  - F7_raw
+  - F7_reference
+  feature_calibration_end: '202303312355'
+  folds:
+  - - '202304010000'
+    - '202306302355'
+  - - '202307010000'
+    - '202312312355'
+  - - '202401010000'
+    - '202406302355'
+  - - '202407010000'
+    - '202412312355'
+  - - '202501010000'
+    - '202506302355'
+  cost_bps: 4.0
+  gross_budget: 0.5
+  execution:
+    ema_bars: 32
+    deadband: 0.025
+  max_selected: 12
+  bootstrap_trials: 200
+  audit_holdout: true
+  readout_policy: orthogonal_increment
+  target_policy: causal_volatility
+  oof_calibration: true
+  edge_floor_bps: 8.0
+  execution_by_horizon:
+    4:
+      ema_bars: 4
+      deadband: 0.05
+    12:
+      ema_bars: 12
+      deadband: 0.05
+  extension:
+    parent_bank_manifest: outputs/cache/complex_alpha_minute/c675525d585f930cd42b/bank_manifest.json
+    parent_config: outputs/complex_alpha_20261008_real_pilot/config.yaml
+    age_blocks:
+    - - 0
+      - 30
+    - - 30
+      - 120
+    - - 120
+      - 360
+    - - 360
+      - 720
+  initial_penalty: 10.0
+  structure_probe_examples: 0
+  return_contract: native_simple
+  risk_mapping: common_label
+  initial_penalties:
+  - 0.1
+  - 10.0
+  label_projection: cash_common_beta
+  exit_on_inactive: true
+  kernel_reference: gaussian_moments
+output:
+  out_dir: outputs/complex_alpha_20261008_round4
+  visualization_dir: visualizations/complex_alpha_20261008_round4

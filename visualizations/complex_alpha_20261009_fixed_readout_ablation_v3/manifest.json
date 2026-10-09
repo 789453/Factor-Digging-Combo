@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETED",
+  "source": "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round3",
+  "product": "pool_4h_trial61",
+  "holdout_used": false,
+  "new_fits": 0,
+  "selection_feedback": false,
+  "scope": "fixed readout coordinate interventions on historical validation only; not refitted conditional feature absence",
+  "original_wealth_replay_error_pp": -4.61847227128942e-12,
+  "original_replay_tolerance_pp": 1e-06,
+  "coordinate_count": 174,
+  "diagnostic_source_sha256": "7d07d5f6bbe0af5a8121f6de8f5013b5a921fec9d0916f83ebe67fad5cafbce0"
+}

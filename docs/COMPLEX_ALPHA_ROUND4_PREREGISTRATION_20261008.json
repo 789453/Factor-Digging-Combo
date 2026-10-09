@@ -1,0 +1,9 @@
+{
+  "status": "PREDECLARED",
+  "declared_at": "2026-10-08T13:59:09.3916073+08:00",
+  "config": "D:\\Trading\\My_factor_mining_427\\configs\\research\\complex_alpha_20261008_round4.yaml",
+  "config_sha256": "3AE5541401D749353725C943053EED1AF1AB844DDAA823A22097DDB888B84CC8",
+  "r3_holdout_read_for_design": false,
+  "selection_contract": "discovery rank plus validation survival; freeze before audit",
+  "reason": "native fixed-share funding, cash/common-beta target duality, residual-supervised interaction, moment-matched kernel reference, explicit inactive exit"
+}

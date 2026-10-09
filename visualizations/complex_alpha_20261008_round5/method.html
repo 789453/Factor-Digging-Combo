@@ -1,0 +1,100 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>研究合同与证据边界</title><style>
+body{margin:0;background:#f5f7fa;color:#192638;font:15px/1.5 system-ui,'Microsoft YaHei',sans-serif}
+nav{background:#102b47;color:white;padding:13px 28px;position:sticky;top:0;z-index:10}
+nav a{color:#d6eaff;margin-right:20px;text-decoration:none;font-weight:600}
+main{max-width:1440px;margin:25px auto;padding:0 20px 50px}
+h1{font-size:29px;margin:10px 0}h2{font-size:21px;margin:32px 0 12px}
+.muted{color:#52677a}.note{background:#fff8e8;border-left:4px solid #dfac35;padding:12px 16px;margin:18px 0}
+.card{background:white;border:1px solid #dce4ec;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #1433500b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stat{background:#edf4fb;border-radius:8px;padding:13px}.stat b{font-size:24px;display:block}
+table{border-collapse:collapse;width:100%;background:white;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e1e8ee;text-align:right}th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:#eaf0f5}tr:hover{background:#f4f9fd}
+.scroll{overflow:auto;max-height:560px}.links a{display:inline-block;padding:6px 10px;margin:4px;background:#e6f0fb;border-radius:5px;color:#12385b;text-decoration:none}
+footer{color:#657789;font-size:12px;margin-top:30px}
+</style><script src='plotly.min.js'></script></head><body><nav><a href="index.html">总览</a> · <a href="search.html">搜索</a> · <a href="representations.html">结构表示</a> · <a href="readouts.html">联合读出</a> · <a href="execution.html">5m 账本</a> · <a href="method.html">合同与限制</a></nav><main><h1>研究合同与证据边界</h1><p class='muted'>发现 2023—2025H1；历史验证 2025H2—2026-01；2026-02 起为此前已见的历史测试。冻结后审计，不能称新盲测。15m 完成特征、下一完整 5m 起价格收益，按实际份额和现金记账，4bps/变仓。</p><div class="note">本轮验证和测试均为历史迁移。表示优于旧统计、结构必要性、预测增量与成本后价值需要分别证明。模型选择不读取任何 holdout 指标。</div><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>key</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>FROZEN</td>
+    </tr>
+    <tr>
+      <td>selection_uses</td>
+      <td>['discovery_oof_loss', 'discovery_fold_breadth', 'historical_validation_survival']</td>
+    </tr>
+    <tr>
+      <td>selected</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <td>cost_bps</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <td>execution</td>
+      <td>{'ema_bars': 32, 'deadband': 0.025}</td>
+    </tr>
+    <tr>
+      <td>source_signature</td>
+      <td>8f752f2de2d9af7f3021e230088a713bdf607b8f2ff1e69495c0aa69eaf603df</td>
+    </tr>
+    <tr>
+      <td>run_signature</td>
+      <td>d46f30388182ac74337b7b2a4ff2f43f50158a4bb5d5e22be22501293b40230b</td>
+    </tr>
+    <tr>
+      <td>holdout_opened</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>historical_periods_previously_seen</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>return_contract</td>
+      <td>native_simple</td>
+    </tr>
+    <tr>
+      <td>label_projection</td>
+      <td>cash_common_beta</td>
+    </tr>
+    <tr>
+      <td>risk_mapping</td>
+      <td>common_label</td>
+    </tr>
+    <tr>
+      <td>exit_on_inactive</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>execution_by_horizon</td>
+      <td>{'4': {'ema_bars': 4, 'deadband': 0.05}, '12': {'ema_bars': 12, 'deadband': 0.05}}</td>
+    </tr>
+    <tr>
+      <td>edge_floor_bps</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <td>target_policy</td>
+      <td>causal_volatility</td>
+    </tr>
+    <tr>
+      <td>oof_calibration</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>time_contract</td>
+      <td>complex-utc-explicit-ns-20261008-v1</td>
+    </tr>
+    <tr>
+      <td>epoch_unit</td>
+      <td>explicit_nanoseconds</td>
+    </tr>
+  </tbody>
+</table></div><p>具体原语、参数量、缺失规则、训练与冻结文件均在源实验保存。仅输出新数学坐标或低相关，不足以称残差 Alpha。</p><footer>源实验：D:\Trading\My_factor_mining_427\outputs\complex_alpha_20261008_round5</footer></main></body></html>

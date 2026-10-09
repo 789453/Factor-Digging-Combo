@@ -1,0 +1,2444 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>F7 数学表示</title><style>
+body{margin:0;background:#f5f7fa;color:#192638;font:15px/1.5 system-ui,'Microsoft YaHei',sans-serif}
+nav{background:#102b47;color:white;padding:13px 28px;position:sticky;top:0;z-index:10}
+nav a{color:#d6eaff;margin-right:20px;text-decoration:none;font-weight:600}
+main{max-width:1440px;margin:25px auto;padding:0 20px 50px}
+h1{font-size:29px;margin:10px 0}h2{font-size:21px;margin:32px 0 12px}
+.muted{color:#52677a}.note{background:#fff8e8;border-left:4px solid #dfac35;padding:12px 16px;margin:18px 0}
+.card{background:white;border:1px solid #dce4ec;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #1433500b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stat{background:#edf4fb;border-radius:8px;padding:13px}.stat b{font-size:24px;display:block}
+table{border-collapse:collapse;width:100%;background:white;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e1e8ee;text-align:right}th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:#eaf0f5}tr:hover{background:#f4f9fd}
+.scroll{overflow:auto;max-height:560px}.links a{display:inline-block;padding:6px 10px;margin:4px;background:#e6f0fb;border-radius:5px;color:#12385b;text-decoration:none}
+footer{color:#657789;font-size:12px;margin-top:30px}
+</style><script src='../plotly.min.js'></script></head><body><nav><a href="../index.html">总览</a> · <a href="../search.html">搜索</a> · <a href="../representations.html">结构表示</a> · <a href="../readouts.html">联合读出</a> · <a href="../execution.html">5m 账本</a> · <a href="../method.html">合同与限制</a></nav><main><h1>F7 数学表示</h1><p class='muted'>发现 2023—2025H1；历史验证 2025H2—2026-01；2026-02 起为此前已见的历史测试。冻结后审计，不能称新盲测。15m 完成特征、下一完整 5m 起价格收益，按实际份额和现金记账，4bps/变仓。</p><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>name</th>
+      <th>family</th>
+      <th>dependencies</th>
+      <th>support_minutes</th>
+      <th>order</th>
+      <th>fitted</th>
+      <th>version</th>
+      <th>clock</th>
+      <th>missing</th>
+      <th>unit</th>
+      <th>direction</th>
+      <th>normalization_support_minutes</th>
+      <th>total_dependency_minutes</th>
+      <th>admitted_assets</th>
+      <th>admitted</th>
+      <th>type</th>
+      <th>lag_minutes</th>
+      <th>block_minutes</th>
+      <th>formula</th>
+      <th>kernel_seed</th>
+      <th>omega</th>
+      <th>phase</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>kernel_mean_120_0</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_1</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_2</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_3</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_4</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_5</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_6</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_7</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_8</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_9</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_10</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_11</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_12</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_13</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_14</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_15</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_16</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_17</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_18</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_19</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_20</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_21</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_22</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_23</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_24</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_25</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_26</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_27</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_28</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_29</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_30</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_120_31</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20279.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_0</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_1</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_2</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_3</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_4</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_5</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_6</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_7</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_8</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_9</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_10</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_11</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_12</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_13</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_14</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_15</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_16</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_17</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_18</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_19</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_20</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_21</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_22</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_23</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_24</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_25</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_26</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_27</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_28</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_29</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_30</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_mean_720_31</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_0</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[0.33099194917602415, -0.5730579927505547, -1.2909488847866357, -0.2185985697688714]</td>
+      <td>5.9245</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_1</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.14505846088055735, -0.31667462979746264, -0.20492104069128966, 0.18347958478277754]</td>
+      <td>3.9252</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_2</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.025778934448118993, -1.651386991489302, -0.7559702945195479, 1.081106260241695]</td>
+      <td>0.3889</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_3</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-1.2854888141501655, -2.985774047926847, 0.029837029724391152, -1.4345543269870127]</td>
+      <td>4.0449</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_4</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-1.0667936293515152, -1.095658695681381, 1.1292453354020564, -0.9107836736622863]</td>
+      <td>5.8295</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_5</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.22067883716976913, 0.24504797441094467, 1.0229063406717505, -0.9631216849483692]</td>
+      <td>5.8141</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_6</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-1.4458927592102622, 0.2660215536156729, 1.495218403224692, 0.5794020367010276]</td>
+      <td>3.7744</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_7</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.8117035011923626, -1.0205729632802667, 1.043859082716833, 0.10578280455953294]</td>
+      <td>4.4442</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_8</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-2.5422529174576285, -1.8795374611799096, -1.277976764547753, 0.5197936556272661]</td>
+      <td>2.0769</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_9</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-2.6171978166142322, 0.4329200646379718, -0.3362704635031141, -0.2327851845828601]</td>
+      <td>2.3349</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_10</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[1.2677961797918234, -0.05932291756366917, 0.17942777769062113, -0.5172855399696169]</td>
+      <td>0.1011</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_11</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[1.5113997792908296, 1.5416829903757228, 0.8013274675475914, -1.4326598681655156]</td>
+      <td>4.9634</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_12</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-1.2717778951112946, -0.15215244141939394, 1.323722891258455, -0.22874941831403914]</td>
+      <td>6.1798</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_13</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-1.0888164802176614, -1.7762641436079727, -0.8484868107157613, -0.28713878461188]</td>
+      <td>4.2620</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_14</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.025237147393165172, 0.06893573676623402, -1.0410807429911484, -1.810892939613748]</td>
+      <td>1.3549</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_15</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-1.549780594295117, 0.055989251828795036, 1.2347250577672875, -1.690531519625582]</td>
+      <td>1.0810</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_16</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.450306296318879, -1.2516703995833405, 0.005873361325731874, 1.1639375914382877]</td>
+      <td>3.2099</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_17</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-2.1213520594125783, -0.6296725516713217, 0.7562446426824091, -1.0985643672196288]</td>
+      <td>6.0622</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_18</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.14678376030212525, 1.2136365921433188, 0.4247970833992954, 1.5958732388831292]</td>
+      <td>5.3701</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_19</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[0.5654174899754493, -0.025508414101467678, 0.03970519888864795, -0.07149621454555949]</td>
+      <td>2.4235</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_20</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-1.5468692483372066, -0.2601391943905284, -0.8493494359983325, 0.9675031695725709]</td>
+      <td>2.5267</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_21</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[0.007580398209296178, -1.0592939411225752, 0.7625637804923883, -1.408103618507472]</td>
+      <td>4.0675</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_22</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.41480450281795667, 1.1207676692064754, 0.0027685326411288776, -1.1418952175069943]</td>
+      <td>2.0876</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_23</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[0.46700810584580826, -1.5684227426795818, -0.2723627148871214, 1.3039488086164253]</td>
+      <td>2.1228</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_24</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.3071287577832522, -0.16169815826300246, -1.397435672524778, 0.41274623387415577]</td>
+      <td>1.1200</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_25</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.10317110827133855, 0.038302615299080946, 0.8423508246968804, 0.22920683394385835]</td>
+      <td>3.7683</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_26</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[0.05944997769098633, -0.014157806719436889, -0.23093140651486177, -0.339537525961553]</td>
+      <td>1.4517</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_27</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[1.4212898776905663, 0.26055135376823874, -0.458315297164469, -0.7220563626276358]</td>
+      <td>3.9888</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_28</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-1.7978341001205278, -0.7540859669145994, 0.3701844794826853, -0.06104345638908093]</td>
+      <td>0.2770</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_29</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.5784186267055086, -0.4468406485412895, -0.183667794538301, 0.5286169299625222]</td>
+      <td>1.9476</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_30</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.4580976923348669, -0.06602853080055454, -0.8961708982200998, -0.5679011293407817]</td>
+      <td>0.8581</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_120_31</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>120.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[2.958098701454791, -0.26275088262395346, -1.0016624259479716, -1.7662823505685805]</td>
+      <td>2.0263</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_720_0</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[0.33099194917602415, -0.5730579927505547, -1.2909488847866357, -0.2185985697688714]</td>
+      <td>5.9245</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_720_1</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.14505846088055735, -0.31667462979746264, -0.20492104069128966, 0.18347958478277754]</td>
+      <td>3.9252</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_720_2</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-0.025778934448118993, -1.651386991489302, -0.7559702945195479, 1.081106260241695]</td>
+      <td>0.3889</td>
+    </tr>
+    <tr>
+      <td>kernel_departure_720_3</td>
+      <td>F7</td>
+      <td>[r, flow, amount, count, same_window_first_second_moments]</td>
+      <td>720.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>conditional-gaussian-kernel-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>full moment and empirical kernel support required</td>
+      <td>dimensionless</td>
+      <td>none; discovery only</td>
+      <td>—</td>
+      <td>—</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>empirical Fourier mean minus moment-matched Gaussian expectation</td>
+      <td>4271008.0000</td>
+      <td>[-1.2854888141501655, -2.985774047926847, 0.029837029724391152, -1.4345543269870127]</td>
+      <td>4.0449</td>
+    </tr>
+  </tbody>
+</table></div><footer>源实验：D:\Trading\My_factor_mining_427\outputs\complex_alpha_20261008_round5</footer></main></body></html>

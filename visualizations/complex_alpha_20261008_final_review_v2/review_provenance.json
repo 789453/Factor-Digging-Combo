@@ -1,0 +1,20 @@
+{
+  "status": "COMPLETED",
+  "report_code_sha256": {
+    "render_complex_alpha_review.py": "8005f001e0439a0b130d47b3bc76d2e0e9f1884967c85425ea59105ac2823df1",
+    "complex_alpha_decay_review.py": "b97a933747e5a0d170d73e227d05f46ff84e0e32456ed64c10403eb96c597024",
+    "complex_alpha_additive_review.py": "e6f235c8bcc4ccc8c0eec7bb0cd8471c9a7ace7da52de40f7e8f9f6c2776d871",
+    "complex_alpha_coin_review.py": "e402477dc59419c792efd843607de336519abd3e02e13dee66d48871a5d6258f"
+  },
+  "python": "3.11.14 | packaged by conda-forge | (main, Oct 22 2025, 22:35:28) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "1.26.4",
+  "pandas": "3.0.2",
+  "source_decisions_unchanged": true,
+  "sources": [
+    "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round1",
+    "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round2",
+    "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round3",
+    "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round4",
+    "D:\\Trading\\My_factor_mining_427\\outputs\\complex_alpha_20261008_round5"
+  ]
+}

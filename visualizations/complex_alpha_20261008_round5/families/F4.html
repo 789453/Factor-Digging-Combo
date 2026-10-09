@@ -1,0 +1,1820 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>F4 数学表示</title><style>
+body{margin:0;background:#f5f7fa;color:#192638;font:15px/1.5 system-ui,'Microsoft YaHei',sans-serif}
+nav{background:#102b47;color:white;padding:13px 28px;position:sticky;top:0;z-index:10}
+nav a{color:#d6eaff;margin-right:20px;text-decoration:none;font-weight:600}
+main{max-width:1440px;margin:25px auto;padding:0 20px 50px}
+h1{font-size:29px;margin:10px 0}h2{font-size:21px;margin:32px 0 12px}
+.muted{color:#52677a}.note{background:#fff8e8;border-left:4px solid #dfac35;padding:12px 16px;margin:18px 0}
+.card{background:white;border:1px solid #dce4ec;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #1433500b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stat{background:#edf4fb;border-radius:8px;padding:13px}.stat b{font-size:24px;display:block}
+table{border-collapse:collapse;width:100%;background:white;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e1e8ee;text-align:right}th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:#eaf0f5}tr:hover{background:#f4f9fd}
+.scroll{overflow:auto;max-height:560px}.links a{display:inline-block;padding:6px 10px;margin:4px;background:#e6f0fb;border-radius:5px;color:#12385b;text-decoration:none}
+footer{color:#657789;font-size:12px;margin-top:30px}
+</style><script src='../plotly.min.js'></script></head><body><nav><a href="../index.html">总览</a> · <a href="../search.html">搜索</a> · <a href="../representations.html">结构表示</a> · <a href="../readouts.html">联合读出</a> · <a href="../execution.html">5m 账本</a> · <a href="../method.html">合同与限制</a></nav><main><h1>F4 数学表示</h1><p class='muted'>发现 2023—2025H1；历史验证 2025H2—2026-01；2026-02 起为此前已见的历史测试。冻结后审计，不能称新盲测。15m 完成特征、下一完整 5m 起价格收益，按实际份额和现金记账，4bps/变仓。</p><div class="card scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>name</th>
+      <th>family</th>
+      <th>dependencies</th>
+      <th>support_minutes</th>
+      <th>order</th>
+      <th>fitted</th>
+      <th>version</th>
+      <th>clock</th>
+      <th>missing</th>
+      <th>unit</th>
+      <th>direction</th>
+      <th>normalization_support_minutes</th>
+      <th>total_dependency_minutes</th>
+      <th>admitted_assets</th>
+      <th>admitted</th>
+      <th>type</th>
+      <th>lag_minutes</th>
+      <th>block_minutes</th>
+      <th>formula</th>
+      <th>kernel_seed</th>
+      <th>omega</th>
+      <th>phase</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>occupancy_720_0</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>720.0000</td>
+      <td>1.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>occupancy_720_1</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>720.0000</td>
+      <td>1.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>occupancy_720_2</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>720.0000</td>
+      <td>1.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>occupancy_720_3</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>720.0000</td>
+      <td>1.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>occupancy_720_4</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>720.0000</td>
+      <td>1.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20879.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_01</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_02</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_03</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_04</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_05</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_12</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_13</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_14</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_15</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_23</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_24</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_25</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_34</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_35</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_1_45</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>reversal_kl_720_1</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>721.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20880.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_01</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_02</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_03</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_04</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_05</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_12</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_13</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_14</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_15</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_23</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_24</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_25</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_34</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_35</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_720_4_45</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>reversal_kl_720_4</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>724.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>20883.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>occupancy_1440_0</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1440.0000</td>
+      <td>1.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21599.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>occupancy_1440_1</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1440.0000</td>
+      <td>1.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21599.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>occupancy_1440_2</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1440.0000</td>
+      <td>1.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21599.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>occupancy_1440_3</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1440.0000</td>
+      <td>1.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21599.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>occupancy_1440_4</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1440.0000</td>
+      <td>1.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21599.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_01</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_02</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_03</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_04</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_05</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_12</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_13</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_14</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_15</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_23</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_24</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_25</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_34</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_35</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_1_45</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>reversal_kl_1440_1</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1441.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21600.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_01</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_02</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_03</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_04</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_05</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_12</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_13</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_14</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_15</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_23</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_24</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_25</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_34</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_35</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>flux_1440_4_45</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>reversal_kl_1440_4</td>
+      <td>F4</td>
+      <td>[r, flow]</td>
+      <td>1444.0000</td>
+      <td>2.0000</td>
+      <td>False</td>
+      <td>complex-minute-representations-20261008-v1</td>
+      <td>completed_15m</td>
+      <td>undefined/full-required support -&gt; NaN; fit-time coverage gate</td>
+      <td>dimensionless</td>
+      <td>none; discovery readout only</td>
+      <td>20160.0000</td>
+      <td>21603.0000</td>
+      <td>12.0000</td>
+      <td>True</td>
+      <td>dimensionless_scalar_at_completed_15m</td>
+      <td>—</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+      <td>NaN</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table></div><footer>源实验：D:\Trading\My_factor_mining_427\outputs\complex_alpha_20261008_round5</footer></main></body></html>

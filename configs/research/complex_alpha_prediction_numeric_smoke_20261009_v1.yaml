@@ -1,0 +1,29 @@
+mode: aligned_crypto
+version: complex-alpha-prediction-numeric-delivery-smoke-20261009-v1
+complex_alpha:
+  stage: predictive_pool
+  source_run: outputs/complex_alpha_20261008_smoke_v17
+  bank_manifest: outputs/cache/complex_alpha_simulated/6aff60344f01d0b78751/bank_manifest.json
+  horizon_hours: 4
+  sample_minutes: 60
+  shortlist_count: 20
+  pool_count: 8
+  correlation_limit: 0.98
+  penalties:
+  - 0.1
+  - 1.0
+  folds:
+  - - '202302010000'
+    - '202302072355'
+  - - '202302080000'
+    - '202302152355'
+  device: cpu
+  cost_bps: 4.0
+  gross_budget: 0.25
+  targets:
+  - raw_return
+  - cash_beta_residual
+  diagnostics: []
+output:
+  out_dir: outputs/complex_alpha_prediction_numeric_smoke_20261009_v1
+  visualization_dir: visualizations/complex_alpha_prediction_numeric_smoke_20261009_v1
